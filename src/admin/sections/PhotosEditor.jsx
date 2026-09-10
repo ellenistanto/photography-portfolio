@@ -45,13 +45,21 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
 
   const handleChange = (field, value) => {
     setForm(prev => {
-      const updated = { ...prev, [field]: value };
+      let finalVal = value;
+      // Auto convert Google Drive links to direct viewable links
+      if ((field === 'image' || field === 'thumb') && typeof value === 'string') {
+        const driveMatch = value.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || value.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+        if (driveMatch && driveMatch[1] && (value.includes('drive.google.com') || value.includes('docs.google.com'))) {
+          finalVal = `https://lh3.googleusercontent.com/d/${driveMatch[1]}`;
+        }
+      }
+      const updated = { ...prev, [field]: finalVal };
       if (field === 'category') {
         const cat = categories.find(c => c.id === value);
         if (cat) updated.categoryLabel = cat.name;
       }
-      if (field === 'image' && !prev.thumb) {
-        updated.thumb = value;
+      if (field === 'image' && (!prev.thumb || prev.thumb === prev.image)) {
+        updated.thumb = finalVal;
       }
       return updated;
     });
@@ -310,8 +318,11 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
                   handleChange('image', e.target.value);
                   setPreviewError(false);
                 }}
-                placeholder="https://images.unsplash.com/..."
+                placeholder="https://images.unsplash.com/... atau link Google Drive"
               />
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-muted, #888)', marginTop: 6, lineHeight: 1.4 }}>
+                💡 <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
+              </p>
             </div>
             {form.image && (
               <div className="admin-dropzone-preview" style={{ maxHeight: 180 }}>
@@ -320,6 +331,11 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
                   alt="Preview"
                   onError={() => setPreviewError(true)}
                 />
+              </div>
+            )}
+            {previewError && form.image && (
+              <div style={{ padding: '8px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 6, color: '#fca5a5', fontSize: '0.8rem', marginTop: 8 }}>
+                ⚠️ Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Anyone with the link / Public)</strong>.
               </div>
             )}
           </div>
