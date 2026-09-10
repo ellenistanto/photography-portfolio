@@ -26,6 +26,9 @@ const PORTFOLIO_DATA = {
     instagram: "https://instagram.com/ellenistanto",
     youtube: "https://youtube.com",
     behance: "https://behance.net",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
+    heroImage: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80",
   },
 
   // Statistik / Numbers

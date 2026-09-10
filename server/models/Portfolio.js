@@ -49,6 +49,7 @@ const ProfileSchema = new mongoose.Schema({
   behance: { type: String },
   photo: { type: String },
   avatar: { type: String },
+  heroImage: { type: String },
 }, { _id: false });
 
 // ── Main Portfolio Schema ─────────────────────────────────────────────────────

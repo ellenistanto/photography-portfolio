@@ -1,20 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { API_BASE } from '../../config/api';
 
+const DEFAULT_HERO_IMAGE = 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80';
+
 export default function ProfileEditor({ data, token, onSaved, onToast }) {
   const [form, setForm] = useState({
     name: '', tagline: '', shortBio: '',
     aboutLong: ['', ''],
     location: '', email: '', whatsapp: '', instagram: '', youtube: '', behance: '',
-    photo: '', avatar: '',
+    photo: '', avatar: '', heroImage: '',
   });
   const [saving, setSaving] = useState(false);
+
+  // Profile photo states
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [photoInputMode, setPhotoInputMode] = useState('upload'); // 'upload' | 'url'
   const [previewError, setPreviewError] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
+
+  // Hero overlay photo states
+  const [heroInputMode, setHeroInputMode] = useState('upload'); // 'upload' | 'url'
+  const [heroUploading, setHeroUploading] = useState(false);
+  const [heroUploadProgress, setHeroUploadProgress] = useState(0);
+  const [heroPreviewError, setHeroPreviewError] = useState(false);
+  const [heroIsDragging, setHeroIsDragging] = useState(false);
+  const heroFileInputRef = useRef(null);
 
   useEffect(() => {
     if (data?.profile) {
@@ -25,6 +37,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
           : [...(data.profile.aboutLong || []), ''],
         photo: data.profile.photo || data.profile.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
         avatar: data.profile.avatar || data.profile.photo || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
+        heroImage: data.profile.heroImage || DEFAULT_HERO_IMAGE,
       });
     }
   }, [data]);
@@ -32,7 +45,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
   const handleChange = (field, value) => {
     let finalVal = value;
     // Auto convert Google Drive links to direct viewable links
-    if ((field === 'photo' || field === 'avatar') && typeof value === 'string') {
+    if ((field === 'photo' || field === 'avatar' || field === 'heroImage') && typeof value === 'string') {
       const driveMatch = value.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || value.match(/[?&]id=([a-zA-Z0-9_-]+)/);
       if (driveMatch && driveMatch[1] && (value.includes('drive.google.com') || value.includes('docs.google.com'))) {
         finalVal = `https://lh3.googleusercontent.com/d/${driveMatch[1]}`;
@@ -56,7 +69,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
   };
 
   // Upload handler for File object
-  const processUpload = async (file) => {
+  const processUpload = async (file, targetField = 'photo') => {
     if (!file) return;
 
     if (!file.type.startsWith('image/')) {
@@ -69,13 +82,23 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       return;
     }
 
-    setUploading(true);
-    setUploadProgress(25);
-    setPreviewError(false);
+    const isHero = targetField === 'heroImage';
+    if (isHero) {
+      setHeroUploading(true);
+      setHeroUploadProgress(25);
+      setHeroPreviewError(false);
+    } else {
+      setUploading(true);
+      setUploadProgress(25);
+      setPreviewError(false);
+    }
 
     const formData = new FormData();
     formData.append('file', file);
-    const progressTimer = setTimeout(() => setUploadProgress(70), 200);
+    const progressTimer = setTimeout(() => {
+      if (isHero) setHeroUploadProgress(70);
+      else setUploadProgress(70);
+    }, 200);
 
     try {
       const res = await fetch(`${API_BASE}/api/upload`, {
@@ -87,7 +110,8 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       });
 
       clearTimeout(progressTimer);
-      setUploadProgress(100);
+      if (isHero) setHeroUploadProgress(100);
+      else setUploadProgress(100);
 
       if (!res.ok) {
         const err = await res.json();
@@ -95,13 +119,18 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       }
 
       const result = await res.json();
-      handleChange('photo', result.url);
-      onToast('✅ Foto profil berhasil diunggah!', 'success');
+      handleChange(targetField, result.url);
+      onToast(isHero ? '✅ Foto overlay hero berhasil diunggah!' : '✅ Foto profil berhasil diunggah!', 'success');
     } catch (err) {
       onToast(`❌ ${err.message}`, 'error');
     } finally {
-      setUploading(false);
-      setUploadProgress(0);
+      if (isHero) {
+        setHeroUploading(false);
+        setHeroUploadProgress(0);
+      } else {
+        setUploading(false);
+        setUploadProgress(0);
+      }
     }
   };
 
@@ -186,6 +215,214 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
             placeholder="I'm a photographer based in..."
           />
         </div>
+      </div>
+
+      {/* Hero Background & Overlay Photo */}
+      <div className="admin-card">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 10, marginBottom: 8 }}>
+          <div>
+            <h3 className="admin-card-title">🌄 Hero Background & Overlay Photo (Halaman Utama)</h3>
+            <p style={{ fontSize: 13, color: 'var(--admin-text-muted)', marginBottom: 0 }}>
+              Foto latar belakang atmosferik di bagian teratas website dengan dark gradient overlay.
+            </p>
+          </div>
+          {form.heroImage && form.heroImage !== DEFAULT_HERO_IMAGE && (
+            <button
+              type="button"
+              className="admin-btn admin-btn-ghost"
+              style={{ fontSize: '0.78rem', padding: '5px 10px' }}
+              onClick={() => {
+                handleChange('heroImage', DEFAULT_HERO_IMAGE);
+                onToast('Foto hero direset ke default', 'info');
+              }}
+            >
+              ↺ Reset Default
+            </button>
+          )}
+        </div>
+
+        {/* Mode Selector Tabs */}
+        <div className="admin-tabs-segmented" style={{ marginBottom: 14 }}>
+          <button
+            type="button"
+            className={`admin-tab-seg-btn ${heroInputMode === 'upload' ? 'active' : ''}`}
+            onClick={() => setHeroInputMode('upload')}
+          >
+            📤 Upload File (Drag & Drop)
+          </button>
+          <button
+            type="button"
+            className={`admin-tab-seg-btn ${heroInputMode === 'url' ? 'active' : ''}`}
+            onClick={() => setHeroInputMode('url')}
+          >
+            🔗 External Image URL / Google Drive
+          </button>
+        </div>
+
+        {/* Upload Mode Area */}
+        {heroInputMode === 'upload' && (
+          <div style={{ marginBottom: 16 }}>
+            <input
+              type="file"
+              ref={heroFileInputRef}
+              accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+              style={{ display: 'none' }}
+              onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                  processUpload(e.target.files[0], 'heroImage');
+                }
+              }}
+            />
+
+            {form.heroImage ? (
+              <div className="admin-dropzone-preview" style={{ maxHeight: 260, maxWidth: '100%' }}>
+                <img
+                  src={form.heroImage}
+                  alt="Hero Overlay Preview"
+                  onError={() => setHeroPreviewError(true)}
+                  style={{ maxHeight: 260, width: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
+                />
+                <div className="admin-dropzone-preview-overlay">
+                  <button
+                    type="button"
+                    className="admin-dropzone-remove-btn"
+                    onClick={() => heroFileInputRef.current?.click()}
+                  >
+                    🔄 Ganti Foto
+                  </button>
+                  <button
+                    type="button"
+                    className="admin-dropzone-remove-btn"
+                    onClick={() => handleChange('heroImage', '')}
+                  >
+                    ✕ Hapus
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div
+                className={`admin-dropzone ${heroIsDragging ? 'drag-active' : ''}`}
+                onDragOver={(e) => { e.preventDefault(); setHeroIsDragging(true); }}
+                onDragLeave={(e) => { e.preventDefault(); setHeroIsDragging(false); }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setHeroIsDragging(false);
+                  if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    processUpload(e.dataTransfer.files[0], 'heroImage');
+                  }
+                }}
+                onClick={() => heroFileInputRef.current?.click()}
+              >
+                {heroUploading ? (
+                  <>
+                    <div className="admin-spinner" style={{ width: 32, height: 32 }} />
+                    <div className="admin-dropzone-text">Mengunggah foto hero… ({heroUploadProgress}%)</div>
+                    <div className="admin-upload-progress">
+                      <div className="admin-upload-progress-bar" style={{ width: `${heroUploadProgress}%` }} />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="admin-dropzone-icon">🌄</div>
+                    <div className="admin-dropzone-text">
+                      <strong>Tarik & lepas foto hero background</strong> ke sini, atau klik untuk browse
+                    </div>
+                    <div className="admin-dropzone-subtext">
+                      Disarankan rasio landscape / lebar (16:9 atau min. 1920px lebar). Maks. 20MB.
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* URL Mode Area */}
+        {heroInputMode === 'url' && (
+          <div style={{ marginBottom: 16 }}>
+            <div className="admin-form-group">
+              <label className="admin-form-label">Hero Background Image URL</label>
+              <input
+                id="profile-hero-image-url"
+                className="admin-form-input"
+                value={form.heroImage || ''}
+                onChange={(e) => {
+                  handleChange('heroImage', e.target.value);
+                  setHeroPreviewError(false);
+                }}
+                placeholder="https://... atau link Google Drive"
+              />
+              <p style={{ fontSize: '0.78rem', color: 'var(--admin-text-muted, #888)', marginTop: 6, lineHeight: 1.4 }}>
+                💡 <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
+              </p>
+            </div>
+
+            {form.heroImage && (
+              <div className="admin-dropzone-preview" style={{ maxHeight: 260, maxWidth: '100%' }}>
+                <img
+                  src={form.heroImage}
+                  alt="Hero Preview"
+                  onError={() => setHeroPreviewError(true)}
+                  style={{ maxHeight: 260, width: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
+                />
+              </div>
+            )}
+
+            {heroPreviewError && form.heroImage && (
+              <div style={{ padding: '8px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 6, color: '#fca5a5', fontSize: '0.8rem', marginTop: 8 }}>
+                ⚠️ Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Public)</strong>.
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Live Overlay Simulation Preview */}
+        {form.heroImage && !heroPreviewError && (
+          <div style={{ marginTop: 14 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--admin-text-muted)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              👁️ Simulasi Tampilan Hero Overlay di Halaman Utama:
+            </div>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: 140,
+              borderRadius: 8,
+              overflow: 'hidden',
+              border: '1px solid var(--admin-border, rgba(255,255,255,0.1))',
+              background: '#0a0a0a',
+            }}>
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: `url('${form.heroImage}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 30%',
+                filter: 'brightness(0.35) contrast(1.1)',
+              }} />
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'radial-gradient(circle at center, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.85) 100%), linear-gradient(to bottom, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.95) 100%)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                padding: '0 16px',
+              }}>
+                <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: 2, color: 'var(--admin-accent, #c9a96e)', marginBottom: 2 }}>
+                  Atmosphere & Stillness
+                </div>
+                <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', letterSpacing: '0.04em' }}>
+                  {form.name || 'Ellen Istanto'}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.7)', maxWidth: 360, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {form.tagline || 'Concerts, Portraits, Travel...'}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* About the Artist Photo */}
