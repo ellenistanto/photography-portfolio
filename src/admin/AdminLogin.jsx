@@ -46,7 +46,7 @@ export default function AdminLogin({ onLoginSuccess }) {
 
         <div className="admin-login-card">
           <div className="admin-login-logo">
-            <div className="admin-login-logo-icon">📸</div>
+            <div className="admin-login-logo-icon">A</div>
             <div>
               <div className="admin-login-title">Admin Dashboard</div>
               <div className="admin-login-subtitle">Ellen Istanto Photography</div>
@@ -56,7 +56,6 @@ export default function AdminLogin({ onLoginSuccess }) {
           <form onSubmit={handleSubmit}>
             {error && (
               <div className="admin-error-msg" role="alert">
-                <span>⚠️</span>
                 <span>{error}</span>
               </div>
             )}
@@ -92,10 +91,7 @@ export default function AdminLogin({ onLoginSuccess }) {
                   <span>Signing in…</span>
                 </>
               ) : (
-                <>
-                  <span>🔐</span>
-                  <span>Sign In</span>
-                </>
+                'Sign In'
               )}
             </button>
           </form>

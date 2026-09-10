@@ -9,6 +9,17 @@ import MilestonesEditor from './sections/MilestonesEditor';
 import CategoriesEditor from './sections/CategoriesEditor';
 import { API_BASE } from '../config/api';
 
+// ── Hamburger Icon ─────────────────────────────────────────────────────────────
+function HamburgerIcon({ open }) {
+  return (
+    <svg className={`admin-hamburger-icon ${open ? 'open' : ''}`} width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <rect className="bar bar-1" x="2" y="5" width="18" height="2" rx="1" fill="currentColor" />
+      <rect className="bar bar-2" x="2" y="10" width="18" height="2" rx="1" fill="currentColor" />
+      <rect className="bar bar-3" x="2" y="15" width="18" height="2" rx="1" fill="currentColor" />
+    </svg>
+  );
+}
+
 // ── Toast System ──────────────────────────────────────────────────────────────
 function Toast({ message, type, onClose }) {
   useEffect(() => {
@@ -31,12 +42,12 @@ function Toast({ message, type, onClose }) {
 
 // ── Navigation config ─────────────────────────────────────────────────────────
 const NAV_ITEMS = [
-  { id: 'profile',     icon: '👤', label: 'Profile' },
-  { id: 'stats',       icon: '📊', label: 'Statistics' },
-  { id: 'photos',      icon: '🖼️', label: 'Gallery Photos' },
-  { id: 'clients',     icon: '🤝', label: 'Clients' },
-  { id: 'milestones',  icon: '🗓️', label: 'Milestones' },
-  { id: 'categories',  icon: '🏷️', label: 'Categories' },
+  { id: 'profile',     label: 'Profile' },
+  { id: 'stats',       label: 'Statistics' },
+  { id: 'photos',      label: 'Gallery Photos' },
+  { id: 'clients',     label: 'Clients' },
+  { id: 'milestones',  label: 'Milestones' },
+  { id: 'categories',  label: 'Categories' },
 ];
 
 export default function AdminDashboard({ token, onLogout }) {
@@ -45,6 +56,7 @@ export default function AdminDashboard({ token, onLogout }) {
   const [loading, setLoading] = useState(true);
   const [apiConnected, setApiConnected] = useState(false);
   const [toasts, setToasts] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Fetch portfolio data
   const fetchData = useCallback(async () => {
@@ -95,13 +107,12 @@ export default function AdminDashboard({ token, onLogout }) {
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           minHeight: 300, gap: 14, color: 'var(--admin-text-muted)', textAlign: 'center', padding: 32
         }}>
-          <div style={{ fontSize: 48 }}>🔌</div>
-          <h3 style={{ color: 'var(--admin-text)', marginBottom: 4 }}>Cannot connect to backend server</h3>
+          <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--admin-text)', marginBottom: 4 }}>Cannot connect to backend server</div>
           <p style={{ fontSize: 14, maxWidth: 400, lineHeight: 1.5 }}>
             Make sure your backend server is running on <code style={{ color: 'var(--admin-accent-hover)' }}>{API_BASE}</code>.
             Check your <code>.env</code> file and run <code>npm start</code> in the <code>server/</code> folder.
           </p>
-          <button className="admin-btn admin-btn-ghost" onClick={fetchData}>🔄 Retry Connection</button>
+          <button className="admin-btn admin-btn-ghost" onClick={fetchData}>Retry Connection</button>
         </div>
       );
     }
@@ -121,15 +132,29 @@ export default function AdminDashboard({ token, onLogout }) {
 
   const activeNav = NAV_ITEMS.find(n => n.id === activeSection);
 
+  const handleNavClick = (id) => {
+    setActiveSection(id);
+    setSidebarOpen(false); // close sidebar on mobile after selection
+  };
+
   return (
     <div className="admin-root">
       <div className="admin-layout">
 
+        {/* ── Mobile Sidebar Overlay ── */}
+        {sidebarOpen && (
+          <div
+            className="admin-sidebar-overlay"
+            onClick={() => setSidebarOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+
         {/* ── Sidebar ── */}
-        <aside className="admin-sidebar">
+        <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="admin-sidebar-header">
             <div className="admin-sidebar-brand">
-              <div className="admin-sidebar-brand-icon">📸</div>
+              <div className="admin-sidebar-brand-dot" />
               <div>
                 <div className="admin-sidebar-brand-text">Admin Dashboard</div>
                 <div className="admin-sidebar-brand-sub">Ellen Istanto Photography</div>
@@ -144,9 +169,8 @@ export default function AdminDashboard({ token, onLogout }) {
                 key={item.id}
                 id={`nav-${item.id}`}
                 className={`admin-nav-item ${activeSection === item.id ? 'active' : ''}`}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
               >
-                <span className="admin-nav-item-icon">{item.icon}</span>
                 <span>{item.label}</span>
               </button>
             ))}
@@ -160,8 +184,7 @@ export default function AdminDashboard({ token, onLogout }) {
               className="admin-sidebar-link"
               id="preview-portfolio-link"
             >
-              <span>🌐</span>
-              <span>View Portfolio</span>
+              View Portfolio
             </a>
             <button
               id="logout-btn"
@@ -172,8 +195,7 @@ export default function AdminDashboard({ token, onLogout }) {
                 onLogout();
               }}
             >
-              <span>🚪</span>
-              <span>Logout</span>
+              Logout
             </button>
           </div>
         </aside>
@@ -182,13 +204,21 @@ export default function AdminDashboard({ token, onLogout }) {
         <main className="admin-main">
           {/* Topbar */}
           <div className="admin-topbar">
-            <span className="admin-topbar-title">
-              {activeNav?.icon} {activeNav?.label}
-            </span>
+            <div className="admin-topbar-left">
+              <button
+                id="sidebar-toggle-btn"
+                className="admin-hamburger-btn"
+                onClick={() => setSidebarOpen(prev => !prev)}
+                aria-label="Toggle navigation"
+              >
+                <HamburgerIcon open={sidebarOpen} />
+              </button>
+              <span className="admin-topbar-title">{activeNav?.label}</span>
+            </div>
             <div className="admin-topbar-right">
               <span className={`admin-badge ${apiConnected ? 'success' : 'warning'}`}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'currentColor', display: 'inline-block' }} />
-                {apiConnected ? 'Database Connected' : 'Offline — Using Local Data'}
+                <span className="admin-badge-text">{apiConnected ? 'Connected' : 'Offline'}</span>
               </span>
             </div>
           </div>

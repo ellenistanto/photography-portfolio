@@ -100,7 +100,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
   box-shadow: 0 8px 24px var(--admin-accent-glow);
 }
 
@@ -241,16 +244,13 @@
   color: inherit;
 }
 
-.admin-sidebar-brand-icon {
+.admin-sidebar-brand-dot {
   width: 36px;
   height: 36px;
   background: linear-gradient(135deg, var(--admin-accent), #3b82f6);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--admin-accent-glow);
 }
 
 .admin-sidebar-brand-text {
@@ -370,24 +370,86 @@
   background: rgba(10, 10, 15, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--admin-border);
-  padding: 0 32px;
+  padding: 0 24px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
+}
+
+.admin-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Hamburger button */
+.admin-hamburger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--admin-surface-2);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  color: var(--admin-text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.admin-hamburger-btn:hover {
+  background: var(--admin-surface-3);
+  color: var(--admin-text);
+}
+
+/* Hide hamburger on large screens by default */
+@media (min-width: 769px) {
+  .admin-hamburger-btn {
+    display: none;
+  }
+}
+
+/* SVG hamburger animation */
+.admin-hamburger-icon .bar {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.admin-hamburger-icon.open .bar-1 {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.admin-hamburger-icon.open .bar-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.admin-hamburger-icon.open .bar-3 {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .admin-topbar-title {
   font-size: 16px;
   font-weight: 600;
   color: var(--admin-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .admin-topbar-right {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
+}
+
+.admin-badge-text {
+  display: inline;
 }
 
 .admin-badge {
@@ -911,32 +973,92 @@
   to { transform: rotate(360deg); }
 }
 
+/* ── Mobile Sidebar Overlay ────────────────────────────────── */
+.admin-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 99;
+  animation: fadeIn 0.2s ease;
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Sidebar: hidden off-screen by default, slides in when .open */
   .admin-sidebar {
     transform: translateX(-100%);
-    transition: transform 0.3s;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 100;
+    /* Already fixed-positioned from its base styles */
   }
 
   .admin-sidebar.open {
     transform: translateX(0);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.6);
   }
 
+  /* Main content: full width */
   .admin-main {
     margin-left: 0;
   }
 
+  /* Form grids: single column */
   .admin-form-row,
   .admin-form-row-3 {
     grid-template-columns: 1fr;
   }
 
+  /* Content padding tighter */
   .admin-content {
     padding: 20px 16px;
   }
 
+  /* Stats single column */
   .admin-stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Login card: smaller padding on mobile */
+  .admin-login-card {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  /* Topbar: tighter padding */
+  .admin-topbar {
+    padding: 0 16px;
+  }
+
+  /* Badge: hide text, show only dot */
+  .admin-badge-text {
+    display: none;
+  }
+
+  /* Toast: full width on mobile */
+  .admin-toast-container {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .admin-toast {
+    min-width: unset;
+    max-width: 100%;
+  }
+
+  /* Modal: edge-to-edge */
+  .admin-modal-overlay {
+    padding: 12px;
+  }
+
+  .admin-modal {
+    padding: 20px;
+  }
+
+  /* Photo grid: 2 columns on small */
+  .admin-photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
 
