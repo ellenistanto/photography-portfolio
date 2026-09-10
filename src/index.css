@@ -1626,47 +1626,143 @@ button {
 }
 
 @media (max-width: 768px) {
-  /* On mobile: move nav buttons to bottom corners for thumb reach */
-  .lightbox-body {
-    flex-direction: column;
-    padding: 0;
-  }
-
+  /* On mobile: hide desktop arrow buttons completely */
   .lightbox-nav-btn {
-    position: fixed;
-    top: auto;
-    bottom: 5rem;
-    transform: none;
-    width: 56px;
-    height: 56px;
-    background-color: rgba(255, 255, 255, 0.12);
+    display: none !important;
   }
+}
 
-  .lightbox-nav-btn:hover {
-    transform: none;
-    background-color: rgba(255, 255, 255, 0.25);
-  }
+/* ====================================================================
+   MOBILE VERTICAL LIGHTBOX FEED
+   ==================================================================== */
+.lightbox-modal-mobile {
+  background-color: rgba(7, 7, 7, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
 
-  .lightbox-prev {
-    left: 1.25rem;
-  }
+.lightbox-mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
 
-  .lightbox-next {
-    right: 1.25rem;
-  }
+.lightbox-mobile-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 
-  /* Swipe hint dots */
-  .lightbox-footer {
-    padding: 0.75rem 1.5rem 5.5rem;
-  }
+.lightbox-mobile-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-red);
+}
 
-  .lightbox-caption-title {
-    font-size: 1rem;
-  }
+.lightbox-mobile-counter {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
 
-  .lightbox-caption-desc {
-    font-size: 0.8rem;
-  }
+.lightbox-vertical-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 1rem 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.lightbox-vertical-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  scroll-margin-top: 4.5rem;
+}
+
+.lightbox-vertical-img-wrap {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-vertical-img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-vertical-caption {
+  padding: 0.25rem 0.35rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.lightbox-vertical-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.lightbox-vertical-badge {
+  font-size: 0.675rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-red);
+}
+
+.lightbox-vertical-year {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.lightbox-vertical-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-vertical-client {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.lightbox-vertical-desc {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.55;
 }
 
 .lightbox-footer {
