@@ -40,7 +40,6 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
             aria-label={`${profile?.name || 'Home'}`}
           >
             <span>{displayName}</span>
-            <span className="brand-dot"></span>
           </button>
 
           {/* Desktop Navigation */}

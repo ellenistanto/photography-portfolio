@@ -18,7 +18,6 @@ export default function Hero({ profile, onExploreClick, onContactClick }) {
       <div className="container">
         <div className="hero-content">
           <div className="hero-badge">
-            <span className="hero-badge-pulse"></span>
             <span>Photographer & Visual Storyteller</span>
           </div>
           
