@@ -27,7 +27,7 @@ export default function ConnectSection({ profile, stats, milestones }) {
         <div className="about-grid">
           <div className="about-photo-wrapper">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85" 
+              src={profile.photo || profile.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85"} 
               alt={profile.name} 
               className="about-photo" 
               loading="lazy" 

@@ -8,7 +8,6 @@ import Hero from './components/Hero';
 import ClientsCloud from './components/ClientsCloud';
 import FilterBar from './components/FilterBar';
 import MasonryGallery from './components/MasonryGallery';
-import StoriesInFrame from './components/StoriesInFrame';
 import ConnectSection from './components/ConnectSection';
 import LightboxModal from './components/LightboxModal';
 import Footer from './components/Footer';
@@ -109,14 +108,6 @@ function PortfolioPage() {
         <MasonryGallery 
           photos={filteredPhotos}
           onPhotoClick={handleOpenLightbox}
-        />
-
-        {/* Stories In Frame / Disciplines */}
-        <StoriesInFrame 
-          onSelectCategory={(catId) => {
-            handleSelectCategory(catId);
-            scrollToSection('filterSection');
-          }}
         />
 
         {/* Connect, About, Milestones & Contact */}

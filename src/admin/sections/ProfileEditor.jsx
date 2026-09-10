@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { API_BASE } from '../../config/api';
 
 export default function ProfileEditor({ data, token, onSaved, onToast }) {
@@ -6,8 +6,15 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
     name: '', tagline: '', shortBio: '',
     aboutLong: ['', ''],
     location: '', email: '', whatsapp: '', instagram: '', youtube: '', behance: '',
+    photo: '', avatar: '',
   });
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [photoInputMode, setPhotoInputMode] = useState('upload'); // 'upload' | 'url'
+  const [previewError, setPreviewError] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     if (data?.profile) {
@@ -16,12 +23,28 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
         aboutLong: data.profile.aboutLong?.length >= 2
           ? data.profile.aboutLong
           : [...(data.profile.aboutLong || []), ''],
+        photo: data.profile.photo || data.profile.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
+        avatar: data.profile.avatar || data.profile.photo || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
       });
     }
   }, [data]);
 
   const handleChange = (field, value) => {
-    setForm(prev => ({ ...prev, [field]: value }));
+    let finalVal = value;
+    // Auto convert Google Drive links to direct viewable links
+    if ((field === 'photo' || field === 'avatar') && typeof value === 'string') {
+      const driveMatch = value.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || value.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (driveMatch && driveMatch[1] && (value.includes('drive.google.com') || value.includes('docs.google.com'))) {
+        finalVal = `https://lh3.googleusercontent.com/d/${driveMatch[1]}`;
+      }
+    }
+
+    setForm(prev => {
+      const updated = { ...prev, [field]: finalVal };
+      if (field === 'photo') updated.avatar = finalVal;
+      if (field === 'avatar') updated.photo = finalVal;
+      return updated;
+    });
   };
 
   const handleAboutChange = (index, value) => {
@@ -30,6 +53,56 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       updated[index] = value;
       return { ...prev, aboutLong: updated };
     });
+  };
+
+  // Upload handler for File object
+  const processUpload = async (file) => {
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      onToast('Hanya file gambar yang diperbolehkan (JPG, PNG, WEBP, GIF, AVIF)', 'error');
+      return;
+    }
+
+    if (file.size > 20 * 1024 * 1024) {
+      onToast('Ukuran file maksimal 20MB', 'error');
+      return;
+    }
+
+    setUploading(true);
+    setUploadProgress(25);
+    setPreviewError(false);
+
+    const formData = new FormData();
+    formData.append('file', file);
+    const progressTimer = setTimeout(() => setUploadProgress(70), 200);
+
+    try {
+      const res = await fetch(`${API_BASE}/api/upload`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      clearTimeout(progressTimer);
+      setUploadProgress(100);
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || 'Upload failed');
+      }
+
+      const result = await res.json();
+      handleChange('photo', result.url);
+      onToast('✅ Foto profil berhasil diunggah!', 'success');
+    } catch (err) {
+      onToast(`❌ ${err.message}`, 'error');
+    } finally {
+      setUploading(false);
+      setUploadProgress(0);
+    }
   };
 
   const handleSave = async () => {
@@ -62,7 +135,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
     <div>
       <div className="admin-section-header">
         <h2 className="admin-section-title">👤 Profile</h2>
-        <p className="admin-section-desc">Update your name, bio, and contact information shown on the portfolio.</p>
+        <p className="admin-section-desc">Update your name, bio, profile photo, and contact information shown on the portfolio.</p>
       </div>
 
       {/* Identity */}
@@ -113,6 +186,149 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
             placeholder="I'm a photographer based in..."
           />
         </div>
+      </div>
+
+      {/* About the Artist Photo */}
+      <div className="admin-card">
+        <h3 className="admin-card-title">📸 About the Artist Photo</h3>
+        <p style={{ fontSize: 13, color: 'var(--admin-text-muted)', marginBottom: 14 }}>
+          Foto potret Anda yang tampil di bagian <strong>About the Artist / The Journey</strong> pada halaman utama portfolio.
+        </p>
+
+        {/* Mode Selector Tabs */}
+        <div className="admin-tabs-segmented" style={{ marginBottom: 14 }}>
+          <button
+            type="button"
+            className={`admin-tab-seg-btn ${photoInputMode === 'upload' ? 'active' : ''}`}
+            onClick={() => setPhotoInputMode('upload')}
+          >
+            📤 Upload File (Drag & Drop)
+          </button>
+          <button
+            type="button"
+            className={`admin-tab-seg-btn ${photoInputMode === 'url' ? 'active' : ''}`}
+            onClick={() => setPhotoInputMode('url')}
+          >
+            🔗 External Image URL / Google Drive
+          </button>
+        </div>
+
+        {/* Upload Mode Area */}
+        {photoInputMode === 'upload' && (
+          <div style={{ marginBottom: 16 }}>
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+              style={{ display: 'none' }}
+              onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                  processUpload(e.target.files[0]);
+                }
+              }}
+            />
+
+            {form.photo ? (
+              <div className="admin-dropzone-preview" style={{ maxHeight: 260, maxWidth: 380 }}>
+                <img
+                  src={form.photo}
+                  alt="Profile Preview"
+                  onError={() => setPreviewError(true)}
+                  style={{ maxHeight: 260, objectFit: 'cover' }}
+                />
+                <div className="admin-dropzone-preview-overlay">
+                  <button
+                    type="button"
+                    className="admin-dropzone-remove-btn"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    🔄 Ganti Foto
+                  </button>
+                  <button
+                    type="button"
+                    className="admin-dropzone-remove-btn"
+                    onClick={() => handleChange('photo', '')}
+                  >
+                    ✕ Hapus
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div
+                className={`admin-dropzone ${isDragging ? 'drag-active' : ''}`}
+                onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+                onDragLeave={(e) => { e.preventDefault(); setIsDragging(false); }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                  if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    processUpload(e.dataTransfer.files[0]);
+                  }
+                }}
+                onClick={() => fileInputRef.current?.click()}
+              >
+                {uploading ? (
+                  <>
+                    <div className="admin-spinner" style={{ width: 32, height: 32 }} />
+                    <div className="admin-dropzone-text">Mengunggah foto… ({uploadProgress}%)</div>
+                    <div className="admin-upload-progress">
+                      <div className="admin-upload-progress-bar" style={{ width: `${uploadProgress}%` }} />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="admin-dropzone-icon">📷</div>
+                    <div className="admin-dropzone-text">
+                      <strong>Tarik & lepas foto profil</strong> ke sini, atau klik untuk browse
+                    </div>
+                    <div className="admin-dropzone-subtext">
+                      Mendukung JPG, PNG, WEBP, GIF, AVIF (Maks. 20MB)
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* URL Mode Area */}
+        {photoInputMode === 'url' && (
+          <div style={{ marginBottom: 16 }}>
+            <div className="admin-form-group">
+              <label className="admin-form-label">Profile Photo URL</label>
+              <input
+                id="profile-photo-url"
+                className="admin-form-input"
+                value={form.photo || ''}
+                onChange={(e) => {
+                  handleChange('photo', e.target.value);
+                  setPreviewError(false);
+                }}
+                placeholder="https://... atau link Google Drive"
+              />
+              <p style={{ fontSize: '0.78rem', color: 'var(--admin-text-muted, #888)', marginTop: 6, lineHeight: 1.4 }}>
+                💡 <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
+              </p>
+            </div>
+
+            {form.photo && (
+              <div className="admin-dropzone-preview" style={{ maxHeight: 260, maxWidth: 380 }}>
+                <img
+                  src={form.photo}
+                  alt="Profile Preview"
+                  onError={() => setPreviewError(true)}
+                  style={{ maxHeight: 260, objectFit: 'cover' }}
+                />
+              </div>
+            )}
+
+            {previewError && form.photo && (
+              <div style={{ padding: '8px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 6, color: '#fca5a5', fontSize: '0.8rem', marginTop: 8 }}>
+                ⚠️ Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Public)</strong>.
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* About Section */}
