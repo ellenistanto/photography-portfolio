@@ -46,7 +46,13 @@ function getInitialData() {
       photos: [], // Kosongkan agar foto dummy tidak ditampilkan saat loading awal
       stats: PORTFOLIO_DATA.stats || [],
       clients: PORTFOLIO_DATA.clients || [],
-      milestones: PORTFOLIO_DATA.milestones || []
+      milestones: PORTFOLIO_DATA.milestones || [],
+      overview: PORTFOLIO_DATA.overview || {
+        enabled: true,
+        title: 'Selected Works',
+        subtitle: 'Curated highlights & moments in between',
+        photoIds: [],
+      }
     },
     isCached: false
   };

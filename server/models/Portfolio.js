@@ -13,6 +13,15 @@ const PhotoSchema = new mongoose.Schema({
   thumb: { type: String },
   description: { type: String },
   order: { type: Number, default: 0 },
+  isOverview: { type: Boolean, default: false },
+}, { _id: false });
+
+// ── Overview Schema ───────────────────────────────────────────────────────────
+const OverviewSchema = new mongoose.Schema({
+  enabled: { type: Boolean, default: true },
+  title: { type: String, default: 'Selected Works' },
+  subtitle: { type: String, default: 'Curated highlights & moments in between' },
+  photoIds: [{ type: String }],
 }, { _id: false });
 
 // ── Stat Schema ───────────────────────────────────────────────────────────────
@@ -62,6 +71,15 @@ const PortfolioSchema = new mongoose.Schema({
   milestones: [MilestoneSchema],
   categories: [CategorySchema],
   photos: [PhotoSchema],
+  overview: {
+    type: OverviewSchema,
+    default: () => ({
+      enabled: true,
+      title: 'Selected Works',
+      subtitle: 'Curated highlights & moments in between',
+      photoIds: [],
+    }),
+  },
 }, {
   timestamps: true,
 });

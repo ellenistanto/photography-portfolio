@@ -1275,3 +1275,60 @@
   cursor: grabbing;
 }
 
+/* ── Switch Toggle ─────────────────────────────────────────── */
+.admin-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.admin-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.admin-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--admin-surface-3, #222);
+  transition: .3s;
+  border-radius: 24px;
+  border: 1px solid var(--admin-border, #333);
+}
+
+.admin-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #fff;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .admin-slider {
+  background-color: var(--admin-accent, #e02424);
+  border-color: var(--admin-accent, #e02424);
+}
+
+input:checked + .admin-slider:before {
+  transform: translateX(20px);
+}
+
+.overview-item-row.is-dragging {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.overview-item-row.is-drag-over {
+  border-color: var(--admin-accent) !important;
+  background: rgba(224, 36, 36, 0.06) !important;
+}
+
+

@@ -35,6 +35,12 @@ router.get('/', async (req, res) => {
       milestones: doc.milestones,
       categories: doc.categories,
       photos: doc.photos.sort((a, b) => a.order - b.order),
+      overview: doc.overview || {
+        enabled: true,
+        title: 'Selected Works',
+        subtitle: 'Curated highlights & moments in between',
+        photoIds: [],
+      },
     });
   } catch (err) {
     console.error('GET /portfolio error:', err);
@@ -158,6 +164,52 @@ router.put('/categories', authMiddleware, async (req, res) => {
   }
 });
 
+// ── Overview Configuration ───────────────────────────────────────────────────
+
+/**
+ * PUT /api/portfolio/overview
+ * Update overview configuration & curated photo list
+ * Body: { enabled?: boolean, title?: string, subtitle?: string, photoIds?: string[] }
+ */
+router.put('/overview', authMiddleware, async (req, res) => {
+  try {
+    const doc = await getPortfolio();
+    if (!doc.overview) {
+      doc.overview = {
+        enabled: true,
+        title: 'Selected Works',
+        subtitle: 'Curated highlights & moments in between',
+        photoIds: [],
+      };
+    }
+
+    const { enabled, title, subtitle, photoIds } = req.body;
+    if (enabled !== undefined) doc.overview.enabled = Boolean(enabled);
+    if (title !== undefined) doc.overview.title = String(title);
+    if (subtitle !== undefined) doc.overview.subtitle = String(subtitle);
+
+    if (Array.isArray(photoIds)) {
+      doc.overview.photoIds = photoIds;
+      const idSet = new Set(photoIds);
+      doc.photos.forEach(p => {
+        p.isOverview = idSet.has(p.id);
+      });
+      doc.markModified('photos');
+    }
+
+    doc.markModified('overview');
+    await doc.save();
+    res.json({
+      message: 'Overview updated successfully',
+      overview: doc.overview,
+      photos: doc.photos.sort((a, b) => a.order - b.order),
+    });
+  } catch (err) {
+    console.error('PUT /overview error:', err);
+    res.status(500).json({ error: 'Failed to update overview' });
+  }
+});
+
 // ── Photos CRUD ───────────────────────────────────────────────────────────────
 
 /**
@@ -166,15 +218,16 @@ router.put('/categories', authMiddleware, async (req, res) => {
  */
 router.post('/photos', authMiddleware, async (req, res) => {
   try {
-    const { title, category, categoryLabel, year, client, aspect, image, thumb, description } = req.body;
+    const { title, category, categoryLabel, year, client, aspect, image, thumb, description, isOverview } = req.body;
 
     if (!title || !category || !image) {
       return res.status(400).json({ error: 'title, category, and image are required' });
     }
 
     const doc = await getPortfolio();
+    const photoId = `photo_${crypto.randomBytes(4).toString('hex')}`;
     const newPhoto = {
-      id: `photo_${crypto.randomBytes(4).toString('hex')}`,
+      id: photoId,
       title,
       category,
       categoryLabel: categoryLabel || category,
@@ -185,9 +238,21 @@ router.post('/photos', authMiddleware, async (req, res) => {
       thumb: thumb || image,
       description: description || '',
       order: doc.photos.length,
+      isOverview: Boolean(isOverview),
     };
 
     doc.photos.push(newPhoto);
+
+    if (newPhoto.isOverview) {
+      if (!doc.overview) {
+        doc.overview = { enabled: true, title: 'Selected Works', subtitle: 'Curated highlights & moments in between', photoIds: [] };
+      }
+      if (!doc.overview.photoIds.includes(photoId)) {
+        doc.overview.photoIds.push(photoId);
+        doc.markModified('overview');
+      }
+    }
+
     await doc.save();
     res.status(201).json({ message: 'Photo added', photo: newPhoto });
   } catch (err) {
@@ -236,12 +301,27 @@ router.put('/photos/:id', authMiddleware, async (req, res) => {
       return res.status(404).json({ error: 'Photo not found' });
     }
 
-    const allowed = ['title', 'category', 'categoryLabel', 'year', 'client', 'aspect', 'image', 'thumb', 'description', 'order'];
+    const allowed = ['title', 'category', 'categoryLabel', 'year', 'client', 'aspect', 'image', 'thumb', 'description', 'order', 'isOverview'];
     allowed.forEach(field => {
       if (req.body[field] !== undefined) {
         doc.photos[photoIndex][field] = req.body[field];
       }
     });
+
+    if (req.body.isOverview !== undefined) {
+      if (!doc.overview) {
+        doc.overview = { enabled: true, title: 'Selected Works', subtitle: 'Curated highlights & moments in between', photoIds: [] };
+      }
+      const pId = req.params.id;
+      if (req.body.isOverview) {
+        if (!doc.overview.photoIds.includes(pId)) {
+          doc.overview.photoIds.push(pId);
+        }
+      } else {
+        doc.overview.photoIds = doc.overview.photoIds.filter(id => id !== pId);
+      }
+      doc.markModified('overview');
+    }
 
     doc.markModified('photos');
     await doc.save();
@@ -264,6 +344,11 @@ router.delete('/photos/:id', authMiddleware, async (req, res) => {
 
     if (doc.photos.length === before) {
       return res.status(404).json({ error: 'Photo not found' });
+    }
+
+    if (doc.overview && Array.isArray(doc.overview.photoIds)) {
+      doc.overview.photoIds = doc.overview.photoIds.filter(id => id !== req.params.id);
+      doc.markModified('overview');
     }
 
     doc.markModified('photos');

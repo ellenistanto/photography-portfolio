@@ -7,6 +7,7 @@ import PhotosEditor from './sections/PhotosEditor';
 import ClientsEditor from './sections/ClientsEditor';
 import MilestonesEditor from './sections/MilestonesEditor';
 import CategoriesEditor from './sections/CategoriesEditor';
+import OverviewEditor from './sections/OverviewEditor';
 import { API_BASE } from '../config/api';
 import { updatePortfolioCache } from '../hooks/usePortfolioData';
 
@@ -44,8 +45,9 @@ function Toast({ message, type, onClose }) {
 // ── Navigation config ─────────────────────────────────────────────────────────
 const NAV_ITEMS = [
   { id: 'profile',     label: 'Profile' },
-  { id: 'stats',       label: 'Statistics' },
+  { id: 'overview',    label: 'Overview / Highlights' },
   { id: 'photos',      label: 'Gallery Photos' },
+  { id: 'stats',       label: 'Statistics' },
   { id: 'clients',     label: 'Clients' },
   { id: 'milestones',  label: 'Milestones' },
   { id: 'categories',  label: 'Categories' },
@@ -123,8 +125,9 @@ export default function AdminDashboard({ token, onLogout }) {
 
     switch (activeSection) {
       case 'profile':    return <ProfileEditor    {...commonProps} />;
-      case 'stats':      return <StatsEditor      {...commonProps} />;
+      case 'overview':   return <OverviewEditor   {...commonProps} />;
       case 'photos':     return <PhotosEditor     {...commonProps} />;
+      case 'stats':      return <StatsEditor      {...commonProps} />;
       case 'clients':    return <ClientsEditor    {...commonProps} />;
       case 'milestones': return <MilestonesEditor {...commonProps} />;
       case 'categories': return <CategoriesEditor {...commonProps} />;

@@ -11,4 +11,7 @@ export default defineConfig({
   },
   // Ensure SPA routing — /admin won't 404 on page refresh
   appType: 'spa',
+  build: {
+    emptyOutDir: false,
+  },
 });

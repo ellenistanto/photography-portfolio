@@ -6,6 +6,7 @@ import { usePortfolioData } from './hooks/usePortfolioData';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ClientsCloud from './components/ClientsCloud';
+import OverviewSection from './components/OverviewSection';
 import FilterBar from './components/FilterBar';
 import MasonryGallery from './components/MasonryGallery';
 import ConnectSection from './components/ConnectSection';
@@ -21,16 +22,32 @@ function PortfolioPage() {
 
   const [currentCategory, setCurrentCategory] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxPhotos, setLightboxPhotos] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Filter photos based on selected category
   const filteredPhotos = useMemo(() => {
+    if (!data.photos) return [];
     if (currentCategory === 'all') {
       return data.photos;
     }
     return data.photos.filter(p => p.category === currentCategory);
   }, [currentCategory, data.photos]);
+
+  // Curated Overview Photos (in order of overview.photoIds)
+  const overviewPhotos = useMemo(() => {
+    if (!data.photos || data.photos.length === 0) return [];
+    const photoIds = data.overview?.photoIds;
+    if (Array.isArray(photoIds) && photoIds.length > 0) {
+      const mapped = photoIds
+        .map(id => data.photos.find(p => p.id === id))
+        .filter(Boolean);
+      if (mapped.length > 0) return mapped;
+    }
+    // Fallback: collect photos marked with isOverview: true
+    return data.photos.filter(p => p.isOverview);
+  }, [data.photos, data.overview]);
 
   // Scroll handler for Back to Top button
   useEffect(() => {
@@ -53,6 +70,13 @@ function PortfolioPage() {
   };
 
   const handleOpenLightbox = (index) => {
+    setLightboxPhotos(filteredPhotos);
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleOpenOverviewLightbox = (photo, index) => {
+    setLightboxPhotos(overviewPhotos);
     setLightboxIndex(index);
     setLightboxOpen(true);
   };
@@ -62,13 +86,13 @@ function PortfolioPage() {
   };
 
   const handleNextPhoto = () => {
-    if (filteredPhotos.length === 0) return;
-    setLightboxIndex((prev) => (prev + 1) % filteredPhotos.length);
+    if (lightboxPhotos.length === 0) return;
+    setLightboxIndex((prev) => (prev + 1) % lightboxPhotos.length);
   };
 
   const handlePrevPhoto = () => {
-    if (filteredPhotos.length === 0) return;
-    setLightboxIndex((prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length);
+    if (lightboxPhotos.length === 0) return;
+    setLightboxIndex((prev) => (prev - 1 + lightboxPhotos.length) % lightboxPhotos.length);
   };
 
   const handleBackToTop = () => {
@@ -96,6 +120,13 @@ function PortfolioPage() {
         {/* Collaborating Artists & Brands */}
         <ClientsCloud clients={data.clients} />
 
+        {/* Curated Overview Section */}
+        <OverviewSection
+          overview={data.overview}
+          photos={overviewPhotos}
+          onPhotoClick={handleOpenOverviewLightbox}
+        />
+
         {/* Category Filter Tabs */}
         <FilterBar
           categories={data.categories}
@@ -122,7 +153,7 @@ function PortfolioPage() {
       {/* Lightbox Modal */}
       <LightboxModal
         isOpen={lightboxOpen}
-        photos={filteredPhotos}
+        photos={lightboxPhotos}
         currentIndex={lightboxIndex}
         onClose={handleCloseLightbox}
         onNext={handleNextPhoto}

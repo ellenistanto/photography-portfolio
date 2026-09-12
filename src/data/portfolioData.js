@@ -99,6 +99,14 @@ export const PORTFOLIO_DATA = {
     { id: "brands", name: "Brands & Products" }
   ],
 
+  // Overview / Selected Works
+  overview: {
+    enabled: true,
+    title: 'Selected Works',
+    subtitle: 'Curated highlights & moments in between',
+    photoIds: []
+  },
+
   // Daftar Foto
   photos: []
 };

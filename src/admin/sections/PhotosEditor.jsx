@@ -21,6 +21,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
   const [form, setForm] = useState({
     title: '', category: 'concerts', categoryLabel: '', year: '',
     client: '', aspect: 'portrait', image: '', thumb: '', description: '',
+    isOverview: false,
   });
   const [inputMode, setInputMode] = useState('upload'); // 'upload' | 'url'
   const [saving, setSaving] = useState(false);
@@ -33,7 +34,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
 
   useEffect(() => {
     if (photo) {
-      setForm({ ...photo });
+      setForm({ ...photo, isOverview: Boolean(photo.isOverview) });
       // If photo already has an external or local image, detect mode
       if (photo.image && photo.image.startsWith('http') && !photo.image.includes('/uploads/')) {
         setInputMode('url');
@@ -417,6 +418,22 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
           />
         </div>
 
+        <div className="admin-toggle-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: 'var(--admin-bg-secondary)', borderRadius: 8, marginTop: 14, marginBottom: 8 }}>
+          <div>
+            <div style={{ fontWeight: 600, fontSize: 13, color: 'var(--admin-text-primary)' }}>⭐ Tampilkan di Overview (Halaman Depan)</div>
+            <div style={{ fontSize: 12, color: 'var(--admin-text-muted)', marginTop: 2 }}>Foto ini akan disorot di seksi kurasi pilihan halaman utama.</div>
+          </div>
+          <label className="admin-switch">
+            <input
+              type="checkbox"
+              checked={Boolean(form.isOverview)}
+              onChange={e => handleChange('isOverview', e.target.checked)}
+              id="photo-overview-toggle"
+            />
+            <span className="admin-slider round"></span>
+          </label>
+        </div>
+
         <div className="admin-save-bar">
           <button className="admin-btn admin-btn-ghost" onClick={onClose}>Cancel</button>
           <button
@@ -522,6 +539,27 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
     } catch (err) {
       onToast(`❌ ${err.message}`, 'error');
       setConfirmId(null);
+    }
+  };
+
+  const handleToggleOverview = async (photo) => {
+    const nextVal = !photo.isOverview;
+    try {
+      const res = await fetch(`${API_BASE}/api/portfolio/photos/${photo.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ isOverview: nextVal }),
+      });
+
+      if (!res.ok) throw new Error('Gagal mengubah status overview');
+
+      onToast(nextVal ? '⭐ Foto ditambahkan ke Overview!' : 'Foto dihapus dari Overview', 'success');
+      onSaved();
+    } catch (err) {
+      onToast(`❌ ${err.message}`, 'error');
     }
   };
 
@@ -772,7 +810,16 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
                     {photo.categoryLabel} · {photo.year}
                     {photo.client && <> · {photo.client}</>}
                   </div>
-                  <div className="admin-photo-card-actions">
+                  <div className="admin-photo-card-actions" style={{ display: 'flex', gap: 6 }}>
+                    <button
+                      type="button"
+                      className={`admin-btn admin-btn-sm ${photo.isOverview ? 'admin-btn-accent' : 'admin-btn-ghost'}`}
+                      style={{ padding: '4px 8px', fontSize: 11 }}
+                      title={photo.isOverview ? 'Ditampilkan di Overview (klik untuk membatalkan)' : 'Tampilkan di Overview (halaman depan)'}
+                      onClick={() => handleToggleOverview(photo)}
+                    >
+                      {photo.isOverview ? '⭐ Overview' : '☆ Overview'}
+                    </button>
                     <button
                       className="admin-btn admin-btn-ghost admin-btn-sm"
                       style={{ flex: 1 }}
