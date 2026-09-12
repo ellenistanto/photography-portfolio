@@ -61,6 +61,34 @@ const ProfileSchema = new mongoose.Schema({
   heroImage: { type: String },
 }, { _id: false });
 
+// ── Project Schemas ─────────────────────────────────────────────────────────
+const ProjectPhotoSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  title: { type: String, default: '' },
+  caption: { type: String, default: '' },
+  aspect: { type: String, enum: ['portrait', 'landscape', 'square'], default: 'landscape' },
+  image: { type: String, required: true },
+  thumb: { type: String },
+  order: { type: Number, default: 0 },
+}, { _id: false });
+
+const ProjectSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  slug: { type: String, required: true },
+  title: { type: String, required: true },
+  category: { type: String, default: 'commercial' },
+  categoryLabel: { type: String, default: 'Commercial' },
+  client: { type: String, default: '' },
+  year: { type: String, default: '' },
+  location: { type: String, default: '' },
+  coverImage: { type: String, required: true },
+  summary: { type: String, default: '' },
+  description: { type: String, default: '' },
+  photos: [ProjectPhotoSchema],
+  isFeatured: { type: Boolean, default: true },
+  order: { type: Number, default: 0 },
+}, { _id: false });
+
 // ── Main Portfolio Schema ─────────────────────────────────────────────────────
 const PortfolioSchema = new mongoose.Schema({
   // Singleton document — always one doc with this key
@@ -71,6 +99,7 @@ const PortfolioSchema = new mongoose.Schema({
   milestones: [MilestoneSchema],
   categories: [CategorySchema],
   photos: [PhotoSchema],
+  projects: [ProjectSchema],
   overview: {
     type: OverviewSchema,
     default: () => ({

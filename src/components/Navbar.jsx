@@ -96,6 +96,13 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
             </div>
 
             <button 
+              onClick={() => handleNavClick('projects')} 
+              className="nav-link"
+            >
+              PROJECTS
+            </button>
+
+            <button 
               onClick={() => handleNavClick('connect')} 
               className="nav-link"
             >
@@ -139,6 +146,13 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
             className={`mobile-nav-link ${currentCategory === 'concerts' ? 'active' : ''}`}
           >
             Music & Concert
+          </button>
+
+          <button 
+            onClick={() => handleNavClick('projects')} 
+            className="mobile-nav-link"
+          >
+            Projects & Series
           </button>
 
           <div className="mobile-group">

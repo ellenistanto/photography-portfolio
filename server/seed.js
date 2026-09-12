@@ -55,6 +55,43 @@ const SEED_DATA = {
     { id: "people-places", name: "People & Places" },
     { id: "brands", name: "Brands & Products" }
   ],
+  projects: [
+    {
+      id: "proj_giias_2024",
+      slug: "giias-2024-auto-show",
+      title: "GIIAS 2024 — Auto Show & Supercar Showcase",
+      category: "brands",
+      categoryLabel: "Commercial & Automotive",
+      client: "GIIAS Auto Exhibition / Brand Partners",
+      year: "2024",
+      location: "ICE BSD City, Tangerang",
+      coverImage: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85",
+      summary: "Dokumentasi visual komprehensif pameran otomotif terbesar, menangkap siluet mobil konsep, tata cahaya panggung megah, dan detail lekukan desain presisi.",
+      description: "Dokumentasi pameran otomotif berskala internasional menuntut kepekaan visual yang memadukan keindahan desain industri mobil dengan energi panggung pameran yang dinamis.\n\nPada proyek ini, fokus utama adalah menangkap interaksi antara pencahayaan panggung pameran dengan lekukan bodi mobil, pantulan cat metalik, serta atmosfer antusiasme pengunjung di sekitar booth brand premium.",
+      isFeatured: true,
+      order: 0,
+      photos: [
+        {
+          id: "pp_car_1",
+          title: "Porsche 911 GT3 Silhouette",
+          caption: "Sorotan lampu panggung mempertegas aerodinamika agresif dan siluet ikonik Porsche 911 GT3 di booth pameran utama.",
+          aspect: "landscape",
+          image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
+          thumb: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+          order: 0
+        },
+        {
+          id: "pp_car_2",
+          title: "Metallic Curvature & Reflections",
+          caption: "Permukaan bodi cat metalik memantulkan kemewahan tata pencahayaan pameran di Hall Utama ICE BSD.",
+          aspect: "landscape",
+          image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1400&q=85",
+          thumb: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+          order: 1
+        }
+      ]
+    }
+  ],
   photos: []
 };
 

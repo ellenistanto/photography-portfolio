@@ -7,11 +7,13 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ClientsCloud from './components/ClientsCloud';
 import OverviewSection from './components/OverviewSection';
+import ProjectsSection from './components/ProjectsSection';
 import FilterBar from './components/FilterBar';
 import MasonryGallery from './components/MasonryGallery';
 import ConnectSection from './components/ConnectSection';
 import LightboxModal from './components/LightboxModal';
 import Footer from './components/Footer';
+import ProjectDetailPage from './components/ProjectDetailPage';
 
 // Lazy-load admin to keep initial bundle small
 import AdminApp from './admin/AdminApp';
@@ -127,6 +129,9 @@ function PortfolioPage() {
           onPhotoClick={handleOpenOverviewLightbox}
         />
 
+        {/* Featured Projects & Series */}
+        <ProjectsSection projects={data.projects} />
+
         {/* Category Filter Tabs */}
         <FilterBar
           categories={data.categories}
@@ -179,12 +184,19 @@ function PortfolioPage() {
   );
 }
 
+function ProjectDetailPageWrapper() {
+  const { data } = usePortfolioData();
+  return <ProjectDetailPage portfolioData={data} />;
+}
+
 // ── Root App with Routing ─────────────────────────────────────────────────────
 export default function App() {
   return (
     <Routes>
       {/* Admin dashboard — only accessible at /admin */}
       <Route path="/admin/*" element={<AdminApp />} />
+      {/* Dedicated Project Page */}
+      <Route path="/project/:slug" element={<ProjectDetailPageWrapper />} />
       {/* Portfolio — everything else */}
       <Route path="/*" element={<PortfolioPage />} />
     </Routes>

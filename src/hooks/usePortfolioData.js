@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { API_BASE } from '../config/api';
 
-const CACHE_KEY = 'portfolio_data_cache_v2';
+const CACHE_KEY = 'portfolio_data_cache_v3';
 
 /**
  * Mendapatkan initial state secara sinkron untuk mencegah layout shift
@@ -14,8 +14,14 @@ function getInitialData() {
       const cached = localStorage.getItem(CACHE_KEY);
       if (cached) {
         const parsed = JSON.parse(cached);
-        if (parsed && Array.isArray(parsed.photos) && parsed.photos.length > 0) {
-          return { data: parsed, isCached: true };
+        if (parsed) {
+          return {
+            data: {
+              ...parsed,
+              projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : (PORTFOLIO_DATA.projects || []),
+            },
+            isCached: true
+          };
         }
       }
     } catch (e) {
@@ -24,7 +30,6 @@ function getInitialData() {
   }
 
   // Jika belum ada cache: JANGAN masukkan foto dummy!
-  // Inisialisasi dengan photos: [] agar foto dummy Unsplash tidak muncul berkedip
   return {
     data: {
       profile: {
@@ -44,6 +49,7 @@ function getInitialData() {
       },
       categories: PORTFOLIO_DATA.categories || [],
       photos: [], // Kosongkan agar foto dummy tidak ditampilkan saat loading awal
+      projects: PORTFOLIO_DATA.projects || [],
       stats: PORTFOLIO_DATA.stats || [],
       clients: PORTFOLIO_DATA.clients || [],
       milestones: PORTFOLIO_DATA.milestones || [],
@@ -81,10 +87,16 @@ export function usePortfolioData() {
 
         const apiData = await res.json();
         if (!cancelled) {
-          setData(apiData);
+          const mergedData = {
+            ...apiData,
+            projects: (Array.isArray(apiData.projects) && apiData.projects.length > 0)
+              ? apiData.projects
+              : (PORTFOLIO_DATA.projects || []),
+          };
+          setData(mergedData);
           setFromApi(true);
           try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(apiData));
+            localStorage.setItem(CACHE_KEY, JSON.stringify(mergedData));
           } catch (e) {
             // LocalStorage quota / private mode
           }
@@ -95,7 +107,10 @@ export function usePortfolioData() {
           // Jika sudah ada data atau foto sebelumnya, pertahankan
           setData((prev) => {
             if (prev && Array.isArray(prev.photos) && prev.photos.length > 0) {
-              return prev;
+              return {
+                ...prev,
+                projects: prev.projects && prev.projects.length > 0 ? prev.projects : (PORTFOLIO_DATA.projects || []),
+              };
             }
             // Hanya fallback ke PORTFOLIO_DATA jika koneksi benar-benar error dan belum ada data
             return PORTFOLIO_DATA;

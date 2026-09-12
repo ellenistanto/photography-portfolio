@@ -35,6 +35,7 @@ router.get('/', async (req, res) => {
       milestones: doc.milestones,
       categories: doc.categories,
       photos: doc.photos.sort((a, b) => a.order - b.order),
+      projects: (doc.projects || []).sort((a, b) => (a.order || 0) - (b.order || 0)),
       overview: doc.overview || {
         enabled: true,
         title: 'Selected Works',
@@ -357,6 +358,241 @@ router.delete('/photos/:id', authMiddleware, async (req, res) => {
   } catch (err) {
     console.error('DELETE /photos/:id error:', err);
     res.status(500).json({ error: 'Failed to delete photo' });
+  }
+});
+
+// ── Projects Public & CRUD ───────────────────────────────────────────────────
+
+/**
+ * Helper to slugify a title
+ */
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
+/**
+ * GET /api/portfolio/projects/:slug
+ * Get a specific project by slug or ID (public)
+ */
+router.get('/projects/:slug', async (req, res) => {
+  try {
+    const doc = await getPortfolio();
+    const project = (doc.projects || []).find(
+      p => p.slug === req.params.slug || p.id === req.params.slug
+    );
+
+    if (!project) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    res.json(project);
+  } catch (err) {
+    console.error('GET /projects/:slug error:', err);
+    res.status(500).json({ error: 'Failed to fetch project' });
+  }
+});
+
+/**
+ * POST /api/portfolio/projects
+ * Create a new project (admin only)
+ */
+router.post('/projects', authMiddleware, async (req, res) => {
+  try {
+    const {
+      title,
+      slug,
+      category,
+      categoryLabel,
+      client,
+      year,
+      location,
+      coverImage,
+      summary,
+      description,
+      photos = [],
+      isFeatured = true,
+    } = req.body;
+
+    if (!title || !coverImage) {
+      return res.status(400).json({ error: 'title and coverImage are required' });
+    }
+
+    const doc = await getPortfolio();
+    if (!doc.projects) doc.projects = [];
+
+    const projectId = `proj_${crypto.randomBytes(4).toString('hex')}`;
+    let finalSlug = slug ? slugify(slug) : slugify(title);
+
+    // Ensure slug uniqueness
+    const slugExists = doc.projects.some(p => p.slug === finalSlug);
+    if (slugExists) {
+      finalSlug = `${finalSlug}-${crypto.randomBytes(2).toString('hex')}`;
+    }
+
+    // Format photos in project with ids
+    const formattedPhotos = (photos || []).map((photo, idx) => ({
+      id: photo.id || `pp_${crypto.randomBytes(3).toString('hex')}`,
+      title: photo.title || '',
+      caption: photo.caption || '',
+      aspect: photo.aspect || 'landscape',
+      image: photo.image,
+      thumb: photo.thumb || photo.image,
+      order: photo.order !== undefined ? photo.order : idx,
+    }));
+
+    const newProject = {
+      id: projectId,
+      slug: finalSlug,
+      title,
+      category: category || 'commercial',
+      categoryLabel: categoryLabel || 'Commercial',
+      client: client || '',
+      year: year || new Date().getFullYear().toString(),
+      location: location || '',
+      coverImage,
+      summary: summary || '',
+      description: description || '',
+      photos: formattedPhotos,
+      isFeatured: Boolean(isFeatured),
+      order: doc.projects.length,
+    };
+
+    doc.projects.push(newProject);
+    doc.markModified('projects');
+    await doc.save();
+
+    res.status(201).json({ message: 'Project created successfully', project: newProject });
+  } catch (err) {
+    console.error('POST /projects error:', err);
+    res.status(500).json({ error: 'Failed to create project' });
+  }
+});
+
+/**
+ * PUT /api/portfolio/projects/reorder/batch
+ * Reorder projects (admin only)
+ */
+router.put('/projects/reorder/batch', authMiddleware, async (req, res) => {
+  try {
+    const { order } = req.body;
+    if (!Array.isArray(order)) {
+      return res.status(400).json({ error: 'order must be an array of project IDs' });
+    }
+
+    const doc = await getPortfolio();
+    if (!doc.projects) doc.projects = [];
+
+    order.forEach((id, index) => {
+      const proj = doc.projects.find(p => p.id === id);
+      if (proj) proj.order = index;
+    });
+
+    doc.markModified('projects');
+    await doc.save();
+    res.json({ message: 'Projects reordered successfully' });
+  } catch (err) {
+    console.error('PUT /projects/reorder error:', err);
+    res.status(500).json({ error: 'Failed to reorder projects' });
+  }
+});
+
+/**
+ * PUT /api/portfolio/projects/:id
+ * Update an existing project (admin only)
+ */
+router.put('/projects/:id', authMiddleware, async (req, res) => {
+  try {
+    const doc = await getPortfolio();
+    if (!doc.projects) doc.projects = [];
+
+    const index = doc.projects.findIndex(
+      p => p.id === req.params.id || p.slug === req.params.id
+    );
+
+    if (index === -1) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    const current = doc.projects[index];
+    const allowed = [
+      'title',
+      'slug',
+      'category',
+      'categoryLabel',
+      'client',
+      'year',
+      'location',
+      'coverImage',
+      'summary',
+      'description',
+      'isFeatured',
+      'order',
+    ];
+
+    allowed.forEach(field => {
+      if (req.body[field] !== undefined) {
+        if (field === 'slug') {
+          current[field] = slugify(req.body[field]);
+        } else {
+          current[field] = req.body[field];
+        }
+      }
+    });
+
+    // Handle photos update if provided
+    if (Array.isArray(req.body.photos)) {
+      current.photos = req.body.photos.map((photo, idx) => ({
+        id: photo.id || `pp_${crypto.randomBytes(3).toString('hex')}`,
+        title: photo.title || '',
+        caption: photo.caption || '',
+        aspect: photo.aspect || 'landscape',
+        image: photo.image,
+        thumb: photo.thumb || photo.image,
+        order: photo.order !== undefined ? photo.order : idx,
+      }));
+    }
+
+    doc.markModified('projects');
+    await doc.save();
+
+    res.json({ message: 'Project updated successfully', project: current });
+  } catch (err) {
+    console.error('PUT /projects/:id error:', err);
+    res.status(500).json({ error: 'Failed to update project' });
+  }
+});
+
+/**
+ * DELETE /api/portfolio/projects/:id
+ * Delete a project (admin only)
+ */
+router.delete('/projects/:id', authMiddleware, async (req, res) => {
+  try {
+    const doc = await getPortfolio();
+    if (!doc.projects) doc.projects = [];
+
+    const beforeCount = doc.projects.length;
+    doc.projects = doc.projects.filter(
+      p => p.id !== req.params.id && p.slug !== req.params.id
+    );
+
+    if (doc.projects.length === beforeCount) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    doc.markModified('projects');
+    await doc.save();
+
+    res.json({ message: 'Project deleted successfully' });
+  } catch (err) {
+    console.error('DELETE /projects/:id error:', err);
+    res.status(500).json({ error: 'Failed to delete project' });
   }
 });
 
