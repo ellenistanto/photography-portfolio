@@ -1,18 +1,20 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
 
-const DEFAULT_HERO_IMAGE = 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80';
-
 export default function Hero({ profile, onExploreClick, onContactClick }) {
-  const name = profile?.name || 'Photographer';
-  const heroImage = profile?.heroImage || DEFAULT_HERO_IMAGE;
+  const name = profile?.name || 'Ellen Istanto';
+  const heroImage = profile?.heroImage;
 
   return (
     <section className="hero-section" id="home">
-      <div 
-        className="hero-background"
-        style={{ backgroundImage: `url('${heroImage}')` }}
-      ></div>
+      {heroImage ? (
+        <div 
+          className="hero-background"
+          style={{ backgroundImage: `url('${heroImage}')` }}
+        ></div>
+      ) : (
+        <div className="hero-background hero-background-placeholder"></div>
+      )}
       <div className="hero-overlay"></div>
       
       <div className="container">

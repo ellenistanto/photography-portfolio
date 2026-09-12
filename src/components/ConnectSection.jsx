@@ -26,12 +26,16 @@ export default function ConnectSection({ profile, stats, milestones }) {
         {/* About Profile Grid */}
         <div className="about-grid">
           <div className="about-photo-wrapper">
-            <img 
-              src={profile.photo || profile.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85"} 
-              alt={profile.name} 
-              className="about-photo" 
-              loading="lazy" 
-            />
+            {(profile.photo || profile.avatar) ? (
+              <img 
+                src={profile.photo || profile.avatar} 
+                alt={profile.name} 
+                className="about-photo" 
+                loading="lazy" 
+              />
+            ) : (
+              <div className="about-photo about-photo-placeholder" style={{ background: 'var(--bg-card)', minHeight: '380px' }}></div>
+            )}
             <div className="about-photo-badge">
               <h4 className="about-badge-name">{profile.name}</h4>
               <p className="about-badge-title">Visual Storyteller & Photographer — {profile.location}</p>

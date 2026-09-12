@@ -8,6 +8,7 @@ import ClientsEditor from './sections/ClientsEditor';
 import MilestonesEditor from './sections/MilestonesEditor';
 import CategoriesEditor from './sections/CategoriesEditor';
 import { API_BASE } from '../config/api';
+import { updatePortfolioCache } from '../hooks/usePortfolioData';
 
 // ── Hamburger Icon ─────────────────────────────────────────────────────────────
 function HamburgerIcon({ open }) {
@@ -68,6 +69,7 @@ export default function AdminDashboard({ token, onLogout }) {
       const json = await res.json();
       setData(json);
       setApiConnected(true);
+      updatePortfolioCache(json);
     } catch (err) {
       console.error('Dashboard fetch error:', err);
       setApiConnected(false);

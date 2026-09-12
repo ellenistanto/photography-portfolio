@@ -17,7 +17,7 @@ import AdminApp from './admin/AdminApp';
 
 // ── Portfolio Page ────────────────────────────────────────────────────────────
 function PortfolioPage() {
-  const { data } = usePortfolioData();
+  const { data, loading } = usePortfolioData();
 
   const [currentCategory, setCurrentCategory] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -78,7 +78,7 @@ function PortfolioPage() {
   return (
     <div className="portfolio-app">
       {/* Header & Navigation */}
-      <Navbar 
+      <Navbar
         profile={data.profile}
         currentCategory={currentCategory}
         onSelectCategory={handleSelectCategory}
@@ -87,7 +87,7 @@ function PortfolioPage() {
 
       <main>
         {/* Hero Section */}
-        <Hero 
+        <Hero
           profile={data.profile}
           onExploreClick={() => scrollToSection('filterSection')}
           onContactClick={() => scrollToSection('connect')}
@@ -97,7 +97,7 @@ function PortfolioPage() {
         <ClientsCloud clients={data.clients} />
 
         {/* Category Filter Tabs */}
-        <FilterBar 
+        <FilterBar
           categories={data.categories}
           currentCategory={currentCategory}
           onSelectCategory={handleSelectCategory}
@@ -105,13 +105,14 @@ function PortfolioPage() {
         />
 
         {/* Responsive Masonry Gallery */}
-        <MasonryGallery 
+        <MasonryGallery
           photos={filteredPhotos}
+          loading={loading}
           onPhotoClick={handleOpenLightbox}
         />
 
         {/* Connect, About, Milestones & Contact */}
-        <ConnectSection 
+        <ConnectSection
           profile={data.profile}
           stats={data.stats}
           milestones={data.milestones}
@@ -119,7 +120,7 @@ function PortfolioPage() {
       </main>
 
       {/* Lightbox Modal */}
-      <LightboxModal 
+      <LightboxModal
         isOpen={lightboxOpen}
         photos={filteredPhotos}
         currentIndex={lightboxIndex}
@@ -129,7 +130,7 @@ function PortfolioPage() {
       />
 
       {/* Floating Back to Top Button */}
-      <button 
+      <button
         className={`back-to-top-btn ${showBackToTop ? 'visible' : ''}`}
         onClick={handleBackToTop}
         aria-label="Back to Top"
@@ -138,7 +139,7 @@ function PortfolioPage() {
       </button>
 
       {/* Footer */}
-      <Footer 
+      <Footer
         profile={data.profile}
         onSelectCategory={handleSelectCategory}
         onScrollToSection={scrollToSection}

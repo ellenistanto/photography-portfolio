@@ -10,12 +10,12 @@
   --bg-card: #141414;
   --bg-card-hover: #1a1a1a;
   --bg-glass: rgba(14, 14, 14, 0.85);
-  
+
   --text-white: #fcfcfc;
   --text-primary: #f0f0f0;
   --text-secondary: #9c9c9c;
   --text-muted: #5e5e5e;
-  
+
   --accent-red: #e02424;
   --accent-amber: #d97706;
   --accent-emerald: #10b981;
@@ -43,7 +43,9 @@
 }
 
 /* Reset & Base Setup */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -329,10 +331,12 @@ button {
 }
 
 @media (max-width: 900px) {
+
   .desktop-nav,
   .nav-cta-btn {
     display: none;
   }
+
   .hamburger-btn {
     display: flex;
   }
@@ -457,8 +461,13 @@ button {
 }
 
 @keyframes heroSubtleZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.06); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.06);
+  }
 }
 
 .hero-overlay {
@@ -468,8 +477,8 @@ button {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: radial-gradient(circle at center, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.92) 80%, rgba(5,5,5,1) 100%),
-              linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.85) 75%, var(--bg-black) 100%);
+  background: radial-gradient(circle at center, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.92) 80%, rgba(5, 5, 5, 1) 100%),
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.85) 75%, var(--bg-black) 100%);
 }
 
 .hero-content {
@@ -486,6 +495,7 @@ button {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -518,9 +528,20 @@ button {
 }
 
 @keyframes pulseDot {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(224, 36, 36, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(224, 36, 36, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(224, 36, 36, 0); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(224, 36, 36, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(224, 36, 36, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(224, 36, 36, 0);
+  }
 }
 
 .hero-title {
@@ -963,6 +984,7 @@ button {
 }
 
 @media (max-width: 600px) {
+
   /* Single column on mobile — clean vertical scroll */
   .stories-grid {
     grid-template-columns: 1fr;
@@ -1008,7 +1030,7 @@ button {
 .story-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1252,7 +1274,7 @@ button {
   bottom: 0;
   left: 24px;
   width: 2px;
-  background: linear-gradient(to bottom, var(--accent-red) 0%, rgba(255,255,255,0.15) 80%, transparent 100%);
+  background: linear-gradient(to bottom, var(--accent-red) 0%, rgba(255, 255, 255, 0.15) 80%, transparent 100%);
 }
 
 .timeline-item {
@@ -1625,6 +1647,7 @@ button {
 }
 
 @media (max-width: 768px) {
+
   /* On mobile: hide desktop arrow buttons completely */
   .lightbox-nav-btn {
     display: none !important;
@@ -1927,6 +1950,63 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================================================
+   GALLERY SKELETON LOADING (Mencegah Foto Dummy Muncul)
+   ==================================================================== */
+.gallery-skeleton-grid {
+  opacity: 0.9;
+}
+
+.gallery-skeleton-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+
+.skeleton-card-1 { height: 380px; }
+.skeleton-card-2 { height: 260px; }
+.skeleton-card-3 { height: 340px; }
+.skeleton-card-4 { height: 290px; }
+.skeleton-card-5 { height: 370px; }
+.skeleton-card-6 { height: 310px; }
+
+.skeleton-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.8s infinite;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hero-background-placeholder {
+  background: radial-gradient(circle at center, #18181c 0%, #08080a 100%);
 }

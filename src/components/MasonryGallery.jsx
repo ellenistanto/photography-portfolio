@@ -1,7 +1,22 @@
 import React from 'react';
 import { Maximize2 } from 'lucide-react';
 
-export default function MasonryGallery({ photos, onPhotoClick }) {
+export default function MasonryGallery({ photos, onPhotoClick, loading = false }) {
+  // Tampilkan skeleton shimmer saat pertama kali memuat foto (agar foto dummy tidak muncul)
+  if (loading && (!photos || photos.length === 0)) {
+    return (
+      <section className="gallery-section container" id="gallerySection">
+        <div className="masonry-grid gallery-skeleton-grid">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div key={i} className={`gallery-skeleton-card skeleton-card-${i}`}>
+              <div className="skeleton-shimmer"></div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   if (!photos || photos.length === 0) {
     return (
       <section className="gallery-section container" id="gallerySection">

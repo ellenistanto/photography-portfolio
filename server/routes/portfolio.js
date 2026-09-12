@@ -26,6 +26,8 @@ async function getPortfolio() {
 router.get('/', async (req, res) => {
   try {
     const doc = await getPortfolio();
+    // Cache di Vercel CDN Edge selama 60 detik, revalidasi di background
+    res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
     res.json({
       profile: doc.profile,
       stats: doc.stats,
