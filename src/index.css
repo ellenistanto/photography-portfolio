@@ -885,10 +885,10 @@ button {
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
-/* Mobile: remove gap + bg so photos flow edge-to-edge */
+/* Mobile: photos flow edge-to-edge with small gap between */
 @media (hover: none) and (max-width: 768px) {
   .gallery-item {
-    margin-bottom: 0;
+    margin-bottom: 8px;
     border-radius: 0;
     background-color: transparent;
   }
@@ -2220,7 +2220,7 @@ button {
   }
 
   .overview-grid {
-    gap: 0;
+    gap: 8px;
   }
 
   .overview-img-container {
@@ -2998,7 +2998,7 @@ button {
   }
 
   .project-photos-grid {
-    gap: 0;
+    gap: 8px;
   }
 }
 
