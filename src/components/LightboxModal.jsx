@@ -30,12 +30,15 @@ export default function LightboxModal({
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        if (isFullscreen && isMobile) {
-          if (document.fullscreenElement) document.exitFullscreen();
-          setIsFullscreen(false);
+        if (isFullscreen && document.fullscreenElement) {
+          document.exitFullscreen();
         } else {
           onClose();
         }
+      }
+      if (isMobile && isFullscreen) {
+        if (e.key === 'ArrowRight') onNext();
+        if (e.key === 'ArrowLeft') onPrev();
       }
       if (!isMobile) {
         if (e.key === 'ArrowRight') onNext();
@@ -52,6 +55,15 @@ export default function LightboxModal({
     };
   }, [isOpen, onNext, onPrev, onClose, isMobile, isFullscreen]);
 
+  // Listen for fullscreen change
+  useEffect(() => {
+    const onFsChange = () => {
+      if (!document.fullscreenElement) setIsFullscreen(false);
+    };
+    document.addEventListener('fullscreenchange', onFsChange);
+    return () => document.removeEventListener('fullscreenchange', onFsChange);
+  }, []);
+
   if (!isOpen || !photos || photos.length === 0) return null;
 
   const handleFullscreen = () => {
@@ -64,19 +76,24 @@ export default function LightboxModal({
     }
   };
 
-  // Listen for fullscreen change (e.g. user presses Esc in fullscreen)
-  useEffect(() => {
-    const onFsChange = () => {
-      if (!document.fullscreenElement) setIsFullscreen(false);
-    };
-    document.addEventListener('fullscreenchange', onFsChange);
-    return () => document.removeEventListener('fullscreenchange', onFsChange);
-  }, []);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    const diff = touchEndX.current - touchStartX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) onNext();
+      else onPrev();
+    }
+  };
 
   // ── MOBILE LAYOUT: Single photo with title+desc + fullscreen option ──
   if (isMobile) {
     const photo = photos[currentIndex] || photos[0];
     if (!photo) return null;
+    const imgSrc = photo.image || photo.thumb;
 
     return (
       <div 
@@ -85,6 +102,8 @@ export default function LightboxModal({
         role="dialog" 
         aria-modal="true" 
         aria-label="Photo Lightbox"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Header */}
         <div className="lightbox-mobile-header">
@@ -112,12 +131,18 @@ export default function LightboxModal({
         {/* Single Photo */}
         <div className="lightbox-mobile-single">
           <div className="lightbox-mobile-img-wrap">
-            <img 
-              src={photo.image} 
-              alt={photo.title} 
-              className="lightbox-mobile-img"
-              decoding="async"
-            />
+            {imgSrc ? (
+              <img 
+                src={imgSrc} 
+                alt={photo.title || 'Photo'} 
+                className="lightbox-mobile-img"
+                decoding="async"
+              />
+            ) : (
+              <div style={{ padding: '3rem', color: '#888', textAlign: 'center' }}>
+                Image not available
+              </div>
+            )}
           </div>
 
           {/* Caption below photo */}
@@ -139,6 +164,26 @@ export default function LightboxModal({
             )}
           </div>
         </div>
+
+        {/* Fullscreen mode: prev/next controls */}
+        {isFullscreen && photos.length > 1 && (
+          <>
+            <button 
+              className="lightbox-nav-btn lightbox-prev"
+              onClick={onPrev}
+              aria-label="Previous photo"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <button 
+              className="lightbox-nav-btn lightbox-next"
+              onClick={onNext}
+              aria-label="Next photo"
+            >
+              <ChevronRight size={28} />
+            </button>
+          </>
+        )}
       </div>
     );
   }
@@ -146,19 +191,6 @@ export default function LightboxModal({
   // ── DESKTOP LAYOUT: Centered Single Photo with Arrows ──
   const photo = photos[currentIndex];
   if (!photo) return null;
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    const diff = touchEndX.current - touchStartX.current;
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) onNext();
-      else onPrev();
-    }
-  };
 
   return (
     <div 
@@ -198,7 +230,7 @@ export default function LightboxModal({
 
         <div className="lightbox-image-container">
           <img 
-            src={photo.image} 
+            src={photo.image || photo.thumb} 
             alt={photo.title} 
             className="lightbox-img"
           />
@@ -222,4 +254,3 @@ export default function LightboxModal({
     </div>
   );
 }
-

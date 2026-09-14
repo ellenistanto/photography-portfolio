@@ -1674,10 +1674,39 @@ button {
 }
 
 @media (max-width: 768px) {
-
-  /* On mobile: hide desktop arrow buttons completely */
+  /* On mobile: hide nav arrows by default, show in fullscreen mode */
   .lightbox-nav-btn {
     display: none !important;
+  }
+
+  .lightbox-modal-mobile:fullscreen .lightbox-nav-btn {
+    display: flex !important;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: var(--z-overlay);
+  }
+
+  .lightbox-modal-mobile:fullscreen .lightbox-prev {
+    left: 1rem;
+  }
+
+  .lightbox-modal-mobile:fullscreen .lightbox-next {
+    right: 1rem;
+  }
+
+  /* In fullscreen: hide caption, center photo */
+  .lightbox-modal-mobile:fullscreen .lightbox-mobile-caption {
+    display: none;
+  }
+
+  .lightbox-modal-mobile:fullscreen .lightbox-mobile-single {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .lightbox-modal-mobile:fullscreen .lightbox-mobile-img {
+    max-height: 100vh;
   }
 }
 
@@ -1689,7 +1718,17 @@ button {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+}
+
+.lightbox-modal-mobile:fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
 }
 
 .lightbox-mobile-header {
