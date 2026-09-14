@@ -927,13 +927,36 @@ button {
   opacity: 1;
 }
 
-/* Mobile: no overlay on photo — caption goes below image */
+/* Mobile: no overlay on photo — caption below image, hidden by default */
 @media (hover: none) and (max-width: 768px) {
   .gallery-meta-overlay {
-    position: static;
-    background: none;
-    padding: 0.75rem 0 0;
+    display: none;
+  }
+}
+
+/* Caption below photo (mobile only) */
+.gallery-caption-below {
+  display: none;
+}
+
+@media (hover: none) and (max-width: 768px) {
+  .gallery-caption-below {
+    display: block;
+    padding: 0.75rem 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
+  }
+
+  .gallery-item.caption-expanded .gallery-caption-below {
+    max-height: 200px;
     opacity: 1;
+    padding: 0.75rem 0 1.25rem;
+  }
+
+  .gallery-item.caption-expanded {
+    cursor: pointer;
   }
 }
 
@@ -963,15 +986,15 @@ button {
 
 /* Mobile: text below photo uses page text colors */
 @media (hover: none) and (max-width: 768px) {
-  .gallery-meta-title {
+  .gallery-caption-below .gallery-meta-title {
     color: var(--text-primary);
     font-size: 1rem;
   }
-  .gallery-meta-badge {
+  .gallery-caption-below .gallery-meta-badge {
     color: var(--text-muted);
     font-size: 0.625rem;
   }
-  .gallery-meta-client {
+  .gallery-caption-below .gallery-meta-client {
     color: var(--text-secondary);
     font-size: 0.75rem;
   }
@@ -2228,24 +2251,47 @@ button {
     color: var(--text-secondary);
   }
 
+  /* Desktop-only content inside photo — hide on mobile */
   .overview-card-content {
-    position: static;
-    padding: 0.5rem 0 1rem;
-  }
-
-  .overview-card-title {
-    color: var(--text-primary);
-  }
-
-  .overview-card-desc {
-    color: var(--text-secondary);
-  }
-
-  .overview-client {
-    color: var(--text-muted);
+    display: none;
   }
 
   .overview-zoom-btn {
+    display: none;
+  }
+
+  /* Mobile caption below photo */
+  .overview-caption-below {
+    display: block;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
+  }
+
+  .overview-card.caption-expanded .overview-caption-below {
+    max-height: 300px;
+    opacity: 1;
+    padding: 0.5rem 0 1.25rem;
+  }
+
+  .overview-card.caption-expanded .overview-card-title {
+    color: var(--text-primary);
+  }
+
+  .overview-card.caption-expanded .overview-card-desc {
+    color: var(--text-secondary);
+  }
+
+  .overview-card.caption-expanded .overview-client {
+    color: var(--text-muted);
+  }
+}
+
+/* Desktop: caption below is hidden */
+@media (hover: hover), (min-width: 769px) {
+  .overview-caption-below {
     display: none;
   }
 }
@@ -3006,26 +3052,40 @@ button {
 /* Mobile: no overlay — caption goes below image */
 @media (hover: none) and (max-width: 768px) {
   .project-photo-overlay {
-    position: static;
-    background: none;
-    padding: 0.75rem 0 0;
+    display: none;
+  }
+
+  .project-photo-caption-below {
+    display: block;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
+  }
+
+  .project-photo-item.caption-expanded .project-photo-caption-below {
+    max-height: 200px;
     opacity: 1;
+    padding: 0.75rem 0 1.25rem;
   }
 
-  .project-photo-caption-box {
-    color: var(--text-primary);
-    max-width: 100%;
-  }
-
-  .project-photo-title {
+  .project-photo-item.caption-expanded .project-photo-title {
     color: var(--text-primary);
   }
 
-  .project-photo-caption {
+  .project-photo-item.caption-expanded .project-photo-caption {
     color: var(--text-secondary);
   }
 
   .project-photo-zoom-btn {
+    display: none;
+  }
+}
+
+/* Desktop: caption below is hidden */
+@media (hover: hover), (min-width: 769px) {
+  .project-photo-caption-below {
     display: none;
   }
 }

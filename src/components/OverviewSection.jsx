@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function OverviewSection({ overview, photos, onPhotoClick }) {
+  const [expandedId, setExpandedId] = useState(null);
+
   // If disabled by admin or no photos selected, don't render
   if (overview?.enabled === false || !photos || photos.length === 0) {
     return null;
@@ -9,6 +11,16 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
 
   const title = overview?.title || 'Selected Works';
   const subtitle = overview?.subtitle || 'Curated highlights & moments in between';
+
+  const handleClick = (photo, index) => {
+    // Mobile: toggle text reveal below photo (no lightbox)
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: none) and (max-width: 768px)').matches) {
+      setExpandedId(prev => (prev === photo.id ? null : photo.id));
+      return;
+    }
+    // Desktop: open lightbox
+    onPhotoClick(photo, index);
+  };
 
   return (
     <section className="overview-section" id="overview">
@@ -24,21 +36,21 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
         {/* Overview Editorial Grid */}
         <div className="overview-grid">
           {photos.map((photo, index) => {
-            // First item or items with portrait aspect get featured presentation
             const isFeaturedCard = index === 0 && photos.length > 2;
+            const isExpanded = expandedId === photo.id;
 
             return (
               <article
                 key={photo.id}
-                className={`overview-card ${isFeaturedCard ? 'overview-card-featured' : ''}`}
+                className={`overview-card ${isFeaturedCard ? 'overview-card-featured' : ''} ${isExpanded ? 'caption-expanded' : ''}`}
                 tabIndex={0}
                 role="button"
                 aria-label={`View selected photo: ${photo.title}`}
-                onClick={() => onPhotoClick(photo, index)}
+                onClick={() => handleClick(photo, index)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    onPhotoClick(photo, index);
+                    handleClick(photo, index);
                   }
                 }}
               >
@@ -62,7 +74,7 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
                     )}
                   </div>
 
-                  {/* Bottom Meta Info */}
+                  {/* Desktop: Bottom Meta Info inside photo */}
                   <div className="overview-card-content">
                     {photo.client && (
                       <p className="overview-client">{photo.client}</p>
@@ -77,6 +89,17 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
                   <div className="overview-zoom-btn" aria-hidden="true">
                     <ArrowUpRight size={18} />
                   </div>
+                </div>
+
+                {/* Mobile: caption below photo — hidden unless expanded */}
+                <div className="overview-caption-below">
+                  {photo.client && (
+                    <p className="overview-client">{photo.client}</p>
+                  )}
+                  <h3 className="overview-card-title">{photo.title}</h3>
+                  {photo.description && (
+                    <p className="overview-card-desc">{photo.description}</p>
+                  )}
                 </div>
               </article>
             );
