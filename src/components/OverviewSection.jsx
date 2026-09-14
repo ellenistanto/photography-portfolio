@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Maximize2, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function OverviewSection({ overview, photos, onPhotoClick }) {
   // If disabled by admin or no photos selected, don't render
@@ -15,10 +15,6 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
       <div className="container">
         {/* Section Header */}
         <div className="overview-header">
-          <div className="overview-eyebrow">
-            <Sparkles size={14} className="overview-sparkle-icon" />
-            <span>Curated Highlights</span>
-          </div>
           <div className="overview-title-row">
             <h2 className="overview-title">{title}</h2>
             <p className="overview-subtitle">{subtitle}</p>

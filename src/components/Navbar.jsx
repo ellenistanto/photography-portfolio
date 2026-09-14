@@ -110,12 +110,12 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
             </button>
           </nav>
 
-          {/* Nav CTA Button */}
+          {/* Nav CTA Button — mobile only via CSS */}
           <button 
             onClick={() => handleNavClick('connect')} 
             className="nav-cta-btn"
           >
-            <span>Get in Touch</span>
+            <span>Contact</span>
           </button>
 
           {/* Mobile Hamburger Button */}

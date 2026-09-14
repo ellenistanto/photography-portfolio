@@ -1318,8 +1318,8 @@
 }
 
 input:checked + .admin-slider {
-  background-color: var(--admin-accent, #e02424);
-  border-color: var(--admin-accent, #e02424);
+  background-color: var(--admin-accent, #c8382d);
+  border-color: var(--admin-accent, #c8382d);
 }
 
 input:checked + .admin-slider:before {

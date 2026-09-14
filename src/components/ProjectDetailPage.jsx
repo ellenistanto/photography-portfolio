@@ -141,7 +141,7 @@ export default function ProjectDetailPage({ portfolioData }) {
               className="project-share-btn"
               title="Bagikan Project"
             >
-              {copied ? <Check size={16} style={{ color: 'var(--accent-emerald)' }} /> : <Share2 size={16} />}
+              {copied ? <Check size={16} style={{ color: '#34d399' }} /> : <Share2 size={16} />}
               <span className="share-text">{copied ? 'Tersalin!' : 'Bagikan'}</span>
             </button>
 
@@ -228,7 +228,7 @@ export default function ProjectDetailPage({ portfolioData }) {
           <section className="project-story-section">
             <div className="container project-story-container">
               <div className="project-story-eyebrow">
-                <span>The Narrative & Vision</span>
+                <span>The Narrative</span>
               </div>
               <div className="project-story-content">
                 {project.description.split('\n\n').map((paragraph, i) => (
@@ -244,9 +244,9 @@ export default function ProjectDetailPage({ portfolioData }) {
           <div className="container">
             <div className="project-gallery-header">
               <div className="project-gallery-title-box">
-                <h2 className="project-gallery-title">Visual Showcase</h2>
+                <h2 className="project-gallery-title">Gallery</h2>
                 <p className="project-gallery-subtitle">
-                  Klik foto mana saja untuk melihat dalam resolusi tinggi & detail penuh.
+                  Click any photo to view in full resolution.
                 </p>
               </div>
               <span className="project-gallery-count-badge">
@@ -342,7 +342,6 @@ export default function ProjectDetailPage({ portfolioData }) {
           <div className="container">
             <div className="project-cta-box">
               <div className="project-cta-content">
-                <span className="project-cta-tag">Creative Collaboration</span>
                 <h3 className="project-cta-title">
                   Ingin Mewujudkan Dokumentasi Serupa untuk Event atau Brand Anda?
                 </h3>

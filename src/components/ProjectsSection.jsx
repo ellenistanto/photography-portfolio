@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layers, ArrowRight, Camera, MapPin, Calendar } from 'lucide-react';
+import { ArrowRight, Camera, MapPin, Calendar } from 'lucide-react';
 
 export default function ProjectsSection({ projects = [] }) {
   if (!projects || projects.length === 0) {
@@ -12,14 +12,10 @@ export default function ProjectsSection({ projects = [] }) {
       {/* Section Header */}
       <div className="section-header-row">
         <div>
-          <div className="section-eyebrow">
-            <Layers size={14} className="section-eyebrow-icon" />
-            <span>Featured Series & Stories</span>
-          </div>
           <h2 className="section-main-title">Curated Projects</h2>
         </div>
         <p className="section-description">
-          Dokumentasi menyeluruh untuk pameran, tur panggung, dan kampanye komersial yang dirangkum dalam satu kesatuan cerita visual.
+          Exhibitions, stage tours, and commercial campaigns documented as complete visual stories.
         </p>
       </div>
 

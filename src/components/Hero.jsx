@@ -20,15 +20,15 @@ export default function Hero({ profile, onExploreClick, onContactClick }) {
       <div className="container">
         <div className="hero-content">
           <div className="hero-badge">
-            <span>Photographer & Visual Storyteller</span>
+            <span>Photographer</span>
           </div>
           
           <h1 className="hero-title">
-            {name} — <span className="highlight">Concerts, Portraits, Travel,</span> & Human Moments.
+            {name}
           </h1>
           
           <p className="hero-statement">
-            {profile?.shortBio || "Drawn to moments charged with emotion, I work between motion and stillness — capturing the raw frenzy of arena stages and the quiet authenticity of human connection."}
+            {profile?.shortBio || "Concerts, portraits, travel, and the human moments in between."}
           </p>
 
           <div className="hero-actions">
@@ -37,7 +37,7 @@ export default function Hero({ profile, onExploreClick, onContactClick }) {
               <ArrowDown size={16} />
             </button>
             <button onClick={onContactClick} className="btn-secondary">
-              <span>About & Contact</span>
+              <span>Contact</span>
             </button>
           </div>
         </div>

@@ -43,7 +43,6 @@ export default function ConnectSection({ profile, stats, milestones }) {
           </div>
 
           <div className="about-text-content">
-            <p className="section-eyebrow">About the Artist</p>
             <h2 className="about-headline">Preserving the feeling as much as the sight.</h2>
             
             {profile.aboutLong.map((para, idx) => (
@@ -68,10 +67,9 @@ export default function ConnectSection({ profile, stats, milestones }) {
         {/* Milestones / Timeline */}
         <div className="timeline-container">
           <div className="section-header">
-            <p className="section-eyebrow">The Journey</p>
             <h2 className="section-title">Career Milestones</h2>
             <p className="section-subtitle">
-              How a passion for analog grit grew into a decade of stadium stages and editorial campaigns.
+              From analog beginnings to a decade of stadium stages and editorial campaigns.
             </p>
           </div>
 
@@ -90,10 +88,9 @@ export default function ConnectSection({ profile, stats, milestones }) {
         {/* Direct Contact & Form Block */}
         <div className="contact-block">
           <div className="contact-info-col">
-            <p className="section-eyebrow">Connect & Collaborate</p>
-            <h3>Let’s Create Something Unforgettable.</h3>
+            <h3>Let's work together.</h3>
             <p>
-              Available for live concert touring, artist portraits, commercial editorial lookbooks, and travel assignments worldwide. Reach out directly via WhatsApp or send an email inquiry.
+              Available for concert touring, artist portraits, commercial editorial, and travel assignments worldwide.
             </p>
 
             <div className="quick-contact-list">

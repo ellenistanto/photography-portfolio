@@ -81,7 +81,7 @@ export default function Footer({ profile, onSelectCategory, onScrollToSection })
 
         <div className="footer-bottom">
           <p>&copy; {currentYear} {profile?.name || 'Portfolio'}. All rights reserved.</p>
-          <p>Crafted with precision & passion for visual storytelling.</p>
+          <p>Yogyakarta, Indonesia</p>
         </div>
       </div>
     </footer>
