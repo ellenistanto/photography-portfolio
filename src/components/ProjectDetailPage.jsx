@@ -14,7 +14,6 @@ export default function ProjectDetailPage({ portfolioData }) {
   const [copied, setCopied] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-  const [expandedPhotoId, setExpandedPhotoId] = useState(null);
 
   // Scroll to top when page opens
   useEffect(() => {
@@ -87,16 +86,6 @@ export default function ProjectDetailPage({ portfolioData }) {
   const handleOpenLightbox = (index) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
-  };
-
-  const handlePhotoClick = (photo, index) => {
-    // Mobile: toggle text reveal below photo (no lightbox)
-    if (typeof window !== 'undefined' && window.matchMedia('(hover: none) and (max-width: 768px)').matches) {
-      setExpandedPhotoId(prev => (prev === photo.id ? null : photo.id));
-      return;
-    }
-    // Desktop: open lightbox
-    handleOpenLightbox(index);
   };
 
   if (!project) {
@@ -273,20 +262,19 @@ export default function ProjectDetailPage({ portfolioData }) {
               <div className="project-photos-grid">
                 {photos.map((photo, index) => {
                   const aspectClass = photo.aspect === 'portrait' ? 'is-portrait' : photo.aspect === 'square' ? 'is-square' : 'is-landscape';
-                  const isExpanded = expandedPhotoId === photo.id;
 
                   return (
                     <figure 
                       key={photo.id || index}
-                      className={`project-photo-item ${aspectClass} ${isExpanded ? 'caption-expanded' : ''}`}
-                      onClick={() => handlePhotoClick(photo, index)}
+                      className={`project-photo-item ${aspectClass}`}
+                      onClick={() => handleOpenLightbox(index)}
                       tabIndex={0}
                       role="button"
                       aria-label={`Lihat foto: ${photo.title || `Foto ${index + 1}`}`}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
-                          handlePhotoClick(photo, index);
+                          handleOpenLightbox(index);
                         }
                       }}
                     >
@@ -313,15 +301,6 @@ export default function ProjectDetailPage({ portfolioData }) {
                           </div>
                         </div>
                       </div>
-                      {/* Mobile: caption below photo — hidden unless expanded */}
-                      <figcaption className="project-photo-caption-below">
-                        {photo.title && (
-                          <h4 className="project-photo-title">{photo.title}</h4>
-                        )}
-                        {photo.caption && (
-                          <p className="project-photo-caption">{photo.caption}</p>
-                        )}
-                      </figcaption>
                     </figure>
                   );
                 })}

@@ -885,6 +885,15 @@ button {
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
+/* Mobile: remove gap + bg so photos flow edge-to-edge */
+@media (hover: none) and (max-width: 768px) {
+  .gallery-item {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
+
 .gallery-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
@@ -927,36 +936,14 @@ button {
   opacity: 1;
 }
 
-/* Mobile: no overlay on photo — caption below image, hidden by default */
+/* Mobile: hide hover overlay completely — photos are clean */
 @media (hover: none) and (max-width: 768px) {
   .gallery-meta-overlay {
     display: none;
   }
-}
 
-/* Caption below photo (mobile only) */
-.gallery-caption-below {
-  display: none;
-}
-
-@media (hover: none) and (max-width: 768px) {
-  .gallery-caption-below {
-    display: block;
-    padding: 0.75rem 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
-  }
-
-  .gallery-item.caption-expanded .gallery-caption-below {
-    max-height: 200px;
-    opacity: 1;
-    padding: 0.75rem 0 1.25rem;
-  }
-
-  .gallery-item.caption-expanded {
-    cursor: pointer;
+  .gallery-zoom-icon {
+    display: none;
   }
 }
 
@@ -982,22 +969,6 @@ button {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   font-weight: 500;
-}
-
-/* Mobile: text below photo uses page text colors */
-@media (hover: none) and (max-width: 768px) {
-  .gallery-caption-below .gallery-meta-title {
-    color: var(--text-primary);
-    font-size: 1rem;
-  }
-  .gallery-caption-below .gallery-meta-badge {
-    color: var(--text-muted);
-    font-size: 0.625rem;
-  }
-  .gallery-caption-below .gallery-meta-client {
-    color: var(--text-secondary);
-    font-size: 0.75rem;
-  }
 }
 
 .gallery-zoom-icon {
@@ -2224,35 +2195,17 @@ button {
   );
 }
 
-/* Mobile: no overlay — caption goes below image */
+/* Mobile: hide overlay + desktop content — photos are clean, text only in lightbox */
 @media (hover: none) and (max-width: 768px) {
   .overview-overlay {
     display: none;
   }
 
-  .overview-top-badge {
-    position: static;
-    padding: 0.75rem 0 0;
-  }
-
-  .overview-pill {
-    background: none;
-    border: none;
-    padding: 0;
-    color: var(--text-muted);
-    backdrop-filter: none;
-  }
-
-  .overview-year-tag {
-    background: none;
-    border: none;
-    padding: 0;
-    backdrop-filter: none;
-    color: var(--text-secondary);
-  }
-
-  /* Desktop-only content inside photo — hide on mobile */
   .overview-card-content {
+    display: none;
+  }
+
+  .overview-top-badge {
     display: none;
   }
 
@@ -2260,39 +2213,18 @@ button {
     display: none;
   }
 
-  /* Mobile caption below photo */
-  .overview-caption-below {
-    display: block;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
+  .overview-card {
+    border-radius: 0;
+    border: none;
+    background: transparent;
   }
 
-  .overview-card.caption-expanded .overview-caption-below {
-    max-height: 300px;
-    opacity: 1;
-    padding: 0.5rem 0 1.25rem;
+  .overview-grid {
+    gap: 0;
   }
 
-  .overview-card.caption-expanded .overview-card-title {
-    color: var(--text-primary);
-  }
-
-  .overview-card.caption-expanded .overview-card-desc {
-    color: var(--text-secondary);
-  }
-
-  .overview-card.caption-expanded .overview-client {
-    color: var(--text-muted);
-  }
-}
-
-/* Desktop: caption below is hidden */
-@media (hover: hover), (min-width: 769px) {
-  .overview-caption-below {
-    display: none;
+  .overview-img-container {
+    border-radius: 0;
   }
 }
 
@@ -3049,44 +2981,24 @@ button {
   opacity: 1;
 }
 
-/* Mobile: no overlay — caption goes below image */
+/* Mobile: hide overlay completely — photos are clean, text only in lightbox */
 @media (hover: none) and (max-width: 768px) {
   .project-photo-overlay {
     display: none;
   }
 
-  .project-photo-caption-below {
-    display: block;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
-  }
-
-  .project-photo-item.caption-expanded .project-photo-caption-below {
-    max-height: 200px;
-    opacity: 1;
-    padding: 0.75rem 0 1.25rem;
-  }
-
-  .project-photo-item.caption-expanded .project-photo-title {
-    color: var(--text-primary);
-  }
-
-  .project-photo-item.caption-expanded .project-photo-caption {
-    color: var(--text-secondary);
-  }
-
   .project-photo-zoom-btn {
     display: none;
   }
-}
 
-/* Desktop: caption below is hidden */
-@media (hover: hover), (min-width: 769px) {
-  .project-photo-caption-below {
-    display: none;
+  .project-photo-item {
+    border-radius: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .project-photos-grid {
+    gap: 0;
   }
 }
 
