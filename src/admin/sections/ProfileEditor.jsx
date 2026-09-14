@@ -12,14 +12,6 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
   });
   const [saving, setSaving] = useState(false);
 
-  // Profile photo states
-  const [uploading, setUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [photoInputMode, setPhotoInputMode] = useState('upload'); // 'upload' | 'url'
-  const [previewError, setPreviewError] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const fileInputRef = useRef(null);
-
   // Hero overlay photo states
   const [heroInputMode, setHeroInputMode] = useState('upload'); // 'upload' | 'url'
   const [heroUploading, setHeroUploading] = useState(false);
@@ -35,8 +27,6 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
         aboutLong: data.profile.aboutLong?.length >= 2
           ? data.profile.aboutLong
           : [...(data.profile.aboutLong || []), ''],
-        photo: data.profile.photo || data.profile.avatar || "",
-        avatar: data.profile.avatar || data.profile.photo || "",
         heroImage: data.profile.heroImage || DEFAULT_HERO_IMAGE,
       });
     }
@@ -69,7 +59,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
   };
 
   // Upload handler for File object
-  const processUpload = async (file, targetField = 'photo') => {
+  const processUpload = async (file, targetField = 'heroImage') => {
     if (!file) return;
 
     if (!file.type.startsWith('image/')) {
@@ -82,22 +72,14 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       return;
     }
 
-    const isHero = targetField === 'heroImage';
-    if (isHero) {
-      setHeroUploading(true);
-      setHeroUploadProgress(25);
-      setHeroPreviewError(false);
-    } else {
-      setUploading(true);
-      setUploadProgress(25);
-      setPreviewError(false);
-    }
+    setHeroUploading(true);
+    setHeroUploadProgress(25);
+    setHeroPreviewError(false);
 
     const formData = new FormData();
     formData.append('file', file);
     const progressTimer = setTimeout(() => {
-      if (isHero) setHeroUploadProgress(70);
-      else setUploadProgress(70);
+      setHeroUploadProgress(70);
     }, 200);
 
     try {
@@ -110,8 +92,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       });
 
       clearTimeout(progressTimer);
-      if (isHero) setHeroUploadProgress(100);
-      else setUploadProgress(100);
+      setHeroUploadProgress(100);
 
       if (!res.ok) {
         const err = await res.json();
@@ -120,17 +101,12 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
 
       const result = await res.json();
       handleChange(targetField, result.url);
-      onToast(isHero ? '✅ Foto overlay hero berhasil diunggah!' : '✅ Foto profil berhasil diunggah!', 'success');
+      onToast('✅ Foto overlay hero berhasil diunggah!', 'success');
     } catch (err) {
       onToast(`❌ ${err.message}`, 'error');
     } finally {
-      if (isHero) {
-        setHeroUploading(false);
-        setHeroUploadProgress(0);
-      } else {
-        setUploading(false);
-        setUploadProgress(0);
-      }
+      setHeroUploading(false);
+      setHeroUploadProgress(0);
     }
   };
 
@@ -164,7 +140,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
     <div>
       <div className="admin-section-header">
         <h2 className="admin-section-title">👤 Profile</h2>
-        <p className="admin-section-desc">Update your name, bio, profile photo, and contact information shown on the portfolio.</p>
+        <p className="admin-section-desc">Update your name, bio, hero background, and contact information shown on the portfolio.</p>
       </div>
 
       {/* Identity */}
@@ -421,149 +397,6 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
                 </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
-
-      {/* About the Artist Photo */}
-      <div className="admin-card">
-        <h3 className="admin-card-title">📸 About the Artist Photo</h3>
-        <p style={{ fontSize: 13, color: 'var(--admin-text-muted)', marginBottom: 14 }}>
-          Foto potret Anda yang tampil di bagian <strong>About the Artist / The Journey</strong> pada halaman utama portfolio.
-        </p>
-
-        {/* Mode Selector Tabs */}
-        <div className="admin-tabs-segmented" style={{ marginBottom: 14 }}>
-          <button
-            type="button"
-            className={`admin-tab-seg-btn ${photoInputMode === 'upload' ? 'active' : ''}`}
-            onClick={() => setPhotoInputMode('upload')}
-          >
-            📤 Upload File (Drag & Drop)
-          </button>
-          <button
-            type="button"
-            className={`admin-tab-seg-btn ${photoInputMode === 'url' ? 'active' : ''}`}
-            onClick={() => setPhotoInputMode('url')}
-          >
-            🔗 External Image URL / Google Drive
-          </button>
-        </div>
-
-        {/* Upload Mode Area */}
-        {photoInputMode === 'upload' && (
-          <div style={{ marginBottom: 16 }}>
-            <input
-              type="file"
-              ref={fileInputRef}
-              accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
-              style={{ display: 'none' }}
-              onChange={(e) => {
-                if (e.target.files && e.target.files[0]) {
-                  processUpload(e.target.files[0]);
-                }
-              }}
-            />
-
-            {form.photo ? (
-              <div className="admin-dropzone-preview" style={{ maxHeight: 260, maxWidth: 380 }}>
-                <img
-                  src={form.photo}
-                  alt="Profile Preview"
-                  onError={() => setPreviewError(true)}
-                  style={{ maxHeight: 260, objectFit: 'cover' }}
-                />
-                <div className="admin-dropzone-preview-overlay">
-                  <button
-                    type="button"
-                    className="admin-dropzone-remove-btn"
-                    onClick={() => fileInputRef.current?.click()}
-                  >
-                    🔄 Ganti Foto
-                  </button>
-                  <button
-                    type="button"
-                    className="admin-dropzone-remove-btn"
-                    onClick={() => handleChange('photo', '')}
-                  >
-                    ✕ Hapus
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div
-                className={`admin-dropzone ${isDragging ? 'drag-active' : ''}`}
-                onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
-                onDragLeave={(e) => { e.preventDefault(); setIsDragging(false); }}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  setIsDragging(false);
-                  if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                    processUpload(e.dataTransfer.files[0]);
-                  }
-                }}
-                onClick={() => fileInputRef.current?.click()}
-              >
-                {uploading ? (
-                  <>
-                    <div className="admin-spinner" style={{ width: 32, height: 32 }} />
-                    <div className="admin-dropzone-text">Mengunggah foto… ({uploadProgress}%)</div>
-                    <div className="admin-upload-progress">
-                      <div className="admin-upload-progress-bar" style={{ width: `${uploadProgress}%` }} />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="admin-dropzone-icon">📷</div>
-                    <div className="admin-dropzone-text">
-                      <strong>Tarik & lepas foto profil</strong> ke sini, atau klik untuk browse
-                    </div>
-                    <div className="admin-dropzone-subtext">
-                      Mendukung JPG, PNG, WEBP, GIF, AVIF (Maks. 20MB)
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* URL Mode Area */}
-        {photoInputMode === 'url' && (
-          <div style={{ marginBottom: 16 }}>
-            <div className="admin-form-group">
-              <label className="admin-form-label">Profile Photo URL</label>
-              <input
-                id="profile-photo-url"
-                className="admin-form-input"
-                value={form.photo || ''}
-                onChange={(e) => {
-                  handleChange('photo', e.target.value);
-                  setPreviewError(false);
-                }}
-                placeholder="https://... atau link Google Drive"
-              />
-              <p style={{ fontSize: '0.78rem', color: 'var(--admin-text-muted, #888)', marginTop: 6, lineHeight: 1.4 }}>
-                💡 <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
-              </p>
-            </div>
-
-            {form.photo && (
-              <div className="admin-dropzone-preview" style={{ maxHeight: 260, maxWidth: 380 }}>
-                <img
-                  src={form.photo}
-                  alt="Profile Preview"
-                  onError={() => setPreviewError(true)}
-                  style={{ maxHeight: 260, objectFit: 'cover' }}
-                />
-              </div>
-            )}
-
-            {previewError && form.photo && (
-              <div style={{ padding: '8px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 6, color: '#fca5a5', fontSize: '0.8rem', marginTop: 8 }}>
-                ⚠️ Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Public)</strong>.
-              </div>
-            )}
           </div>
         )}
       </div>

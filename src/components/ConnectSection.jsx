@@ -23,32 +23,13 @@ export default function ConnectSection({ profile, stats, milestones }) {
     <section className="connect-section" id="connect">
       <div className="container">
         
-        {/* About Profile Grid */}
-        <div className="about-grid">
-          <div className="about-photo-wrapper">
-            {(profile.photo || profile.avatar) ? (
-              <img 
-                src={profile.photo || profile.avatar} 
-                alt={profile.name} 
-                className="about-photo" 
-                loading="lazy" 
-              />
-            ) : (
-              <div className="about-photo about-photo-placeholder" style={{ background: 'var(--bg-card)', minHeight: '380px' }}></div>
-            )}
-            <div className="about-photo-badge">
-              <h4 className="about-badge-name">{profile.name}</h4>
-              <p className="about-badge-title">Visual Storyteller & Photographer — {profile.location}</p>
-            </div>
-          </div>
-
-          <div className="about-text-content">
-            <h2 className="about-headline">Preserving the feeling as much as the sight.</h2>
-            
-            {profile.aboutLong.map((para, idx) => (
-              <p key={idx} className="about-paragraph">{para}</p>
-            ))}
-          </div>
+        {/* About Text */}
+        <div className="about-text-content">
+          <h2 className="about-headline">Preserving the feeling as much as the sight.</h2>
+          
+          {profile.aboutLong.map((para, idx) => (
+            <p key={idx} className="about-paragraph">{para}</p>
+          ))}
         </div>
 
         {/* Numbers / Stats Grid */}

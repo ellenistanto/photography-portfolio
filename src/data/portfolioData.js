@@ -26,8 +26,6 @@ export const PORTFOLIO_DATA = {
     instagram: "https://instagram.com/ellenistanto",
     youtube: "https://youtube.com",
     behance: "https://behance.net",
-    photo: "",
-    avatar: "",
     heroImage: "",
   },
 

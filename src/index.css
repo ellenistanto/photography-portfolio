@@ -1138,48 +1138,7 @@ button {
   background-color: var(--bg-black);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 4.5rem;
-  align-items: start;
-  margin-bottom: 5.5rem;
-}
-
-@media (max-width: 960px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
 @media (max-width: 600px) {
-  .about-grid {
-    gap: 2rem;
-    margin-bottom: 3.5rem;
-  }
-
-  /* Compact photo on mobile: horizontal strip instead of full portrait */
-  .about-photo-wrapper {
-    border-radius: var(--radius-md);
-  }
-
-  .about-photo {
-    aspect-ratio: 16/9;
-    max-height: 220px;
-  }
-
-  .about-photo-badge {
-    padding: 0.85rem;
-    bottom: 0.75rem;
-    left: 0.75rem;
-    right: 0.75rem;
-  }
-
-  .about-badge-name {
-    font-size: 0.95rem;
-  }
-
   .about-headline {
     font-size: 1.6rem;
   }
@@ -1189,45 +1148,10 @@ button {
   }
 }
 
-.about-photo-wrapper {
-  position: relative;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-}
-
-.about-photo {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  filter: grayscale(20%) contrast(1.08);
-}
-
-.about-photo-badge {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  padding: 1rem;
-  background-color: rgba(14, 14, 14, 0.85);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-}
-
-.about-badge-name {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.about-badge-title {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
 .about-text-content {
   display: flex;
   flex-direction: column;
+  max-width: 720px;
 }
 
 .about-text-content .section-eyebrow {

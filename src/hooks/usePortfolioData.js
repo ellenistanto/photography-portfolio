@@ -43,8 +43,6 @@ function getInitialData() {
         instagram: PORTFOLIO_DATA.profile?.instagram || '',
         youtube: PORTFOLIO_DATA.profile?.youtube || '',
         behance: PORTFOLIO_DATA.profile?.behance || '',
-        photo: PORTFOLIO_DATA.profile?.photo || '',
-        avatar: PORTFOLIO_DATA.profile?.avatar || '',
         heroImage: '', // Kosongkan saat loading awal agar foto dummy tidak muncul
       },
       categories: PORTFOLIO_DATA.categories || [],
