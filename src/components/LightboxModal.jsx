@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
 export default function LightboxModal({ 
   isOpen, 
@@ -10,9 +10,7 @@ export default function LightboxModal({
   onPrev 
 }) {
   const [isMobile, setIsMobile] = useState(false);
-  const [activeScrollIndex, setActiveScrollIndex] = useState(currentIndex);
-  const containerRef = useRef(null);
-  const itemRefs = useRef([]);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
@@ -31,7 +29,14 @@ export default function LightboxModal({
     if (!isOpen) return;
 
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (isFullscreen && isMobile) {
+          if (document.fullscreenElement) document.exitFullscreen();
+          setIsFullscreen(false);
+        } else {
+          onClose();
+        }
+      }
       if (!isMobile) {
         if (e.key === 'ArrowRight') onNext();
         if (e.key === 'ArrowLeft') onPrev();
@@ -45,115 +50,94 @@ export default function LightboxModal({
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
-  }, [isOpen, onNext, onPrev, onClose, isMobile]);
-
-  // Auto-scroll to selected photo when opened on mobile
-  useEffect(() => {
-    if (isOpen && isMobile) {
-      setActiveScrollIndex(currentIndex);
-      const timer = setTimeout(() => {
-        const target = itemRefs.current[currentIndex];
-        if (target) {
-          target.scrollIntoView({ behavior: 'auto', block: 'start' });
-        }
-      }, 50);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, currentIndex, isMobile]);
+  }, [isOpen, onNext, onPrev, onClose, isMobile, isFullscreen]);
 
   if (!isOpen || !photos || photos.length === 0) return null;
 
-  // Track active photo as user scrolls down on mobile
-  const handleMobileScroll = () => {
-    if (!containerRef.current || !itemRefs.current.length) return;
-    const containerTop = containerRef.current.getBoundingClientRect().top;
-    
-    let closestIndex = activeScrollIndex;
-    let minDistance = Infinity;
-
-    itemRefs.current.forEach((el, index) => {
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const distance = Math.abs(rect.top - containerTop - 60);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = index;
-      }
-    });
-
-    if (closestIndex !== activeScrollIndex) {
-      setActiveScrollIndex(closestIndex);
+  const handleFullscreen = () => {
+    const el = document.getElementById('mobile-photo-viewer');
+    if (!el) return;
+    if (!document.fullscreenElement) {
+      el.requestFullscreen?.().then(() => setIsFullscreen(true)).catch(() => {});
+    } else {
+      document.exitFullscreen?.().then(() => setIsFullscreen(false)).catch(() => {});
     }
   };
 
-  // ── MOBILE LAYOUT: Vertical Scroll Feed ──
+  // Listen for fullscreen change (e.g. user presses Esc in fullscreen)
+  useEffect(() => {
+    const onFsChange = () => {
+      if (!document.fullscreenElement) setIsFullscreen(false);
+    };
+    document.addEventListener('fullscreenchange', onFsChange);
+    return () => document.removeEventListener('fullscreenchange', onFsChange);
+  }, []);
+
+  // ── MOBILE LAYOUT: Single photo with title+desc + fullscreen option ──
   if (isMobile) {
-    const currentActivePhoto = photos[activeScrollIndex] || photos[currentIndex] || photos[0];
+    const photo = photos[currentIndex] || photos[0];
+    if (!photo) return null;
+
     return (
       <div 
+        id="mobile-photo-viewer"
         className="lightbox-modal active lightbox-modal-mobile" 
         role="dialog" 
         aria-modal="true" 
         aria-label="Photo Lightbox"
       >
-        {/* Sticky Mobile Header */}
+        {/* Header */}
         <div className="lightbox-mobile-header">
-          <div className="lightbox-mobile-title-wrap">
-            <span className="lightbox-mobile-category">
-              {currentActivePhoto.categoryLabel || 'Portfolio'}
-            </span>
-            <span className="lightbox-mobile-counter">
-              {activeScrollIndex + 1} / {photos.length}
-            </span>
+          <span className="lightbox-mobile-category">
+            {photo.categoryLabel || photo.category || 'Portfolio'}
+          </span>
+          <div className="lightbox-mobile-actions">
+            <button 
+              className="lightbox-mobile-action-btn"
+              onClick={handleFullscreen}
+              aria-label="Toggle fullscreen"
+            >
+              <Maximize2 size={18} />
+            </button>
+            <button 
+              className="lightbox-close-btn" 
+              onClick={onClose}
+              aria-label="Close Lightbox"
+            >
+              <X size={22} />
+            </button>
           </div>
-          <button 
-            className="lightbox-close-btn" 
-            onClick={onClose}
-            aria-label="Close Lightbox"
-          >
-            <X size={22} />
-          </button>
         </div>
 
-        {/* Vertical Scroll List of Photos */}
-        <div 
-          className="lightbox-vertical-scroll" 
-          ref={containerRef}
-          onScroll={handleMobileScroll}
-        >
-          {photos.map((item, idx) => (
-            <article 
-              key={item.id || idx} 
-              id={`lightbox-photo-${idx}`}
-              className="lightbox-vertical-item"
-              ref={(el) => (itemRefs.current[idx] = el)}
-            >
-              <div className="lightbox-vertical-img-wrap">
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="lightbox-vertical-img"
-                  loading={Math.abs(idx - currentIndex) <= 2 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-              </div>
-              <div className="lightbox-vertical-caption">
-                <div className="lightbox-vertical-meta-row">
-                  <span className="lightbox-vertical-badge">
-                    {item.categoryLabel || item.category}
-                  </span>
-                  <span className="lightbox-vertical-year">{item.year}</span>
-                </div>
-                <h3 className="lightbox-vertical-title">{item.title}</h3>
-                {item.client && (
-                  <p className="lightbox-vertical-client">{item.client}</p>
-                )}
-                {item.description && (
-                  <p className="lightbox-vertical-desc">{item.description}</p>
-                )}
-              </div>
-            </article>
-          ))}
+        {/* Single Photo */}
+        <div className="lightbox-mobile-single">
+          <div className="lightbox-mobile-img-wrap">
+            <img 
+              src={photo.image} 
+              alt={photo.title} 
+              className="lightbox-mobile-img"
+              decoding="async"
+            />
+          </div>
+
+          {/* Caption below photo */}
+          <div className="lightbox-mobile-caption">
+            <div className="lightbox-vertical-meta-row">
+              <span className="lightbox-vertical-badge">
+                {photo.categoryLabel || photo.category}
+              </span>
+              {photo.year && (
+                <span className="lightbox-vertical-year">{photo.year}</span>
+              )}
+            </div>
+            <h3 className="lightbox-vertical-title">{photo.title}</h3>
+            {photo.client && (
+              <p className="lightbox-vertical-client">{photo.client}</p>
+            )}
+            {photo.description && (
+              <p className="lightbox-vertical-desc">{photo.description}</p>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -238,3 +222,4 @@ export default function LightboxModal({
     </div>
   );
 }
+
