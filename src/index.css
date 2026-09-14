@@ -1,84 +1,104 @@
 /* ====================================================================
-   ELLEN ISTANTO PORTFOLIO — EDITORIAL DARK MINIMALIST
-   Design system: off-black canvas, single accent, aggressive whitespace.
-   Typography: Outfit (display/body) + Space Grotesk (mono/labels).
+   ELLEN ISTANTO PORTFOLIO — EDITORIAL PHOTOGRAPHY
+   Design system: cream/off-white canvas, serif display, no accent color.
+   Photography is the hero. UI stays quiet.
+   Reference: design.md
    ==================================================================== */
 
 /* ── Self-hosted fonts ── */
 @font-face {
-  font-family: 'Outfit';
+  font-family: 'Instrument Serif';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 400;
   font-display: swap;
-  src: url('/fonts/outfit-400-latin.woff2') format('woff2');
+  src: url('/fonts/instrument-serif-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Outfit';
+  font-family: 'Instrument Serif';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 400;
   font-display: swap;
-  src: url('/fonts/outfit-400-latin-ext.woff2') format('woff2');
+  src: url('/fonts/instrument-serif-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400 700;
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
+  src: url('/fonts/instrument-serif-italic-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-serif-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/space-grotesk-latin-ext.woff2') format('woff2');
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 :root {
-  /* ── Color palette: off-black canvas, single warm-red accent ── */
-  --bg-black: #0a0a0a;
-  --bg-surface: #111111;
-  --bg-card: #161616;
-  --bg-card-hover: #1c1c1c;
-  --bg-glass: rgba(10, 10, 10, 0.88);
+  /* ── Color palette: editorial light — photography provides the color ── */
+  --bg-black: #F5F5F3;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FAFAF8;
+  --bg-card-hover: #F0F0EE;
+  --bg-glass: rgba(245, 245, 243, 0.92);
 
-  --text-white: #ececec;
-  --text-primary: #dcdcdc;
-  --text-secondary: #888888;
-  --text-muted: #555555;
+  --text-white: #111111;
+  --text-primary: #111111;
+  --text-secondary: #6F6F6F;
+  --text-muted: #999999;
 
-  --accent-red: #c8382d;
-  --accent-red-hover: #d4403a;
-  --accent-red-soft: rgba(200, 56, 45, 0.12);
+  --accent-red: #111111;
+  --accent-red-hover: #333333;
+  --accent-red-soft: rgba(17, 17, 17, 0.06);
 
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.15);
+  --border-subtle: #DCDCDC;
+  --border-strong: #BBBBBB;
 
   /* ── Typography ── */
-  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: 'Space Grotesk', 'SF Mono', ui-monospace, monospace;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'Inter', ui-monospace, monospace;
 
   /* ── Layout & spacing ── */
-  --header-height: 64px;
-  --container-max: 1360px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --header-height: 56px;
+  --container-max: 1440px;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
   --radius-full: 9999px;
 
   /* ── Transitions ── */
-  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 180ms ease-out;
+  --transition-smooth: 300ms ease-out;
+  --transition-slow: 600ms ease-out;
 
-  /* ── z-index scale (systemic, no arbitrary values) ── */
+  /* ── z-index scale ── */
   --z-nav: 100;
   --z-dropdown: 110;
   --z-filter: 90;
@@ -86,17 +106,14 @@
   --z-lightbox: 200;
   --z-overlay: 210;
 
-  /* ── Spacing scale (4px base) ── */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
+  /* ── Spacing scale ── */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --space-2xl: 128px;
+  --space-3xl: 160px;
 }
 
 /* Reset & Base Setup */
@@ -288,12 +305,11 @@ button {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 0.5rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
   transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
-  backdrop-filter: blur(12px);
   z-index: var(--z-dropdown);
 }
 
@@ -513,7 +529,7 @@ button {
   z-index: 0;
   background-size: cover;
   background-position: center 30%;
-  filter: brightness(0.3) contrast(1.1);
+  filter: brightness(0.85) contrast(1.05);
   transform: scale(1.02);
 }
 
@@ -524,7 +540,7 @@ button {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.7) 60%, var(--bg-black) 100%);
+  background: linear-gradient(to bottom, rgba(245, 245, 243, 0.2) 0%, rgba(245, 245, 243, 0.5) 50%, var(--bg-black) 100%);
 }
 
 .hero-content {
@@ -566,18 +582,19 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--text-white);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   text-wrap: balance;
 }
 
 .hero-title span.highlight {
+  font-style: italic;
   color: var(--text-secondary);
-  font-weight: 400;
 }
 
 .hero-statement {
@@ -601,21 +618,20 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.75rem 1.75rem;
-  font-size: 0.8125rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--bg-black);
-  background-color: var(--text-white);
+  background-color: var(--text-primary);
   border-radius: var(--radius-sm);
-  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .btn-primary:hover {
-  background-color: #ffffff;
+  background-color: #333333;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:active {
@@ -626,12 +642,12 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.75rem 1.75rem;
-  font-size: 0.8125rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--text-white);
+  color: var(--text-primary);
   background-color: transparent;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
@@ -639,8 +655,9 @@ button {
 }
 
 .btn-secondary:hover {
-  background-color: var(--border-subtle);
-  border-color: var(--text-secondary);
+  background-color: var(--text-primary);
+  color: var(--bg-black);
+  border-color: var(--text-primary);
   transform: translateY(-1px);
 }
 
@@ -730,9 +747,9 @@ button {
   position: sticky;
   top: var(--header-height);
   z-index: var(--z-filter);
-  background-color: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background-color: rgba(245, 245, 243, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-subtle);
   margin-bottom: 2.5rem;
   transition: padding var(--transition-smooth);
@@ -989,10 +1006,11 @@ button {
 }
 
 .section-title {
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-white);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
 }
 
@@ -1191,15 +1209,15 @@ button {
   left: 1.5rem;
   right: 1.5rem;
   padding: 1rem;
-  background-color: rgba(10, 10, 10, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
 }
 
 .about-badge-name {
   font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .about-badge-title {
@@ -1217,9 +1235,10 @@ button {
 }
 
 .about-headline {
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 400;
+  color: var(--text-primary);
   line-height: 1.25;
   margin-bottom: 1.5rem;
 }
@@ -1424,9 +1443,10 @@ button {
 }
 
 .contact-info-col h3 {
+  font-family: var(--font-display);
   font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--text-white);
+  font-weight: 400;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -1601,9 +1621,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: var(--z-lightbox);
-  background-color: rgba(0, 0, 0, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: #111111;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1629,7 +1647,7 @@ button {
 .lightbox-counter {
   font-size: 0.85rem;
   font-family: var(--font-mono);
-  color: var(--text-secondary);
+  color: #888888;
   letter-spacing: 0.1em;
 }
 
@@ -1637,16 +1655,16 @@ button {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-sm);
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-white);
+  color: #F5F5F3;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .lightbox-close-btn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.16);
   transform: scale(0.96);
 }
 
@@ -1694,13 +1712,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-white);
+  color: #F5F5F3;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   z-index: var(--z-dropdown);
 }
 
 .lightbox-nav-btn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.14);
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -1724,9 +1742,7 @@ button {
    MOBILE VERTICAL LIGHTBOX FEED
    ==================================================================== */
 .lightbox-modal-mobile {
-  background-color: rgba(7, 7, 7, 0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: #111111;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1741,7 +1757,7 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 0.85rem 1.25rem;
-  background-color: rgba(10, 10, 10, 0.85);
+  background-color: rgba(17, 17, 17, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1756,20 +1772,20 @@ button {
 
 .lightbox-mobile-category {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent-red);
+  color: #F5F5F3;
 }
 
 .lightbox-mobile-counter {
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.07);
+  color: #888888;
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.2rem 0.55rem;
-  border-radius: 999px;
+  border-radius: 0;
 }
 
 .lightbox-vertical-scroll {
@@ -1791,11 +1807,10 @@ button {
 
 .lightbox-vertical-img-wrap {
   width: 100%;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   overflow: hidden;
-  background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85);
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .lightbox-vertical-img {
@@ -1808,7 +1823,7 @@ button {
 
 .lightbox-vertical-caption {
   padding: 0.25rem 0.35rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .lightbox-vertical-meta-row {
@@ -1820,36 +1835,37 @@ button {
 
 .lightbox-vertical-badge {
   font-size: 0.675rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--accent-red);
+  color: #F5F5F3;
 }
 
 .lightbox-vertical-year {
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  color: var(--text-muted);
+  color: #888888;
 }
 
 .lightbox-vertical-title {
   font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 400;
+  font-family: var(--font-display);
+  color: #F5F5F3;
   line-height: 1.3;
   margin-bottom: 0.25rem;
 }
 
 .lightbox-vertical-client {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: #888888;
   font-weight: 500;
   margin-bottom: 0.4rem;
 }
 
 .lightbox-vertical-desc {
   font-size: 0.825rem;
-  color: var(--text-muted);
+  color: #6F6F6F;
   line-height: 1.55;
 }
 
@@ -1864,14 +1880,15 @@ button {
 
 .lightbox-caption-title {
   font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 400;
+  font-family: var(--font-display);
+  color: #F5F5F3;
   margin-bottom: 0.35rem;
 }
 
 .lightbox-caption-desc {
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: #888888;
   line-height: 1.5;
 }
 
@@ -2119,10 +2136,11 @@ button {
 }
 
 .overview-title {
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-white);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
   line-height: 1.15;
 }
 
@@ -2367,10 +2385,11 @@ button {
 }
 
 .section-main-title {
+  font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-white);
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
   line-height: 1.15;
 }
 
@@ -2747,11 +2766,12 @@ button {
 }
 
 .project-hero-title {
+  font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 400;
+  color: var(--text-primary);
   line-height: 1.18;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   max-width: 960px;
   margin-bottom: 2rem;
 }
@@ -2884,9 +2904,10 @@ button {
 }
 
 .project-gallery-title {
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 400;
+  color: var(--text-primary);
   letter-spacing: -0.01em;
   margin-bottom: 0.25rem;
 }
@@ -3116,9 +3137,10 @@ button {
 }
 
 .project-cta-title {
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-weight: 400;
+  color: var(--text-primary);
   line-height: 1.3;
   margin-bottom: 0.75rem;
 }
@@ -3141,9 +3163,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: var(--z-lightbox);
-  background: rgba(0, 0, 0, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #111111;
   display: flex;
   flex-direction: column;
   animation: fadeIn 0.2s ease;
@@ -3154,23 +3174,23 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--text-primary);
+  color: #F5F5F3;
   z-index: 10;
 }
 
 .lightbox-counter {
   font-family: var(--font-mono);
   font-size: 0.88rem;
-  color: var(--text-secondary);
+  color: #888888;
 }
 
 .lightbox-close-btn {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: #F5F5F3;
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3179,7 +3199,7 @@ button {
 }
 
 .lightbox-close-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   transform: scale(0.96);
 }
 
@@ -3220,10 +3240,10 @@ button {
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: #F5F5F3;
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3236,27 +3256,28 @@ button {
 .lightbox-arrow-btn.next { right: 1.5rem; }
 
 .lightbox-arrow-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.14);
   transform: translateY(-50%) scale(1.05);
 }
 
 .project-lightbox-caption-bar {
   padding: 1.25rem 2rem 2rem;
   text-align: center;
-  color: #fff;
+  color: #F5F5F3;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .lightbox-cap-title {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 400;
+  font-family: var(--font-display);
   margin-bottom: 0.25rem;
 }
 
 .lightbox-cap-text {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #888888;
   line-height: 1.4;
 }
 
