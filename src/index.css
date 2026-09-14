@@ -927,10 +927,13 @@ button {
   opacity: 1;
 }
 
-@media (hover: none) {
+/* Mobile: no overlay on photo — caption goes below image */
+@media (hover: none) and (max-width: 768px) {
   .gallery-meta-overlay {
+    position: static;
+    background: none;
+    padding: 0.75rem 0 0;
     opacity: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 50%);
   }
 }
 
@@ -940,7 +943,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-red);
+  color: var(--text-muted);
   margin-bottom: 0.35rem;
 }
 
@@ -956,6 +959,22 @@ button {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   font-weight: 500;
+}
+
+/* Mobile: text below photo uses page text colors */
+@media (hover: none) and (max-width: 768px) {
+  .gallery-meta-title {
+    color: var(--text-primary);
+    font-size: 1rem;
+  }
+  .gallery-meta-badge {
+    color: var(--text-muted);
+    font-size: 0.625rem;
+  }
+  .gallery-meta-client {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+  }
 }
 
 .gallery-zoom-icon {
@@ -979,6 +998,12 @@ button {
 .gallery-item:hover .gallery-zoom-icon {
   opacity: 1;
   transform: scale(1);
+}
+
+@media (hover: none) and (max-width: 768px) {
+  .gallery-zoom-icon {
+    display: none;
+  }
 }
 
 /* ====================================================================
@@ -2176,6 +2201,55 @@ button {
   );
 }
 
+/* Mobile: no overlay — caption goes below image */
+@media (hover: none) and (max-width: 768px) {
+  .overview-overlay {
+    display: none;
+  }
+
+  .overview-top-badge {
+    position: static;
+    padding: 0.75rem 0 0;
+  }
+
+  .overview-pill {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-muted);
+    backdrop-filter: none;
+  }
+
+  .overview-year-tag {
+    background: none;
+    border: none;
+    padding: 0;
+    backdrop-filter: none;
+    color: var(--text-secondary);
+  }
+
+  .overview-card-content {
+    position: static;
+    padding: 0.5rem 0 1rem;
+  }
+
+  .overview-card-title {
+    color: var(--text-primary);
+  }
+
+  .overview-card-desc {
+    color: var(--text-secondary);
+  }
+
+  .overview-client {
+    color: var(--text-muted);
+  }
+
+  .overview-zoom-btn {
+    display: none;
+  }
+}
+
 .overview-top-badge {
   position: absolute;
   top: 16px;
@@ -2927,6 +3001,33 @@ button {
 
 .project-photo-item:hover .project-photo-overlay {
   opacity: 1;
+}
+
+/* Mobile: no overlay — caption goes below image */
+@media (hover: none) and (max-width: 768px) {
+  .project-photo-overlay {
+    position: static;
+    background: none;
+    padding: 0.75rem 0 0;
+    opacity: 1;
+  }
+
+  .project-photo-caption-box {
+    color: var(--text-primary);
+    max-width: 100%;
+  }
+
+  .project-photo-title {
+    color: var(--text-primary);
+  }
+
+  .project-photo-caption {
+    color: var(--text-secondary);
+  }
+
+  .project-photo-zoom-btn {
+    display: none;
+  }
 }
 
 .project-photo-caption-box {
