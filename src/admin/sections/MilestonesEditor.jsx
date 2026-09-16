@@ -86,10 +86,11 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
             <div key={idx} className="admin-milestone-card">
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                 <span style={{
-                  width: 28, height: 28, borderRadius: '50%',
-                  background: 'var(--admin-accent)', color: 'white',
+                  width: 26, height: 26, borderRadius: 'var(--admin-radius-sm)',
+                  background: 'var(--admin-surface-3)', color: 'var(--admin-text)',
+                  border: '1px solid var(--admin-border)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 12, fontWeight: 700, flexShrink: 0
+                  fontSize: 11, fontWeight: 600, flexShrink: 0
                 }}>
                   {idx + 1}
                 </span>

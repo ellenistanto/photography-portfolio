@@ -46,9 +46,9 @@ export default function AdminLogin({ onLoginSuccess }) {
 
         <div className="admin-login-card">
           <div className="admin-login-logo">
-            <div className="admin-login-logo-icon">A</div>
+            <div className="admin-login-logo-icon">EI</div>
             <div>
-              <div className="admin-login-title">Admin Dashboard</div>
+              <div className="admin-login-title">Studio Console</div>
               <div className="admin-login-subtitle">Ellen Istanto Photography</div>
             </div>
           </div>

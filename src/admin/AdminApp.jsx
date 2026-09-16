@@ -60,13 +60,13 @@ export default function AdminApp() {
     return (
       <div style={{
         minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: '#0a0a0f', color: '#8888a8', fontFamily: 'Inter, sans-serif', gap: 12
+        background: '#0E0E0E', color: '#888888', fontFamily: 'Inter, sans-serif', gap: 12
       }}>
         <div style={{
-          width: 20, height: 20, border: '2px solid rgba(255,255,255,0.1)',
-          borderTopColor: '#8b5cf6', borderRadius: '50%', animation: 'spin 0.7s linear infinite'
+          width: 20, height: 20, border: '2px solid rgba(255,255,255,0.08)',
+          borderTopColor: '#ECECEC', borderRadius: '50%', animation: 'spin 0.7s linear infinite'
         }} />
-        <span>Checking session…</span>
+        <span style={{ fontSize: 13, letterSpacing: '0.05em' }}>Checking session…</span>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
     );
