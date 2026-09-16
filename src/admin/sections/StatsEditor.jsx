@@ -34,10 +34,10 @@ export default function StatsEditor({ data, token, onSaved, onToast }) {
         throw new Error(err.error || 'Save failed');
       }
 
-      onToast('✅ Statistics saved!', 'success');
+      onToast('Statistics saved successfully', 'success');
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -46,7 +46,7 @@ export default function StatsEditor({ data, token, onSaved, onToast }) {
   return (
     <div>
       <div className="admin-section-header">
-        <h2 className="admin-section-title">📊 Statistics</h2>
+        <h2 className="admin-section-title">Statistics</h2>
         <p className="admin-section-desc">Update the four counter numbers displayed on your portfolio.</p>
       </div>
 
@@ -113,7 +113,7 @@ export default function StatsEditor({ data, token, onSaved, onToast }) {
           onClick={handleSave}
           disabled={saving}
         >
-          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : '💾 Save Statistics'}
+          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : 'Save Statistics'}
         </button>
       </div>
     </div>

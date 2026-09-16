@@ -101,9 +101,9 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
 
       const result = await res.json();
       handleChange(targetField, result.url);
-      onToast('✅ Foto overlay hero berhasil diunggah!', 'success');
+      onToast('Foto overlay hero berhasil diunggah', 'success');
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setHeroUploading(false);
       setHeroUploadProgress(0);
@@ -127,10 +127,10 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
         throw new Error(err.error || 'Save failed');
       }
 
-      onToast('✅ Profile saved successfully!', 'success');
+      onToast('Profile saved successfully', 'success');
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -139,13 +139,13 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
   return (
     <div>
       <div className="admin-section-header">
-        <h2 className="admin-section-title">👤 Profile</h2>
+        <h2 className="admin-section-title">Profile</h2>
         <p className="admin-section-desc">Update your name, bio, hero background, and contact information shown on the portfolio.</p>
       </div>
 
       {/* Identity */}
       <div className="admin-card">
-        <h3 className="admin-card-title">🪪 Identity</h3>
+        <h3 className="admin-card-title">Identity</h3>
         <div className="admin-form-row" style={{ marginBottom: 16 }}>
           <div className="admin-form-group">
             <label className="admin-form-label">Full Name</label>
@@ -197,7 +197,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
       <div className="admin-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 10, marginBottom: 8 }}>
           <div>
-            <h3 className="admin-card-title">🌄 Hero Background & Overlay Photo (Halaman Utama)</h3>
+            <h3 className="admin-card-title">Hero Background & Overlay Photo (Halaman Utama)</h3>
             <p style={{ fontSize: 13, color: 'var(--admin-text-muted)', marginBottom: 0 }}>
               Foto latar belakang atmosferik di bagian teratas website dengan dark gradient overlay.
             </p>
@@ -212,7 +212,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
                 onToast('Foto hero direset ke default', 'info');
               }}
             >
-              ↺ Reset Default
+              Reset Default
             </button>
           )}
         </div>
@@ -224,14 +224,14 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
             className={`admin-tab-seg-btn ${heroInputMode === 'upload' ? 'active' : ''}`}
             onClick={() => setHeroInputMode('upload')}
           >
-            📤 Upload File (Drag & Drop)
+            Upload File (Drag & Drop)
           </button>
           <button
             type="button"
             className={`admin-tab-seg-btn ${heroInputMode === 'url' ? 'active' : ''}`}
             onClick={() => setHeroInputMode('url')}
           >
-            🔗 External Image URL / Google Drive
+            External Image URL / Google Drive
           </button>
         </div>
 
@@ -264,14 +264,14 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
                     className="admin-dropzone-remove-btn"
                     onClick={() => heroFileInputRef.current?.click()}
                   >
-                    🔄 Ganti Foto
+                    Ganti Foto
                   </button>
                   <button
                     type="button"
                     className="admin-dropzone-remove-btn"
                     onClick={() => handleChange('heroImage', '')}
                   >
-                    ✕ Hapus
+                    Hapus
                   </button>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
                   </>
                 ) : (
                   <>
-                    <div className="admin-dropzone-icon">🌄</div>
+                    <div className="admin-dropzone-icon" style={{ fontSize: 24, lineHeight: 1 }}>↑</div>
                     <div className="admin-dropzone-text">
                       <strong>Tarik & lepas foto hero background</strong> ke sini, atau klik untuk browse
                     </div>
@@ -329,7 +329,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
                 placeholder="https://... atau link Google Drive"
               />
               <p style={{ fontSize: '0.78rem', color: 'var(--admin-text-muted, #888)', marginTop: 6, lineHeight: 1.4 }}>
-                💡 <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
+                <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
               </p>
             </div>
 
@@ -346,7 +346,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
 
             {heroPreviewError && form.heroImage && (
               <div style={{ padding: '8px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 6, color: '#fca5a5', fontSize: '0.8rem', marginTop: 8 }}>
-                ⚠️ Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Public)</strong>.
+                Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Public)</strong>.
               </div>
             )}
           </div>
@@ -356,7 +356,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
         {form.heroImage && !heroPreviewError && (
           <div style={{ marginTop: 14 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--admin-text-muted)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              👁️ Simulasi Tampilan Hero Overlay di Halaman Utama:
+              Simulasi Tampilan Hero Overlay di Halaman Utama:
             </div>
             <div style={{
               position: 'relative',
@@ -403,7 +403,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
 
       {/* About Section */}
       <div className="admin-card">
-        <h3 className="admin-card-title">📖 About Section (Long Bio)</h3>
+        <h3 className="admin-card-title">About Section (Long Bio)</h3>
         <p style={{ fontSize: 12, color: 'var(--admin-text-muted)', marginBottom: 14 }}>
           Two paragraphs shown in the About/Connect section of the portfolio.
         </p>
@@ -435,7 +435,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
 
       {/* Contact */}
       <div className="admin-card">
-        <h3 className="admin-card-title">📬 Contact & Social Links</h3>
+        <h3 className="admin-card-title">Contact & Social Links</h3>
         <div className="admin-form-row" style={{ marginBottom: 16 }}>
           <div className="admin-form-group">
             <label className="admin-form-label">Email</label>
@@ -503,7 +503,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
           onClick={handleSave}
           disabled={saving}
         >
-          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : '💾 Save Profile'}
+          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : 'Save Profile'}
         </button>
       </div>
     </div>

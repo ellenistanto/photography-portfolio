@@ -25,7 +25,7 @@ export default function CategoriesEditor({ data, token, onSaved, onToast }) {
   const handleDelete = (index) => {
     // Prevent deleting 'all' category
     if (categories[index]?.id === 'all') {
-      onToast('⚠️ Cannot delete the "All Works" category', 'error');
+      onToast('Cannot delete the "All Works" category', 'error');
       return;
     }
     setCategories(prev => prev.filter((_, i) => i !== index));
@@ -59,11 +59,11 @@ export default function CategoriesEditor({ data, token, onSaved, onToast }) {
         throw new Error(err.error || 'Save failed');
       }
 
-      onToast('✅ Categories saved!', 'success');
+      onToast('Categories saved successfully', 'success');
       setCategories(filtered);
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -72,7 +72,7 @@ export default function CategoriesEditor({ data, token, onSaved, onToast }) {
   return (
     <div>
       <div className="admin-section-header">
-        <h2 className="admin-section-title">🏷️ Gallery Categories</h2>
+        <h2 className="admin-section-title">Gallery Categories</h2>
         <p className="admin-section-desc">
           Manage filter tabs in the gallery. The <strong>"All Works"</strong> category is always kept as the first tab.
         </p>
@@ -113,13 +113,13 @@ export default function CategoriesEditor({ data, token, onSaved, onToast }) {
                 />
               </div>
               {cat.id === 'all' ? (
-                <span style={{ fontSize: 11, color: 'var(--admin-text-dim)', padding: '0 8px' }}>🔒 Fixed</span>
+                <span style={{ fontSize: 11, color: 'var(--admin-text-dim)', padding: '0 8px' }}>Fixed</span>
               ) : (
                 <button
                   className="admin-btn admin-btn-danger admin-btn-sm"
                   onClick={() => handleDelete(idx)}
                 >
-                  🗑️
+                  Delete
                 </button>
               )}
             </div>
@@ -127,7 +127,7 @@ export default function CategoriesEditor({ data, token, onSaved, onToast }) {
         </div>
 
         <button id="add-category-btn" className="admin-add-btn" onClick={handleAdd}>
-          ➕ Add Category
+          Add Category
         </button>
 
         <p style={{ fontSize: 12, color: 'var(--admin-text-dim)', marginTop: 12, lineHeight: 1.5 }}>
@@ -142,7 +142,7 @@ export default function CategoriesEditor({ data, token, onSaved, onToast }) {
           onClick={handleSave}
           disabled={saving}
         >
-          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : '💾 Save Categories'}
+          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : 'Save Categories'}
         </button>
       </div>
     </div>

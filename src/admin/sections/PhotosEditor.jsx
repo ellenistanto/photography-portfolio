@@ -5,7 +5,6 @@ function ConfirmDialog({ title, text, onConfirm, onCancel }) {
   return (
     <div className="admin-modal-overlay" onClick={onCancel}>
       <div className="admin-modal admin-confirm-dialog" onClick={e => e.stopPropagation()}>
-        <div className="admin-confirm-icon">🗑️</div>
         <div className="admin-confirm-title">{title}</div>
         <div className="admin-confirm-text">{text}</div>
         <div className="admin-confirm-actions">
@@ -140,9 +139,9 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
       };
       img.src = uploadedUrl;
 
-      onToast?.('✅ Foto berhasil diunggah!', 'success');
+      onToast?.('Foto berhasil diunggah!', 'success');
     } catch (err) {
-      onToast?.(`❌ ${err.message}`, 'error');
+      onToast?.(err.message, 'error');
     } finally {
       setUploading(false);
       setUploadProgress(0);
@@ -214,7 +213,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
     <div className="admin-modal-overlay" onClick={onClose}>
       <div className="admin-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 640 }}>
         <div className="admin-modal-header">
-          <h3 className="admin-modal-title">{photo?.id ? '✏️ Edit Photo' : '➕ Add New Photo'}</h3>
+          <h3 className="admin-modal-title">{photo?.id ? 'Edit Photo' : 'Add New Photo'}</h3>
           <button className="admin-modal-close" onClick={onClose} aria-label="Close">×</button>
         </div>
 
@@ -225,14 +224,14 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
             className={`admin-tab-seg-btn ${inputMode === 'upload' ? 'active' : ''}`}
             onClick={() => setInputMode('upload')}
           >
-            📤 Upload File (Drag & Drop)
+            Upload File (Drag & Drop)
           </button>
           <button
             type="button"
             className={`admin-tab-seg-btn ${inputMode === 'url' ? 'active' : ''}`}
             onClick={() => setInputMode('url')}
           >
-            🔗 External Image URL
+            External Image URL
           </button>
         </div>
 
@@ -260,14 +259,14 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
                     className="admin-dropzone-remove-btn"
                     onClick={() => fileInputRef.current?.click()}
                   >
-                    🔄 Ganti Foto
+                    Ganti Foto
                   </button>
                   <button
                     type="button"
                     className="admin-dropzone-remove-btn"
                     onClick={() => handleChange('image', '')}
                   >
-                    ✕ Hapus
+                    Hapus
                   </button>
                 </div>
               </div>
@@ -289,7 +288,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
                   </>
                 ) : (
                   <>
-                    <div className="admin-dropzone-icon">📥</div>
+                    <div className="admin-dropzone-icon" style={{ fontSize: 24, lineHeight: 1 }}>↑</div>
                     <div className="admin-dropzone-text">
                       <strong>Tarik & lepas foto</strong> ke sini, atau klik untuk browse
                     </div>
@@ -297,8 +296,8 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
                       Mendukung JPG, PNG, WEBP, GIF, AVIF (Maks. 20MB)
                     </div>
                     <div className="admin-dropzone-badges">
-                      <span className="admin-dropzone-badge">⚡ Auto-detect ratio</span>
-                      <span className="admin-dropzone-badge">📋 Support Ctrl+V paste</span>
+                      <span className="admin-dropzone-badge">Auto-detect ratio</span>
+                      <span className="admin-dropzone-badge">Support Ctrl+V paste</span>
                     </div>
                   </>
                 )}
@@ -323,7 +322,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
                 placeholder="https://images.unsplash.com/... atau link Google Drive"
               />
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted, #888)', marginTop: 6, lineHeight: 1.4 }}>
-                💡 <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
+                <strong>Tips:</strong> Bisa paste link Google Drive biasa (otomatis dikonversi), ImgBB, Unsplash, dsb.
               </p>
             </div>
             {form.image && (
@@ -337,7 +336,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
             )}
             {previewError && form.image && (
               <div style={{ padding: '8px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 6, color: '#fca5a5', fontSize: '0.8rem', marginTop: 8 }}>
-                ⚠️ Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Anyone with the link / Public)</strong>.
+                Gambar gagal dimuat. Jika menggunakan Google Drive, pastikan izin file diset ke <strong>&quot;Siapa saja yang memiliki link&quot; (Anyone with the link / Public)</strong>.
               </div>
             )}
           </div>
@@ -409,7 +408,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
 
         <div className="admin-toggle-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: 'var(--admin-bg-secondary)', borderRadius: 8, marginTop: 14, marginBottom: 8 }}>
           <div>
-            <div style={{ fontWeight: 600, fontSize: 13, color: 'var(--admin-text-primary)' }}>⭐ Tampilkan di Overview (Halaman Depan)</div>
+            <div style={{ fontWeight: 600, fontSize: 13, color: 'var(--admin-text-primary)' }}>Tampilkan di Overview (Halaman Depan)</div>
             <div style={{ fontSize: 12, color: 'var(--admin-text-muted)', marginTop: 2 }}>Foto ini akan disorot di seksi kurasi pilihan halaman utama.</div>
           </div>
           <label className="admin-switch">
@@ -434,7 +433,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
             {saving ? (
               <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</>
             ) : (
-              '💾 Save Photo'
+              'Save Photo'
             )}
           </button>
         </div>
@@ -505,11 +504,11 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
         throw new Error(err.error || 'Save failed');
       }
 
-      onToast(isEdit ? '✅ Photo updated!' : '✅ Photo added!', 'success');
+      onToast(isEdit ? 'Photo updated!' : 'Photo added!', 'success');
       setShowModal(false);
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     }
   };
 
@@ -522,11 +521,11 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
 
       if (!res.ok) throw new Error('Delete failed');
 
-      onToast('🗑️ Photo deleted', 'success');
+      onToast('Photo deleted', 'success');
       setConfirmId(null);
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
       setConfirmId(null);
     }
   };
@@ -545,10 +544,10 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
 
       if (!res.ok) throw new Error('Gagal mengubah status overview');
 
-      onToast(nextVal ? '⭐ Foto ditambahkan ke Overview!' : 'Foto dihapus dari Overview', 'success');
+      onToast(nextVal ? 'Foto ditambahkan ke Overview!' : 'Foto dihapus dari Overview', 'success');
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     }
   };
 
@@ -600,10 +599,10 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
       });
 
       if (!res.ok) throw new Error('Failed to save order');
-      onToast('✅ Urutan foto berhasil disimpan!', 'success');
+      onToast('Urutan foto berhasil disimpan!', 'success');
       onSaved();
     } catch (err) {
-      onToast(`❌ Gagal menyimpan urutan: ${err.message}`, 'error');
+      onToast(`Gagal menyimpan urutan: ${err.message}`, 'error');
     } finally {
       setReordering(false);
     }
@@ -631,17 +630,17 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
         body: JSON.stringify({ order: updated.map(p => p.id) }),
       });
       if (!res.ok) throw new Error('Failed to save order');
-      onToast('✅ Urutan foto diperbarui!', 'success');
+      onToast('Urutan foto diperbarui!', 'success');
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     }
   };
 
   return (
     <div>
       <div className="admin-section-header">
-        <h2 className="admin-section-title">🖼️ Gallery Photos</h2>
+        <h2 className="admin-section-title">Gallery Photos</h2>
         <p className="admin-section-desc">
           Kelola foto portofolio kamu. Tambah dengan tarik & lepas (Drag & Drop), atur urutan posisi foto, atau edit detailnya.
         </p>
@@ -653,7 +652,7 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
           id="photos-search"
           className="admin-form-input"
           style={{ maxWidth: 220, marginBottom: 0 }}
-          placeholder="🔍 Search photos…"
+          placeholder="Search photos…"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
         />
@@ -678,7 +677,7 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
           style={{ marginLeft: 'auto' }}
           onClick={handleAdd}
         >
-          ➕ Add Photo
+          Add Photo
         </button>
       </div>
 
@@ -696,9 +695,8 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
           color: 'var(--admin-accent-hover)',
           marginBottom: 16,
         }}>
-          <span>✨</span>
           <span>
-            <strong>Drag & Drop Aktif:</strong> Tarik kartu foto atau gunakan tombol panah (⬆/⬇) untuk mengubah urutan tampil di galeri.
+            <strong>Drag & Drop Aktif:</strong> Tarik kartu foto atau gunakan tombol Up/Down untuk mengubah urutan tampil di galeri.
           </span>
         </div>
       )}
@@ -706,7 +704,6 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
       {/* Photo Grid */}
       {displayed.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--admin-text-muted)' }}>
-          <div style={{ fontSize: 40, marginBottom: 12 }}>📷</div>
           <p>{searchTerm || filterCat !== 'all' ? 'No photos match your filter.' : 'No photos yet. Add your first one!'}</p>
         </div>
       ) : (
@@ -753,7 +750,6 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
                         gap: 4,
                       }}
                     >
-                      <span>⠿</span>
                       <span style={{ fontSize: 11, opacity: 0.8 }}>#{index + 1}</span>
                     </div>
                   )}
@@ -775,7 +771,7 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
                           onClick={(e) => { e.stopPropagation(); handleMoveStep(index, -1); }}
                           title="Geser ke atas"
                         >
-                          ⬆
+                          Up
                         </button>
                       )}
                       {index < photos.length - 1 && (
@@ -786,7 +782,7 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
                           onClick={(e) => { e.stopPropagation(); handleMoveStep(index, 1); }}
                           title="Geser ke bawah"
                         >
-                          ⬇
+                          Down
                         </button>
                       )}
                     </div>
@@ -807,20 +803,20 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
                       title={photo.isOverview ? 'Ditampilkan di Overview (klik untuk membatalkan)' : 'Tampilkan di Overview (halaman depan)'}
                       onClick={() => handleToggleOverview(photo)}
                     >
-                      {photo.isOverview ? '⭐ Overview' : '☆ Overview'}
+                      {photo.isOverview ? 'Overview Active' : 'Overview'}
                     </button>
                     <button
                       className="admin-btn admin-btn-ghost admin-btn-sm"
                       style={{ flex: 1 }}
                       onClick={() => handleEdit(photo)}
                     >
-                      ✏️ Edit
+                      Edit
                     </button>
                     <button
                       className="admin-btn admin-btn-danger admin-btn-sm"
                       onClick={() => setConfirmId(photo.id)}
                     >
-                      🗑️
+                      Delete
                     </button>
                   </div>
                 </div>

@@ -130,11 +130,11 @@ export default function OverviewEditor({ data, token, onSaved, onToast }) {
         updatePortfolioCache(fullUpdated);
       }
 
-      onToast('✅ Overview berhasil diperbarui!', 'success');
+      onToast('Overview berhasil diperbarui!', 'success');
       onSaved?.();
     } catch (err) {
       console.error('Save overview error:', err);
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -169,7 +169,7 @@ export default function OverviewEditor({ data, token, onSaved, onToast }) {
           {saving ? (
             <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Menyimpan…</>
           ) : (
-            '💾 Simpan Overview'
+            'Simpan Overview'
           )}
         </button>
       </div>
@@ -237,7 +237,7 @@ export default function OverviewEditor({ data, token, onSaved, onToast }) {
               Foto Pilihan ({selectedPhotos.length} Terpilih)
             </h3>
             <p style={{ fontSize: 13, color: 'var(--admin-text-muted)', margin: '4px 0 0 0' }}>
-              💡 Disarankan memilih <strong>3 hingga 8 foto</strong> agar kurasi terlihat eksklusif dan loading tetap instan. Geser untuk mengatur urutan.
+              Disarankan memilih <strong>3 hingga 8 foto</strong> agar kurasi terlihat eksklusif dan loading tetap instan. Geser untuk mengatur urutan.
             </p>
           </div>
 
@@ -297,7 +297,6 @@ export default function OverviewEditor({ data, token, onSaved, onToast }) {
                 >
                   {/* Order Number & Drag Handle */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--admin-text-muted)', cursor: 'grab' }} title="Tarik untuk geser urutan">
-                    <span style={{ fontSize: 16 }}>⠿</span>
                     <span style={{ fontWeight: 700, fontSize: 13, minWidth: 20 }}>#{index + 1}</span>
                   </div>
 
@@ -508,7 +507,7 @@ export default function OverviewEditor({ data, token, onSaved, onToast }) {
                 className="admin-btn admin-btn-accent"
                 onClick={() => setShowPicker(false)}
               >
-                ✓ Selesai Memilih
+                Selesai Memilih
               </button>
             </div>
           </div>

@@ -63,11 +63,11 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
         throw new Error(err.error || 'Save failed');
       }
 
-      onToast('✅ Career milestones saved!', 'success');
+      onToast('Career milestones saved successfully', 'success');
       setMilestones(filtered);
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -76,7 +76,7 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
   return (
     <div>
       <div className="admin-section-header">
-        <h2 className="admin-section-title">🗓️ Career Milestones</h2>
+        <h2 className="admin-section-title">Career Milestones</h2>
         <p className="admin-section-desc">Edit your career journey timeline. Drag to reorder using the arrows.</p>
       </div>
 
@@ -101,7 +101,7 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
                   disabled={idx === 0}
                   title="Move up"
                 >
-                  ▲
+                  Up
                 </button>
                 <button
                   className="admin-btn admin-btn-ghost admin-btn-sm"
@@ -109,14 +109,14 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
                   disabled={idx === milestones.length - 1}
                   title="Move down"
                 >
-                  ▼
+                  Down
                 </button>
                 <button
                   className="admin-btn admin-btn-danger admin-btn-sm"
                   onClick={() => handleDelete(idx)}
                   title="Delete"
                 >
-                  🗑️
+                  Delete
                 </button>
               </div>
 
@@ -159,7 +159,7 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
         </div>
 
         <button id="add-milestone-btn" className="admin-add-btn" onClick={handleAdd}>
-          ➕ Add Milestone
+          Add Milestone
         </button>
       </div>
 
@@ -173,7 +173,7 @@ export default function MilestonesEditor({ data, token, onSaved, onToast }) {
           onClick={handleSave}
           disabled={saving}
         >
-          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : '💾 Save Milestones'}
+          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : 'Save Milestones'}
         </button>
       </div>
     </div>

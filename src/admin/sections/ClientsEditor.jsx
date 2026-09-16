@@ -43,11 +43,11 @@ export default function ClientsEditor({ data, token, onSaved, onToast }) {
         throw new Error(err.error || 'Save failed');
       }
 
-      onToast('✅ Clients saved!', 'success');
+      onToast('Clients saved successfully', 'success');
       setClients(filtered);
       onSaved();
     } catch (err) {
-      onToast(`❌ ${err.message}`, 'error');
+      onToast(err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -56,7 +56,7 @@ export default function ClientsEditor({ data, token, onSaved, onToast }) {
   return (
     <div>
       <div className="admin-section-header">
-        <h2 className="admin-section-title">🤝 Clients & Collaborations</h2>
+        <h2 className="admin-section-title">Clients & Collaborations</h2>
         <p className="admin-section-desc">Manage the list of clients and partners displayed in the scrolling marquee.</p>
       </div>
 
@@ -86,14 +86,14 @@ export default function ClientsEditor({ data, token, onSaved, onToast }) {
                 onClick={() => handleDelete(idx)}
                 aria-label={`Delete ${client}`}
               >
-                🗑️
+                Delete
               </button>
             </div>
           ))}
         </div>
 
         <button id="add-client-btn" className="admin-add-btn" onClick={handleAdd}>
-          ➕ Add Client
+          Add Client
         </button>
       </div>
 
@@ -107,7 +107,7 @@ export default function ClientsEditor({ data, token, onSaved, onToast }) {
           onClick={handleSave}
           disabled={saving}
         >
-          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : '💾 Save Clients'}
+          {saving ? <><span className="admin-spinner" style={{ width: 14, height: 14 }} /> Saving…</> : 'Save Clients'}
         </button>
       </div>
     </div>
