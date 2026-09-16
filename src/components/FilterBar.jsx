@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function FilterBar({ categories, currentCategory, onSelectCategory, totalCount }) {
-  const currentCatObj = categories.find(c => c.id === currentCategory);
-  const currentCatName = currentCatObj ? currentCatObj.name : 'Works';
+export default function FilterBar({ categories, currentCategory, onSelectCategory }) {
   const [compact, setCompact] = useState(false);
 
   useEffect(() => {
@@ -28,11 +26,6 @@ export default function FilterBar({ categories, currentCategory, onSelectCategor
             </button>
           ))}
         </div>
-        <span className="gallery-stats-label">
-          {currentCategory === 'all' 
-            ? `Showing all ${totalCount} works` 
-            : `Showing ${totalCount} works in ${currentCatName}`}
-        </span>
       </div>
     </section>
   );

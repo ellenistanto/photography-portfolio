@@ -86,16 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentCategory === 'all') {
       filteredPhotos = PORTFOLIO_DATA.photos;
-      if (photoCountLabel) {
-        photoCountLabel.textContent = `Showing all ${filteredPhotos.length} works`;
-      }
     } else {
       filteredPhotos = PORTFOLIO_DATA.photos.filter(p => p.category === currentCategory);
-      const catObj = PORTFOLIO_DATA.categories.find(c => c.id === currentCategory);
-      const catName = catObj ? catObj.name : currentCategory;
-      if (photoCountLabel) {
-        photoCountLabel.textContent = `Showing ${filteredPhotos.length} works in ${catName}`;
-      }
     }
 
     // Add fade-in animation to grid

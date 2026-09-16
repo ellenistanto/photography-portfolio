@@ -134,7 +134,6 @@ function PortfolioPage() {
           categories={data.categories}
           currentCategory={currentCategory}
           onSelectCategory={handleSelectCategory}
-          totalCount={filteredPhotos.length}
         />
 
         {/* Responsive Masonry Gallery */}
