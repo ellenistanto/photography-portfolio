@@ -57,7 +57,7 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
               {/* Desktop hover overlay */}
               <div className="gallery-meta-overlay">
                 <span className="gallery-meta-badge">
-                  {photo.categoryLabel || photo.category} • {photo.year || ''}
+                  {photo.categoryLabel || photo.category}
                 </span>
                 <h3 className="gallery-meta-title">{photo.title}</h3>
                 <p className="gallery-meta-client">{photo.client || ''}</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Camera, MapPin, Calendar } from 'lucide-react';
+import { ArrowRight, Camera, MapPin } from 'lucide-react';
 
 export default function ProjectsSection({ projects = [] }) {
   if (!projects || projects.length === 0) {
@@ -68,16 +68,7 @@ export default function ProjectsSection({ projects = [] }) {
                     {project.client && (
                       <span className="project-card-client">{project.client}</span>
                     )}
-                    {project.year && (
-                      <span className="project-card-dot-sep">•</span>
-                    )}
-                    {project.year && (
-                      <span className="project-card-year">
-                        <Calendar size={11} style={{ marginRight: 4 }} />
-                        {project.year}
-                      </span>
-                    )}
-                    {project.location && (
+                    {project.client && project.location && (
                       <span className="project-card-dot-sep">•</span>
                     )}
                     {project.location && (

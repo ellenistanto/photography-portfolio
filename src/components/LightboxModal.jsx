@@ -151,9 +151,6 @@ export default function LightboxModal({
               <span className="lightbox-vertical-badge">
                 {photo.categoryLabel || photo.category}
               </span>
-              {photo.year && (
-                <span className="lightbox-vertical-year">{photo.year}</span>
-              )}
             </div>
             <h3 className="lightbox-vertical-title">{photo.title}</h3>
             {photo.client && (
@@ -246,7 +243,7 @@ export default function LightboxModal({
       </div>
 
       <div className="lightbox-footer">
-        <h4 className="lightbox-caption-title">{photo.title} ({photo.year})</h4>
+        <h4 className="lightbox-caption-title">{photo.title}</h4>
         <p className="lightbox-caption-desc">
           {photo.description || `${photo.client || ''} — ${photo.categoryLabel || ''}`}
         </p>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
-  ArrowLeft, ArrowRight, Camera, MapPin, Calendar, 
+  ArrowLeft, ArrowRight, Camera, MapPin, 
   Briefcase, MessageCircle, Mail, Maximize2, Share2, 
   Check, ChevronLeft, ChevronRight, X 
 } from 'lucide-react';
@@ -169,12 +169,6 @@ export default function ProjectDetailPage({ portfolioData }) {
               <span className="project-badge category">
                 {project.categoryLabel || project.category}
               </span>
-              {project.year && (
-                <span className="project-hero-year-pill">
-                  <Calendar size={13} style={{ marginRight: 5 }} />
-                  {project.year}
-                </span>
-              )}
             </div>
 
             {/* Main Title */}

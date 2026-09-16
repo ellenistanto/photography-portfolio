@@ -30,7 +30,6 @@ function ProjectModal({ project, categories = [], token, onClose, onSave, onToas
     category: 'brands',
     categoryLabel: 'Brands & Products',
     client: '',
-    year: new Date().getFullYear().toString(),
     location: '',
     coverImage: '',
     summary: '',
@@ -273,8 +272,9 @@ function ProjectModal({ project, categories = [], token, onClose, onSave, onToas
     setSaving(true);
 
     try {
+      const { year: _year, ...restForm } = form;
       const payload = {
-        ...form,
+        ...restForm,
         coverImage: sanitizeImageUrl(form.coverImage),
         slug: generateSlug(form.slug || form.title),
       };
@@ -357,8 +357,8 @@ function ProjectModal({ project, categories = [], token, onClose, onSave, onToas
             </div>
           </div>
 
-          {/* Row 2: Category, Client, Year, Location */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 12 }}>
+          {/* Row 2: Category, Client, Location */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
             <div className="admin-form-group">
               <label className="admin-form-label">Kategori</label>
               <select
@@ -380,17 +380,6 @@ function ProjectModal({ project, categories = [], token, onClose, onSave, onToas
                 placeholder="Toyota / GIIAS"
                 value={form.client}
                 onChange={e => setForm(prev => ({ ...prev, client: e.target.value }))}
-              />
-            </div>
-
-            <div className="admin-form-group">
-              <label className="admin-form-label">Tahun / Tanggal</label>
-              <input
-                type="text"
-                className="admin-form-input"
-                placeholder="2024"
-                value={form.year}
-                onChange={e => setForm(prev => ({ ...prev, year: e.target.value }))}
               />
             </div>
 
@@ -861,7 +850,6 @@ export default function ProjectsEditor({ data, token, onSaved, onToast }) {
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, fontSize: 12, color: 'var(--admin-text-muted)' }}>
                   <span>🏷️ {proj.categoryLabel || proj.category}</span>
                   {proj.client && <span>🏢 {proj.client}</span>}
-                  {proj.year && <span>📅 {proj.year}</span>}
                   <span>📷 {proj.photos ? proj.photos.length : 0} Frames</span>
                   <span style={{ color: 'var(--admin-accent-hover)' }}>🔗 /project/{proj.slug}</span>
                 </div>

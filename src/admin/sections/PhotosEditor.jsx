@@ -19,7 +19,7 @@ function ConfirmDialog({ title, text, onConfirm, onCancel }) {
 
 function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
   const [form, setForm] = useState({
-    title: '', category: 'concerts', categoryLabel: '', year: '',
+    title: '', category: 'concerts', categoryLabel: '',
     client: '', aspect: 'portrait', image: '', thumb: '', description: '',
     isOverview: false,
   });
@@ -203,7 +203,8 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
       return;
     }
     setSaving(true);
-    await onSave(form);
+    const { year: _year, ...cleanForm } = form;
+    await onSave(cleanForm);
     setSaving(false);
   };
 
@@ -369,30 +370,18 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
           </div>
         </div>
 
-        <div className="admin-form-row" style={{ marginBottom: 14 }}>
-          <div className="admin-form-group">
-            <label className="admin-form-label">Year</label>
-            <input
-              id="photo-year"
-              className="admin-form-input"
-              value={form.year}
-              onChange={e => handleChange('year', e.target.value)}
-              placeholder="2024"
-            />
-          </div>
-          <div className="admin-form-group">
-            <label className="admin-form-label">Aspect Ratio</label>
-            <select
-              id="photo-aspect"
-              className="admin-form-select"
-              value={form.aspect}
-              onChange={e => handleChange('aspect', e.target.value)}
-            >
-              <option value="portrait">Portrait (tall)</option>
-              <option value="landscape">Landscape (wide)</option>
-              <option value="square">Square</option>
-            </select>
-          </div>
+        <div className="admin-form-group" style={{ marginBottom: 14 }}>
+          <label className="admin-form-label">Aspect Ratio</label>
+          <select
+            id="photo-aspect"
+            className="admin-form-select"
+            value={form.aspect}
+            onChange={e => handleChange('aspect', e.target.value)}
+          >
+            <option value="portrait">Portrait (tall)</option>
+            <option value="landscape">Landscape (wide)</option>
+            <option value="square">Square</option>
+          </select>
         </div>
 
         <div className="admin-form-group" style={{ marginBottom: 14 }}>
@@ -807,7 +796,7 @@ export default function PhotosEditor({ data, token, onSaved, onToast }) {
                 <div className="admin-photo-card-body">
                   <div className="admin-photo-card-title">{photo.title}</div>
                   <div className="admin-photo-card-meta">
-                    {photo.categoryLabel} · {photo.year}
+                    {photo.categoryLabel}
                     {photo.client && <> · {photo.client}</>}
                   </div>
                   <div className="admin-photo-card-actions" style={{ display: 'flex', gap: 6 }}>

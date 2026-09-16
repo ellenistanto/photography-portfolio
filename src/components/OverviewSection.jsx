@@ -56,9 +56,6 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
                     <span className="overview-pill">
                       {photo.categoryLabel || photo.category}
                     </span>
-                    {photo.year && (
-                      <span className="overview-year-tag">{photo.year}</span>
-                    )}
                   </div>
 
                   {/* Desktop: Bottom Meta Info inside photo */}

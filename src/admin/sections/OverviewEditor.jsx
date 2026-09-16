@@ -325,7 +325,6 @@ export default function OverviewEditor({ data, token, onSaved, onToast }) {
                         {photo.categoryLabel || photo.category}
                       </span>
                       {photo.client && <span>• {photo.client}</span>}
-                      {photo.year && <span>• {photo.year}</span>}
                     </div>
                   </div>
 
