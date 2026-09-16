@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronDown, ArrowUpRight } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
 
-export default function Navbar({ profile, currentCategory, onSelectCategory, onScrollToSection }) {
+export default function Navbar({ 
+  profile, 
+  categories = [], 
+  photos = [], 
+  currentCategory, 
+  onSelectCategory, 
+  onScrollToSection 
+}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,16 +19,45 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 3 Kategori teratas dengan jumlah foto terbanyak
+  const topCategories = useMemo(() => {
+    if (!categories || categories.length === 0) {
+      return [
+        { id: 'concerts', name: 'Music & Concert' },
+        { id: 'portraits', name: 'Portraits' },
+        { id: 'people-places', name: 'People & Places' },
+      ];
+    }
+
+    // Filter keluar opsi 'all'
+    const validCats = categories.filter(c => c.id !== 'all');
+
+    // Hitung jumlah foto per kategori
+    const counts = {};
+    validCats.forEach(c => { counts[c.id] = 0; });
+
+    if (photos && Array.isArray(photos)) {
+      photos.forEach(p => {
+        if (p.category && counts[p.category] !== undefined) {
+          counts[p.category] += 1;
+        }
+      });
+    }
+
+    // Urutkan terbanyak (descending) lalu ambil 3 teratas
+    return [...validCats]
+      .sort((a, b) => (counts[b.id] || 0) - (counts[a.id] || 0))
+      .slice(0, 3);
+  }, [categories, photos]);
+
   const handleCategoryClick = (catId) => {
     onSelectCategory(catId);
     setIsMobileOpen(false);
-    setIsDropdownOpen(false);
     onScrollToSection('gallerySection');
   };
 
   const handleNavClick = (sectionId) => {
     setIsMobileOpen(false);
-    setIsDropdownOpen(false);
     onScrollToSection(sectionId);
   };
 
@@ -51,49 +85,15 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
               HOME
             </button>
             
-            <button 
-              onClick={() => handleCategoryClick('concerts')} 
-              className={`nav-link ${currentCategory === 'concerts' ? 'active' : ''}`}
-            >
-              MUSIC & CONCERT
-            </button>
-
-            {/* Dropdown Menu */}
-            <div 
-              className={`has-dropdown ${isDropdownOpen ? 'open' : ''}`}
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
+            {topCategories.map((cat) => (
               <button 
-                className="nav-link dropdown-toggle" 
-                aria-expanded={isDropdownOpen}
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                key={cat.id}
+                onClick={() => handleCategoryClick(cat.id)} 
+                className={`nav-link ${currentCategory === cat.id ? 'active' : ''}`}
               >
-                <span>BEYOND THE STAGE</span>
-                <ChevronDown className="dropdown-arrow" />
+                {cat.name.toUpperCase()}
               </button>
-              
-              <div className="dropdown-menu">
-                <button 
-                  onClick={() => handleCategoryClick('portraits')} 
-                  className={`dropdown-item ${currentCategory === 'portraits' ? 'active' : ''}`}
-                >
-                  Portraits
-                </button>
-                <button 
-                  onClick={() => handleCategoryClick('people-places')} 
-                  className={`dropdown-item ${currentCategory === 'people-places' ? 'active' : ''}`}
-                >
-                  People & Places
-                </button>
-                <button 
-                  onClick={() => handleCategoryClick('brands')} 
-                  className={`dropdown-item ${currentCategory === 'brands' ? 'active' : ''}`}
-                >
-                  Brands & Products
-                </button>
-              </div>
-            </div>
+            ))}
 
             <button 
               onClick={() => handleNavClick('projects')} 
@@ -141,12 +141,16 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
           >
             Home
           </button>
-          <button 
-            onClick={() => handleCategoryClick('concerts')} 
-            className={`mobile-nav-link ${currentCategory === 'concerts' ? 'active' : ''}`}
-          >
-            Music & Concert
-          </button>
+
+          {topCategories.map((cat) => (
+            <button 
+              key={cat.id}
+              onClick={() => handleCategoryClick(cat.id)} 
+              className={`mobile-nav-link ${currentCategory === cat.id ? 'active' : ''}`}
+            >
+              {cat.name}
+            </button>
+          ))}
 
           <button 
             onClick={() => handleNavClick('projects')} 
@@ -154,32 +158,6 @@ export default function Navbar({ profile, currentCategory, onSelectCategory, onS
           >
             Projects & Series
           </button>
-
-          <div className="mobile-group">
-            <span className="mobile-nav-link" style={{ color: 'var(--text-muted)', fontSize: '1.15rem' }}>
-              Beyond the Stage
-            </span>
-            <div className="mobile-sublinks">
-              <button 
-                onClick={() => handleCategoryClick('portraits')} 
-                className={`mobile-sublink ${currentCategory === 'portraits' ? 'active' : ''}`}
-              >
-                Portraits
-              </button>
-              <button 
-                onClick={() => handleCategoryClick('people-places')} 
-                className={`mobile-sublink ${currentCategory === 'people-places' ? 'active' : ''}`}
-              >
-                People & Places
-              </button>
-              <button 
-                onClick={() => handleCategoryClick('brands')} 
-                className={`mobile-sublink ${currentCategory === 'brands' ? 'active' : ''}`}
-              >
-                Brands & Products
-              </button>
-            </div>
-          </div>
 
           <button 
             onClick={() => handleNavClick('connect')} 

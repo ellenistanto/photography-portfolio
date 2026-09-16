@@ -106,6 +106,8 @@ function PortfolioPage() {
       {/* Header & Navigation */}
       <Navbar
         profile={data.profile}
+        categories={data.categories}
+        photos={data.photos}
         currentCategory={currentCategory}
         onSelectCategory={handleSelectCategory}
         onScrollToSection={scrollToSection}
