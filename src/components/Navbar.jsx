@@ -96,13 +96,6 @@ export default function Navbar({
             ))}
 
             <button 
-              onClick={() => handleNavClick('projects')} 
-              className="nav-link"
-            >
-              PROJECTS
-            </button>
-
-            <button 
               onClick={() => handleNavClick('connect')} 
               className="nav-link"
             >
@@ -151,13 +144,6 @@ export default function Navbar({
               {cat.name}
             </button>
           ))}
-
-          <button 
-            onClick={() => handleNavClick('projects')} 
-            className="mobile-nav-link"
-          >
-            Projects & Series
-          </button>
 
           <button 
             onClick={() => handleNavClick('connect')} 
