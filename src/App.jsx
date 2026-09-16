@@ -151,7 +151,6 @@ function PortfolioPage() {
         <ConnectSection
           profile={data.profile}
           stats={data.stats}
-          milestones={data.milestones}
         />
       </main>
 

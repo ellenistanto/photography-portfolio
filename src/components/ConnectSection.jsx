@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Instagram, PhoneCall } from 'lucide-react';
 
-export default function ConnectSection({ profile, stats, milestones }) {
+export default function ConnectSection({ profile, stats }) {
   return (
     <section className="connect-section" id="connect">
       <div className="container">
@@ -26,27 +26,6 @@ export default function ConnectSection({ profile, stats, milestones }) {
               <p className="stat-label">{stat.label}</p>
             </div>
           ))}
-        </div>
-
-        {/* Milestones / Timeline */}
-        <div className="timeline-container">
-          <div className="section-header">
-            <h2 className="section-title">Career Milestones</h2>
-            <p className="section-subtitle">
-              From analog beginnings to a decade of stadium stages and editorial campaigns.
-            </p>
-          </div>
-
-          <div className="timeline-track">
-            {milestones.map((m, idx) => (
-              <div key={idx} className="timeline-item">
-                <div className="timeline-dot"></div>
-                <span className="timeline-year">{m.year}</span>
-                <h3 className="timeline-title">{m.title}</h3>
-                <p className="timeline-desc">{m.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Direct Contact Block */}
