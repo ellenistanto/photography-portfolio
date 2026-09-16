@@ -704,7 +704,7 @@ button {
 
 .masonry-grid {
   column-count: 2;
-  column-gap: 2rem;
+  column-gap: 0.75rem;
   width: 100%;
 }
 
@@ -717,7 +717,7 @@ button {
 
 .gallery-item {
   break-inside: avoid;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: var(--bg-card);
