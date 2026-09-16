@@ -147,6 +147,7 @@ function PortfolioPage() {
         <ConnectSection
           profile={data.profile}
           stats={data.stats}
+          showStats={data.showStats !== false}
         />
       </main>
 

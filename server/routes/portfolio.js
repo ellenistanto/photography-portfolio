@@ -31,6 +31,7 @@ router.get('/', async (req, res) => {
     res.json({
       profile: doc.profile,
       stats: doc.stats,
+      showStats: doc.showStats !== false,
       clients: doc.clients,
       milestones: doc.milestones,
       categories: doc.categories,
@@ -84,15 +85,18 @@ router.put('/profile', authMiddleware, async (req, res) => {
  */
 router.put('/stats', authMiddleware, async (req, res) => {
   try {
-    const { stats } = req.body;
+    const { stats, showStats } = req.body;
     if (!Array.isArray(stats)) {
       return res.status(400).json({ error: 'stats must be an array' });
     }
 
     const doc = await getPortfolio();
     doc.stats = stats;
+    if (typeof showStats === 'boolean') {
+      doc.showStats = showStats;
+    }
     await doc.save();
-    res.json({ message: 'Stats updated', stats: doc.stats });
+    res.json({ message: 'Stats updated', stats: doc.stats, showStats: doc.showStats !== false });
   } catch (err) {
     console.error('PUT /stats error:', err);
     res.status(500).json({ error: 'Failed to update stats' });

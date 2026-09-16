@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Instagram, PhoneCall } from 'lucide-react';
 
-export default function ConnectSection({ profile, stats }) {
+export default function ConnectSection({ profile, stats, showStats = true }) {
   return (
     <section className="connect-section" id="connect">
       <div className="container">
@@ -16,17 +16,19 @@ export default function ConnectSection({ profile, stats }) {
         </div>
 
         {/* Numbers / Stats Grid */}
-        <div className="stats-grid">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="stat-card">
-              <div className="stat-number-wrapper">
-                <span className="stat-number">{stat.number}</span>
-                <span className="stat-suffix">{stat.suffix}</span>
+        {showStats && Array.isArray(stats) && stats.length > 0 && (
+          <div className="stats-grid">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="stat-card">
+                <div className="stat-number-wrapper">
+                  <span className="stat-number">{stat.number}</span>
+                  <span className="stat-suffix">{stat.suffix}</span>
+                </div>
+                <p className="stat-label">{stat.label}</p>
               </div>
-              <p className="stat-label">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Direct Contact Block */}
         <div className="contact-block">

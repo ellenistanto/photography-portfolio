@@ -49,6 +49,7 @@ function getInitialData() {
       photos: [], // Kosongkan agar foto dummy tidak ditampilkan saat loading awal
       projects: PORTFOLIO_DATA.projects || [],
       stats: PORTFOLIO_DATA.stats || [],
+      showStats: PORTFOLIO_DATA.showStats ?? true,
       clients: PORTFOLIO_DATA.clients || [],
       milestones: PORTFOLIO_DATA.milestones || [],
       overview: PORTFOLIO_DATA.overview || {

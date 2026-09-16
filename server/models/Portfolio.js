@@ -95,6 +95,7 @@ const PortfolioSchema = new mongoose.Schema({
   _key: { type: String, default: 'main', unique: true },
   profile: { type: ProfileSchema, required: true },
   stats: [StatSchema],
+  showStats: { type: Boolean, default: true },
   clients: [{ type: String }],
   milestones: [MilestoneSchema],
   categories: [CategorySchema],

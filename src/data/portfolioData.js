@@ -30,6 +30,7 @@ export const PORTFOLIO_DATA = {
   },
 
   // Statistik / Numbers
+  showStats: true,
   stats: [
     { number: 7, suffix: "+", label: "Years Behind The Lens" },
     { number: 19, suffix: "+", label: "Creative & Brand Partners" },
