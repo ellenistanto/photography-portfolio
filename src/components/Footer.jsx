@@ -47,7 +47,6 @@ export default function Footer({
         <div className="footer-top">
           <div className="footer-brand">
             <h4>{displayName}</h4>
-            <p>Documenting concerts, portraits, travel, and the human pulse across Indonesia and beyond.</p>
           </div>
 
           <div className="footer-links-group">
