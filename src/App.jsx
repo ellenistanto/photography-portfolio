@@ -145,6 +145,8 @@ function PortfolioPage() {
       {/* Footer */}
       <Footer
         profile={data.profile}
+        categories={data.categories}
+        photos={data.photos}
         onSelectCategory={handleSelectCategory}
         onScrollToSection={scrollToSection}
       />
