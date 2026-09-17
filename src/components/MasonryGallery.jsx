@@ -1,5 +1,4 @@
 import React from 'react';
-import { Maximize2 } from 'lucide-react';
 
 export default function MasonryGallery({ photos, onPhotoClick, loading = false }) {
   // Tampilkan skeleton shimmer saat pertama kali memuat foto
@@ -61,9 +60,6 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
                 </span>
                 <h3 className="gallery-meta-title">{photo.title}</h3>
                 <p className="gallery-meta-client">{photo.client || ''}</p>
-              </div>
-              <div className="gallery-zoom-icon" aria-hidden="true">
-                <Maximize2 size={18} />
               </div>
             </div>
           </article>

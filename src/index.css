@@ -979,10 +979,6 @@ button {
   .gallery-meta-overlay {
     display: none;
   }
-
-  .gallery-zoom-icon {
-    display: none;
-  }
 }
 
 .gallery-meta-badge {
@@ -1009,34 +1005,7 @@ button {
   font-weight: 500;
 }
 
-.gallery-zoom-icon {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-sm);
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-white);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-}
 
-.gallery-item:hover .gallery-zoom-icon {
-  opacity: 1;
-  transform: scale(1);
-}
-
-@media (hover: none) and (max-width: 768px) {
-  .gallery-zoom-icon {
-    display: none;
-  }
-}
 
 /* ====================================================================
    STORIES IN FRAME (FEATURE CATEGORY CARDS)
