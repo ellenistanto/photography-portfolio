@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ClientsCloud from './components/ClientsCloud';
 import OverviewSection from './components/OverviewSection';
-import FilterBar from './components/FilterBar';
 import MasonryGallery from './components/MasonryGallery';
 import ConnectSection from './components/ConnectSection';
 import LightboxModal from './components/LightboxModal';
@@ -125,13 +124,6 @@ function PortfolioPage() {
           overview={data.overview}
           photos={overviewPhotos}
           onPhotoClick={handleOpenOverviewLightbox}
-        />
-
-        {/* Category Filter Tabs */}
-        <FilterBar
-          categories={data.categories}
-          currentCategory={currentCategory}
-          onSelectCategory={handleSelectCategory}
         />
 
         {/* Responsive Masonry Gallery */}

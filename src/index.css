@@ -878,7 +878,9 @@ button {
    MASONRY PHOTO GALLERY
    ==================================================================== */
 .gallery-section {
+  padding-top: 1rem;
   padding-bottom: 6rem;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 .masonry-grid {
