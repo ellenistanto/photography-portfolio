@@ -36,6 +36,7 @@ function getInitialData() {
         name: PORTFOLIO_DATA.profile?.name || 'Ellen Istanto',
         tagline: PORTFOLIO_DATA.profile?.tagline || '',
         shortBio: PORTFOLIO_DATA.profile?.shortBio || '',
+        aboutHeadline: PORTFOLIO_DATA.profile?.aboutHeadline || '',
         aboutLong: PORTFOLIO_DATA.profile?.aboutLong || [],
         location: PORTFOLIO_DATA.profile?.location || '',
         email: PORTFOLIO_DATA.profile?.email || '',
