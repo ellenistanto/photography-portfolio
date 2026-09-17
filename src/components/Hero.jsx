@@ -1,7 +1,6 @@
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
 
-export default function Hero({ profile, onExploreClick, onContactClick }) {
+export default function Hero({ profile }) {
   const name = profile?.name || 'Ellen Istanto';
   const heroImage = profile?.heroImage;
 
@@ -26,16 +25,6 @@ export default function Hero({ profile, onExploreClick, onContactClick }) {
           <p className="hero-statement">
             {profile?.shortBio || "Concerts, portraits, travel, and the human moments in between."}
           </p>
-
-          <div className="hero-actions">
-            <button onClick={onExploreClick} className="btn-primary">
-              <span>View Works</span>
-              <ArrowDown size={16} />
-            </button>
-            <button onClick={onContactClick} className="btn-secondary">
-              <span>Contact</span>
-            </button>
-          </div>
         </div>
       </div>
     </section>

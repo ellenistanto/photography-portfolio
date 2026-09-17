@@ -115,8 +115,6 @@ function PortfolioPage() {
         {/* Hero Section */}
         <Hero
           profile={data.profile}
-          onExploreClick={() => scrollToSection('filterSection')}
-          onContactClick={() => scrollToSection('connect')}
         />
 
         {/* Collaborating Artists & Brands */}
