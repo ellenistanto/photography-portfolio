@@ -49,6 +49,7 @@ const ProfileSchema = new mongoose.Schema({
   name: { type: String, required: true },
   tagline: { type: String },
   shortBio: { type: String },
+  aboutHeadline: { type: String, default: '' },
   aboutLong: [{ type: String }],
   location: { type: String },
   email: { type: String },
