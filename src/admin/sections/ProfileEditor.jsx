@@ -448,36 +448,6 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
           />
         </div>
 
-        {/* Live Preview */}
-        <div style={{ marginTop: 18 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--admin-text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Preview — tampilan di website:
-          </div>
-          <div style={{
-            background: 'rgba(0,0,0,0.25)',
-            border: '1px solid var(--admin-border, rgba(255,255,255,0.08))',
-            borderRadius: 10,
-            padding: '20px 24px',
-          }}>
-            <div style={{
-              fontSize: '1.25rem',
-              fontWeight: 700,
-              color: '#fff',
-              lineHeight: 1.35,
-              marginBottom: 14,
-              fontStyle: 'italic',
-              borderLeft: '3px solid var(--admin-accent, #c9a96e)',
-              paddingLeft: 14,
-            }}>
-              {form.aboutHeadline || 'Preserving the feeling as much as the sight.'}
-            </div>
-            {(form.aboutLong || []).map((para, idx) => para && (
-              <p key={idx} style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 10 }}>
-                {para}
-              </p>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Contact */}
