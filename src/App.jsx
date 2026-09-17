@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ArrowUp } from 'lucide-react';
 import { usePortfolioData } from './hooks/usePortfolioData';
 
 import Navbar from './components/Navbar';
@@ -23,7 +22,6 @@ function PortfolioPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxPhotos, setLightboxPhotos] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Filter photos based on selected category
   const filteredPhotos = useMemo(() => {
@@ -48,14 +46,7 @@ function PortfolioPage() {
     return data.photos.filter(p => p.isOverview);
   }, [data.photos, data.overview]);
 
-  // Scroll handler for Back to Top button
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
 
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
@@ -94,9 +85,7 @@ function PortfolioPage() {
     setLightboxIndex((prev) => (prev - 1 + lightboxPhotos.length) % lightboxPhotos.length);
   };
 
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+
 
   return (
     <div className="portfolio-app">
@@ -151,14 +140,7 @@ function PortfolioPage() {
         onPrev={handlePrevPhoto}
       />
 
-      {/* Floating Back to Top Button */}
-      <button
-        className={`back-to-top-btn ${showBackToTop ? 'visible' : ''}`}
-        onClick={handleBackToTop}
-        aria-label="Back to Top"
-      >
-        <ArrowUp size={20} />
-      </button>
+
 
       {/* Footer */}
       <Footer
