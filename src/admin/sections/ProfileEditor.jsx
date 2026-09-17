@@ -424,28 +424,30 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
           </p>
         </div>
 
-        <div className="admin-form-group">
-          <label className="admin-form-label">Paragraph 1</label>
-          <textarea
-            id="profile-about-1"
-            className="admin-form-textarea"
-            value={form.aboutLong?.[0] || ''}
-            onChange={e => handleAboutChange(0, e.target.value)}
-            rows={4}
-            placeholder="First paragraph of your about story..."
-          />
-        </div>
+        <div className="admin-form-row" style={{ alignItems: 'flex-start' }}>
+          <div className="admin-form-group" style={{ marginBottom: 0 }}>
+            <label className="admin-form-label">Paragraph 1</label>
+            <textarea
+              id="profile-about-1"
+              className="admin-form-textarea"
+              value={form.aboutLong?.[0] || ''}
+              onChange={e => handleAboutChange(0, e.target.value)}
+              rows={6}
+              placeholder="First paragraph of your about story..."
+            />
+          </div>
 
-        <div className="admin-form-group">
-          <label className="admin-form-label">Paragraph 2</label>
-          <textarea
-            id="profile-about-2"
-            className="admin-form-textarea"
-            value={form.aboutLong?.[1] || ''}
-            onChange={e => handleAboutChange(1, e.target.value)}
-            rows={4}
-            placeholder="Second paragraph..."
-          />
+          <div className="admin-form-group" style={{ marginBottom: 0 }}>
+            <label className="admin-form-label">Paragraph 2</label>
+            <textarea
+              id="profile-about-2"
+              className="admin-form-textarea"
+              value={form.aboutLong?.[1] || ''}
+              onChange={e => handleAboutChange(1, e.target.value)}
+              rows={6}
+              placeholder="Second paragraph..."
+            />
+          </div>
         </div>
 
       </div>
@@ -477,8 +479,8 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
           </div>
         </div>
 
-        <div className="admin-form-row" style={{ marginBottom: 16 }}>
-          <div className="admin-form-group">
+        <div className="admin-form-row-3" style={{ marginBottom: 16 }}>
+          <div className="admin-form-group" style={{ marginBottom: 0 }}>
             <label className="admin-form-label">Instagram URL</label>
             <input
               id="profile-instagram"
@@ -488,7 +490,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
               placeholder="https://instagram.com/username"
             />
           </div>
-          <div className="admin-form-group">
+          <div className="admin-form-group" style={{ marginBottom: 0 }}>
             <label className="admin-form-label">YouTube URL</label>
             <input
               id="profile-youtube"
@@ -498,17 +500,16 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
               placeholder="https://youtube.com/@channel"
             />
           </div>
-        </div>
-
-        <div className="admin-form-group">
-          <label className="admin-form-label">Behance URL</label>
-          <input
-            id="profile-behance"
-            className="admin-form-input"
-            value={form.behance}
-            onChange={e => handleChange('behance', e.target.value)}
-            placeholder="https://behance.net/username"
-          />
+          <div className="admin-form-group" style={{ marginBottom: 0 }}>
+            <label className="admin-form-label">Behance URL</label>
+            <input
+              id="profile-behance"
+              className="admin-form-input"
+              value={form.behance}
+              onChange={e => handleChange('behance', e.target.value)}
+              placeholder="https://behance.net/username"
+            />
+          </div>
         </div>
       </div>
 
