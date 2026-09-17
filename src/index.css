@@ -597,11 +597,34 @@ button {
   color: var(--text-secondary);
 }
 
-.hero-statement {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  font-weight: 400;
+.hero-lead {
+  font-family: var(--font-body);
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 500;
   line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 1.15rem;
+  text-wrap: balance;
+}
+
+.hero-bio {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.85vw, 1.35rem);
+  font-weight: 350;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 860px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+.hero-statement {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.5;
   letter-spacing: -0.015em;
   color: var(--text-primary);
   max-width: 820px;

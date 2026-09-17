@@ -13,8 +13,8 @@ const Portfolio = require('./models/Portfolio');
 const SEED_DATA = {
   profile: {
     name: "Ellen Istanto",
-    tagline: "Concerts, Portraits, Travel, and Human moments in between.",
-    shortBio: "I'm Ellen Istanto, a photographer based in Indonesia. Drawn to moments charged with emotion, I work between motion and stillness — on stage, in portraits, and through travel narratives.",
+    tagline: "I’m Ellen Istanto, a photographer based in Indonesia.",
+    shortBio: "Drawn to moments charged with emotion, I work between motion and stillness — on stage, in portraits, and through travel narratives. My images are shaped by storytelling, restraint, and a pursuit of visuals that feel honest and lasting.",
     aboutLong: [
       "Photography, for me, is an intimate way of bearing witness to life's fleeting poetry. Over the past seven years, I've found myself backstage amidst the raw frenzy of live concerts, in quiet studios capturing honest portraits, and traveling across vibrant landscapes searching for the human pulse.",
       "Every frame is a dialogue between light, timing, and vulnerability. Whether documenting an arena screaming the lyrics of an anthem or a quiet gaze under the Jakarta dusk, my work strives to preserve the feeling as much as the sight."
