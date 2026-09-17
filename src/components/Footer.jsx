@@ -67,33 +67,6 @@ export default function Footer({
                 ))}
               </ul>
             </div>
-
-            <div className="footer-col">
-              <h5>Connect</h5>
-              <ul>
-                {profile?.instagram && (
-                  <li>
-                    <a href={profile.instagram} target="_blank" rel="noopener noreferrer">
-                      Instagram
-                    </a>
-                  </li>
-                )}
-                {profile?.whatsapp && (
-                  <li>
-                    <a href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noopener noreferrer">
-                      WhatsApp
-                    </a>
-                  </li>
-                )}
-                {profile?.email && (
-                  <li>
-                    <a href={`mailto:${profile.email}`}>
-                      Email
-                    </a>
-                  </li>
-                )}
-              </ul>
-            </div>
           </div>
         </div>
 
