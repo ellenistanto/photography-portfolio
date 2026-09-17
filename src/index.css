@@ -1181,7 +1181,7 @@ button {
 .about-text-content {
   display: flex;
   flex-direction: column;
-  max-width: 720px;
+  max-width: 860px;
 }
 
 .about-text-content .section-eyebrow {
@@ -1360,8 +1360,6 @@ button {
 
 /* Direct Contact Block */
 .contact-block {
-  max-width: 640px;
-  margin: 0 auto;
   padding: 3.5rem;
   background-color: var(--bg-surface);
   border-radius: var(--radius-lg);
@@ -1403,16 +1401,19 @@ button {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 2rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .quick-contact-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   text-align: left;
+}
+
+@media (max-width: 900px) {
+  .quick-contact-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-card-btn {
