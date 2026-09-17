@@ -92,11 +92,6 @@ export default function Footer({
                     </a>
                   </li>
                 )}
-                <li>
-                  <button onClick={() => onScrollToSection('connect')}>
-                    Contact Form
-                  </button>
-                </li>
               </ul>
             </div>
           </div>
