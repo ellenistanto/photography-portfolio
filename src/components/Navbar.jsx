@@ -103,13 +103,6 @@ export default function Navbar({
             </button>
           </nav>
 
-          {/* Nav CTA Button — mobile only via CSS */}
-          <button 
-            onClick={() => handleNavClick('connect')} 
-            className="nav-cta-btn"
-          >
-            <span>Contact</span>
-          </button>
 
           {/* Mobile Hamburger Button */}
           <button 

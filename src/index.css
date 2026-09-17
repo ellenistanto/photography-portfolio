@@ -205,6 +205,7 @@ button {
 }
 
 .nav-container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -238,6 +239,9 @@ button {
 
 /* Desktop Nav Links */
 .desktop-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 2.25rem;
