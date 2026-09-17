@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Hero({ profile }) {
-  const name = profile?.name || 'Ellen Istanto';
   const heroImage = profile?.heroImage;
 
   return (
@@ -18,13 +17,9 @@ export default function Hero({ profile }) {
       
       <div className="container">
         <div className="hero-content">
-          <h1 className="hero-title">
-            {name}
-          </h1>
-          
-          <p className="hero-statement">
+          <h1 className="hero-statement">
             {profile?.shortBio || "Concerts, portraits, travel, and the human moments in between."}
-          </p>
+          </h1>
         </div>
       </div>
     </section>
