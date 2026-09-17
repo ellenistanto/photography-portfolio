@@ -8,7 +8,7 @@ export default function ConnectSection({ profile, stats, showStats = true }) {
         
         {/* About Text */}
         <div className="about-text-content">
-          <h2 className="about-headline">Preserving the feeling as much as the sight.</h2>
+          <h2 className="about-headline">{profile.aboutHeadline || 'Preserving the feeling as much as the sight.'}</h2>
           
           {profile.aboutLong.map((para, idx) => (
             <p key={idx} className="about-paragraph">{para}</p>

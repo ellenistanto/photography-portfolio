@@ -61,7 +61,7 @@ router.get('/', async (req, res) => {
 router.put('/profile', authMiddleware, async (req, res) => {
   try {
     const doc = await getPortfolio();
-    const allowed = ['name', 'tagline', 'shortBio', 'aboutLong', 'location', 'email', 'whatsapp', 'instagram', 'youtube', 'behance', 'photo', 'avatar', 'heroImage'];
+    const allowed = ['name', 'tagline', 'shortBio', 'aboutHeadline', 'aboutLong', 'location', 'email', 'whatsapp', 'instagram', 'youtube', 'behance', 'photo', 'avatar', 'heroImage'];
     
     allowed.forEach(field => {
       if (req.body[field] !== undefined) {

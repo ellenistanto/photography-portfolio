@@ -6,6 +6,7 @@ const DEFAULT_HERO_IMAGE = '';
 export default function ProfileEditor({ data, token, onSaved, onToast }) {
   const [form, setForm] = useState({
     name: '', tagline: '', shortBio: '',
+    aboutHeadline: '',
     aboutLong: ['', ''],
     location: '', email: '', whatsapp: '', instagram: '', youtube: '', behance: '',
     photo: '', avatar: '', heroImage: '',
@@ -24,6 +25,7 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
     if (data?.profile) {
       setForm({
         ...data.profile,
+        aboutHeadline: data.profile.aboutHeadline || '',
         aboutLong: data.profile.aboutLong?.length >= 2
           ? data.profile.aboutLong
           : [...(data.profile.aboutLong || []), ''],
@@ -407,6 +409,20 @@ export default function ProfileEditor({ data, token, onSaved, onToast }) {
         <p style={{ fontSize: 12, color: 'var(--admin-text-muted)', marginBottom: 14 }}>
           Two paragraphs shown in the About/Connect section of the portfolio.
         </p>
+
+        <div className="admin-form-group">
+          <label className="admin-form-label">About Headline</label>
+          <input
+            id="profile-about-headline"
+            className="admin-form-input"
+            value={form.aboutHeadline || ''}
+            onChange={e => handleChange('aboutHeadline', e.target.value)}
+            placeholder="Preserving the feeling as much as the sight."
+          />
+          <p style={{ fontSize: '0.78rem', color: 'var(--admin-text-muted)', marginTop: 4 }}>
+            Kalimat besar yang tampil di atas paragraf About. Kosongkan untuk menggunakan teks default.
+          </p>
+        </div>
 
         <div className="admin-form-group">
           <label className="admin-form-label">Paragraph 1</label>
