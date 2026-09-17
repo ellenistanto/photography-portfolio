@@ -5,7 +5,7 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
   // Tampilkan skeleton shimmer saat pertama kali memuat foto
   if (loading && (!photos || photos.length === 0)) {
     return (
-      <section className="gallery-section container" id="gallerySection">
+      <section className="gallery-section" id="gallerySection">
         <div className="masonry-grid gallery-skeleton-grid">
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className={`gallery-skeleton-card skeleton-card-${i}`}>
@@ -19,7 +19,7 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
 
   if (!photos || photos.length === 0) {
     return (
-      <section className="gallery-section container" id="gallerySection">
+      <section className="gallery-section" id="gallerySection">
         <div style={{ textAlign: 'center', padding: '4rem 1rem', color: 'var(--text-muted)' }}>
           <p style={{ fontSize: '1.1rem' }}>Belum ada foto dalam kategori ini.</p>
         </div>
@@ -28,7 +28,7 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
   }
 
   return (
-    <section className="gallery-section container" id="gallerySection">
+    <section className="gallery-section" id="gallerySection">
       <div className="masonry-grid fade-in">
         {photos.map((photo, index) => (
           <article 

@@ -209,6 +209,9 @@ button {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1.5rem;
 }
 
 /* Brand Logo */
@@ -875,27 +878,35 @@ button {
 }
 
 /* ====================================================================
-   MASONRY PHOTO GALLERY
+   MASONRY PHOTO GALLERY (FULL-WIDTH DESKTOP EDITORIAL GRID)
    ==================================================================== */
 .gallery-section {
-  padding-top: 1rem;
-  padding-bottom: 6rem;
-  scroll-margin-top: calc(var(--header-height) + 1rem);
+  width: 100%;
+  max-width: 100%;
+  padding: 0 8px 6rem 8px;
+  scroll-margin-top: calc(var(--header-height) + 8px);
 }
 
 .masonry-grid {
   column-count: 3;
-  column-gap: 0.75rem;
+  column-gap: 8px;
   width: 100%;
 }
 
 @media (max-width: 1024px) {
   .masonry-grid {
     column-count: 2;
+    column-gap: 8px;
   }
 }
 
 @media (max-width: 640px) {
+  .gallery-section {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4rem;
+  }
+
   .masonry-grid {
     column-count: 1;
     column-gap: 0;
@@ -904,45 +915,44 @@ button {
 
 .gallery-item {
   break-inside: avoid;
-  margin-bottom: 0.75rem;
-  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+  border-radius: 0;
   overflow: hidden;
-  background-color: var(--bg-card);
+  background-color: #0e0e0e;
   position: relative;
   cursor: pointer;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition: opacity var(--transition-fast), filter var(--transition-fast);
 }
 
-/* Mobile: photos flow edge-to-edge with small gap between */
-@media (hover: none) and (max-width: 768px) {
+@media (max-width: 640px) {
   .gallery-item {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     border-radius: 0;
-    background-color: transparent;
   }
 }
 
 .gallery-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  transform: none;
+  box-shadow: none;
 }
 
 .gallery-img-wrapper {
   position: relative;
   overflow: hidden;
-  background-color: #121212;
+  background-color: #0e0e0e;
   width: 100%;
 }
 
 .gallery-img-wrapper img {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter var(--transition-smooth);
 }
 
 .gallery-item:hover .gallery-img-wrapper img {
-  transform: scale(1.035);
+  transform: scale(1.025);
   filter: brightness(1.05);
 }
 

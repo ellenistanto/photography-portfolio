@@ -66,7 +66,7 @@ export default function Navbar({
   return (
     <>
       <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="container nav-container">
+        <div className="nav-container">
           {/* Brand Logo */}
           <button 
             onClick={() => handleNavClick('home')} 
