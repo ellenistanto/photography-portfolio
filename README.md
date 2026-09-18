@@ -70,8 +70,7 @@ photography-portfolio/
 ├── index.html
 ├── package.json
 ├── vite.config.js
-├── vercel.json
-└── design.md
+└── vercel.json 
 ```
 
 ## Local Development
