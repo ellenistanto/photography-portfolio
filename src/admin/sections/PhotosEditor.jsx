@@ -17,11 +17,16 @@ function ConfirmDialog({ title, text, onConfirm, onCancel }) {
 }
 
 function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
-  const [form, setForm] = useState({
-    title: '', category: 'concerts', categoryLabel: '',
+  const availableCats = categories.filter(c => c.id !== 'all');
+  const firstCat = availableCats[0];
+
+  const [form, setForm] = useState(() => ({
+    title: '',
+    category: firstCat?.id || '',
+    categoryLabel: firstCat?.name || '',
     client: '', aspect: 'portrait', image: '', thumb: '', description: '',
     isOverview: false,
-  });
+  }));
   const [inputMode, setInputMode] = useState('upload'); // 'upload' | 'url'
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -40,8 +45,19 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
       } else {
         setInputMode('upload');
       }
+    } else {
+      // Add mode: initialize with first available category
+      const cats = categories.filter(c => c.id !== 'all');
+      const first = cats[0];
+      setForm({
+        title: '',
+        category: first?.id || '',
+        categoryLabel: first?.name || '',
+        client: '', aspect: 'portrait', image: '', thumb: '', description: '',
+        isOverview: false,
+      });
     }
-  }, [photo]);
+  }, [photo, categories]);
 
   const handleChange = (field, value) => {
     setForm(prev => {
