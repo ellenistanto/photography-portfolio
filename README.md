@@ -98,8 +98,6 @@ The frontend is built with Vite, while the backend/API layer handles the applica
 
 ## Design
 
-The visual direction of the website is documented in [`design.md`](./design.md).
-
 The design focuses on a minimal interface that keeps attention on the photography rather than the interface itself.
 
 ## Photographer
