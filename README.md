@@ -6,7 +6,7 @@ A personal photography portfolio built to present selected work, introduce the p
 
 ### Main Website
 
-https://github.com/user-attachments/assets/b2b59152-6fdb-45d1-b230-21ba58e61076
+<img width="400" height="225" alt="Main Website" src="https://github.com/user-attachments/assets/23dcb524-4216-475a-bada-3896bb6bf621" />
 
 ### Admin Panel
 
