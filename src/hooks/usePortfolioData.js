@@ -72,7 +72,6 @@ export function usePortfolioData() {
   const [initial] = useState(() => getInitialData());
   const [data, setData] = useState(initial.data);
   const [loading, setLoading] = useState(!initial.isCached);
-  const [fromApi, setFromApi] = useState(initial.isCached);
 
   useEffect(() => {
     let cancelled = false;
@@ -94,7 +93,6 @@ export function usePortfolioData() {
               : (PORTFOLIO_DATA.projects || []),
           };
           setData(mergedData);
-          setFromApi(true);
           try {
             localStorage.setItem(CACHE_KEY, JSON.stringify(mergedData));
           } catch (e) {
@@ -115,7 +113,6 @@ export function usePortfolioData() {
             // Hanya fallback ke PORTFOLIO_DATA jika koneksi benar-benar error dan belum ada data
             return PORTFOLIO_DATA;
           });
-          setFromApi(false);
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -126,7 +123,7 @@ export function usePortfolioData() {
     return () => { cancelled = true; };
   }, []);
 
-  return { data, loading, fromApi };
+  return { data, loading };
 }
 
 /**
@@ -143,5 +140,3 @@ export function updatePortfolioCache(newData) {
     localStorage.setItem(CACHE_KEY, JSON.stringify(newData));
   } catch (e) {}
 }
-
-export { API_BASE };
