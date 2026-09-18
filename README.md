@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/6d926846-2da4-410f-947e-77918105a145
 
 ### Admin Panel
 
-<!-- Add GitHub video preview here -->
+https://github.com/user-attachments/assets/9c8b4310-ca5b-4b7b-94aa-829d07315a61
 
 ## About the Project
 
