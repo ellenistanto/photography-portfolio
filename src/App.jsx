@@ -10,6 +10,7 @@ import MasonryGallery from './components/MasonryGallery';
 import ConnectSection from './components/ConnectSection';
 import LightboxModal from './components/LightboxModal';
 import Footer from './components/Footer';
+import EditorialPreloader from './components/EditorialPreloader';
 
 // Lazy-load admin to keep initial bundle small
 import AdminApp from './admin/AdminApp';
@@ -89,6 +90,9 @@ function PortfolioPage() {
 
   return (
     <div className="portfolio-app">
+      {/* Editorial Splash Reveal on first load */}
+      <EditorialPreloader profile={data.profile} />
+
       {/* Header & Navigation */}
       <Navbar
         profile={data.profile}
