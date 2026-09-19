@@ -1,4 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+function GalleryCard({ photo, index, onPhotoClick }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <article 
+      className={`gallery-item ${loaded ? 'photo-loaded' : 'photo-loading'}`}
+      style={{ animationDelay: `${Math.min(index * 35, 350)}ms` }}
+      tabIndex={0}
+      role="button"
+      aria-label={`View photo: ${photo.title}`}
+      onClick={() => onPhotoClick(index)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onPhotoClick(index);
+        }
+      }}
+    >
+      <div className="gallery-img-wrapper">
+        <img 
+          src={photo.thumb || photo.image} 
+          alt={photo.title}
+          loading="lazy"
+          decoding="async"
+          width="800"
+          height="600"
+          onLoad={() => setLoaded(true)}
+          ref={(el) => {
+            if (el && el.complete && !loaded) {
+              setLoaded(true);
+            }
+          }}
+          className={`gallery-img ${loaded ? 'loaded' : 'loading'}`}
+        />
+        {/* Desktop hover overlay */}
+        <div className="gallery-meta-overlay">
+          <span className="gallery-meta-badge">
+            {photo.categoryLabel || photo.category}
+          </span>
+          <h3 className="gallery-meta-title">{photo.title}</h3>
+          <p className="gallery-meta-client">{photo.client || ''}</p>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function MasonryGallery({ photos, onPhotoClick, loading = false }) {
   // Tampilkan skeleton shimmer saat pertama kali memuat foto
@@ -28,41 +75,14 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
 
   return (
     <section className="gallery-section" id="gallerySection">
-      <div className="masonry-grid fade-in">
+      <div className="masonry-grid">
         {photos.map((photo, index) => (
-          <article 
+          <GalleryCard 
             key={photo.id}
-            className="gallery-item"
-            tabIndex={0}
-            role="button"
-            aria-label={`View photo: ${photo.title}`}
-            onClick={() => onPhotoClick(index)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onPhotoClick(index);
-              }
-            }}
-          >
-            <div className="gallery-img-wrapper">
-              <img 
-                src={photo.thumb || photo.image} 
-                alt={photo.title}
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="600"
-              />
-              {/* Desktop hover overlay */}
-              <div className="gallery-meta-overlay">
-                <span className="gallery-meta-badge">
-                  {photo.categoryLabel || photo.category}
-                </span>
-                <h3 className="gallery-meta-title">{photo.title}</h3>
-                <p className="gallery-meta-client">{photo.client || ''}</p>
-              </div>
-            </div>
-          </article>
+            photo={photo}
+            index={index}
+            onPhotoClick={onPhotoClick}
+          />
         ))}
       </div>
     </section>
