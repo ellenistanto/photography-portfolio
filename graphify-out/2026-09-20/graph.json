@@ -261,7 +261,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "adminapp()",
       "source_file": "src/admin/AdminApp.jsx",
@@ -273,7 +273,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "checkauth()",
       "source_file": "src/admin/AdminApp.jsx",
@@ -285,11 +285,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "app()",
       "source_file": "src/App.jsx",
-      "source_location": "L154"
+      "source_location": "L158"
     },
     {
       "id": "src_app_portfoliopage",
@@ -297,11 +297,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "portfoliopage()",
       "source_file": "src/App.jsx",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "src_components_clientscloud_clientscloud",
@@ -309,7 +309,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "clientscloud()",
       "source_file": "src/components/ClientsCloud.jsx",
@@ -321,11 +321,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "connectsection()",
       "source_file": "src/components/ConnectSection.jsx",
       "source_location": "L4"
+    },
+    {
+      "id": "src_components_editorialpreloader_editorialpreloader",
+      "label": "EditorialPreloader()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Root Project & Vite Build Config",
+      "file_type": "code",
+      "norm_label": "editorialpreloader()",
+      "source_file": "src/components/EditorialPreloader.jsx",
+      "source_location": "L5"
     },
     {
       "id": "src_components_footer_footer",
@@ -333,7 +345,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "footer()",
       "source_file": "src/components/Footer.jsx",
@@ -345,7 +357,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "hero()",
       "source_file": "src/components/Hero.jsx",
@@ -357,23 +369,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "lightboxmodal()",
       "source_file": "src/components/LightboxModal.jsx",
       "source_location": "L4"
-    },
-    {
-      "id": "src_components_masonrygallery_gallerycard",
-      "label": "GalleryCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "gallerycard()",
-      "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L3"
     },
     {
       "id": "src_components_masonrygallery_masonrygallery",
@@ -381,11 +381,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "masonrygallery()",
       "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L50"
+      "source_location": "L3"
     },
     {
       "id": "src_components_navbar_navbar",
@@ -393,23 +393,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "navbar()",
       "source_file": "src/components/Navbar.jsx",
       "source_location": "L3"
-    },
-    {
-      "id": "src_components_overviewsection_overviewcard",
-      "label": "OverviewCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "overviewcard()",
-      "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L4"
     },
     {
       "id": "src_components_overviewsection_overviewsection",
@@ -417,11 +405,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "overviewsection()",
       "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L66"
+      "source_location": "L4"
     },
     {
       "id": "src_hooks_useportfoliodata_getinitialdata",
@@ -429,7 +417,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "getinitialdata()",
       "source_file": "src/hooks/usePortfolioData.js",
@@ -441,7 +429,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "useportfoliodata()",
       "source_file": "src/hooks/usePortfolioData.js",
@@ -1529,7 +1517,7 @@
       "label": "App.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "app.jsx",
       "source_file": "src/App.jsx",
@@ -1540,7 +1528,7 @@
       "label": "ClientsCloud.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "clientscloud.jsx",
       "source_file": "src/components/ClientsCloud.jsx",
@@ -1551,10 +1539,21 @@
       "label": "ConnectSection.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "connectsection.jsx",
       "source_file": "src/components/ConnectSection.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_editorialpreloader",
+      "label": "EditorialPreloader.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Root Project & Vite Build Config",
+      "file_type": "code",
+      "norm_label": "editorialpreloader.jsx",
+      "source_file": "src/components/EditorialPreloader.jsx",
       "source_location": "L1"
     },
     {
@@ -1562,7 +1561,7 @@
       "label": "Footer.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "footer.jsx",
       "source_file": "src/components/Footer.jsx",
@@ -1573,7 +1572,7 @@
       "label": "Hero.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "hero.jsx",
       "source_file": "src/components/Hero.jsx",
@@ -1584,7 +1583,7 @@
       "label": "LightboxModal.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "lightboxmodal.jsx",
       "source_file": "src/components/LightboxModal.jsx",
@@ -1595,7 +1594,7 @@
       "label": "MasonryGallery.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "masonrygallery.jsx",
       "source_file": "src/components/MasonryGallery.jsx",
@@ -1606,7 +1605,7 @@
       "label": "Navbar.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "navbar.jsx",
       "source_file": "src/components/Navbar.jsx",
@@ -1617,7 +1616,7 @@
       "label": "OverviewSection.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "overviewsection.jsx",
       "source_file": "src/components/OverviewSection.jsx",
@@ -1628,7 +1627,7 @@
       "label": "main.jsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "code",
       "norm_label": "main.jsx",
       "source_file": "src/main.jsx",
@@ -1639,7 +1638,7 @@
       "label": "lucide-react",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "concept",
       "norm_label": "lucide-react",
       "source_file": "package.json",
@@ -1650,7 +1649,7 @@
       "label": "react-router-dom",
       "_origin": "ast",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "Root Project & Vite Build Config",
       "file_type": "concept",
       "norm_label": "react-router-dom",
       "source_file": "package.json",
@@ -2862,7 +2861,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/App.jsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3467,6 +3466,18 @@
     },
     {
       "source": "src_app",
+      "target": "src_components_editorialpreloader_editorialpreloader",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
       "target": "src_admin_adminapp_adminapp",
       "relation": "imports",
       "_origin": "ast",
@@ -3474,7 +3485,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4139,6 +4150,18 @@
     },
     {
       "source": "src_app",
+      "target": "src_components_editorialpreloader",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
       "target": "src_admin_adminapp",
       "relation": "imports_from",
       "_origin": "ast",
@@ -4146,7 +4169,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4267,6 +4290,18 @@
       "context": "import",
       "source_file": "src/components/ConnectSection.jsx",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_editorialpreloader",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/EditorialPreloader.jsx",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -5987,7 +6022,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L154",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -5998,7 +6033,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -6021,6 +6056,17 @@
       "confidence_score": 1.0,
       "source_file": "src/components/ConnectSection.jsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_editorialpreloader",
+      "target": "src_components_editorialpreloader_editorialpreloader",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/EditorialPreloader.jsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -6058,24 +6104,13 @@
     },
     {
       "source": "src_components_masonrygallery",
-      "target": "src_components_masonrygallery_gallerycard",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_masonrygallery",
       "target": "src_components_masonrygallery_masonrygallery",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L50",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -6091,24 +6126,13 @@
     },
     {
       "source": "src_components_overviewsection",
-      "target": "src_components_overviewsection_overviewcard",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_overviewsection",
       "target": "src_components_overviewsection_overviewsection",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L66",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6269,5 +6293,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "950d433dbdebc957c3042aa7dd8cd97657eac505"
+  "built_at_commit": "e7bef577461dbf00f8e202946e15eecb21fcf2da"
 }

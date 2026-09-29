@@ -44,13 +44,13 @@ function Toast({ message, type, onClose }) {
 
 // ── Navigation config ─────────────────────────────────────────────────────────
 const NAV_ITEMS = [
-  { id: 'profile',     label: 'Profile' },
-  { id: 'overview',    label: 'Overview / Highlights' },
+  { id: 'profile',     label: 'Profile & Bio' },
+  { id: 'overview',    label: 'Overview Highlights' },
   { id: 'photos',      label: 'Gallery Photos' },
-  { id: 'stats',       label: 'Statistics' },
-  { id: 'clients',     label: 'Clients' },
-  { id: 'milestones',  label: 'Milestones' },
-  { id: 'categories',  label: 'Categories' },
+  { id: 'stats',       label: 'Key Statistics' },
+  { id: 'clients',     label: 'Clients & Partners' },
+  { id: 'milestones',  label: 'Career Milestones' },
+  { id: 'categories',  label: 'Gallery Categories' },
 ];
 
 export default function AdminDashboard({ token, onLogout }) {
@@ -100,7 +100,7 @@ export default function AdminDashboard({ token, onLogout }) {
       return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300, gap: 12, color: 'var(--admin-text-muted)' }}>
           <div className="admin-spinner" />
-          <span>Loading portfolio data…</span>
+          <span style={{ fontSize: 13 }}>Loading portfolio data…</span>
         </div>
       );
     }
@@ -111,12 +111,16 @@ export default function AdminDashboard({ token, onLogout }) {
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           minHeight: 300, gap: 14, color: 'var(--admin-text-muted)', textAlign: 'center', padding: 32
         }}>
-          <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--admin-text)', marginBottom: 4 }}>Cannot connect to backend server</div>
-          <p style={{ fontSize: 14, maxWidth: 400, lineHeight: 1.5 }}>
-            Make sure your backend server is running on <code style={{ color: 'var(--admin-accent-hover)' }}>{API_BASE}</code>.
-            Check your <code>.env</code> file and run <code>npm start</code> in the <code>server/</code> folder.
+          <div style={{ fontSize: 15, fontWeight: 500, color: 'var(--admin-text-primary)', marginBottom: 4 }}>
+            Backend Server Unreachable
+          </div>
+          <p style={{ fontSize: 13, maxWidth: 440, lineHeight: 1.6, color: 'var(--admin-text-muted)' }}>
+            Ensure your backend is running at <code style={{ color: 'var(--admin-text-primary)' }}>{API_BASE}</code>.
+            Verify your server configuration or restart the service.
           </p>
-          <button className="admin-btn admin-btn-ghost" onClick={fetchData}>Retry Connection</button>
+          <button className="admin-btn admin-btn-ghost" onClick={fetchData} style={{ marginTop: 8 }}>
+            Retry Connection
+          </button>
         </div>
       );
     }
@@ -159,16 +163,13 @@ export default function AdminDashboard({ token, onLogout }) {
         <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="admin-sidebar-header">
             <div className="admin-sidebar-brand">
-              <div className="admin-sidebar-brand-dot" />
-              <div>
-                <div className="admin-sidebar-brand-text">Admin Dashboard</div>
-                <div className="admin-sidebar-brand-sub">Ellen Istanto Photography</div>
-              </div>
+              <span className="admin-sidebar-brand-name">Ellen Istanto</span>
+              <span className="admin-sidebar-brand-badge">CMS</span>
             </div>
           </div>
 
           <nav className="admin-sidebar-nav">
-            <div className="admin-nav-section-label">Content</div>
+            <div className="admin-nav-section-label">Sections</div>
             {NAV_ITEMS.map(item => (
               <button
                 key={item.id}
@@ -189,7 +190,8 @@ export default function AdminDashboard({ token, onLogout }) {
               className="admin-sidebar-link"
               id="preview-portfolio-link"
             >
-              View Portfolio
+              <span>Live Portfolio</span>
+              <span style={{ marginLeft: 'auto', fontSize: 13, opacity: 0.7 }}>↗</span>
             </a>
             <button
               id="logout-btn"
@@ -200,7 +202,7 @@ export default function AdminDashboard({ token, onLogout }) {
                 onLogout();
               }}
             >
-              Logout
+              <span>Sign Out</span>
             </button>
           </div>
         </aside>
@@ -218,15 +220,38 @@ export default function AdminDashboard({ token, onLogout }) {
               >
                 <HamburgerIcon open={sidebarOpen} />
               </button>
-              <span className="admin-topbar-title">{activeNav?.label}</span>
+              <h2 className="admin-topbar-title">{activeNav?.label}</h2>
             </div>
             <div className="admin-topbar-right">
-              <span className={`admin-badge ${apiConnected ? 'success' : 'warning'}`}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'currentColor', display: 'inline-block' }} />
-                <span className="admin-badge-text">{apiConnected ? 'Connected' : 'Offline'}</span>
-              </span>
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="admin-topbar-link"
+              >
+                <span>Live Site</span>
+                <span style={{ fontSize: 13, opacity: 0.7 }}>↗</span>
+              </a>
+              <button
+                className="admin-topbar-signout"
+                onClick={() => {
+                  localStorage.removeItem('admin_token');
+                  localStorage.removeItem('admin_token_exp');
+                  onLogout();
+                }}
+              >
+                Sign Out
+              </button>
             </div>
           </div>
+
+          {/* Offline alert banner if server drops */}
+          {!loading && !apiConnected && (
+            <div className="admin-offline-banner" role="alert">
+              <span>Connection lost to backend ({API_BASE}).</span>
+              <button onClick={fetchData} className="admin-offline-retry">Retry</button>
+            </div>
+          )}
 
           {/* Section Content */}
           <div className="admin-content">

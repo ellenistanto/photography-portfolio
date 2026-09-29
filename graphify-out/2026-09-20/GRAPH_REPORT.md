@@ -1,16 +1,16 @@
 # Graph Report - photography-portfolio  (2026-09-20)
 
 ## Corpus Check
-- 41 files · ~19,809 words
+- 42 files · ~19,955 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 231 nodes · 316 edges · 17 communities (12 shown, 5 thin omitted)
+- 231 nodes · 318 edges · 17 communities (12 shown, 5 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `950d433d`
+- Built from commit: `e7bef577`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,7 @@
 - Admin Panel & Section Editors
 - Express Server & API Routes
 - Portfolio Frontend & Components
-- App.jsx
+- Root Project & Vite Build Config
 - Backend Server Configuration
 - Vanilla Client Application Scripts
 - Authentication & Vercel Serverless API
@@ -34,7 +34,7 @@
 - Portfolio SEO & Open Graph
 
 ## God Nodes (most connected - your core abstractions)
-1. `react` - 22 edges
+1. `react` - 23 edges
 2. `API_BASE` - 12 edges
 3. `escapeHtml()` - 6 edges
 4. `lucide-react` - 5 edges
@@ -74,9 +74,9 @@ Nodes (21): app, authRoutes, cors, express, mongoose, portfolioRoutes, uploadRou
 Cohesion: 0.09
 Nodes (22): devDependencies, vite, @vitejs/plugin-react, bcryptjs, cors, dotenv, express, express-rate-limit (+14 more)
 
-### Community 3 - "App.jsx"
+### Community 3 - "Root Project & Vite Build Config"
 Cohesion: 0.11
-Nodes (15): lucide-react, react-router-dom, AdminApp(), App(), PortfolioPage(), ClientsCloud(), ConnectSection(), Footer() (+7 more)
+Nodes (16): lucide-react, react-router-dom, AdminApp(), App(), PortfolioPage(), ClientsCloud(), ConnectSection(), EditorialPreloader() (+8 more)
 
 ### Community 4 - "Backend Server Configuration"
 Cohesion: 0.09
@@ -112,13 +112,13 @@ Nodes (3): Private Admin Panel Concept, Portfolio Overview, Portfolio Tech Stack
 
 ## Knowledge Gaps
 - **122 isolated node(s):** `express`, `mongoose`, `cors`, `authRoutes`, `portfolioRoutes` (+117 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 144 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 142 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `Admin Panel & Section Editors` to `Portfolio Frontend & Components`, `App.jsx`?**
+- **Why does `react` connect `Admin Panel & Section Editors` to `Portfolio Frontend & Components`, `Root Project & Vite Build Config`?**
   _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Frontend Runtime Dependencies` to `Portfolio Frontend & Components`?**
   _High betweenness centrality (0.042) - this node is a cross-community bridge._
@@ -130,5 +130,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
 - **Should `Portfolio Frontend & Components` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
-- **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.10582010582010581 - nodes in this community are weakly interconnected._
+- **Should `Root Project & Vite Build Config` be split into smaller, more focused modules?**
+  _Cohesion score 0.10846560846560846 - nodes in this community are weakly interconnected._

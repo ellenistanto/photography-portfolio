@@ -45,15 +45,12 @@ export default function AdminLogin({ onLoginSuccess }) {
         <div className="admin-login-bg" />
 
         <div className="admin-login-card">
-          <div className="admin-login-logo">
-            <div className="admin-login-logo-icon">EI</div>
-            <div>
-              <div className="admin-login-title">Studio Console</div>
-              <div className="admin-login-subtitle">Ellen Istanto Photography</div>
-            </div>
+          <div className="admin-login-header">
+            <h1 className="admin-login-brand">Ellen Istanto</h1>
+            <p className="admin-login-sub">Studio Content Management</p>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="admin-login-form">
             {error && (
               <div className="admin-error-msg" role="alert">
                 <span>{error}</span>
@@ -62,13 +59,13 @@ export default function AdminLogin({ onLoginSuccess }) {
 
             <div className="admin-form-group">
               <label className="admin-form-label" htmlFor="admin-password">
-                Admin Password
+                Password
               </label>
               <input
                 id="admin-password"
                 type="password"
                 className={`admin-form-input ${error ? 'has-error' : ''}`}
-                placeholder="Enter your admin password"
+                placeholder="Enter password"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -87,7 +84,7 @@ export default function AdminLogin({ onLoginSuccess }) {
             >
               {loading ? (
                 <>
-                  <span className="admin-spinner" style={{ width: 16, height: 16 }} />
+                  <span className="admin-spinner" style={{ width: 14, height: 14 }} />
                   <span>Signing in…</span>
                 </>
               ) : (
@@ -96,9 +93,11 @@ export default function AdminLogin({ onLoginSuccess }) {
             </button>
           </form>
 
-          <p style={{ marginTop: 20, textAlign: 'center', fontSize: 12, color: 'var(--admin-text-dim)' }}>
-            Protected access — this page is not linked publicly
-          </p>
+          <div className="admin-login-footer">
+            <a href="/" className="admin-login-return-link">
+              ← Return to portfolio
+            </a>
+          </div>
         </div>
       </div>
     </div>
