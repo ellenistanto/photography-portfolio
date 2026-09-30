@@ -42,10 +42,10 @@
     "semantic_hash": "64cdda7e7e4c7481518702de65424c91"
   },
   "server/models/Portfolio.js": {
-    "mtime": 1790775756.5064857,
-    "seen": 1790776006.3661993,
-    "ast_hash": "a43610de57cd64d107581d6ef852b8b1",
-    "semantic_hash": ""
+    "mtime": 1789665892.3641007,
+    "seen": 1789807688.7471118,
+    "ast_hash": "724959f2d48d9a3a89a7c2c10845a547",
+    "semantic_hash": "724959f2d48d9a3a89a7c2c10845a547"
   },
   "server/package.json": {
     "mtime": 1789422681.0,
@@ -60,10 +60,10 @@
     "semantic_hash": "7bce6175e71645f82d508b936037d07e"
   },
   "server/routes/portfolio.js": {
-    "mtime": 1790775777.753327,
-    "seen": 1790776006.3661993,
-    "ast_hash": "1a0b58033b010a47345e1f2bb746c57c",
-    "semantic_hash": ""
+    "mtime": 1789665627.3638997,
+    "seen": 1789807688.7471118,
+    "ast_hash": "eeea9e72025b1cf17426a729204fdb4b",
+    "semantic_hash": "eeea9e72025b1cf17426a729204fdb4b"
   },
   "server/routes/upload.js": {
     "mtime": 1789422681.0,
@@ -72,15 +72,15 @@
     "semantic_hash": "ef222b3490aa9ed06ff040e7eefcfc09"
   },
   "server/seed.js": {
-    "mtime": 1790775996.3990777,
-    "seen": 1790776006.3661993,
-    "ast_hash": "a468b3dec52e4b815eb3498ec2b1a9c5",
-    "semantic_hash": ""
+    "mtime": 1789665641.458974,
+    "seen": 1789807688.7471118,
+    "ast_hash": "403dd9788d5ffcaaedceef5bc3b863cd",
+    "semantic_hash": "403dd9788d5ffcaaedceef5bc3b863cd"
   },
   "src/App.jsx": {
-    "mtime": 1790775927.4409132,
-    "seen": 1790776006.3661993,
-    "ast_hash": "db066f9a07a4130a4577c113f187e48f",
+    "mtime": 1789843681.7428496,
+    "seen": 1789843771.7317774,
+    "ast_hash": "2f2b36926875c9a1331011fb225d42b4",
     "semantic_hash": ""
   },
   "src/admin/AdminApp.jsx": {
@@ -90,16 +90,16 @@
     "semantic_hash": "aac0470dfed0e43a98c104009617bd45"
   },
   "src/admin/AdminDashboard.jsx": {
-    "mtime": 1790775868.0506358,
-    "seen": 1790776006.3661993,
-    "ast_hash": "dfb7006693b1b112eb85443c31b7a975",
-    "semantic_hash": ""
+    "mtime": 1789600755.9754097,
+    "seen": 1789807688.7471118,
+    "ast_hash": "bd0a6e5ea5c35d7ba6c40d71bbc6001c",
+    "semantic_hash": "bd0a6e5ea5c35d7ba6c40d71bbc6001c"
   },
   "src/admin/AdminLogin.jsx": {
-    "mtime": 1790579998.4201758,
-    "seen": 1790776006.3661993,
-    "ast_hash": "605bc11bedf4fa351cdd3487e2a8d718",
-    "semantic_hash": ""
+    "mtime": 1789601205.8492947,
+    "seen": 1789807688.7471118,
+    "ast_hash": "50e720e2e69ac1a4103ee64f5efb8cb9",
+    "semantic_hash": "50e720e2e69ac1a4103ee64f5efb8cb9"
   },
   "src/admin/sections/CategoriesEditor.jsx": {
     "mtime": 1789601541.3034425,
@@ -180,10 +180,10 @@
     "semantic_hash": ""
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1790775905.5452254,
-    "seen": 1790776006.3661993,
-    "ast_hash": "28ce053e18091fa1123a62432af36428",
-    "semantic_hash": ""
+    "mtime": 1789661058.027319,
+    "seen": 1789807688.7471118,
+    "ast_hash": "0d645c03d3ee5d263ad8cab7d4d37694",
+    "semantic_hash": "0d645c03d3ee5d263ad8cab7d4d37694"
   },
   "src/components/OverviewSection.jsx": {
     "mtime": 1789843726.2536917,
@@ -198,16 +198,16 @@
     "semantic_hash": "f007f13998415ee2e6ada4e69ee806af"
   },
   "src/data/portfolioData.js": {
-    "mtime": 1790775789.4984524,
-    "seen": 1790776006.3661993,
-    "ast_hash": "c7ec30e9fc9d54bba338bb1fc8e7c1d3",
-    "semantic_hash": ""
+    "mtime": 1789665635.1596005,
+    "seen": 1789807688.7471118,
+    "ast_hash": "e0162ee853a77eff4e628b6af657f1a1",
+    "semantic_hash": "e0162ee853a77eff4e628b6af657f1a1"
   },
   "src/hooks/usePortfolioData.js": {
-    "mtime": 1790775816.252683,
-    "seen": 1790776006.3661993,
-    "ast_hash": "ce1753a60ebd5960c635406fac46e8ba",
-    "semantic_hash": ""
+    "mtime": 1789746530.4337826,
+    "seen": 1789807688.7471118,
+    "ast_hash": "a2f59c03c584c0935110f00c9eef9724",
+    "semantic_hash": "a2f59c03c584c0935110f00c9eef9724"
   },
   "src/main.jsx": {
     "mtime": 1789422681.0,
@@ -249,30 +249,6 @@
     "mtime": 1789843253.2280521,
     "seen": 1789843496.623379,
     "ast_hash": "4efe9c3bd85a1a052f9d1e350649b9c2",
-    "semantic_hash": ""
-  },
-  "src/admin/sections/VideosEditor.jsx": {
-    "mtime": 1790775851.7099323,
-    "seen": 1790776006.3661993,
-    "ast_hash": "6ab2850769961c2a8bd45bd38cc47f0f",
-    "semantic_hash": ""
-  },
-  "src/components/VideoModal.jsx": {
-    "mtime": 1790775876.4935205,
-    "seen": 1790776006.3661993,
-    "ast_hash": "3d7189468ab6f5eac39c9685b0a456ac",
-    "semantic_hash": ""
-  },
-  "src/components/VideoSection.jsx": {
-    "mtime": 1790775887.2603505,
-    "seen": 1790776006.3661993,
-    "ast_hash": "efd3af32b85bbeee3e1d5254cf2ad1d2",
-    "semantic_hash": ""
-  },
-  "src/utils/videoUtils.js": {
-    "mtime": 1790775827.0732646,
-    "seen": 1790776006.3661993,
-    "ast_hash": "6835990b329489427861282391aede32",
     "semantic_hash": ""
   }
 }

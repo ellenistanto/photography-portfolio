@@ -7,8 +7,10 @@ import Hero from './components/Hero';
 import ClientsCloud from './components/ClientsCloud';
 import OverviewSection from './components/OverviewSection';
 import MasonryGallery from './components/MasonryGallery';
+import VideoSection from './components/VideoSection';
 import ConnectSection from './components/ConnectSection';
 import LightboxModal from './components/LightboxModal';
+import VideoModal from './components/VideoModal';
 import Footer from './components/Footer';
 
 // Lazy-load admin to keep initial bundle small
@@ -22,6 +24,10 @@ function PortfolioPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxPhotos, setLightboxPhotos] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  // Video Lightbox State
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [videoModalIndex, setVideoModalIndex] = useState(0);
 
   // Filter photos based on selected category
   const filteredPhotos = useMemo(() => {
@@ -45,8 +51,6 @@ function PortfolioPage() {
     // Fallback: collect photos marked with isOverview: true
     return data.photos.filter(p => p.isOverview);
   }, [data.photos, data.overview]);
-
-
 
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
@@ -85,7 +89,25 @@ function PortfolioPage() {
     setLightboxIndex((prev) => (prev - 1 + lightboxPhotos.length) % lightboxPhotos.length);
   };
 
+  // Video modal handlers
+  const handleOpenVideoModal = (index) => {
+    setVideoModalIndex(index);
+    setVideoModalOpen(true);
+  };
 
+  const handleCloseVideoModal = () => {
+    setVideoModalOpen(false);
+  };
+
+  const handleNextVideo = () => {
+    if (!data.videos || data.videos.length === 0) return;
+    setVideoModalIndex((prev) => (prev + 1) % data.videos.length);
+  };
+
+  const handlePrevVideo = () => {
+    if (!data.videos || data.videos.length === 0) return;
+    setVideoModalIndex((prev) => (prev - 1 + data.videos.length) % data.videos.length);
+  };
 
   return (
     <div className="portfolio-app">
@@ -94,6 +116,7 @@ function PortfolioPage() {
         profile={data.profile}
         categories={data.categories}
         photos={data.photos}
+        videos={data.videos}
         currentCategory={currentCategory}
         onSelectCategory={handleSelectCategory}
         onScrollToSection={scrollToSection}
@@ -122,6 +145,12 @@ function PortfolioPage() {
           onPhotoClick={handleOpenLightbox}
         />
 
+        {/* Motion & Video Portfolio Section */}
+        <VideoSection
+          videos={data.videos}
+          onVideoClick={handleOpenVideoModal}
+        />
+
         {/* Connect, About, Milestones & Contact */}
         <ConnectSection
           profile={data.profile}
@@ -130,7 +159,7 @@ function PortfolioPage() {
         />
       </main>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal for Photos */}
       <LightboxModal
         isOpen={lightboxOpen}
         photos={lightboxPhotos}
@@ -140,7 +169,15 @@ function PortfolioPage() {
         onPrev={handlePrevPhoto}
       />
 
-
+      {/* Video Lightbox Modal */}
+      <VideoModal
+        isOpen={videoModalOpen}
+        videos={data.videos}
+        currentIndex={videoModalIndex}
+        onClose={handleCloseVideoModal}
+        onNext={handleNextVideo}
+        onPrev={handlePrevVideo}
+      />
 
       {/* Footer */}
       <Footer

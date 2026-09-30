@@ -8,6 +8,7 @@ import ClientsEditor from './sections/ClientsEditor';
 import MilestonesEditor from './sections/MilestonesEditor';
 import CategoriesEditor from './sections/CategoriesEditor';
 import OverviewEditor from './sections/OverviewEditor';
+import VideosEditor from './sections/VideosEditor';
 import { API_BASE } from '../config/api';
 import { updatePortfolioCache } from '../hooks/usePortfolioData';
 
@@ -47,6 +48,7 @@ const NAV_ITEMS = [
   { id: 'profile',     label: 'Profile & Bio' },
   { id: 'overview',    label: 'Overview Highlights' },
   { id: 'photos',      label: 'Gallery Photos' },
+  { id: 'videos',      label: 'Motion & Videos' },
   { id: 'stats',       label: 'Key Statistics' },
   { id: 'clients',     label: 'Clients & Partners' },
   { id: 'milestones',  label: 'Career Milestones' },
@@ -131,6 +133,7 @@ export default function AdminDashboard({ token, onLogout }) {
       case 'profile':    return <ProfileEditor    {...commonProps} />;
       case 'overview':   return <OverviewEditor   {...commonProps} />;
       case 'photos':     return <PhotosEditor     {...commonProps} />;
+      case 'videos':     return <VideosEditor     {...commonProps} />;
       case 'stats':      return <StatsEditor      {...commonProps} />;
       case 'clients':    return <ClientsEditor    {...commonProps} />;
       case 'milestones': return <MilestonesEditor {...commonProps} />;

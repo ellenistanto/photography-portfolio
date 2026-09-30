@@ -93,6 +93,24 @@ const SEED_DATA = {
       ]
     }
   ],
+  videos: [
+    {
+      id: "vid_hindia_live_2024",
+      title: "Hindia — Menari Dengan Bayangan (Live Stage Visuals)",
+      category: "music-video",
+      categoryLabel: "Music & Concert",
+      client: "Sun Eaters / Hindia",
+      year: "2024",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoType: "youtube",
+      aspect: "landscape",
+      coverImage: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+      previewVideoUrl: "",
+      description: "Dokumentasi motion dan tata visual pencahayaan konser musik berskala festival.",
+      order: 0,
+      isFeatured: true
+    }
+  ],
   photos: []
 };
 

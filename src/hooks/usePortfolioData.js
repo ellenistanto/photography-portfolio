@@ -19,6 +19,7 @@ function getInitialData() {
             data: {
               ...parsed,
               projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : (PORTFOLIO_DATA.projects || []),
+              videos: parsed.videos && parsed.videos.length > 0 ? parsed.videos : (PORTFOLIO_DATA.videos || []),
             },
             isCached: true
           };
@@ -49,6 +50,7 @@ function getInitialData() {
       categories: PORTFOLIO_DATA.categories || [],
       photos: [], // Kosongkan agar foto dummy tidak ditampilkan saat loading awal
       projects: PORTFOLIO_DATA.projects || [],
+      videos: PORTFOLIO_DATA.videos || [],
       stats: PORTFOLIO_DATA.stats || [],
       showStats: PORTFOLIO_DATA.showStats ?? true,
       clients: PORTFOLIO_DATA.clients || [],

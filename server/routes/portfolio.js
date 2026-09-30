@@ -37,6 +37,7 @@ router.get('/', async (req, res) => {
       categories: doc.categories,
       photos: doc.photos.sort((a, b) => a.order - b.order),
       projects: (doc.projects || []).sort((a, b) => (a.order || 0) - (b.order || 0)),
+      videos: (doc.videos || []).sort((a, b) => (a.order || 0) - (b.order || 0)),
       overview: doc.overview || {
         enabled: true,
         title: 'Selected Works',
@@ -597,6 +598,203 @@ router.delete('/projects/:id', authMiddleware, async (req, res) => {
   } catch (err) {
     console.error('DELETE /projects/:id error:', err);
     res.status(500).json({ error: 'Failed to delete project' });
+  }
+});
+
+// ── Videos CRUD ──────────────────────────────────────────────────────────────
+
+/**
+ * Inspect video URL to extract provider and default thumbnail
+ */
+function inspectVideoUrl(url) {
+  if (!url || typeof url !== 'string') {
+    return { type: 'direct', defaultThumbnail: '' };
+  }
+  const trimmed = url.trim();
+
+  // YouTube Shorts or standard URL
+  const ytShorts = trimmed.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/);
+  if (ytShorts) {
+    return {
+      type: 'youtube',
+      defaultThumbnail: `https://img.youtube.com/vi/${ytShorts[1]}/hqdefault.jpg`,
+    };
+  }
+
+  const ytMatch = trimmed.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if (ytMatch) {
+    return {
+      type: 'youtube',
+      defaultThumbnail: `https://img.youtube.com/vi/${ytMatch[1]}/hqdefault.jpg`,
+    };
+  }
+
+  // Vimeo
+  const vimeoMatch = trimmed.match(/vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/videos\/|album\/(?:\d+)\/video\/|video\/|)(\d+)/);
+  if (vimeoMatch) {
+    return {
+      type: 'vimeo',
+      defaultThumbnail: '',
+    };
+  }
+
+  // Google Drive
+  const driveMatch = trimmed.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/) || trimmed.match(/drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/);
+  if (driveMatch) {
+    return {
+      type: 'drive',
+      defaultThumbnail: `https://lh3.googleusercontent.com/d/${driveMatch[1]}`,
+    };
+  }
+
+  return {
+    type: 'direct',
+    defaultThumbnail: '',
+  };
+}
+
+/**
+ * POST /api/portfolio/videos
+ * Add a new video portfolio item
+ */
+router.post('/videos', authMiddleware, async (req, res) => {
+  try {
+    const { title, category, categoryLabel, client, year, videoUrl, aspect, coverImage, previewVideoUrl, description, isFeatured } = req.body;
+
+    if (!title || !videoUrl) {
+      return res.status(400).json({ error: 'title and videoUrl are required' });
+    }
+
+    const doc = await getPortfolio();
+    if (!doc.videos) doc.videos = [];
+
+    const inspected = inspectVideoUrl(videoUrl);
+    const videoId = `video_${crypto.randomBytes(4).toString('hex')}`;
+
+    const newVideo = {
+      id: videoId,
+      title: title.trim(),
+      category: category || 'general',
+      categoryLabel: categoryLabel || category || 'Video',
+      client: client || '',
+      year: year || new Date().getFullYear().toString(),
+      videoUrl: videoUrl.trim(),
+      videoType: inspected.type,
+      aspect: aspect || 'landscape',
+      coverImage: coverImage || inspected.defaultThumbnail || '',
+      previewVideoUrl: previewVideoUrl || '',
+      description: description || '',
+      order: doc.videos.length,
+      isFeatured: Boolean(isFeatured),
+    };
+
+    doc.videos.push(newVideo);
+    doc.markModified('videos');
+    await doc.save();
+
+    res.status(201).json({ message: 'Video added successfully', video: newVideo });
+  } catch (err) {
+    console.error('POST /videos error:', err);
+    res.status(500).json({ error: 'Failed to add video' });
+  }
+});
+
+/**
+ * PUT /api/portfolio/videos/reorder/batch
+ * Batch reorder videos
+ */
+router.put('/videos/reorder/batch', authMiddleware, async (req, res) => {
+  try {
+    const { order } = req.body;
+    if (!Array.isArray(order)) {
+      return res.status(400).json({ error: 'order must be an array of video IDs' });
+    }
+
+    const doc = await getPortfolio();
+    if (!doc.videos) doc.videos = [];
+
+    order.forEach((id, index) => {
+      const item = doc.videos.find(v => v.id === id);
+      if (item) item.order = index;
+    });
+
+    doc.markModified('videos');
+    await doc.save();
+    res.json({ message: 'Videos reordered successfully' });
+  } catch (err) {
+    console.error('PUT /videos/reorder error:', err);
+    res.status(500).json({ error: 'Failed to reorder videos' });
+  }
+});
+
+/**
+ * PUT /api/portfolio/videos/:id
+ * Update a video
+ */
+router.put('/videos/:id', authMiddleware, async (req, res) => {
+  try {
+    const doc = await getPortfolio();
+    if (!doc.videos) doc.videos = [];
+
+    const index = doc.videos.findIndex(v => v.id === req.params.id);
+    if (index === -1) {
+      return res.status(404).json({ error: 'Video not found' });
+    }
+
+    const current = doc.videos[index];
+    const allowed = [
+      'title', 'category', 'categoryLabel', 'client', 'year',
+      'videoUrl', 'aspect', 'coverImage', 'previewVideoUrl',
+      'description', 'order', 'isFeatured',
+    ];
+
+    allowed.forEach(field => {
+      if (req.body[field] !== undefined) {
+        current[field] = req.body[field];
+      }
+    });
+
+    if (req.body.videoUrl !== undefined) {
+      const inspected = inspectVideoUrl(req.body.videoUrl);
+      current.videoType = inspected.type;
+      if (!current.coverImage && inspected.defaultThumbnail) {
+        current.coverImage = inspected.defaultThumbnail;
+      }
+    }
+
+    doc.markModified('videos');
+    await doc.save();
+
+    res.json({ message: 'Video updated successfully', video: current });
+  } catch (err) {
+    console.error('PUT /videos/:id error:', err);
+    res.status(500).json({ error: 'Failed to update video' });
+  }
+});
+
+/**
+ * DELETE /api/portfolio/videos/:id
+ * Delete a video
+ */
+router.delete('/videos/:id', authMiddleware, async (req, res) => {
+  try {
+    const doc = await getPortfolio();
+    if (!doc.videos) doc.videos = [];
+
+    const beforeCount = doc.videos.length;
+    doc.videos = doc.videos.filter(v => v.id !== req.params.id);
+
+    if (doc.videos.length === beforeCount) {
+      return res.status(404).json({ error: 'Video not found' });
+    }
+
+    doc.markModified('videos');
+    await doc.save();
+
+    res.json({ message: 'Video deleted successfully' });
+  } catch (err) {
+    console.error('DELETE /videos/:id error:', err);
+    res.status(500).json({ error: 'Failed to delete video' });
   }
 });
 

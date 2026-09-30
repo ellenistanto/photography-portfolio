@@ -110,6 +110,9 @@ export const PORTFOLIO_DATA = {
   // Projects / Stories / Series — populated via Admin / API, not hardcoded
   projects: [],
 
+  // Video / Motion Works — populated via Admin / API
+  videos: [],
+
   // Daftar Foto
   photos: []
 };

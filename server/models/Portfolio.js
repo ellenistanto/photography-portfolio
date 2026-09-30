@@ -90,6 +90,24 @@ const ProjectSchema = new mongoose.Schema({
   order: { type: Number, default: 0 },
 }, { _id: false });
 
+// ── Video Schema ─────────────────────────────────────────────────────────────
+const VideoSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  title: { type: String, required: true },
+  category: { type: String, default: 'general' },
+  categoryLabel: { type: String, default: '' },
+  client: { type: String, default: '' },
+  year: { type: String, default: '' },
+  videoUrl: { type: String, required: true },
+  videoType: { type: String, enum: ['youtube', 'vimeo', 'drive', 'direct'], default: 'youtube' },
+  aspect: { type: String, enum: ['landscape', 'portrait', 'square'], default: 'landscape' },
+  coverImage: { type: String, default: '' },
+  previewVideoUrl: { type: String, default: '' },
+  description: { type: String, default: '' },
+  order: { type: Number, default: 0 },
+  isFeatured: { type: Boolean, default: false },
+}, { _id: false });
+
 // ── Main Portfolio Schema ─────────────────────────────────────────────────────
 const PortfolioSchema = new mongoose.Schema({
   // Singleton document — always one doc with this key
@@ -102,6 +120,7 @@ const PortfolioSchema = new mongoose.Schema({
   categories: [CategorySchema],
   photos: [PhotoSchema],
   projects: [ProjectSchema],
+  videos: [VideoSchema],
   overview: {
     type: OverviewSchema,
     default: () => ({

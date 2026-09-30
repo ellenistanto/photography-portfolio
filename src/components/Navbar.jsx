@@ -4,6 +4,7 @@ export default function Navbar({
   profile, 
   categories = [], 
   photos = [], 
+  videos = [],
   currentCategory, 
   onSelectCategory, 
   onScrollToSection 
@@ -95,6 +96,15 @@ export default function Navbar({
               </button>
             ))}
 
+            {videos && videos.length > 0 && (
+              <button 
+                onClick={() => handleNavClick('videoSection')} 
+                className="nav-link"
+              >
+                VIDEOS
+              </button>
+            )}
+
             <button 
               onClick={() => handleNavClick('connect')} 
               className="nav-link"
@@ -137,6 +147,15 @@ export default function Navbar({
               {cat.name}
             </button>
           ))}
+
+          {videos && videos.length > 0 && (
+            <button 
+              onClick={() => handleNavClick('videoSection')} 
+              className="mobile-nav-link"
+            >
+              Motion & Videos
+            </button>
+          )}
 
           <button 
             onClick={() => handleNavClick('connect')} 
