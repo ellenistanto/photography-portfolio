@@ -3391,11 +3391,11 @@ button {
 
 .video-section-title {
   font-size: clamp(1.8rem, 3.5vw, 2.75rem);
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: #f4f4f5;
   margin-bottom: 0.75rem;
-  font-family: var(--font-display, inherit);
+  font-family: var(--font-main);
 }
 
 .video-section-desc {
