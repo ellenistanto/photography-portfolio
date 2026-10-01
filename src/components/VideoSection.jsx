@@ -80,15 +80,6 @@ function VideoCard({ video, index, onVideoClick }) {
           <Play size={20} fill="currentColor" strokeWidth={0} />
         </div>
 
-        {/* Category & Format Badges */}
-        <div className="video-card-badges">
-          <span className="video-card-badge">
-            {video.categoryLabel || video.category || 'Motion'}
-          </span>
-          {video.aspect === 'portrait' && (
-            <span className="video-card-badge format-badge">9:16 REEL</span>
-          )}
-        </div>
 
         {/* Card Overlay Meta Details */}
         <div className="video-card-meta">
