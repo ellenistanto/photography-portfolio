@@ -3532,28 +3532,29 @@ button {
   opacity: 1;
 }
 
-/* Play Button Overlay */
+/* Play Button Overlay - Inverted Cinema Circle */
 .video-card-play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: rgba(14, 14, 18, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(12, 12, 15, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   color: #f4f4f5;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 2px;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.25s ease,
-              border-color 0.25s ease,
-              box-shadow 0.25s ease,
+  padding-left: 2.5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               color 0.25s ease;
   z-index: 2;
   pointer-events: none;
@@ -3561,11 +3562,15 @@ button {
 
 .video-card:hover .video-card-play-btn,
 .video-card-play-btn.hovered {
-  transform: translate(-50%, -50%) scale(1.06);
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #ffffff;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  transform: translate(-50%, -50%) scale(1.1);
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #09090b;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.video-card:active .video-card-play-btn {
+  transform: translate(-50%, -50%) scale(0.98);
 }
 
 /* Badges */
