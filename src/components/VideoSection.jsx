@@ -77,7 +77,7 @@ function VideoCard({ video, index, onVideoClick }) {
 
         {/* Play Button Overlay */}
         <div className={`video-card-play-btn ${isHovered ? 'hovered' : ''}`} aria-hidden="true">
-          <Play size={16} fill="currentColor" strokeWidth={0} />
+          <Play size={18} fill="currentColor" strokeWidth={0} />
         </div>
 
 

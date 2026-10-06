@@ -264,9 +264,9 @@
     "semantic_hash": ""
   },
   "src/components/VideoSection.jsx": {
-    "mtime": 1791269644.7335122,
-    "seen": 1791269705.2801273,
-    "ast_hash": "467ddde24613ef0b7535cb64269c26af",
+    "mtime": 1791270337.149307,
+    "seen": 1791270433.7173963,
+    "ast_hash": "809638fdd634841b2971f47086b9b40e",
     "semantic_hash": ""
   },
   "src/utils/videoUtils.js": {
