@@ -3681,22 +3681,23 @@ button {
 
 .video-modal-container {
   width: 100%;
-  max-width: 1060px;
+  max-width: 840px;
+  max-height: 88vh;
   background: #0f0f12;
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85);
   animation: videoScaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
 
 .video-modal-container.is-portrait {
-  max-width: 440px;
+  max-width: 380px;
 }
 
 .video-modal-container.is-square {
-  max-width: 680px;
+  max-width: 580px;
 }
 
 @keyframes videoScaleIn {
@@ -3708,7 +3709,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 10px 18px;
   background: #121216;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   flex-shrink: 0;
@@ -3736,7 +3737,7 @@ button {
 }
 
 .video-modal-title {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: #f4f4f5;
   margin: 0;
@@ -3753,8 +3754,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   padding: 0;
   transition: color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
@@ -3778,8 +3779,8 @@ button {
 }
 
 .video-modal-container.is-portrait .video-modal-player-wrapper {
-  padding-top: 150%; /* 9:16 approx for dialog height containment */
-  max-height: 72vh;
+  padding-top: 140%;
+  max-height: 68vh;
 }
 
 .video-modal-container.is-square .video-modal-player-wrapper {
@@ -3801,8 +3802,8 @@ button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: rgba(15, 15, 18, 0.72);
   backdrop-filter: blur(10px);
@@ -3819,11 +3820,11 @@ button {
 }
 
 .video-modal-nav-btn.prev {
-  left: 16px;
+  left: 12px;
 }
 
 .video-modal-nav-btn.next {
-  right: 16px;
+  right: 12px;
 }
 
 .video-modal-nav-btn:hover {
@@ -3839,7 +3840,7 @@ button {
 }
 
 .video-modal-footer {
-  padding: 14px 20px;
+  padding: 12px 18px;
   background: #141418;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
