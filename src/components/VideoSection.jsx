@@ -84,10 +84,11 @@ function VideoCard({ video, index, onVideoClick }) {
         {/* Card Overlay Meta Details */}
         <div className="video-card-meta">
           <h3 className="video-card-title">{video.title}</h3>
-          <div className="video-card-submeta">
-            {video.client && <span className="video-card-client">{video.client}</span>}
-            {video.year && <span className="video-card-year">• {video.year}</span>}
-          </div>
+          {video.client && (
+            <div className="video-card-submeta">
+              <span className="video-card-client">{video.client}</span>
+            </div>
+          )}
         </div>
       </div>
     </article>

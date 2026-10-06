@@ -112,12 +112,13 @@ export default function VideoModal({
         </div>
 
         {/* Footer Meta Details */}
-        {(video.client || video.year || video.description) && (
+        {(video.client || video.description) && (
           <div className="video-modal-footer">
-            <div className="video-modal-footer-credits">
-              {video.client && <span className="video-modal-client">{video.client}</span>}
-              {video.year && <span className="video-modal-year">• {video.year}</span>}
-            </div>
+            {video.client && (
+              <div className="video-modal-footer-credits">
+                <span className="video-modal-client">{video.client}</span>
+              </div>
+            )}
             {video.description && (
               <p className="video-modal-description">{video.description}</p>
             )}

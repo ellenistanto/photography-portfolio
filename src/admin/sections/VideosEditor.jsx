@@ -31,7 +31,6 @@ function VideoModal({ video, token, onClose, onSave, onToast }) {
     category: 'music-video',
     categoryLabel: 'Music & Concert',
     client: '',
-    year: new Date().getFullYear().toString(),
     videoUrl: '',
     videoType: 'youtube',
     aspect: 'landscape',
@@ -52,7 +51,6 @@ function VideoModal({ video, token, onClose, onSave, onToast }) {
     if (video) {
       setForm({
         ...video,
-        year: video.year || new Date().getFullYear().toString(),
         aspect: video.aspect || 'landscape',
         category: video.category || 'music-video',
         categoryLabel: video.categoryLabel || 'Music & Concert',
@@ -155,8 +153,9 @@ function VideoModal({ video, token, onClose, onSave, onToast }) {
     setSaving(true);
     try {
       const parsed = parseVideoSource(form.videoUrl);
+      const { year: _year, ...restForm } = form;
       const cleanForm = {
-        ...form,
+        ...restForm,
         title: form.title.trim(),
         videoUrl: form.videoUrl.trim(),
         videoType: parsed.type,
@@ -318,29 +317,16 @@ function VideoModal({ video, token, onClose, onSave, onToast }) {
           </div>
         </div>
 
-        {/* Client & Year */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px', gap: 12, marginBottom: 14 }}>
-          <div className="admin-form-group">
-            <label className="admin-form-label">Client / Artist / Label</label>
-            <input
-              id="video-client-input"
-              className="admin-form-input"
-              value={form.client}
-              onChange={e => handleChange('client', e.target.value)}
-              placeholder="e.g. Hindia / Sun Eaters / Uniqlo"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label className="admin-form-label">Year</label>
-            <input
-              id="video-year-input"
-              className="admin-form-input"
-              value={form.year}
-              onChange={e => handleChange('year', e.target.value)}
-              placeholder="2024"
-            />
-          </div>
+        {/* Client */}
+        <div className="admin-form-group" style={{ marginBottom: 14 }}>
+          <label className="admin-form-label">Client / Artist / Label</label>
+          <input
+            id="video-client-input"
+            className="admin-form-input"
+            value={form.client}
+            onChange={e => handleChange('client', e.target.value)}
+            placeholder="e.g. Hindia / Sun Eaters / Uniqlo"
+          />
         </div>
 
         {/* Cover Thumbnail Section */}
@@ -865,7 +851,6 @@ export default function VideosEditor({ data, token, onSaved, onToast }) {
                   <div className="admin-photo-card-meta">
                     <span className="admin-photo-card-cat">{video.categoryLabel || video.category}</span>
                     {video.client && <span> • {video.client}</span>}
-                    {video.year && <span> ({video.year})</span>}
                   </div>
 
                   <div className="admin-photo-card-actions" style={{ marginTop: 10, display: 'flex', gap: 6 }}>

@@ -3653,10 +3653,6 @@ button {
   color: #d4d4d8;
 }
 
-.video-card-year {
-  color: #71717a;
-}
-
 /* ====================================================================
    VIDEO LIGHTBOX MODAL
    ==================================================================== */
@@ -3854,10 +3850,6 @@ button {
 .video-modal-client {
   font-weight: 500;
   color: #f4f4f5;
-}
-
-.video-modal-year {
-  color: #71717a;
 }
 
 .video-modal-description {
