@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { usePortfolioData } from './hooks/usePortfolioData';
 
@@ -9,12 +9,12 @@ import OverviewSection from './components/OverviewSection';
 import MasonryGallery from './components/MasonryGallery';
 import VideoSection from './components/VideoSection';
 import ConnectSection from './components/ConnectSection';
-import LightboxModal from './components/LightboxModal';
-import VideoModal from './components/VideoModal';
 import Footer from './components/Footer';
 
-// Lazy-load admin to keep initial bundle small
-import AdminApp from './admin/AdminApp';
+// Code-split modals and admin to keep critical portfolio bundle minimal
+const LightboxModal = lazy(() => import('./components/LightboxModal'));
+const VideoModal = lazy(() => import('./components/VideoModal'));
+const AdminApp = lazy(() => import('./admin/AdminApp'));
 
 // ── Portfolio Page ────────────────────────────────────────────────────────────
 function PortfolioPage() {
@@ -159,25 +159,33 @@ function PortfolioPage() {
         />
       </main>
 
-      {/* Lightbox Modal for Photos */}
-      <LightboxModal
-        isOpen={lightboxOpen}
-        photos={lightboxPhotos}
-        currentIndex={lightboxIndex}
-        onClose={handleCloseLightbox}
-        onNext={handleNextPhoto}
-        onPrev={handlePrevPhoto}
-      />
+      {/* Lightbox Modal for Photos (Lazy loaded on demand) */}
+      {lightboxOpen && (
+        <Suspense fallback={null}>
+          <LightboxModal
+            isOpen={lightboxOpen}
+            photos={lightboxPhotos}
+            currentIndex={lightboxIndex}
+            onClose={handleCloseLightbox}
+            onNext={handleNextPhoto}
+            onPrev={handlePrevPhoto}
+          />
+        </Suspense>
+      )}
 
-      {/* Video Lightbox Modal */}
-      <VideoModal
-        isOpen={videoModalOpen}
-        videos={data.videos}
-        currentIndex={videoModalIndex}
-        onClose={handleCloseVideoModal}
-        onNext={handleNextVideo}
-        onPrev={handlePrevVideo}
-      />
+      {/* Video Lightbox Modal (Lazy loaded on demand) */}
+      {videoModalOpen && (
+        <Suspense fallback={null}>
+          <VideoModal
+            isOpen={videoModalOpen}
+            videos={data.videos}
+            currentIndex={videoModalIndex}
+            onClose={handleCloseVideoModal}
+            onNext={handleNextVideo}
+            onPrev={handlePrevVideo}
+          />
+        </Suspense>
+      )}
 
       {/* Footer */}
       <Footer
@@ -191,8 +199,19 @@ function PortfolioPage() {
 export default function App() {
   return (
     <Routes>
-      {/* Admin dashboard — only accessible at /admin */}
-      <Route path="/admin/*" element={<AdminApp />} />
+      {/* Admin dashboard — only downloaded when visiting /admin */}
+      <Route
+        path="/admin/*"
+        element={
+          <Suspense fallback={
+            <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0c', color: '#a1a1aa' }}>
+              <div className="admin-spinner" style={{ width: 24, height: 24 }}></div>
+            </div>
+          }>
+            <AdminApp />
+          </Suspense>
+        }
+      />
       {/* Portfolio — everything else */}
       <Route path="/*" element={<PortfolioPage />} />
     </Routes>

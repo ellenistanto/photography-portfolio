@@ -13,5 +13,14 @@ export default defineConfig({
   appType: 'spa',
   build: {
     emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-icons': ['lucide-react'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
   },
 });

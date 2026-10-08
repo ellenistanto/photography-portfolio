@@ -11,7 +11,7 @@ const CACHE_KEY = 'portfolio_data_cache_v3';
 function getInitialData() {
   if (typeof window !== 'undefined') {
     try {
-      const cached = localStorage.getItem(CACHE_KEY);
+      const cached = localStorage.getItem(CACHE_KEY) || sessionStorage.getItem(CACHE_KEY);
       if (cached) {
         const parsed = JSON.parse(cached);
         if (parsed) {
@@ -81,7 +81,7 @@ export function usePortfolioData() {
     async function fetchData() {
       try {
         const res = await fetch(`${API_BASE}/api/portfolio`, {
-          signal: AbortSignal.timeout(8000), // 8s timeout
+          signal: AbortSignal.timeout(4500), // 4.5s fast timeout
         });
 
         if (!res.ok) throw new Error(`API responded with ${res.status}`);
@@ -97,14 +97,14 @@ export function usePortfolioData() {
           setData(mergedData);
           try {
             localStorage.setItem(CACHE_KEY, JSON.stringify(mergedData));
+            sessionStorage.setItem(CACHE_KEY, JSON.stringify(mergedData));
           } catch (e) {
-            // LocalStorage quota / private mode
+            // Storage quota / private mode
           }
         }
       } catch (err) {
         console.warn('[Portfolio] API unavailable, fallback check:', err.message);
         if (!cancelled) {
-          // Jika sudah ada data atau foto sebelumnya, pertahankan
           setData((prev) => {
             if (prev && Array.isArray(prev.photos) && prev.photos.length > 0) {
               return {
@@ -112,7 +112,6 @@ export function usePortfolioData() {
                 projects: prev.projects && prev.projects.length > 0 ? prev.projects : (PORTFOLIO_DATA.projects || []),
               };
             }
-            // Hanya fallback ke PORTFOLIO_DATA jika koneksi benar-benar error dan belum ada data
             return PORTFOLIO_DATA;
           });
         }
@@ -134,11 +133,13 @@ export function usePortfolioData() {
 export function clearPortfolioCache() {
   try {
     localStorage.removeItem(CACHE_KEY);
+    sessionStorage.removeItem(CACHE_KEY);
   } catch (e) {}
 }
 
 export function updatePortfolioCache(newData) {
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify(newData));
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(newData));
   } catch (e) {}
 }

@@ -15,20 +15,35 @@ async function getPortfolio() {
   return doc;
 }
 
+// ── In-memory portfolio cache for ultra-fast response times ──
+let cachedPortfolioResponse = null;
+let cachedPortfolioTime = 0;
+const CACHE_TTL_MS = 60 * 1000; // 60 seconds
+
+function invalidatePortfolioCache() {
+  cachedPortfolioResponse = null;
+  cachedPortfolioTime = 0;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // PUBLIC ROUTES (no auth required — visitors fetch portfolio data)
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
  * GET /api/portfolio
- * Returns the full portfolio data
+ * Returns the full portfolio data with in-memory & edge CDN caching
  */
 router.get('/', async (req, res) => {
   try {
+    const now = Date.now();
+    if (cachedPortfolioResponse && (now - cachedPortfolioTime < CACHE_TTL_MS)) {
+      res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=600');
+      res.setHeader('X-Cache', 'HIT');
+      return res.json(cachedPortfolioResponse);
+    }
+
     const doc = await getPortfolio();
-    // Cache di Vercel CDN Edge selama 60 detik, revalidasi di background
-    res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
-    res.json({
+    const payload = {
       profile: doc.profile,
       stats: doc.stats,
       showStats: doc.showStats !== false,
@@ -44,11 +59,26 @@ router.get('/', async (req, res) => {
         subtitle: 'Curated highlights & moments in between',
         photoIds: [],
       },
-    });
+    };
+
+    cachedPortfolioResponse = payload;
+    cachedPortfolioTime = now;
+
+    res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=600');
+    res.setHeader('X-Cache', 'MISS');
+    res.json(payload);
   } catch (err) {
     console.error('GET /portfolio error:', err);
     res.status(500).json({ error: 'Failed to fetch portfolio data' });
   }
+});
+
+// Middleware to automatically invalidate cache on any admin mutation
+router.use((req, res, next) => {
+  if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)) {
+    invalidatePortfolioCache();
+  }
+  next();
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

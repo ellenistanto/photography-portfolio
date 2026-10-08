@@ -22,7 +22,8 @@ function GalleryCard({ photo, index, onPhotoClick }) {
         <img 
           src={photo.thumb || photo.image} 
           alt={photo.title}
-          loading="lazy"
+          loading={index < 3 ? "eager" : "lazy"}
+          fetchPriority={index < 2 ? "high" : "auto"}
           decoding="async"
           width="800"
           height="600"

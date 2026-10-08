@@ -24,7 +24,8 @@ function OverviewCard({ photo, index, isFeaturedCard, onPhotoClick }) {
         <img
           src={photo.image || photo.thumb}
           alt={photo.title}
-          loading="lazy"
+          loading={index < 2 ? "eager" : "lazy"}
+          fetchPriority={index === 0 ? "high" : "auto"}
           decoding="async"
           onLoad={() => setLoaded(true)}
           ref={(el) => {

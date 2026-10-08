@@ -81,6 +81,55 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
     });
   };
 
+  // Client-side image pre-compression helper
+  const compressImage = async (imgFile) => {
+    if (!imgFile || imgFile.size < 600 * 1024 || imgFile.type === 'image/svg+xml' || imgFile.type === 'image/gif') {
+      return imgFile;
+    }
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const maxDim = 2400;
+          let { width, height } = img;
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return resolve(imgFile);
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const outputType = imgFile.type === 'image/png' ? 'image/png' : 'image/jpeg';
+          canvas.toBlob(
+            (blob) => {
+              if (blob && blob.size < imgFile.size) {
+                resolve(new File([blob], imgFile.name, { type: outputType, lastModified: Date.now() }));
+              } else {
+                resolve(imgFile);
+              }
+            },
+            outputType,
+            0.86
+          );
+        };
+        img.onerror = () => resolve(imgFile);
+        img.src = e.target.result;
+      };
+      reader.onerror = () => resolve(imgFile);
+      reader.readAsDataURL(imgFile);
+    });
+  };
+
   // Upload handler for File object
   const processUpload = useCallback(async (file) => {
     if (!file) return;
@@ -90,19 +139,27 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
       return;
     }
 
-    if (file.size > 20 * 1024 * 1024) {
-      onToast?.('Ukuran file maksimal 20MB', 'error');
+    if (file.size > 25 * 1024 * 1024) {
+      onToast?.('Ukuran file maksimal 25MB', 'error');
       return;
     }
 
     setUploading(true);
-    setUploadProgress(25);
+    setUploadProgress(15);
     setPreviewError(false);
 
-    const formData = new FormData();
-    formData.append('file', file);
+    let fileToUpload = file;
+    try {
+      fileToUpload = await compressImage(file);
+    } catch (_e) {
+      fileToUpload = file;
+    }
 
-    const progressTimer = setTimeout(() => setUploadProgress(70), 200);
+    const formData = new FormData();
+    formData.append('file', fileToUpload);
+
+    setUploadProgress(40);
+    const progressTimer = setTimeout(() => setUploadProgress(75), 200);
 
     try {
       const res = await fetch(`${API_BASE}/api/upload`, {
