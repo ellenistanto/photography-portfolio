@@ -195,6 +195,18 @@ button {
   background-color: transparent;
   transition: background-color var(--transition-smooth), border-color var(--transition-smooth), backdrop-filter var(--transition-smooth);
   border-bottom: 1px solid transparent;
+  animation: navEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@keyframes navEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .site-header.scrolled {
@@ -538,6 +550,20 @@ button {
   background-position: center 30%;
   filter: brightness(0.4) contrast(1.1);
   transform: scale(1.02);
+  animation: heroBgEntrance 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroBgEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: brightness(0.18) contrast(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+    filter: brightness(0.4) contrast(1.1);
+  }
 }
 
 .hero-overlay {
@@ -548,6 +574,12 @@ button {
   height: 100%;
   z-index: 1;
   background: linear-gradient(to bottom, rgba(14, 14, 14, 0.2) 0%, rgba(14, 14, 14, 0.5) 50%, var(--bg-black) 100%);
+  animation: heroOverlayFade 1.4s ease-out both;
+}
+
+@keyframes heroOverlayFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .hero-content {
@@ -556,52 +588,6 @@ button {
   text-align: center;
   max-width: 860px;
   margin: 0 auto;
-  animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 1rem;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  font-family: var(--font-mono);
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  text-wrap: balance;
-}
-
-.hero-title span.highlight {
-  font-style: italic;
-  color: var(--text-secondary);
 }
 
 .hero-lead {
@@ -613,6 +599,20 @@ button {
   color: #ffffff;
   margin-bottom: 1.15rem;
   text-wrap: balance;
+  animation: heroLeadReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+@keyframes heroLeadReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 .hero-bio {
@@ -625,6 +625,20 @@ button {
   max-width: 860px;
   margin: 0 auto;
   text-wrap: balance;
+  animation: heroBioReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+@keyframes heroBioReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 .hero-statement {

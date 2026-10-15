@@ -196,6 +196,18 @@
       "source_location": "L133"
     },
     {
+      "id": "src_hooks_useportfoliodata_getinitialdata",
+      "label": "getInitialData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "AdminDashboard.jsx",
+      "file_type": "code",
+      "norm_label": "getinitialdata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L11"
+    },
+    {
       "id": "src_hooks_useportfoliodata_updateportfoliocache",
       "label": "updatePortfolioCache()",
       "_callable": true,
@@ -206,6 +218,18 @@
       "norm_label": "updateportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
       "source_location": "L140"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_useportfoliodata",
+      "label": "usePortfolioData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "AdminDashboard.jsx",
+      "file_type": "code",
+      "norm_label": "useportfoliodata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L73"
     },
     {
       "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
@@ -409,7 +433,7 @@
       "file_type": "code",
       "norm_label": "app()",
       "source_file": "src/App.jsx",
-      "source_location": "L199"
+      "source_location": "L251"
     },
     {
       "id": "src_app_portfoliopage",
@@ -421,7 +445,19 @@
       "file_type": "code",
       "norm_label": "portfoliopage()",
       "source_file": "src/App.jsx",
-      "source_location": "L20"
+      "source_location": "L22"
+    },
+    {
+      "id": "src_app_portfoliopage_raf",
+      "label": "raf()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "raf()",
+      "source_file": "src/App.jsx",
+      "source_location": "L50"
     },
     {
       "id": "src_components_clientscloud_clientscloud",
@@ -542,30 +578,6 @@
       "norm_label": "overviewsection()",
       "source_file": "src/components/OverviewSection.jsx",
       "source_location": "L67"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_getinitialdata",
-      "label": "getInitialData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "getinitialdata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_useportfoliodata",
-      "label": "usePortfolioData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "useportfoliodata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L73"
     },
     {
       "id": "server_index_connectdb",
@@ -952,6 +964,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_adminapp",
+      "label": "AdminApp",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "AdminDashboard.jsx",
+      "file_type": "code",
+      "norm_label": "adminapp",
+      "source_file": "src/App.jsx",
+      "source_location": "L19"
+    },
+    {
       "id": "src_config_api",
       "label": "api.js",
       "_origin": "ast",
@@ -1015,7 +1038,7 @@
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "api_index",
@@ -1411,7 +1434,7 @@
       "file_type": "code",
       "norm_label": "videomodal",
       "source_file": "src/App.jsx",
-      "source_location": "L16"
+      "source_location": "L18"
     },
     {
       "id": "src_components_videomodal",
@@ -1451,7 +1474,7 @@
       "label": "package.json",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "package.json",
       "source_file": "package.json",
@@ -1462,40 +1485,40 @@
       "label": "devDependencies",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "package_devdependencies_vite",
       "label": "vite",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_react",
       "label": "@vitejs/plugin-react",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "package_name",
       "label": "name",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "name",
       "source_file": "package.json",
@@ -1506,7 +1529,7 @@
       "label": "private",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "private",
       "source_file": "package.json",
@@ -1517,7 +1540,7 @@
       "label": "scripts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "scripts",
       "source_file": "package.json",
@@ -1528,7 +1551,7 @@
       "label": "build",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "build",
       "source_file": "package.json",
@@ -1539,7 +1562,7 @@
       "label": "dev",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "dev",
       "source_file": "package.json",
@@ -1550,7 +1573,7 @@
       "label": "preview",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "preview",
       "source_file": "package.json",
@@ -1561,7 +1584,7 @@
       "label": "type",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "package.json",
@@ -1572,7 +1595,7 @@
       "label": "version",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "version",
       "source_file": "package.json",
@@ -1583,7 +1606,7 @@
       "label": "vite.config.js",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "vite.config.js",
       "source_file": "vite.config.js",
@@ -1594,7 +1617,7 @@
       "label": "bcryptjs",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "bcryptjs",
       "source_file": "package.json",
@@ -1605,7 +1628,7 @@
       "label": "cors",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "cors",
       "source_file": "package.json",
@@ -1616,7 +1639,7 @@
       "label": "dotenv",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "dotenv",
       "source_file": "package.json",
@@ -1627,7 +1650,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "express",
       "source_file": "package.json",
@@ -1638,7 +1661,7 @@
       "label": "express-rate-limit",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "express-rate-limit",
       "source_file": "package.json",
@@ -1649,7 +1672,7 @@
       "label": "jsonwebtoken",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "jsonwebtoken",
       "source_file": "package.json",
@@ -1660,55 +1683,66 @@
       "label": "mongoose",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "mongoose",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "package_json_ref_multer",
       "label": "multer",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "multer",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L21"
+    },
+    {
+      "id": "ref_lenis",
+      "label": "lenis",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "lenis",
+      "source_file": "package.json",
+      "source_location": "L18"
     },
     {
       "id": "ref_react_dom",
       "label": "react-dom",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "ref_vite",
       "label": "vite",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "ref_vitejs_plugin_react",
       "label": "@vitejs/plugin-react",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Portfolio Frontend & Components",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "src_app",
@@ -1722,17 +1756,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_adminapp",
-      "label": "AdminApp",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "adminapp",
-      "source_file": "src/App.jsx",
-      "source_location": "L17"
-    },
-    {
       "id": "src_app_lightboxmodal",
       "label": "LightboxModal",
       "_origin": "ast",
@@ -1741,7 +1764,7 @@
       "file_type": "code",
       "norm_label": "lightboxmodal",
       "source_file": "src/App.jsx",
-      "source_location": "L15"
+      "source_location": "L17"
     },
     {
       "id": "src_components_clientscloud",
@@ -1851,7 +1874,7 @@
       "file_type": "concept",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "ref_react_router_dom",
@@ -1862,7 +1885,7 @@
       "file_type": "concept",
       "norm_label": "react-router-dom",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "server_package",
@@ -1885,116 +1908,6 @@
       "norm_label": "author",
       "source_file": "server/package.json",
       "source_location": "L13"
-    },
-    {
-      "id": "server_package_dependencies",
-      "label": "dependencies",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "server/package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "server_package_dependencies_bcryptjs",
-      "label": "bcryptjs",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "bcryptjs",
-      "source_file": "server/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "server_package_dependencies_cors",
-      "label": "cors",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "cors",
-      "source_file": "server/package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "server_package_dependencies_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "dotenv",
-      "source_file": "server/package.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "server_package_dependencies_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "express",
-      "source_file": "server/package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "server_package_dependencies_express_rate_limit",
-      "label": "express-rate-limit",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "express-rate-limit",
-      "source_file": "server/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "server_package_dependencies_jsonwebtoken",
-      "label": "jsonwebtoken",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "jsonwebtoken",
-      "source_file": "server/package.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "server_package_dependencies_mongodb",
-      "label": "mongodb",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "mongodb",
-      "source_file": "server/package.json",
-      "source_location": "L23"
-    },
-    {
-      "id": "server_package_dependencies_mongoose",
-      "label": "mongoose",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "mongoose",
-      "source_file": "server/package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "server_package_dependencies_multer",
-      "label": "multer",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "multer",
-      "source_file": "server/package.json",
-      "source_location": "L25"
     },
     {
       "id": "server_package_description",
@@ -2606,7 +2519,7 @@
       "label": "dependencies",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "dependencies",
       "source_file": "package.json",
@@ -2617,7 +2530,7 @@
       "label": "bcryptjs",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "bcryptjs",
       "source_file": "package.json",
@@ -2628,7 +2541,7 @@
       "label": "cors",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "cors",
       "source_file": "package.json",
@@ -2639,7 +2552,7 @@
       "label": "dotenv",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "dotenv",
       "source_file": "package.json",
@@ -2650,7 +2563,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "express",
       "source_file": "package.json",
@@ -2661,7 +2574,7 @@
       "label": "express-rate-limit",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "express-rate-limit",
       "source_file": "package.json",
@@ -2672,77 +2585,198 @@
       "label": "jsonwebtoken",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "jsonwebtoken",
       "source_file": "package.json",
       "source_location": "L17"
     },
     {
+      "id": "package_dependencies_lenis",
+      "label": "lenis",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "lenis",
+      "source_file": "package.json",
+      "source_location": "L18"
+    },
+    {
       "id": "package_dependencies_lucide_react",
       "label": "lucide-react",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "package_dependencies_mongoose",
       "label": "mongoose",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "mongoose",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "package_dependencies_multer",
       "label": "multer",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "multer",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "package_dependencies_react",
       "label": "react",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "package_dependencies_react_dom",
       "label": "react-dom",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "package_dependencies_react_router_dom",
       "label": "react-router-dom",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Frontend Runtime Dependencies",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "react-router-dom",
       "source_file": "package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "server_package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "server/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "server_package_dependencies_bcryptjs",
+      "label": "bcryptjs",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "bcryptjs",
+      "source_file": "server/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "server_package_dependencies_cors",
+      "label": "cors",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "cors",
+      "source_file": "server/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "server_package_dependencies_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "dotenv",
+      "source_file": "server/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "server_package_dependencies_express",
+      "label": "express",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "express",
+      "source_file": "server/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "server_package_dependencies_express_rate_limit",
+      "label": "express-rate-limit",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "express-rate-limit",
+      "source_file": "server/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "server_package_dependencies_jsonwebtoken",
+      "label": "jsonwebtoken",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "jsonwebtoken",
+      "source_file": "server/package.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "server_package_dependencies_mongodb",
+      "label": "mongodb",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "mongodb",
+      "source_file": "server/package.json",
       "source_location": "L23"
+    },
+    {
+      "id": "server_package_dependencies_mongoose",
+      "label": "mongoose",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "mongoose",
+      "source_file": "server/package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "server_package_dependencies_multer",
+      "label": "multer",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "multer",
+      "source_file": "server/package.json",
+      "source_location": "L25"
     },
     {
       "id": "readme_admin_panel",
@@ -3105,7 +3139,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/App.jsx",
-      "source_location": "L21",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_portfoliopage_raf",
+      "target": "src_app_portfoliopage_raf",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/App.jsx",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -3178,7 +3224,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/App.jsx",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3191,7 +3237,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/App.jsx",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3204,7 +3250,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/App.jsx",
-      "source_location": "L16",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -3281,7 +3327,7 @@
     },
     {
       "source": "package",
-      "target": "ref_lucide_react",
+      "target": "ref_lenis",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3293,7 +3339,7 @@
     },
     {
       "source": "package",
-      "target": "package_json_ref_mongoose",
+      "target": "ref_lucide_react",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3305,7 +3351,7 @@
     },
     {
       "source": "package",
-      "target": "package_json_ref_multer",
+      "target": "package_json_ref_mongoose",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3317,7 +3363,7 @@
     },
     {
       "source": "package",
-      "target": "ref_react",
+      "target": "package_json_ref_multer",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3329,7 +3375,7 @@
     },
     {
       "source": "package",
-      "target": "ref_react_dom",
+      "target": "ref_react",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3341,7 +3387,7 @@
     },
     {
       "source": "package",
-      "target": "ref_react_router_dom",
+      "target": "ref_react_dom",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3353,6 +3399,18 @@
     },
     {
       "source": "package",
+      "target": "ref_react_router_dom",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
       "target": "ref_vitejs_plugin_react",
       "relation": "imports",
       "_origin": "ast",
@@ -3360,7 +3418,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -3372,7 +3430,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -3773,7 +3831,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_videosection_videosection",
+      "target": "src_components_overviewsection_overviewsection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3785,7 +3843,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_connectsection_connectsection",
+      "target": "src_components_masonrygallery_masonrygallery",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3797,7 +3855,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_footer_footer",
+      "target": "src_components_videosection_videosection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3809,19 +3867,31 @@
     },
     {
       "source": "src_app",
-      "target": "src_hooks_useportfoliodata_useportfoliodata",
+      "target": "src_components_connectsection_connectsection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L3",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
       "source": "src_app",
-      "target": "src_components_navbar_navbar",
+      "target": "src_components_footer_footer",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_hooks_useportfoliodata_useportfoliodata",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3833,19 +3903,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_hero_hero",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/App.jsx",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
-      "target": "src_components_clientscloud_clientscloud",
+      "target": "src_components_navbar_navbar",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3857,7 +3915,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_overviewsection_overviewsection",
+      "target": "src_components_hero_hero",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3869,7 +3927,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_masonrygallery_masonrygallery",
+      "target": "src_components_clientscloud_clientscloud",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4505,7 +4563,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_videosection",
+      "target": "src_components_overviewsection",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4517,7 +4575,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_connectsection",
+      "target": "src_components_masonrygallery",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4529,7 +4587,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_footer",
+      "target": "src_components_videosection",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4537,6 +4595,30 @@
       "context": "import",
       "source_file": "src/App.jsx",
       "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_connectsection",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_footer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -4553,7 +4635,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_hooks_useportfoliodata",
+      "target": "ref_lenis",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4565,7 +4647,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_navbar",
+      "target": "src_hooks_useportfoliodata",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4577,19 +4659,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_hero",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/App.jsx",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
-      "target": "src_components_clientscloud",
+      "target": "src_components_navbar",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4601,7 +4671,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_overviewsection",
+      "target": "src_components_hero",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4613,7 +4683,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_masonrygallery",
+      "target": "src_components_clientscloud",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5239,7 +5309,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -5354,7 +5424,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_lucide_react",
+      "target": "package_dependencies_lenis",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5365,7 +5435,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_mongoose",
+      "target": "package_dependencies_lucide_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5376,7 +5446,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_multer",
+      "target": "package_dependencies_mongoose",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5387,7 +5457,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react",
+      "target": "package_dependencies_multer",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5398,7 +5468,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react_dom",
+      "target": "package_dependencies_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5409,13 +5479,24 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react_router_dom",
+      "target": "package_dependencies_react_dom",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "package_dependencies",
+      "target": "package_dependencies_react_router_dom",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -5426,7 +5507,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -5437,7 +5518,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -6526,7 +6607,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -6537,7 +6618,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L16",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -6548,18 +6629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
-      "target": "src_app_app",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.jsx",
-      "source_location": "L199",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -6570,7 +6640,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L20",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_app_app",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/App.jsx",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -6877,6 +6958,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_portfoliopage",
+      "target": "src_app_portfoliopage_raf",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/App.jsx",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
       "source": "server_routes_upload",
       "target": "server_routes_upload_filefilter",
       "relation": "indirect_call",
@@ -6923,5 +7016,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5576b70a3ef23eed632e5b03a639e6e36e023471"
+  "built_at_commit": "e406d0e1da4be3d58ceda874e16fbf7eb58f1a22"
 }

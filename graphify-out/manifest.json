@@ -24,10 +24,10 @@
     "semantic_hash": "5dcefd508ea7b6c781e1e97f837d2588"
   },
   "package.json": {
-    "mtime": 1789422681.0,
-    "seen": 1789595159.252783,
-    "ast_hash": "89b31de50e41efed1624b46141792b32",
-    "semantic_hash": "89b31de50e41efed1624b46141792b32"
+    "mtime": 1792043045.5400808,
+    "seen": 1792043321.9633234,
+    "ast_hash": "d2e150b2ad94e3fafc77d14acb17bac2",
+    "semantic_hash": ""
   },
   "server/index.js": {
     "mtime": 1789422681.0,
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1791429546.2854085,
-    "seen": 1791429761.3597057,
-    "ast_hash": "2736c42321e417688f0e1d4a209c30be",
+    "mtime": 1792043205.1384046,
+    "seen": 1792043321.9633234,
+    "ast_hash": "0d69bc9fc97dc0e29fc2450b1b4aef64",
     "semantic_hash": ""
   },
   "src/admin/AdminApp.jsx": {
@@ -222,9 +222,9 @@
     "semantic_hash": "e9f1a43ac703ca85b61bd93e58d5ac31"
   },
   "vite.config.js": {
-    "mtime": 1791429556.9313676,
-    "seen": 1791429761.3597057,
-    "ast_hash": "e43e4dc026ac88eec3594a806d13922d",
+    "mtime": 1792043270.500345,
+    "seen": 1792043321.9633234,
+    "ast_hash": "bd616af3541fd9565cd7e54cb30e3a5f",
     "semantic_hash": ""
   },
   "index.html": {
