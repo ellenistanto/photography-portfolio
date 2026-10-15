@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 function GalleryCard({ photo, index, onPhotoClick }) {
   const [loaded, setLoaded] = useState(false);
+  const [cardRef, isVisible] = useScrollReveal({
+    threshold: 0.05,
+    rootMargin: '0px 0px -30px 0px',
+    once: true,
+  });
+
+  const staggerDelay = (index % 3) * 60;
 
   return (
     <article 
-      className={`gallery-item ${loaded ? 'photo-loaded' : 'photo-loading'}`}
-      style={{ animationDelay: `${Math.min(index * 35, 350)}ms` }}
+      ref={cardRef}
+      className={`gallery-item ${isVisible ? 'is-visible' : ''} ${loaded ? 'photo-loaded' : 'photo-loading'}`}
+      style={{
+        transitionDelay: isVisible ? `${staggerDelay}ms` : '0ms'
+      }}
       tabIndex={0}
       role="button"
       aria-label={`View photo: ${photo.title}`}

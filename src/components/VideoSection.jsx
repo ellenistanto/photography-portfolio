@@ -1,11 +1,17 @@
 import React, { useState, useRef, useMemo } from 'react';
 import { Play } from 'lucide-react';
 import { parseVideoSource } from '../utils/videoUtils';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 function VideoCard({ video, index, onVideoClick }) {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const videoRef = useRef(null);
+  const [cardRef, isVisible] = useScrollReveal({
+    threshold: 0.05,
+    rootMargin: '0px 0px -30px 0px',
+    once: true,
+  });
 
   const parsed = parseVideoSource(video.videoUrl);
   const posterSrc = video.coverImage || parsed.defaultThumbnail;
@@ -29,10 +35,15 @@ function VideoCard({ video, index, onVideoClick }) {
 
   const isPortrait = video.aspect === 'portrait';
   const isSquare = video.aspect === 'square';
+  const staggerDelay = (index % 2) * 80;
 
   return (
     <article
-      className={`video-card ${isPortrait ? 'aspect-portrait' : isSquare ? 'aspect-square' : 'aspect-landscape'}`}
+      ref={cardRef}
+      className={`video-card ${isPortrait ? 'aspect-portrait' : isSquare ? 'aspect-square' : 'aspect-landscape'} ${isVisible ? 'is-visible' : ''}`}
+      style={{
+        transitionDelay: isVisible ? `${staggerDelay}ms` : '0ms'
+      }}
       tabIndex={0}
       role="button"
       aria-label={`Tonton video: ${video.title}`}
@@ -117,13 +128,19 @@ export default function VideoSection({ videos = [], onVideoClick }) {
     return videos.filter(v => v.category === selectedCategory);
   }, [videos, selectedCategory]);
 
+  const [headerRef, headerVisible] = useScrollReveal({
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px',
+    once: true,
+  });
+
   if (!videos || videos.length === 0) {
     return null; // If no videos configured, don't show empty block
   }
 
   return (
     <section className="video-section" id="videoSection">
-      <div className="video-section-header">
+      <div ref={headerRef} className={`video-section-header ${headerVisible ? 'is-visible' : ''}`}>
         <div className="video-section-tagline">MOTION & VISUALS</div>
         <h2 className="video-section-title">Selected Motion Works</h2>
         <p className="video-section-desc">

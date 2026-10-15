@@ -939,7 +939,16 @@ button {
   background-color: #121212;
   position: relative;
   cursor: pointer;
-  animation: photoCardFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.gallery-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 @keyframes photoCardFadeUp {
@@ -2140,6 +2149,16 @@ button {
 
 .overview-header {
   margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.overview-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .overview-eyebrow {
@@ -2198,9 +2217,19 @@ button {
   border: 1px solid var(--border-subtle);
   cursor: pointer;
   outline: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   grid-column: span 4;
-  animation: photoCardFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+  will-change: opacity, transform;
+}
+
+.overview-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* Featured card layout when index === 0 and count > 2 */
@@ -2225,9 +2254,9 @@ button {
   }
 }
 
-.overview-card:hover,
-.overview-card:focus-visible {
-  transform: translateY(-5px);
+.overview-card.is-visible:hover,
+.overview-card.is-visible:focus-visible {
+  transform: translateY(-5px) scale(1);
   border-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
 }
@@ -3392,6 +3421,16 @@ button {
 
 .video-section-header {
   margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.video-section-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .video-section-tagline {
@@ -3475,7 +3514,17 @@ button {
   overflow: hidden;
   cursor: pointer;
   outline: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.video-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .video-card:focus-visible {
@@ -3943,5 +3992,15 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .gallery-item,
+  .overview-card,
+  .video-card,
+  .overview-header,
+  .video-section-header {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

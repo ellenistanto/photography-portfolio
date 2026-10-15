@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 function OverviewCard({ photo, index, isFeaturedCard, onPhotoClick }) {
   const [loaded, setLoaded] = useState(false);
+  const [cardRef, isVisible] = useScrollReveal({
+    threshold: 0.05,
+    rootMargin: '0px 0px -40px 0px',
+    once: true,
+  });
+
+  const staggerDelay = (index % 3) * 75;
 
   return (
     <article
+      ref={cardRef}
       key={photo.id}
-      className={`overview-card ${isFeaturedCard ? 'overview-card-featured' : ''} ${loaded ? 'photo-loaded' : 'photo-loading'}`}
-      style={{ animationDelay: `${Math.min(index * 60, 360)}ms` }}
+      className={`overview-card ${isFeaturedCard ? 'overview-card-featured' : ''} ${isVisible ? 'is-visible' : ''} ${loaded ? 'photo-loaded' : 'photo-loading'}`}
+      style={{
+        transitionDelay: isVisible ? `${staggerDelay}ms` : '0ms'
+      }}
       tabIndex={0}
       role="button"
       aria-label={`View selected photo: ${photo.title}`}
@@ -65,6 +76,12 @@ function OverviewCard({ photo, index, isFeaturedCard, onPhotoClick }) {
 }
 
 export default function OverviewSection({ overview, photos, onPhotoClick }) {
+  const [headerRef, headerVisible] = useScrollReveal({
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px',
+    once: true,
+  });
+
   // If disabled by admin or no photos selected, don't render
   if (overview?.enabled === false || !photos || photos.length === 0) {
     return null;
@@ -77,7 +94,7 @@ export default function OverviewSection({ overview, photos, onPhotoClick }) {
     <section className="overview-section" id="overview">
       <div className="container">
         {/* Section Header */}
-        <div className="overview-header">
+        <div ref={headerRef} className={`overview-header ${headerVisible ? 'is-visible' : ''}`}>
           <div className="overview-title-row">
             <h2 className="overview-title">{title}</h2>
             <p className="overview-subtitle">{subtitle}</p>

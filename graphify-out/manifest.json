@@ -174,9 +174,9 @@
     "semantic_hash": "bb0213b72c820ed0744b3cf44416f589"
   },
   "src/components/MasonryGallery.jsx": {
-    "mtime": 1791429689.4823618,
-    "seen": 1791429761.3597057,
-    "ast_hash": "527f608c46b1936810d803457570fa69",
+    "mtime": 1792046474.3527853,
+    "seen": 1792047065.2942069,
+    "ast_hash": "ded7f396713ef661d295cef33fb16ce0",
     "semantic_hash": ""
   },
   "src/components/Navbar.jsx": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "src/components/OverviewSection.jsx": {
-    "mtime": 1791429700.9976287,
-    "seen": 1791429761.3597057,
-    "ast_hash": "315d89b894705daac4ba6ebaae9a5d04",
+    "mtime": 1792046584.0598874,
+    "seen": 1792047065.2942069,
+    "ast_hash": "0b8205a445ef39231e82c76c7f91b72f",
     "semantic_hash": ""
   },
   "src/config/api.js": {
@@ -264,15 +264,21 @@
     "semantic_hash": ""
   },
   "src/components/VideoSection.jsx": {
-    "mtime": 1791273681.01688,
-    "seen": 1791273760.2746181,
-    "ast_hash": "dfec0239779701851288dbff8560d1df",
+    "mtime": 1792046885.8720071,
+    "seen": 1792047065.2942069,
+    "ast_hash": "dd90a872ac03f60ff8f221d6f2aaa430",
     "semantic_hash": ""
   },
   "src/utils/videoUtils.js": {
     "mtime": 1790775827.0732646,
     "seen": 1790776006.3661993,
     "ast_hash": "6835990b329489427861282391aede32",
+    "semantic_hash": ""
+  },
+  "src/hooks/useScrollReveal.js": {
+    "mtime": 1792046426.356294,
+    "seen": 1792047065.2942069,
+    "ast_hash": "1eb67891db368a8c9b25104479db971d",
     "semantic_hash": ""
   }
 }

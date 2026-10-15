@@ -9,7 +9,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminapp()",
       "source_file": "src/admin/AdminApp.jsx",
@@ -21,7 +21,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "checkauth()",
       "source_file": "src/admin/AdminApp.jsx",
@@ -33,7 +33,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "admindashboard()",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -45,7 +45,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "hamburgericon()",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -57,7 +57,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "toast()",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -69,7 +69,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminlogin()",
       "source_file": "src/admin/AdminLogin.jsx",
@@ -81,7 +81,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "categorieseditor()",
       "source_file": "src/admin/sections/CategoriesEditor.jsx",
@@ -93,7 +93,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "clientseditor()",
       "source_file": "src/admin/sections/ClientsEditor.jsx",
@@ -105,7 +105,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "milestoneseditor()",
       "source_file": "src/admin/sections/MilestonesEditor.jsx",
@@ -117,7 +117,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "overvieweditor()",
       "source_file": "src/admin/sections/OverviewEditor.jsx",
@@ -129,7 +129,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "confirmdialog()",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -141,7 +141,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "photomodal()",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -153,7 +153,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "photoseditor()",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -165,7 +165,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "profileeditor()",
       "source_file": "src/admin/sections/ProfileEditor.jsx",
@@ -177,7 +177,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "statseditor()",
       "source_file": "src/admin/sections/StatsEditor.jsx",
@@ -189,23 +189,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "clearportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
       "source_location": "L133"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_getinitialdata",
-      "label": "getInitialData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "AdminDashboard.jsx",
-      "file_type": "code",
-      "norm_label": "getinitialdata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L11"
     },
     {
       "id": "src_hooks_useportfoliodata_updateportfoliocache",
@@ -213,35 +201,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "updateportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
       "source_location": "L140"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_useportfoliodata",
-      "label": "usePortfolioData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "AdminDashboard.jsx",
-      "file_type": "code",
-      "norm_label": "useportfoliodata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L73"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
-      "label": "fetchData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "AdminDashboard.jsx",
-      "file_type": "code",
-      "norm_label": "fetchdata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L81"
     },
     {
       "id": "api_index_connectdb",
@@ -328,12 +292,72 @@
       "source_location": "L53"
     },
     {
+      "id": "src_app_portfoliopage",
+      "label": "PortfolioPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "usePortfolioData",
+      "file_type": "code",
+      "norm_label": "portfoliopage()",
+      "source_file": "src/App.jsx",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_app_portfoliopage_raf",
+      "label": "raf()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "usePortfolioData",
+      "file_type": "code",
+      "norm_label": "raf()",
+      "source_file": "src/App.jsx",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_getinitialdata",
+      "label": "getInitialData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "usePortfolioData",
+      "file_type": "code",
+      "norm_label": "getinitialdata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_useportfoliodata",
+      "label": "usePortfolioData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "usePortfolioData",
+      "file_type": "code",
+      "norm_label": "useportfoliodata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L73"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
+      "label": "fetchData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "usePortfolioData",
+      "file_type": "code",
+      "norm_label": "fetchdata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L81"
+    },
+    {
       "id": "src_admin_sections_videoseditor_confirmdialog",
       "label": "ConfirmDialog()",
       "_callable": true,
       "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
+      "community": 3,
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "confirmdialog()",
       "source_file": "src/admin/sections/VideosEditor.jsx",
@@ -344,8 +368,8 @@
       "label": "VideoModal()",
       "_callable": true,
       "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
+      "community": 3,
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "videomodal()",
       "source_file": "src/admin/sections/VideosEditor.jsx",
@@ -356,72 +380,12 @@
       "label": "VideosEditor()",
       "_callable": true,
       "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
+      "community": 3,
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "videoseditor()",
       "source_file": "src/admin/sections/VideosEditor.jsx",
       "source_location": "L477"
-    },
-    {
-      "id": "src_components_videomodal_videomodal",
-      "label": "VideoModal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal()",
-      "source_file": "src/components/VideoModal.jsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_components_videosection_videocard",
-      "label": "VideoCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videocard()",
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_components_videosection_videosection",
-      "label": "VideoSection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videosection()",
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L98"
-    },
-    {
-      "id": "src_utils_videoutils_isvalidvideourl",
-      "label": "isValidVideoUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "isvalidvideourl()",
-      "source_file": "src/utils/videoUtils.js",
-      "source_location": "L88"
-    },
-    {
-      "id": "src_utils_videoutils_parsevideosource",
-      "label": "parseVideoSource()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "parsevideosource()",
-      "source_file": "src/utils/videoUtils.js",
-      "source_location": "L9"
     },
     {
       "id": "src_app_app",
@@ -434,30 +398,6 @@
       "norm_label": "app()",
       "source_file": "src/App.jsx",
       "source_location": "L251"
-    },
-    {
-      "id": "src_app_portfoliopage",
-      "label": "PortfolioPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "portfoliopage()",
-      "source_file": "src/App.jsx",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_app_portfoliopage_raf",
-      "label": "raf()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "raf()",
-      "source_file": "src/App.jsx",
-      "source_location": "L50"
     },
     {
       "id": "src_components_clientscloud_clientscloud",
@@ -529,7 +469,7 @@
       "file_type": "code",
       "norm_label": "gallerycard()",
       "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L3"
+      "source_location": "L4"
     },
     {
       "id": "src_components_masonrygallery_masonrygallery",
@@ -541,7 +481,7 @@
       "file_type": "code",
       "norm_label": "masonrygallery()",
       "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L51"
+      "source_location": "L62"
     },
     {
       "id": "src_components_navbar_navbar",
@@ -565,7 +505,7 @@
       "file_type": "code",
       "norm_label": "overviewcard()",
       "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_components_overviewsection_overviewsection",
@@ -577,7 +517,79 @@
       "file_type": "code",
       "norm_label": "overviewsection()",
       "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L67"
+      "source_location": "L78"
+    },
+    {
+      "id": "src_components_videomodal_videomodal",
+      "label": "VideoModal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videomodal()",
+      "source_file": "src/components/VideoModal.jsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_components_videosection_videocard",
+      "label": "VideoCard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videocard()",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_components_videosection_videosection",
+      "label": "VideoSection()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videosection()",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L109"
+    },
+    {
+      "id": "src_hooks_usescrollreveal_usescrollreveal",
+      "label": "useScrollReveal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "usescrollreveal()",
+      "source_file": "src/hooks/useScrollReveal.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_utils_videoutils_isvalidvideourl",
+      "label": "isValidVideoUrl()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "isvalidvideourl()",
+      "source_file": "src/utils/videoUtils.js",
+      "source_location": "L88"
+    },
+    {
+      "id": "src_utils_videoutils_parsevideosource",
+      "label": "parseVideoSource()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "parsevideosource()",
+      "source_file": "src/utils/videoUtils.js",
+      "source_location": "L9"
     },
     {
       "id": "server_index_connectdb",
@@ -836,7 +848,7 @@
       "label": "AdminApp.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminapp.jsx",
       "source_file": "src/admin/AdminApp.jsx",
@@ -847,7 +859,7 @@
       "label": "AdminDashboard.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "admindashboard.jsx",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -858,7 +870,7 @@
       "label": "NAV_ITEMS",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "nav_items",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -869,7 +881,7 @@
       "label": "AdminLogin.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminlogin.jsx",
       "source_file": "src/admin/AdminLogin.jsx",
@@ -880,7 +892,7 @@
       "label": "CategoriesEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "categorieseditor.jsx",
       "source_file": "src/admin/sections/CategoriesEditor.jsx",
@@ -891,7 +903,7 @@
       "label": "ClientsEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "clientseditor.jsx",
       "source_file": "src/admin/sections/ClientsEditor.jsx",
@@ -902,7 +914,7 @@
       "label": "MilestonesEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "milestoneseditor.jsx",
       "source_file": "src/admin/sections/MilestonesEditor.jsx",
@@ -913,7 +925,7 @@
       "label": "EMPTY_MILESTONE",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "empty_milestone",
       "source_file": "src/admin/sections/MilestonesEditor.jsx",
@@ -924,7 +936,7 @@
       "label": "OverviewEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "overvieweditor.jsx",
       "source_file": "src/admin/sections/OverviewEditor.jsx",
@@ -935,7 +947,7 @@
       "label": "PhotosEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "photoseditor.jsx",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -946,7 +958,7 @@
       "label": "ProfileEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "profileeditor.jsx",
       "source_file": "src/admin/sections/ProfileEditor.jsx",
@@ -957,29 +969,18 @@
       "label": "StatsEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "statseditor.jsx",
       "source_file": "src/admin/sections/StatsEditor.jsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_adminapp",
-      "label": "AdminApp",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "AdminDashboard.jsx",
-      "file_type": "code",
-      "norm_label": "adminapp",
-      "source_file": "src/App.jsx",
-      "source_location": "L19"
-    },
-    {
       "id": "src_config_api",
       "label": "api.js",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "api.js",
       "source_file": "src/config/api.js",
@@ -990,7 +991,7 @@
       "label": "API_BASE",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "api_base",
       "source_file": "src/config/api.js",
@@ -1001,7 +1002,7 @@
       "label": "portfolioData.js",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "portfoliodata.js",
       "source_file": "src/data/portfolioData.js",
@@ -1012,7 +1013,7 @@
       "label": "PORTFOLIO_DATA",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "portfolio_data",
       "source_file": "src/data/portfolioData.js",
@@ -1023,7 +1024,7 @@
       "label": "usePortfolioData.js",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "useportfoliodata.js",
       "source_file": "src/hooks/usePortfolioData.js",
@@ -1034,7 +1035,7 @@
       "label": "react",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "package.json",
@@ -1404,72 +1405,6 @@
       "source_location": "L13"
     },
     {
-      "id": "src_admin_sections_videoseditor",
-      "label": "VideosEditor.jsx",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videoseditor.jsx",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_admin_sections_videoseditor_default_categories",
-      "label": "DEFAULT_CATEGORIES",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "default_categories",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L20"
-    },
-    {
-      "id": "src_app_videomodal",
-      "label": "VideoModal",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal",
-      "source_file": "src/App.jsx",
-      "source_location": "L18"
-    },
-    {
-      "id": "src_components_videomodal",
-      "label": "VideoModal.jsx",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal.jsx",
-      "source_file": "src/components/VideoModal.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_videosection",
-      "label": "VideoSection.jsx",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videosection.jsx",
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_utils_videoutils",
-      "label": "videoUtils.js",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videoutils.js",
-      "source_file": "src/utils/videoUtils.js",
-      "source_location": "L1"
-    },
-    {
       "id": "package",
       "label": "package.json",
       "_origin": "ast",
@@ -1745,6 +1680,28 @@
       "source_location": "L27"
     },
     {
+      "id": "src_admin_sections_videoseditor",
+      "label": "VideosEditor.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videoseditor.jsx",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_admin_sections_videoseditor_default_categories",
+      "label": "DEFAULT_CATEGORIES",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "default_categories",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
+      "source_location": "L20"
+    },
+    {
       "id": "src_app",
       "label": "App.jsx",
       "_origin": "ast",
@@ -1756,6 +1713,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_adminapp",
+      "label": "AdminApp",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "adminapp",
+      "source_file": "src/App.jsx",
+      "source_location": "L19"
+    },
+    {
       "id": "src_app_lightboxmodal",
       "label": "LightboxModal",
       "_origin": "ast",
@@ -1765,6 +1733,17 @@
       "norm_label": "lightboxmodal",
       "source_file": "src/App.jsx",
       "source_location": "L17"
+    },
+    {
+      "id": "src_app_videomodal",
+      "label": "VideoModal",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videomodal",
+      "source_file": "src/App.jsx",
+      "source_location": "L18"
     },
     {
       "id": "src_components_clientscloud",
@@ -1855,6 +1834,39 @@
       "source_location": "L1"
     },
     {
+      "id": "src_components_videomodal",
+      "label": "VideoModal.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videomodal.jsx",
+      "source_file": "src/components/VideoModal.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_videosection",
+      "label": "VideoSection.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videosection.jsx",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_hooks_usescrollreveal",
+      "label": "useScrollReveal.js",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "usescrollreveal.js",
+      "source_file": "src/hooks/useScrollReveal.js",
+      "source_location": "L1"
+    },
+    {
       "id": "src_main",
       "label": "main.jsx",
       "_origin": "ast",
@@ -1863,6 +1875,17 @@
       "file_type": "code",
       "norm_label": "main.jsx",
       "source_file": "src/main.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_utils_videoutils",
+      "label": "videoUtils.js",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videoutils.js",
+      "source_file": "src/utils/videoUtils.js",
       "source_location": "L1"
     },
     {
@@ -3155,6 +3178,42 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_masonrygallery_gallerycard",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/MasonryGallery.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_overviewsection_overviewcard",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_overviewsection_overviewsection",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_videomodal_videomodal",
       "target": "src_utils_videoutils_parsevideosource",
       "relation": "calls",
@@ -3168,7 +3227,7 @@
     },
     {
       "source": "src_components_videosection_videocard",
-      "target": "src_utils_videoutils_parsevideosource",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3176,6 +3235,30 @@
       "context": "call",
       "source_file": "src/components/VideoSection.jsx",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_videosection_videocard",
+      "target": "src_utils_videoutils_parsevideosource",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_videosection_videosection",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L131",
       "weight": 1.0
     },
     {
@@ -3938,6 +4021,30 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_masonrygallery",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/MasonryGallery.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_overviewsection",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_videomodal",
       "target": "src_utils_videoutils_parsevideosource",
       "relation": "imports",
@@ -3959,6 +4066,18 @@
       "context": "import",
       "source_file": "src/components/VideoSection.jsx",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_videosection",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -4790,6 +4909,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_masonrygallery",
+      "target": "src_hooks_usescrollreveal",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/MasonryGallery.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_navbar",
       "target": "ref_react",
       "relation": "imports_from",
@@ -4826,6 +4957,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_overviewsection",
+      "target": "src_hooks_usescrollreveal",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_videomodal",
       "target": "ref_react",
       "relation": "imports_from",
@@ -4895,6 +5038,18 @@
       "context": "import",
       "source_file": "src/components/VideoSection.jsx",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_videosection",
+      "target": "src_hooks_usescrollreveal",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -4931,6 +5086,18 @@
       "context": "import",
       "source_file": "src/hooks/usePortfolioData.js",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_usescrollreveal",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/hooks/useScrollReveal.js",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6717,7 +6884,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6728,7 +6895,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L51",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -6750,7 +6917,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -6761,7 +6928,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L67",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -6777,24 +6944,24 @@
     },
     {
       "source": "src_components_videosection",
-      "target": "src_components_videosection_videocard",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_videosection",
       "target": "src_components_videosection_videosection",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L98",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_videosection",
+      "target": "src_components_videosection_videocard",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6861,6 +7028,17 @@
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
       "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_usescrollreveal",
+      "target": "src_hooks_usescrollreveal_usescrollreveal",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/hooks/useScrollReveal.js",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -7016,5 +7194,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e406d0e1da4be3d58ceda874e16fbf7eb58f1a22"
+  "built_at_commit": "84c034e161bed9965aa463b29108561db64495a8"
 }
