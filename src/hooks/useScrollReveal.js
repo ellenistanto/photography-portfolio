@@ -6,8 +6,8 @@ import { useState, useEffect, useRef } from 'react';
  * to avoid unnecessary scroll listeners and re-renders.
  */
 export function useScrollReveal({
-  threshold = 0.08,
-  rootMargin = '0px 0px -40px 0px',
+  threshold = 0.02,
+  rootMargin = '0px 0px 60px 0px',
   once = true,
 } = {}) {
   const [isVisible, setIsVisible] = useState(false);

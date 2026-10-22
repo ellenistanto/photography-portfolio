@@ -4,12 +4,12 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 function GalleryCard({ photo, index, onPhotoClick }) {
   const [loaded, setLoaded] = useState(false);
   const [cardRef, isVisible] = useScrollReveal({
-    threshold: 0.05,
-    rootMargin: '0px 0px -30px 0px',
+    threshold: 0.02,
+    rootMargin: '0px 0px 60px 0px',
     once: true,
   });
 
-  const staggerDelay = (index % 3) * 60;
+  const staggerDelay = (index % 3) * 30;
 
   return (
     <article 

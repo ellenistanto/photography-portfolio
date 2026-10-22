@@ -5,12 +5,12 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 function OverviewCard({ photo, index, isFeaturedCard, onPhotoClick }) {
   const [loaded, setLoaded] = useState(false);
   const [cardRef, isVisible] = useScrollReveal({
-    threshold: 0.05,
-    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.02,
+    rootMargin: '0px 0px 60px 0px',
     once: true,
   });
 
-  const staggerDelay = (index % 3) * 75;
+  const staggerDelay = (index % 3) * 30;
 
   return (
     <article
@@ -77,8 +77,8 @@ function OverviewCard({ photo, index, isFeaturedCard, onPhotoClick }) {
 
 export default function OverviewSection({ overview, photos, onPhotoClick }) {
   const [headerRef, headerVisible] = useScrollReveal({
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.02,
+    rootMargin: '0px 0px 60px 0px',
     once: true,
   });
 

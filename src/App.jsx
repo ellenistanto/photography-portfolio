@@ -1,7 +1,5 @@
-import React, { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
 import { usePortfolioData } from './hooks/usePortfolioData';
 
 import Navbar from './components/Navbar';
@@ -21,7 +19,6 @@ const AdminApp = lazy(() => import('./admin/AdminApp'));
 // ── Portfolio Page ────────────────────────────────────────────────────────────
 function PortfolioPage() {
   const { data, loading } = usePortfolioData();
-  const lenisRef = useRef(null);
 
   const [currentCategory, setCurrentCategory] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -31,43 +28,6 @@ function PortfolioPage() {
   // Video Lightbox State
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [videoModalIndex, setVideoModalIndex] = useState(0);
-
-  // Initialize Lenis smooth inertia scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.2,
-      infinite: false,
-    });
-    lenisRef.current = lenis;
-
-    let rafId;
-    function raf(time) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-      lenisRef.current = null;
-    };
-  }, []);
-
-  // Sync modal open/close with Lenis scroll lock
-  useEffect(() => {
-    if (lightboxOpen || videoModalOpen) {
-      lenisRef.current?.stop();
-    } else {
-      lenisRef.current?.start();
-    }
-  }, [lightboxOpen, videoModalOpen]);
 
   // Filter photos based on selected category
   const filteredPhotos = useMemo(() => {
@@ -93,21 +53,13 @@ function PortfolioPage() {
   }, [data.photos, data.overview]);
 
   const scrollToSection = (sectionId) => {
-    if (lenisRef.current) {
-      if (sectionId === 'home') {
-        lenisRef.current.scrollTo(0, { duration: 1.2 });
-      } else {
-        lenisRef.current.scrollTo('#' + sectionId, { offset: -30, duration: 1.2 });
-      }
-    } else {
-      if (sectionId === 'home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 

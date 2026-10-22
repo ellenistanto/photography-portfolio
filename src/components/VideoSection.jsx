@@ -8,8 +8,8 @@ function VideoCard({ video, index, onVideoClick }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const videoRef = useRef(null);
   const [cardRef, isVisible] = useScrollReveal({
-    threshold: 0.05,
-    rootMargin: '0px 0px -30px 0px',
+    threshold: 0.02,
+    rootMargin: '0px 0px 60px 0px',
     once: true,
   });
 
@@ -35,7 +35,7 @@ function VideoCard({ video, index, onVideoClick }) {
 
   const isPortrait = video.aspect === 'portrait';
   const isSquare = video.aspect === 'square';
-  const staggerDelay = (index % 2) * 80;
+  const staggerDelay = (index % 2) * 30;
 
   return (
     <article
@@ -129,8 +129,8 @@ export default function VideoSection({ videos = [], onVideoClick }) {
   }, [videos, selectedCategory]);
 
   const [headerRef, headerVisible] = useScrollReveal({
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.02,
+    rootMargin: '0px 0px 60px 0px',
     once: true,
   });
 

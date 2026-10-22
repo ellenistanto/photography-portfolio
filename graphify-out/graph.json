@@ -208,6 +208,18 @@
       "source_location": "L140"
     },
     {
+      "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
+      "label": "fetchData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "fetchdata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L81"
+    },
+    {
       "id": "api_index_connectdb",
       "label": "connectDB()",
       "_callable": true,
@@ -292,102 +304,6 @@
       "source_location": "L53"
     },
     {
-      "id": "src_app_portfoliopage",
-      "label": "PortfolioPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "usePortfolioData",
-      "file_type": "code",
-      "norm_label": "portfoliopage()",
-      "source_file": "src/App.jsx",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_app_portfoliopage_raf",
-      "label": "raf()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "usePortfolioData",
-      "file_type": "code",
-      "norm_label": "raf()",
-      "source_file": "src/App.jsx",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_getinitialdata",
-      "label": "getInitialData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "usePortfolioData",
-      "file_type": "code",
-      "norm_label": "getinitialdata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_useportfoliodata",
-      "label": "usePortfolioData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "usePortfolioData",
-      "file_type": "code",
-      "norm_label": "useportfoliodata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L73"
-    },
-    {
-      "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
-      "label": "fetchData()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "usePortfolioData",
-      "file_type": "code",
-      "norm_label": "fetchdata()",
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L81"
-    },
-    {
-      "id": "src_admin_sections_videoseditor_confirmdialog",
-      "label": "ConfirmDialog()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "confirmdialog()",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_admin_sections_videoseditor_videomodal",
-      "label": "VideoModal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal()",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L28"
-    },
-    {
-      "id": "src_admin_sections_videoseditor_videoseditor",
-      "label": "VideosEditor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videoseditor()",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L477"
-    },
-    {
       "id": "src_app_app",
       "label": "App()",
       "_callable": true,
@@ -397,7 +313,19 @@
       "file_type": "code",
       "norm_label": "app()",
       "source_file": "src/App.jsx",
-      "source_location": "L251"
+      "source_location": "L203"
+    },
+    {
+      "id": "src_app_portfoliopage",
+      "label": "PortfolioPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "portfoliopage()",
+      "source_file": "src/App.jsx",
+      "source_location": "L20"
     },
     {
       "id": "src_components_clientscloud_clientscloud",
@@ -520,18 +448,6 @@
       "source_location": "L78"
     },
     {
-      "id": "src_components_videomodal_videomodal",
-      "label": "VideoModal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal()",
-      "source_file": "src/components/VideoModal.jsx",
-      "source_location": "L5"
-    },
-    {
       "id": "src_components_videosection_videocard",
       "label": "VideoCard()",
       "_callable": true,
@@ -556,6 +472,30 @@
       "source_location": "L109"
     },
     {
+      "id": "src_hooks_useportfoliodata_getinitialdata",
+      "label": "getInitialData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "getinitialdata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_useportfoliodata",
+      "label": "usePortfolioData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "useportfoliodata()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L73"
+    },
+    {
       "id": "src_hooks_usescrollreveal_usescrollreveal",
       "label": "useScrollReveal()",
       "_callable": true,
@@ -566,30 +506,6 @@
       "norm_label": "usescrollreveal()",
       "source_file": "src/hooks/useScrollReveal.js",
       "source_location": "L8"
-    },
-    {
-      "id": "src_utils_videoutils_isvalidvideourl",
-      "label": "isValidVideoUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "isvalidvideourl()",
-      "source_file": "src/utils/videoUtils.js",
-      "source_location": "L88"
-    },
-    {
-      "id": "src_utils_videoutils_parsevideosource",
-      "label": "parseVideoSource()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "parsevideosource()",
-      "source_file": "src/utils/videoUtils.js",
-      "source_location": "L9"
     },
     {
       "id": "server_index_connectdb",
@@ -844,6 +760,78 @@
       "source_location": "L117"
     },
     {
+      "id": "src_admin_sections_videoseditor_confirmdialog",
+      "label": "ConfirmDialog()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "VideosEditor.jsx",
+      "file_type": "code",
+      "norm_label": "confirmdialog()",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_admin_sections_videoseditor_videomodal",
+      "label": "VideoModal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "VideosEditor.jsx",
+      "file_type": "code",
+      "norm_label": "videomodal()",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_admin_sections_videoseditor_videoseditor",
+      "label": "VideosEditor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "VideosEditor.jsx",
+      "file_type": "code",
+      "norm_label": "videoseditor()",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
+      "source_location": "L477"
+    },
+    {
+      "id": "src_components_videomodal_videomodal",
+      "label": "VideoModal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "VideosEditor.jsx",
+      "file_type": "code",
+      "norm_label": "videomodal()",
+      "source_file": "src/components/VideoModal.jsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_utils_videoutils_isvalidvideourl",
+      "label": "isValidVideoUrl()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "VideosEditor.jsx",
+      "file_type": "code",
+      "norm_label": "isvalidvideourl()",
+      "source_file": "src/utils/videoUtils.js",
+      "source_location": "L88"
+    },
+    {
+      "id": "src_utils_videoutils_parsevideosource",
+      "label": "parseVideoSource()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "VideosEditor.jsx",
+      "file_type": "code",
+      "norm_label": "parsevideosource()",
+      "source_file": "src/utils/videoUtils.js",
+      "source_location": "L9"
+    },
+    {
       "id": "src_admin_adminapp",
       "label": "AdminApp.jsx",
       "_origin": "ast",
@@ -974,6 +962,17 @@
       "norm_label": "statseditor.jsx",
       "source_file": "src/admin/sections/StatsEditor.jsx",
       "source_location": "L1"
+    },
+    {
+      "id": "src_app_adminapp",
+      "label": "AdminApp",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "adminapp",
+      "source_file": "src/App.jsx",
+      "source_location": "L17"
     },
     {
       "id": "src_config_api",
@@ -1680,28 +1679,6 @@
       "source_location": "L27"
     },
     {
-      "id": "src_admin_sections_videoseditor",
-      "label": "VideosEditor.jsx",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videoseditor.jsx",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_admin_sections_videoseditor_default_categories",
-      "label": "DEFAULT_CATEGORIES",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "default_categories",
-      "source_file": "src/admin/sections/VideosEditor.jsx",
-      "source_location": "L20"
-    },
-    {
       "id": "src_app",
       "label": "App.jsx",
       "_origin": "ast",
@@ -1713,17 +1690,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_adminapp",
-      "label": "AdminApp",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "adminapp",
-      "source_file": "src/App.jsx",
-      "source_location": "L19"
-    },
-    {
       "id": "src_app_lightboxmodal",
       "label": "LightboxModal",
       "_origin": "ast",
@@ -1732,18 +1698,7 @@
       "file_type": "code",
       "norm_label": "lightboxmodal",
       "source_file": "src/App.jsx",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_videomodal",
-      "label": "VideoModal",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal",
-      "source_file": "src/App.jsx",
-      "source_location": "L18"
+      "source_location": "L15"
     },
     {
       "id": "src_components_clientscloud",
@@ -1834,17 +1789,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_videomodal",
-      "label": "VideoModal.jsx",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videomodal.jsx",
-      "source_file": "src/components/VideoModal.jsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_components_videosection",
       "label": "VideoSection.jsx",
       "_origin": "ast",
@@ -1875,17 +1819,6 @@
       "file_type": "code",
       "norm_label": "main.jsx",
       "source_file": "src/main.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_utils_videoutils",
-      "label": "videoUtils.js",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "videoutils.js",
-      "source_file": "src/utils/videoUtils.js",
       "source_location": "L1"
     },
     {
@@ -1931,6 +1864,116 @@
       "norm_label": "author",
       "source_file": "server/package.json",
       "source_location": "L13"
+    },
+    {
+      "id": "server_package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "server/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "server_package_dependencies_bcryptjs",
+      "label": "bcryptjs",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "bcryptjs",
+      "source_file": "server/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "server_package_dependencies_cors",
+      "label": "cors",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "cors",
+      "source_file": "server/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "server_package_dependencies_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "dotenv",
+      "source_file": "server/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "server_package_dependencies_express",
+      "label": "express",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "express",
+      "source_file": "server/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "server_package_dependencies_express_rate_limit",
+      "label": "express-rate-limit",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "express-rate-limit",
+      "source_file": "server/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "server_package_dependencies_jsonwebtoken",
+      "label": "jsonwebtoken",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "jsonwebtoken",
+      "source_file": "server/package.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "server_package_dependencies_mongodb",
+      "label": "mongodb",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "mongodb",
+      "source_file": "server/package.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "server_package_dependencies_mongoose",
+      "label": "mongoose",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "mongoose",
+      "source_file": "server/package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "server_package_dependencies_multer",
+      "label": "multer",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "server/package.json",
+      "file_type": "code",
+      "norm_label": "multer",
+      "source_file": "server/package.json",
+      "source_location": "L25"
     },
     {
       "id": "server_package_description",
@@ -2692,114 +2735,59 @@
       "source_location": "L24"
     },
     {
-      "id": "server_package_dependencies",
-      "label": "dependencies",
+      "id": "src_admin_sections_videoseditor",
+      "label": "VideosEditor.jsx",
       "_origin": "ast",
       "community": 9,
-      "community_name": "dependencies",
+      "community_name": "VideosEditor.jsx",
       "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "server/package.json",
-      "source_location": "L16"
+      "norm_label": "videoseditor.jsx",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
+      "source_location": "L1"
     },
     {
-      "id": "server_package_dependencies_bcryptjs",
-      "label": "bcryptjs",
+      "id": "src_admin_sections_videoseditor_default_categories",
+      "label": "DEFAULT_CATEGORIES",
       "_origin": "ast",
       "community": 9,
-      "community_name": "dependencies",
+      "community_name": "VideosEditor.jsx",
       "file_type": "code",
-      "norm_label": "bcryptjs",
-      "source_file": "server/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "server_package_dependencies_cors",
-      "label": "cors",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "cors",
-      "source_file": "server/package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "server_package_dependencies_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "dotenv",
-      "source_file": "server/package.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "server_package_dependencies_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "express",
-      "source_file": "server/package.json",
+      "norm_label": "default_categories",
+      "source_file": "src/admin/sections/VideosEditor.jsx",
       "source_location": "L20"
     },
     {
-      "id": "server_package_dependencies_express_rate_limit",
-      "label": "express-rate-limit",
+      "id": "src_app_videomodal",
+      "label": "VideoModal",
       "_origin": "ast",
       "community": 9,
-      "community_name": "dependencies",
+      "community_name": "VideosEditor.jsx",
       "file_type": "code",
-      "norm_label": "express-rate-limit",
-      "source_file": "server/package.json",
-      "source_location": "L21"
+      "norm_label": "videomodal",
+      "source_file": "src/App.jsx",
+      "source_location": "L16"
     },
     {
-      "id": "server_package_dependencies_jsonwebtoken",
-      "label": "jsonwebtoken",
+      "id": "src_components_videomodal",
+      "label": "VideoModal.jsx",
       "_origin": "ast",
       "community": 9,
-      "community_name": "dependencies",
+      "community_name": "VideosEditor.jsx",
       "file_type": "code",
-      "norm_label": "jsonwebtoken",
-      "source_file": "server/package.json",
-      "source_location": "L22"
+      "norm_label": "videomodal.jsx",
+      "source_file": "src/components/VideoModal.jsx",
+      "source_location": "L1"
     },
     {
-      "id": "server_package_dependencies_mongodb",
-      "label": "mongodb",
+      "id": "src_utils_videoutils",
+      "label": "videoUtils.js",
       "_origin": "ast",
       "community": 9,
-      "community_name": "dependencies",
+      "community_name": "VideosEditor.jsx",
       "file_type": "code",
-      "norm_label": "mongodb",
-      "source_file": "server/package.json",
-      "source_location": "L23"
-    },
-    {
-      "id": "server_package_dependencies_mongoose",
-      "label": "mongoose",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "mongoose",
-      "source_file": "server/package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "server_package_dependencies_multer",
-      "label": "multer",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "multer",
-      "source_file": "server/package.json",
-      "source_location": "L25"
+      "norm_label": "videoutils.js",
+      "source_file": "src/utils/videoUtils.js",
+      "source_location": "L1"
     },
     {
       "id": "readme_admin_panel",
@@ -3162,19 +3150,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/App.jsx",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_portfoliopage_raf",
-      "target": "src_app_portfoliopage_raf",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/App.jsx",
-      "source_location": "L51",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3307,7 +3283,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/App.jsx",
-      "source_location": "L19",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3320,7 +3296,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/App.jsx",
-      "source_location": "L17",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3333,7 +3309,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/App.jsx",
-      "source_location": "L18",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -3914,7 +3890,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_overviewsection_overviewsection",
+      "target": "src_components_videosection_videosection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3926,7 +3902,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_masonrygallery_masonrygallery",
+      "target": "src_components_connectsection_connectsection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3938,7 +3914,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_videosection_videosection",
+      "target": "src_components_footer_footer",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3950,30 +3926,6 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_connectsection_connectsection",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/App.jsx",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
-      "target": "src_components_footer_footer",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/App.jsx",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
       "target": "src_hooks_useportfoliodata_useportfoliodata",
       "relation": "imports",
       "_origin": "ast",
@@ -3981,7 +3933,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -3993,7 +3945,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L7",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -4005,12 +3957,36 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L8",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
       "source": "src_app",
       "target": "src_components_clientscloud_clientscloud",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_overviewsection_overviewsection",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_masonrygallery_masonrygallery",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4682,7 +4658,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_overviewsection",
+      "target": "src_components_videosection",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4694,7 +4670,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_masonrygallery",
+      "target": "src_components_connectsection",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4706,30 +4682,6 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_videosection",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/App.jsx",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
-      "target": "src_components_connectsection",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/App.jsx",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app",
       "target": "src_components_footer",
       "relation": "imports_from",
       "_origin": "ast",
@@ -4737,7 +4689,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/App.jsx",
-      "source_location": "L14",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -4754,7 +4706,7 @@
     },
     {
       "source": "src_app",
-      "target": "ref_lenis",
+      "target": "src_hooks_useportfoliodata",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4766,7 +4718,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_hooks_useportfoliodata",
+      "target": "src_components_navbar",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4778,7 +4730,19 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_navbar",
+      "target": "src_components_hero",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_clientscloud",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4790,7 +4754,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_hero",
+      "target": "src_components_overviewsection",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4802,7 +4766,7 @@
     },
     {
       "source": "src_app",
-      "target": "src_components_clientscloud",
+      "target": "src_components_masonrygallery",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6774,7 +6738,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L17",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -6785,7 +6749,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L18",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -6796,7 +6760,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L19",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -6807,7 +6771,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L22",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -6818,7 +6782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.jsx",
-      "source_location": "L251",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -7136,18 +7100,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_app_portfoliopage",
-      "target": "src_app_portfoliopage_raf",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/App.jsx",
-      "source_location": "L54",
-      "weight": 1.0
-    },
-    {
       "source": "server_routes_upload",
       "target": "server_routes_upload_filefilter",
       "relation": "indirect_call",
@@ -7194,5 +7146,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "84c034e161bed9965aa463b29108561db64495a8"
+  "built_at_commit": "3f408ee1309d7cc26e95faa913273fe3350a851e"
 }
