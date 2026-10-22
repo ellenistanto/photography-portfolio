@@ -1,16 +1,22 @@
 import React from 'react';
 import { Mail, Instagram, PhoneCall } from 'lucide-react';
 
-export default function ConnectSection({ profile, stats, showStats = true }) {
+export default function ConnectSection({ profile = {}, stats = [], showStats = true }) {
+  const safeProfile = profile || {};
+  const aboutLong = Array.isArray(safeProfile.aboutLong) ? safeProfile.aboutLong : [];
+  const whatsapp = typeof safeProfile.whatsapp === 'string' ? safeProfile.whatsapp : '';
+  const email = typeof safeProfile.email === 'string' ? safeProfile.email : '';
+  const instagram = typeof safeProfile.instagram === 'string' ? safeProfile.instagram : '';
+
   return (
     <section className="connect-section" id="connect">
       <div className="container">
         
         {/* About Text */}
         <div className="about-text-content">
-          <h2 className="about-headline">{profile.aboutHeadline || 'Preserving the feeling as much as the sight.'}</h2>
+          <h2 className="about-headline">{safeProfile.aboutHeadline || 'Preserving the feeling as much as the sight.'}</h2>
           
-          {profile.aboutLong.map((para, idx) => (
+          {aboutLong.map((para, idx) => (
             <p key={idx} className="about-paragraph">{para}</p>
           ))}
         </div>
@@ -40,9 +46,9 @@ export default function ConnectSection({ profile, stats, showStats = true }) {
 
             <div className="quick-contact-list">
               {/* WhatsApp Quick Button */}
-              {profile.whatsapp && (
+              {whatsapp && (
                 <a 
-                  href={`https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(`Halo ${profile.name}, saya tertarik untuk bekerja sama dalam project fotografi.`)}`} 
+                  href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(`Halo ${safeProfile.name || 'Ellen'}, saya tertarik untuk bekerja sama dalam project fotografi.`)}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="contact-card-btn"
@@ -52,33 +58,33 @@ export default function ConnectSection({ profile, stats, showStats = true }) {
                   </div>
                   <div className="contact-card-text">
                     <span className="contact-card-label">Direct WhatsApp</span>
-                    <span className="contact-card-value">+{profile.whatsapp.slice(0,2)} {profile.whatsapp.slice(2,5)}-{profile.whatsapp.slice(5,9)}-{profile.whatsapp.slice(9)}</span>
+                    <span className="contact-card-value">+{whatsapp.slice(0,2)} {whatsapp.slice(2,5)}-{whatsapp.slice(5,9)}-{whatsapp.slice(9)}</span>
                   </div>
                 </a>
               )}
 
               {/* Email Quick Button */}
-              {profile.email && (
-                <a href={`mailto:${profile.email}`} className="contact-card-btn">
+              {email && (
+                <a href={`mailto:${email}`} className="contact-card-btn">
                   <div className="contact-card-icon">
                     <Mail size={20} />
                   </div>
                   <div className="contact-card-text">
                     <span className="contact-card-label">Email Inquiry</span>
-                    <span className="contact-card-value">{profile.email}</span>
+                    <span className="contact-card-value">{email}</span>
                   </div>
                 </a>
               )}
 
               {/* Instagram Quick Button */}
-              {profile.instagram && (
-                <a href={profile.instagram} target="_blank" rel="noopener noreferrer" className="contact-card-btn">
+              {instagram && (
+                <a href={instagram} target="_blank" rel="noopener noreferrer" className="contact-card-btn">
                   <div className="contact-card-icon">
                     <Instagram size={20} />
                   </div>
                   <div className="contact-card-text">
                     <span className="contact-card-label">Follow on Instagram</span>
-                    <span className="contact-card-value">@{profile.instagram.split('/').filter(Boolean).pop()}</span>
+                    <span className="contact-card-value">@{instagram.split('/').filter(Boolean).pop()}</span>
                   </div>
                 </a>
               )}

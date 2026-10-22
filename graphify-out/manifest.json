@@ -150,9 +150,9 @@
     "semantic_hash": "ae38a2a12867e3cb7121c2ceb105703e"
   },
   "src/components/ConnectSection.jsx": {
-    "mtime": 1791375359.3599515,
-    "seen": 1791429761.3597057,
-    "ast_hash": "dc91a67431c8ecf60cbc1861191b3812",
+    "mtime": 1792694385.188733,
+    "seen": 1792694415.4497316,
+    "ast_hash": "3da55767acc3411e36b0683fdd958c9a",
     "semantic_hash": ""
   },
   "src/components/Footer.jsx": {
@@ -204,16 +204,16 @@
     "semantic_hash": ""
   },
   "src/hooks/usePortfolioData.js": {
-    "mtime": 1791429674.2559068,
-    "seen": 1791429761.3597057,
-    "ast_hash": "daad3546249c692b143570785f0af452",
+    "mtime": 1792694397.0990472,
+    "seen": 1792694415.4497316,
+    "ast_hash": "c2304447e8df7dd84e2feec893f76bd8",
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1789422681.0,
-    "seen": 1789595159.252783,
-    "ast_hash": "0a45f9aece7ae413a345b4472f5e182d",
-    "semantic_hash": "0a45f9aece7ae413a345b4472f5e182d"
+    "mtime": 1792694350.5919878,
+    "seen": 1792694415.4497316,
+    "ast_hash": "4512eed7685c345b089fba40c67c6c0c",
+    "semantic_hash": ""
   },
   "vercel.json": {
     "mtime": 1789422681.0,
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "src/components/ErrorBoundary.jsx": {
-    "mtime": 1792692509.5602188,
-    "seen": 1792692559.6433759,
-    "ast_hash": "d674bcde725e2c786df79b77a857d66c",
+    "mtime": 1792694365.8752642,
+    "seen": 1792694415.4497316,
+    "ast_hash": "a38d42f4549f37a16e69653e580baf4f",
     "semantic_hash": ""
   }
 }

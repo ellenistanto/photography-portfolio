@@ -206,7 +206,7 @@
       "file_type": "code",
       "norm_label": "clearportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L133"
+      "source_location": "L138"
     },
     {
       "id": "src_hooks_useportfoliodata_updateportfoliocache",
@@ -218,31 +218,19 @@
       "file_type": "code",
       "norm_label": "updateportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L140"
+      "source_location": "L145"
     },
     {
-      "id": "server_index_connectdb",
+      "id": "api_index_connectdb",
       "label": "connectDB()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "connectdb()",
-      "source_file": "server/index.js",
-      "source_location": "L43"
-    },
-    {
-      "id": "server_index_startserver",
-      "label": "startServer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "startserver()",
-      "source_file": "server/index.js",
-      "source_location": "L88"
+      "source_file": "api/index.js",
+      "source_location": "L13"
     },
     {
       "id": "server_middleware_authmiddleware_authmiddleware",
@@ -250,7 +238,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "authmiddleware()",
       "source_file": "server/middleware/authMiddleware.js",
@@ -262,7 +250,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "getportfolio()",
       "source_file": "server/routes/portfolio.js",
@@ -274,7 +262,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "inspectvideourl()",
       "source_file": "server/routes/portfolio.js",
@@ -286,7 +274,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "invalidateportfoliocache()",
       "source_file": "server/routes/portfolio.js",
@@ -298,7 +286,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "slugify()",
       "source_file": "server/routes/portfolio.js",
@@ -310,7 +298,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "filefilter()",
       "source_file": "server/routes/upload.js",
@@ -353,6 +341,18 @@
       "source_location": "L3"
     },
     {
+      "id": "src_components_connectsection_connectsection",
+      "label": "ConnectSection()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "connectsection()",
+      "source_file": "src/components/ConnectSection.jsx",
+      "source_location": "L4"
+    },
+    {
       "id": "src_components_errorboundary_errorboundary_componentdidcatch",
       "label": ".componentDidCatch()",
       "_callable": true,
@@ -389,6 +389,18 @@
       "source_location": "L9"
     },
     {
+      "id": "src_components_errorboundary_errorboundary_handleclearcacheandreload",
+      "label": ".handleClearCacheAndReload()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": ".handleclearcacheandreload()",
+      "source_file": "src/components/ErrorBoundary.jsx",
+      "source_location": "L22"
+    },
+    {
       "id": "src_components_errorboundary_errorboundary_handlereload",
       "label": ".handleReload()",
       "_callable": true,
@@ -398,7 +410,7 @@
       "file_type": "code",
       "norm_label": ".handlereload()",
       "source_file": "src/components/ErrorBoundary.jsx",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "src_components_errorboundary_errorboundary_render",
@@ -410,7 +422,7 @@
       "file_type": "code",
       "norm_label": ".render()",
       "source_file": "src/components/ErrorBoundary.jsx",
-      "source_location": "L21"
+      "source_location": "L30"
     },
     {
       "id": "src_components_footer_footer",
@@ -449,6 +461,30 @@
       "source_location": "L4"
     },
     {
+      "id": "src_components_masonrygallery_gallerycard",
+      "label": "GalleryCard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "gallerycard()",
+      "source_file": "src/components/MasonryGallery.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "src_components_masonrygallery_masonrygallery",
+      "label": "MasonryGallery()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "masonrygallery()",
+      "source_file": "src/components/MasonryGallery.jsx",
+      "source_location": "L64"
+    },
+    {
       "id": "src_components_navbar_navbar",
       "label": "Navbar()",
       "_callable": true,
@@ -459,6 +495,54 @@
       "norm_label": "navbar()",
       "source_file": "src/components/Navbar.jsx",
       "source_location": "L3"
+    },
+    {
+      "id": "src_components_overviewsection_overviewcard",
+      "label": "OverviewCard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "overviewcard()",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_components_overviewsection_overviewsection",
+      "label": "OverviewSection()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "overviewsection()",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L78"
+    },
+    {
+      "id": "src_components_videosection_videocard",
+      "label": "VideoCard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videocard()",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_components_videosection_videosection",
+      "label": "VideoSection()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videosection()",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L109"
     },
     {
       "id": "src_hooks_useportfoliodata_getinitialdata",
@@ -482,7 +566,7 @@
       "file_type": "code",
       "norm_label": "useportfoliodata()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L73"
+      "source_location": "L78"
     },
     {
       "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
@@ -494,19 +578,43 @@
       "file_type": "code",
       "norm_label": "fetchdata()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L81"
+      "source_location": "L86"
     },
     {
-      "id": "api_index_connectdb",
+      "id": "src_hooks_usescrollreveal_usescrollreveal",
+      "label": "useScrollReveal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "usescrollreveal()",
+      "source_file": "src/hooks/useScrollReveal.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "server_index_connectdb",
       "label": "connectDB()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "connectdb()",
-      "source_file": "api/index.js",
-      "source_location": "L13"
+      "source_file": "server/index.js",
+      "source_location": "L43"
+    },
+    {
+      "id": "server_index_startserver",
+      "label": "startServer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "server/index.js",
+      "file_type": "code",
+      "norm_label": "startserver()",
+      "source_file": "server/index.js",
+      "source_location": "L88"
     },
     {
       "id": "server_routes_auth_gethashedadminpassword",
@@ -514,7 +622,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "gethashedadminpassword()",
       "source_file": "server/routes/auth.js",
@@ -773,66 +881,6 @@
       "source_location": "L477"
     },
     {
-      "id": "src_components_connectsection_connectsection",
-      "label": "ConnectSection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "connectsection()",
-      "source_file": "src/components/ConnectSection.jsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_components_masonrygallery_gallerycard",
-      "label": "GalleryCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "gallerycard()",
-      "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_components_masonrygallery_masonrygallery",
-      "label": "MasonryGallery()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "masonrygallery()",
-      "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L64"
-    },
-    {
-      "id": "src_components_overviewsection_overviewcard",
-      "label": "OverviewCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "overviewcard()",
-      "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_components_overviewsection_overviewsection",
-      "label": "OverviewSection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "overviewsection()",
-      "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L78"
-    },
-    {
       "id": "src_components_videomodal_videomodal",
       "label": "VideoModal()",
       "_callable": true,
@@ -843,42 +891,6 @@
       "norm_label": "videomodal()",
       "source_file": "src/components/VideoModal.jsx",
       "source_location": "L5"
-    },
-    {
-      "id": "src_components_videosection_videocard",
-      "label": "VideoCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videocard()",
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_components_videosection_videosection",
-      "label": "VideoSection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videosection()",
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L109"
-    },
-    {
-      "id": "src_hooks_usescrollreveal_usescrollreveal",
-      "label": "useScrollReveal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "usescrollreveal()",
-      "source_file": "src/hooks/useScrollReveal.js",
-      "source_location": "L8"
     },
     {
       "id": "src_utils_videoutils_isvalidvideourl",
@@ -1103,121 +1115,99 @@
       "source_location": "L22"
     },
     {
-      "id": "server_index",
-      "label": "server/index.js",
+      "id": "api_index",
+      "label": "api/index.js",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
-      "norm_label": "server/index.js",
-      "source_file": "server/index.js",
+      "norm_label": "api/index.js",
+      "source_file": "api/index.js",
       "source_location": "L1"
     },
     {
-      "id": "server_index_allowedorigins",
-      "label": "allowedOrigins",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "allowedorigins",
-      "source_file": "server/index.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "server_index_app",
+      "id": "api_index_app",
       "label": "app",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "app",
-      "source_file": "server/index.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "server_index_authroutes",
-      "label": "authRoutes",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "authroutes",
-      "source_file": "server/index.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "server_index_cors",
-      "label": "cors",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "cors",
-      "source_file": "server/index.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "server_index_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "express",
-      "source_file": "server/index.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "server_index_mongoose",
-      "label": "mongoose",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "mongoose",
-      "source_file": "server/index.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "server_index_path",
-      "label": "path",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "path",
-      "source_file": "server/index.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_index_portfolioroutes",
-      "label": "portfolioRoutes",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "server/index.js",
-      "file_type": "code",
-      "norm_label": "portfolioroutes",
-      "source_file": "server/index.js",
+      "source_file": "api/index.js",
       "source_location": "L9"
     },
     {
-      "id": "server_index_uploadroutes",
+      "id": "api_index_authroutes",
+      "label": "authRoutes",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "portfolio.js",
+      "file_type": "code",
+      "norm_label": "authroutes",
+      "source_file": "api/index.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "api_index_cors",
+      "label": "cors",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "portfolio.js",
+      "file_type": "code",
+      "norm_label": "cors",
+      "source_file": "api/index.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "api_index_express",
+      "label": "express",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "portfolio.js",
+      "file_type": "code",
+      "norm_label": "express",
+      "source_file": "api/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "api_index_mongoose",
+      "label": "mongoose",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "portfolio.js",
+      "file_type": "code",
+      "norm_label": "mongoose",
+      "source_file": "api/index.js",
+      "source_location": "L2"
+    },
+    {
+      "id": "api_index_portfolioroutes",
+      "label": "portfolioRoutes",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "portfolio.js",
+      "file_type": "code",
+      "norm_label": "portfolioroutes",
+      "source_file": "api/index.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "api_index_uploadroutes",
       "label": "uploadRoutes",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "uploadroutes",
-      "source_file": "server/index.js",
-      "source_location": "L10"
+      "source_file": "api/index.js",
+      "source_location": "L7"
     },
     {
       "id": "server_middleware_authmiddleware",
       "label": "authMiddleware.js",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "authmiddleware.js",
       "source_file": "server/middleware/authMiddleware.js",
@@ -1228,7 +1218,7 @@
       "label": "jwt",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "jwt",
       "source_file": "server/middleware/authMiddleware.js",
@@ -1239,7 +1229,7 @@
       "label": "portfolio.js",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "portfolio.js",
       "source_file": "server/routes/portfolio.js",
@@ -1250,7 +1240,7 @@
       "label": "authMiddleware",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "authmiddleware",
       "source_file": "server/routes/portfolio.js",
@@ -1261,7 +1251,7 @@
       "label": "crypto",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "crypto",
       "source_file": "server/routes/portfolio.js",
@@ -1272,7 +1262,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "express",
       "source_file": "server/routes/portfolio.js",
@@ -1283,7 +1273,7 @@
       "label": "Portfolio",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "portfolio",
       "source_file": "server/routes/portfolio.js",
@@ -1294,7 +1284,7 @@
       "label": "router",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "router",
       "source_file": "server/routes/portfolio.js",
@@ -1305,7 +1295,7 @@
       "label": "upload.js",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "upload.js",
       "source_file": "server/routes/upload.js",
@@ -1316,7 +1306,7 @@
       "label": "ALLOWED_MIME_TYPES",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "allowed_mime_types",
       "source_file": "server/routes/upload.js",
@@ -1327,7 +1317,7 @@
       "label": "authMiddleware",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "authmiddleware",
       "source_file": "server/routes/upload.js",
@@ -1338,7 +1328,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "express",
       "source_file": "server/routes/upload.js",
@@ -1349,7 +1339,7 @@
       "label": "fs",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "fs",
       "source_file": "server/routes/upload.js",
@@ -1360,7 +1350,7 @@
       "label": "multer",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "multer",
       "source_file": "server/routes/upload.js",
@@ -1371,7 +1361,7 @@
       "label": "path",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "path",
       "source_file": "server/routes/upload.js",
@@ -1382,7 +1372,7 @@
       "label": "router",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "router",
       "source_file": "server/routes/upload.js",
@@ -1393,7 +1383,7 @@
       "label": "upload",
       "_origin": "ast",
       "community": 1,
-      "community_name": "server/index.js",
+      "community_name": "portfolio.js",
       "file_type": "code",
       "norm_label": "upload",
       "source_file": "server/routes/upload.js",
@@ -1917,6 +1907,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_components_connectsection",
+      "label": "ConnectSection.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "connectsection.jsx",
+      "source_file": "src/components/ConnectSection.jsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_errorboundary",
       "label": "ErrorBoundary.jsx",
       "_origin": "ast",
@@ -1961,6 +1962,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_components_masonrygallery",
+      "label": "MasonryGallery.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "masonrygallery.jsx",
+      "source_file": "src/components/MasonryGallery.jsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_navbar",
       "label": "Navbar.jsx",
       "_origin": "ast",
@@ -1969,6 +1981,39 @@
       "file_type": "code",
       "norm_label": "navbar.jsx",
       "source_file": "src/components/Navbar.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_overviewsection",
+      "label": "OverviewSection.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "overviewsection.jsx",
+      "source_file": "src/components/OverviewSection.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_videosection",
+      "label": "VideoSection.jsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "videosection.jsx",
+      "source_file": "src/components/VideoSection.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_hooks_usescrollreveal",
+      "label": "useScrollReveal.js",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "usescrollreveal.js",
+      "source_file": "src/hooks/useScrollReveal.js",
       "source_location": "L1"
     },
     {
@@ -1981,6 +2026,17 @@
       "norm_label": "main.jsx",
       "source_file": "src/main.jsx",
       "source_location": "L1"
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "concept",
+      "norm_label": "lucide-react",
+      "source_file": "package.json",
+      "source_location": "L19"
     },
     {
       "id": "ref_react_router_dom",
@@ -2247,99 +2303,121 @@
       "source_location": "L25"
     },
     {
-      "id": "api_index",
-      "label": "api/index.js",
+      "id": "server_index",
+      "label": "server/index.js",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
-      "norm_label": "api/index.js",
-      "source_file": "api/index.js",
+      "norm_label": "server/index.js",
+      "source_file": "server/index.js",
       "source_location": "L1"
     },
     {
-      "id": "api_index_app",
+      "id": "server_index_allowedorigins",
+      "label": "allowedOrigins",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "server/index.js",
+      "file_type": "code",
+      "norm_label": "allowedorigins",
+      "source_file": "server/index.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "server_index_app",
       "label": "app",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "app",
-      "source_file": "api/index.js",
-      "source_location": "L9"
+      "source_file": "server/index.js",
+      "source_location": "L12"
     },
     {
-      "id": "api_index_authroutes",
+      "id": "server_index_authroutes",
       "label": "authRoutes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "authroutes",
-      "source_file": "api/index.js",
-      "source_location": "L5"
+      "source_file": "server/index.js",
+      "source_location": "L8"
     },
     {
-      "id": "api_index_cors",
+      "id": "server_index_cors",
       "label": "cors",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "cors",
-      "source_file": "api/index.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "api_index_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "api/index.js",
-      "file_type": "code",
-      "norm_label": "express",
-      "source_file": "api/index.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "api_index_mongoose",
-      "label": "mongoose",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "api/index.js",
-      "file_type": "code",
-      "norm_label": "mongoose",
-      "source_file": "api/index.js",
-      "source_location": "L2"
-    },
-    {
-      "id": "api_index_portfolioroutes",
-      "label": "portfolioRoutes",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "api/index.js",
-      "file_type": "code",
-      "norm_label": "portfolioroutes",
-      "source_file": "api/index.js",
+      "source_file": "server/index.js",
       "source_location": "L6"
     },
     {
-      "id": "api_index_uploadroutes",
+      "id": "server_index_express",
+      "label": "express",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "server/index.js",
+      "file_type": "code",
+      "norm_label": "express",
+      "source_file": "server/index.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "server_index_mongoose",
+      "label": "mongoose",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "server/index.js",
+      "file_type": "code",
+      "norm_label": "mongoose",
+      "source_file": "server/index.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "server_index_path",
+      "label": "path",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "server/index.js",
+      "file_type": "code",
+      "norm_label": "path",
+      "source_file": "server/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_index_portfolioroutes",
+      "label": "portfolioRoutes",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "server/index.js",
+      "file_type": "code",
+      "norm_label": "portfolioroutes",
+      "source_file": "server/index.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "server_index_uploadroutes",
       "label": "uploadRoutes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "uploadroutes",
-      "source_file": "api/index.js",
-      "source_location": "L7"
+      "source_file": "server/index.js",
+      "source_location": "L10"
     },
     {
       "id": "server_routes_auth",
       "label": "auth.js",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "auth.js",
       "source_file": "server/routes/auth.js",
@@ -2350,7 +2428,7 @@
       "label": "bcrypt",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "bcrypt",
       "source_file": "server/routes/auth.js",
@@ -2361,7 +2439,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "express",
       "source_file": "server/routes/auth.js",
@@ -2372,7 +2450,7 @@
       "label": "jwt",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "jwt",
       "source_file": "server/routes/auth.js",
@@ -2383,7 +2461,7 @@
       "label": "loginLimiter",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "loginlimiter",
       "source_file": "server/routes/auth.js",
@@ -2394,7 +2472,7 @@
       "label": "rateLimit",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "ratelimit",
       "source_file": "server/routes/auth.js",
@@ -2405,7 +2483,7 @@
       "label": "router",
       "_origin": "ast",
       "community": 5,
-      "community_name": "api/index.js",
+      "community_name": "server/index.js",
       "file_type": "code",
       "norm_label": "router",
       "source_file": "server/routes/auth.js",
@@ -2786,39 +2864,6 @@
       "source_location": "L17"
     },
     {
-      "id": "src_components_connectsection",
-      "label": "ConnectSection.jsx",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "connectsection.jsx",
-      "source_file": "src/components/ConnectSection.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_masonrygallery",
-      "label": "MasonryGallery.jsx",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "masonrygallery.jsx",
-      "source_file": "src/components/MasonryGallery.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_overviewsection",
-      "label": "OverviewSection.jsx",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "overviewsection.jsx",
-      "source_file": "src/components/OverviewSection.jsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_components_videomodal",
       "label": "VideoModal.jsx",
       "_origin": "ast",
@@ -2827,28 +2872,6 @@
       "file_type": "code",
       "norm_label": "videomodal.jsx",
       "source_file": "src/components/VideoModal.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_videosection",
-      "label": "VideoSection.jsx",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "videosection.jsx",
-      "source_file": "src/components/VideoSection.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_hooks_usescrollreveal",
-      "label": "useScrollReveal.js",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "code",
-      "norm_label": "usescrollreveal.js",
-      "source_file": "src/hooks/useScrollReveal.js",
       "source_location": "L1"
     },
     {
@@ -2861,17 +2884,6 @@
       "norm_label": "videoutils.js",
       "source_file": "src/utils/videoUtils.js",
       "source_location": "L1"
-    },
-    {
-      "id": "ref_lucide_react",
-      "label": "lucide-react",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "VideosEditor.jsx",
-      "file_type": "concept",
-      "norm_label": "lucide-react",
-      "source_file": "package.json",
-      "source_location": "L19"
     },
     {
       "id": "readme_admin_panel",
@@ -3330,7 +3342,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L74",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -3354,7 +3366,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L81",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -4186,6 +4198,18 @@
       "context": "import",
       "source_file": "src/main.jsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_main",
+      "target": "src_components_errorboundary_errorboundary",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/main.jsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -5218,6 +5242,18 @@
       "context": "import",
       "source_file": "src/main.jsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_main",
+      "target": "src_components_errorboundary",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/main.jsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -7100,7 +7136,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L133",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -7111,7 +7147,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L140",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
@@ -7122,7 +7158,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -7237,7 +7273,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/ErrorBoundary.jsx",
-      "source_location": "L17",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_errorboundary_errorboundary",
+      "target": "src_components_errorboundary_errorboundary_handleclearcacheandreload",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/ErrorBoundary.jsx",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -7248,7 +7295,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/ErrorBoundary.jsx",
-      "source_location": "L21",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -7332,5 +7379,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "36bdab8217223dccd6e31e73e6629983e9382a9f"
+  "built_at_commit": "1f55a1db4d3057f7ef230bf62778eaaaf3c7b9e0"
 }

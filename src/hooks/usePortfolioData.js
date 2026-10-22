@@ -14,10 +14,15 @@ function getInitialData() {
       const cached = localStorage.getItem(CACHE_KEY) || sessionStorage.getItem(CACHE_KEY);
       if (cached) {
         const parsed = JSON.parse(cached);
-        if (parsed) {
+        if (parsed && typeof parsed === 'object') {
           return {
             data: {
+              ...PORTFOLIO_DATA,
               ...parsed,
+              profile: {
+                ...(PORTFOLIO_DATA.profile || {}),
+                ...(parsed.profile || {}),
+              },
               projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : (PORTFOLIO_DATA.projects || []),
               videos: parsed.videos && parsed.videos.length > 0 ? parsed.videos : (PORTFOLIO_DATA.videos || []),
             },
