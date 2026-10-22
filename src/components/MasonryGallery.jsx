@@ -9,6 +9,7 @@ function GalleryCard({ photo, index, onPhotoClick }) {
     once: true,
   });
 
+  const staggerDelay = (index % 3) * 30;
   const imgWidth = 800;
   const imgHeight = photo.aspect === 'portrait' ? 1000 : photo.aspect === 'square' ? 800 : 533;
 

@@ -10,6 +10,7 @@ import MasonryGallery from './components/MasonryGallery';
 import VideoSection from './components/VideoSection';
 import ConnectSection from './components/ConnectSection';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Code-split modals and admin to keep critical portfolio bundle minimal
 const LightboxModal = lazy(() => import('./components/LightboxModal'));
@@ -217,7 +218,14 @@ export default function App() {
         }
       />
       {/* Portfolio — everything else */}
-      <Route path="/*" element={<PortfolioPage />} />
+      <Route
+        path="/*"
+        element={
+          <ErrorBoundary>
+            <PortfolioPage />
+          </ErrorBoundary>
+        }
+      />
     </Routes>
   );
 }

@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1792689944.1565228,
-    "seen": 1792690136.256114,
-    "ast_hash": "bee4034ca3365308284c630da4f00a2e",
+    "mtime": 1792692531.0878057,
+    "seen": 1792692559.6433759,
+    "ast_hash": "09e711650230f3e3f7fb9ebb3617e6d6",
     "semantic_hash": ""
   },
   "src/admin/AdminApp.jsx": {
@@ -174,9 +174,9 @@
     "semantic_hash": ""
   },
   "src/components/MasonryGallery.jsx": {
-    "mtime": 1792690917.2063174,
-    "seen": 1792690980.887321,
-    "ast_hash": "0ede36b63c6f2487a97139fb71d09018",
+    "mtime": 1792692464.243964,
+    "seen": 1792692559.6433759,
+    "ast_hash": "0184a7112de42d5cf071f1ef11eda7ef",
     "semantic_hash": ""
   },
   "src/components/Navbar.jsx": {
@@ -279,6 +279,12 @@
     "mtime": 1792689977.0664277,
     "seen": 1792690136.256114,
     "ast_hash": "b52a28dd63468c7e56f90f7fa3da1e8e",
+    "semantic_hash": ""
+  },
+  "src/components/ErrorBoundary.jsx": {
+    "mtime": 1792692509.5602188,
+    "seen": 1792692559.6433759,
+    "ast_hash": "d674bcde725e2c786df79b77a857d66c",
     "semantic_hash": ""
   }
 }

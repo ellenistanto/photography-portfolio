@@ -168,27 +168,27 @@
     "semantic_hash": ""
   },
   "src/components/LightboxModal.jsx": {
-    "mtime": 1789599270.9376795,
-    "seen": 1789807688.7471118,
-    "ast_hash": "bb0213b72c820ed0744b3cf44416f589",
-    "semantic_hash": "bb0213b72c820ed0744b3cf44416f589"
+    "mtime": 1792690719.0207002,
+    "seen": 1792690980.887321,
+    "ast_hash": "582c6f76a8531aae9d25055d0df5297d",
+    "semantic_hash": ""
   },
   "src/components/MasonryGallery.jsx": {
-    "mtime": 1792689990.760066,
-    "seen": 1792690136.256114,
-    "ast_hash": "50c6f7e1dd137e8f2dec91f598420697",
+    "mtime": 1792690917.2063174,
+    "seen": 1792690980.887321,
+    "ast_hash": "0ede36b63c6f2487a97139fb71d09018",
     "semantic_hash": ""
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1791375359.3619618,
-    "seen": 1791429761.3597057,
-    "ast_hash": "412cf2b62f4e98dfa24c153c20ae896e",
+    "mtime": 1792690707.302828,
+    "seen": 1792690980.887321,
+    "ast_hash": "eb8adfb7de47f9a3886eebee2c1f43bb",
     "semantic_hash": ""
   },
   "src/components/OverviewSection.jsx": {
-    "mtime": 1792690017.2071612,
-    "seen": 1792690136.256114,
-    "ast_hash": "a336742425aa2b4f781afe886eeb779d",
+    "mtime": 1792690691.0584342,
+    "seen": 1792690980.887321,
+    "ast_hash": "884f685b47181015253f967d5877804e",
     "semantic_hash": ""
   },
   "src/config/api.js": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791375359.3572526,
-    "seen": 1791429761.3597057,
-    "ast_hash": "8f5aa3d2588be75b4f3d90a482978071",
+    "mtime": 1792690729.6820145,
+    "seen": 1792690980.887321,
+    "ast_hash": "2ed5b0b0b0958705a130143da50de036",
     "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
