@@ -141,6 +141,8 @@ body {
   line-height: 1.6;
   background-color: var(--bg-black);
   min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 #root {
@@ -556,13 +558,11 @@ button {
 @keyframes heroBgEntrance {
   0% {
     opacity: 0;
-    transform: scale(1.08);
-    filter: brightness(0.18) contrast(1.1);
+    transform: scale(1.06);
   }
   100% {
     opacity: 1;
     transform: scale(1.02);
-    filter: brightness(0.4) contrast(1.1);
   }
 }
 
@@ -605,13 +605,11 @@ button {
 @keyframes heroLeadReveal {
   from {
     opacity: 0;
-    transform: translateY(28px);
-    filter: blur(4px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -631,13 +629,11 @@ button {
 @keyframes heroBioReveal {
   from {
     opacity: 0;
-    transform: translateY(24px);
-    filter: blur(3px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -943,7 +939,8 @@ button {
   transform: translateY(18px);
   transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 450px;
 }
 
 .gallery-item.is-visible {
@@ -987,23 +984,19 @@ button {
   display: block;
   object-fit: cover;
   opacity: 0;
-  filter: blur(5px);
-  transform: scale(0.99);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, filter, transform;
+  transform: scale(0.995);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-img-wrapper img.loaded {
   opacity: 1;
-  filter: blur(0);
   transform: scale(1);
 }
 
 .gallery-item:hover .gallery-img-wrapper img.loaded {
   transform: scale(1.025);
-  filter: brightness(1.05);
+  filter: brightness(1.04);
 }
 
 /* Overlay gradient & metadata badge */
@@ -2095,10 +2088,10 @@ button {
 .gallery-skeleton-card {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-md);
-  background-color: var(--bg-card);
+  border-radius: 0;
+  background-color: #121212;
   border: 1px solid var(--border-subtle);
-  margin-bottom: 0.75rem;
+  margin-bottom: 8px;
   break-inside: avoid;
 }
 
@@ -2285,17 +2278,13 @@ button {
   object-fit: cover;
   display: block;
   opacity: 0;
-  filter: blur(5px);
-  transform: scale(0.99);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, filter, transform;
+  transform: scale(0.995);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .overview-img.loaded {
   opacity: 1;
-  filter: blur(0);
   transform: scale(1);
 }
 
@@ -3519,7 +3508,8 @@ button {
   transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.3s ease;
-  will-change: opacity, transform;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
 }
 
 .video-card.is-visible {

@@ -9,7 +9,7 @@ export default function LightboxModal({
   onNext, 
   onPrev 
 }) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -17,10 +17,10 @@ export default function LightboxModal({
   // Detect mobile screen (<= 768px)
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const mobile = window.innerWidth <= 768;
+      setIsMobile((prev) => (prev !== mobile ? mobile : prev));
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener('resize', checkMobile, { passive: true });
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 

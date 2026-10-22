@@ -9,7 +9,8 @@ function GalleryCard({ photo, index, onPhotoClick }) {
     once: true,
   });
 
-  const staggerDelay = (index % 3) * 30;
+  const imgWidth = 800;
+  const imgHeight = photo.aspect === 'portrait' ? 1000 : photo.aspect === 'square' ? 800 : 533;
 
   return (
     <article 
@@ -36,8 +37,8 @@ function GalleryCard({ photo, index, onPhotoClick }) {
           loading={index < 3 ? "eager" : "lazy"}
           fetchPriority={index < 2 ? "high" : "auto"}
           decoding="async"
-          width="800"
-          height="600"
+          width={imgWidth}
+          height={imgHeight}
           onLoad={() => setLoaded(true)}
           ref={(el) => {
             if (el && el.complete && !loaded) {

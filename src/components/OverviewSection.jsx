@@ -33,7 +33,7 @@ function OverviewCard({ photo, index, isFeaturedCard, onPhotoClick }) {
     >
       <div className="overview-img-container">
         <img
-          src={photo.image || photo.thumb}
+          src={photo.thumb || photo.image}
           alt={photo.title}
           loading={index < 2 ? "eager" : "lazy"}
           fetchPriority={index === 0 ? "high" : "auto"}
