@@ -4,7 +4,6 @@ import './admin.css';
 import ProfileEditor from './sections/ProfileEditor';
 import StatsEditor from './sections/StatsEditor';
 import PhotosEditor from './sections/PhotosEditor';
-import ClientsEditor from './sections/ClientsEditor';
 import MilestonesEditor from './sections/MilestonesEditor';
 import CategoriesEditor from './sections/CategoriesEditor';
 import OverviewEditor from './sections/OverviewEditor';
@@ -50,7 +49,6 @@ const NAV_ITEMS = [
   { id: 'photos',      label: 'Gallery Photos' },
   { id: 'videos',      label: 'Motion & Videos' },
   { id: 'stats',       label: 'Key Statistics' },
-  { id: 'clients',     label: 'Clients & Partners' },
   { id: 'milestones',  label: 'Career Milestones' },
   { id: 'categories',  label: 'Gallery Categories' },
 ];
@@ -135,7 +133,6 @@ export default function AdminDashboard({ token, onLogout }) {
       case 'photos':     return <PhotosEditor     {...commonProps} />;
       case 'videos':     return <VideosEditor     {...commonProps} />;
       case 'stats':      return <StatsEditor      {...commonProps} />;
-      case 'clients':    return <ClientsEditor    {...commonProps} />;
       case 'milestones': return <MilestonesEditor {...commonProps} />;
       case 'categories': return <CategoriesEditor {...commonProps} />;
       default:           return <ProfileEditor    {...commonProps} />;

@@ -36,11 +36,7 @@ const SEED_DATA = {
     { number: 171, suffix: "+", label: "Live Stages Documented" },
     { number: 850, suffix: "+", label: "Captured Moments" }
   ],
-  clients: [
-    "HINDIA", ".FEAST", "LOMBA SIHIR", "BERNADYA", "IDGITAF",
-    "THE SIGIT", "ISMAYA LIVE", "SOUNDSFAIR", "JOYLAND FEST",
-    "UNIQLO", "NIKE INDONESIA", "VANS", "SUN EATERS"
-  ],
+  clients: [],
   milestones: [
     { year: "2013", title: "First Shutter Click", description: "Picked up a second-hand camera and fell in love with capturing everyday light and shadows." },
     { year: "2014", title: "Underground & School Gigs", description: "Stepped into small sweaty gig venues, documenting local indie bands in high-contrast monochrome." },

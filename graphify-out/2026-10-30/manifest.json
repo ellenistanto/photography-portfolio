@@ -1,0 +1,290 @@
+{
+  "api/index.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "7dbb217d1ff5fe063b089d8de6df03aa",
+    "semantic_hash": "7dbb217d1ff5fe063b089d8de6df03aa"
+  },
+  "api/package.json": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "df9ffc6aa3f78a5491736d441c4258a8",
+    "semantic_hash": "df9ffc6aa3f78a5491736d441c4258a8"
+  },
+  "data/portfolio-data.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "ca49d2adcbe5a96f3e3ae9bd2ebfbb23",
+    "semantic_hash": "ca49d2adcbe5a96f3e3ae9bd2ebfbb23"
+  },
+  "js/app.js": {
+    "mtime": 1789602197.0783174,
+    "seen": 1789807688.7471118,
+    "ast_hash": "5dcefd508ea7b6c781e1e97f837d2588",
+    "semantic_hash": "5dcefd508ea7b6c781e1e97f837d2588"
+  },
+  "package.json": {
+    "mtime": 1792043045.5400808,
+    "seen": 1792043321.9633234,
+    "ast_hash": "d2e150b2ad94e3fafc77d14acb17bac2",
+    "semantic_hash": ""
+  },
+  "server/index.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "7e4a4dc661cae10c5d6e12e10d3d136f",
+    "semantic_hash": "7e4a4dc661cae10c5d6e12e10d3d136f"
+  },
+  "server/middleware/authMiddleware.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "64cdda7e7e4c7481518702de65424c91",
+    "semantic_hash": "64cdda7e7e4c7481518702de65424c91"
+  },
+  "server/models/Portfolio.js": {
+    "mtime": 1790775756.5064857,
+    "seen": 1790776006.3661993,
+    "ast_hash": "a43610de57cd64d107581d6ef852b8b1",
+    "semantic_hash": ""
+  },
+  "server/package.json": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "ea8cd6e0206e978edac6c20f01bd01ca",
+    "semantic_hash": "ea8cd6e0206e978edac6c20f01bd01ca"
+  },
+  "server/routes/auth.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "7bce6175e71645f82d508b936037d07e",
+    "semantic_hash": "7bce6175e71645f82d508b936037d07e"
+  },
+  "server/routes/portfolio.js": {
+    "mtime": 1791429636.7081249,
+    "seen": 1791429761.3597057,
+    "ast_hash": "9bf4683235320b0ba1b60285c6615f61",
+    "semantic_hash": ""
+  },
+  "server/routes/upload.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "ef222b3490aa9ed06ff040e7eefcfc09",
+    "semantic_hash": "ef222b3490aa9ed06ff040e7eefcfc09"
+  },
+  "server/seed.js": {
+    "mtime": 1790775996.3990777,
+    "seen": 1790776006.3661993,
+    "ast_hash": "a468b3dec52e4b815eb3498ec2b1a9c5",
+    "semantic_hash": ""
+  },
+  "src/App.jsx": {
+    "mtime": 1792692531.0878057,
+    "seen": 1792692559.6433759,
+    "ast_hash": "09e711650230f3e3f7fb9ebb3617e6d6",
+    "semantic_hash": ""
+  },
+  "src/admin/AdminApp.jsx": {
+    "mtime": 1789601199.2835195,
+    "seen": 1789807688.7471118,
+    "ast_hash": "aac0470dfed0e43a98c104009617bd45",
+    "semantic_hash": "aac0470dfed0e43a98c104009617bd45"
+  },
+  "src/admin/AdminDashboard.jsx": {
+    "mtime": 1790775868.0506358,
+    "seen": 1790776006.3661993,
+    "ast_hash": "dfb7006693b1b112eb85443c31b7a975",
+    "semantic_hash": ""
+  },
+  "src/admin/AdminLogin.jsx": {
+    "mtime": 1790579998.4201758,
+    "seen": 1790776006.3661993,
+    "ast_hash": "605bc11bedf4fa351cdd3487e2a8d718",
+    "semantic_hash": ""
+  },
+  "src/admin/sections/CategoriesEditor.jsx": {
+    "mtime": 1789601541.3034425,
+    "seen": 1789807688.7471118,
+    "ast_hash": "b77949ae0b585560e5c7d0a143dae029",
+    "semantic_hash": "b77949ae0b585560e5c7d0a143dae029"
+  },
+  "src/admin/sections/ClientsEditor.jsx": {
+    "mtime": 1789601525.9859686,
+    "seen": 1789807688.7471118,
+    "ast_hash": "fff7814ae318fa289f2eb26e7e0ed58e",
+    "semantic_hash": "fff7814ae318fa289f2eb26e7e0ed58e"
+  },
+  "src/admin/sections/MilestonesEditor.jsx": {
+    "mtime": 1789601534.0016088,
+    "seen": 1789807688.7471118,
+    "ast_hash": "89faf0d48735a5c2d128c174b8358f00",
+    "semantic_hash": "89faf0d48735a5c2d128c174b8358f00"
+  },
+  "src/admin/sections/OverviewEditor.jsx": {
+    "mtime": 1789601682.8414967,
+    "seen": 1789807688.7471118,
+    "ast_hash": "de00d9a4e9d8ad3309ebe10419fb3e7b",
+    "semantic_hash": "de00d9a4e9d8ad3309ebe10419fb3e7b"
+  },
+  "src/admin/sections/PhotosEditor.jsx": {
+    "mtime": 1791429740.784969,
+    "seen": 1791429761.3597057,
+    "ast_hash": "4d192bda8c29c0e4bbd3c1b5b2a6bd42",
+    "semantic_hash": ""
+  },
+  "src/admin/sections/ProfileEditor.jsx": {
+    "mtime": 1789666845.3556216,
+    "seen": 1789807688.7471118,
+    "ast_hash": "b814e5ebb139e2da9dd736dcff13ddd0",
+    "semantic_hash": "b814e5ebb139e2da9dd736dcff13ddd0"
+  },
+  "src/admin/sections/StatsEditor.jsx": {
+    "mtime": 1789602699.5302625,
+    "seen": 1789807688.7471118,
+    "ast_hash": "04108154c54de93d56ba1668390d7e10",
+    "semantic_hash": "04108154c54de93d56ba1668390d7e10"
+  },
+  "src/components/ClientsCloud.jsx": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "ae38a2a12867e3cb7121c2ceb105703e",
+    "semantic_hash": "ae38a2a12867e3cb7121c2ceb105703e"
+  },
+  "src/components/ConnectSection.jsx": {
+    "mtime": 1792694385.188733,
+    "seen": 1792694415.4497316,
+    "ast_hash": "3da55767acc3411e36b0683fdd958c9a",
+    "semantic_hash": ""
+  },
+  "src/components/Footer.jsx": {
+    "mtime": 1791375359.3609505,
+    "seen": 1791429761.3597057,
+    "ast_hash": "15eb98116bfbe24519ff82f287ea33c5",
+    "semantic_hash": ""
+  },
+  "src/components/Hero.jsx": {
+    "mtime": 1791375359.3619618,
+    "seen": 1791429761.3597057,
+    "ast_hash": "0ef902a040bc43212b5a80e49da2179d",
+    "semantic_hash": ""
+  },
+  "src/components/LightboxModal.jsx": {
+    "mtime": 1792690719.0207002,
+    "seen": 1792690980.887321,
+    "ast_hash": "582c6f76a8531aae9d25055d0df5297d",
+    "semantic_hash": ""
+  },
+  "src/components/MasonryGallery.jsx": {
+    "mtime": 1792692464.243964,
+    "seen": 1792692559.6433759,
+    "ast_hash": "0184a7112de42d5cf071f1ef11eda7ef",
+    "semantic_hash": ""
+  },
+  "src/components/Navbar.jsx": {
+    "mtime": 1792690707.302828,
+    "seen": 1792690980.887321,
+    "ast_hash": "eb8adfb7de47f9a3886eebee2c1f43bb",
+    "semantic_hash": ""
+  },
+  "src/components/OverviewSection.jsx": {
+    "mtime": 1792690691.0584342,
+    "seen": 1792690980.887321,
+    "ast_hash": "884f685b47181015253f967d5877804e",
+    "semantic_hash": ""
+  },
+  "src/config/api.js": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "f007f13998415ee2e6ada4e69ee806af",
+    "semantic_hash": "f007f13998415ee2e6ada4e69ee806af"
+  },
+  "src/data/portfolioData.js": {
+    "mtime": 1790775789.4984524,
+    "seen": 1790776006.3661993,
+    "ast_hash": "c7ec30e9fc9d54bba338bb1fc8e7c1d3",
+    "semantic_hash": ""
+  },
+  "src/hooks/usePortfolioData.js": {
+    "mtime": 1792694397.0990472,
+    "seen": 1792694415.4497316,
+    "ast_hash": "c2304447e8df7dd84e2feec893f76bd8",
+    "semantic_hash": ""
+  },
+  "src/main.jsx": {
+    "mtime": 1792694350.5919878,
+    "seen": 1792694415.4497316,
+    "ast_hash": "4512eed7685c345b089fba40c67c6c0c",
+    "semantic_hash": ""
+  },
+  "vercel.json": {
+    "mtime": 1789422681.0,
+    "seen": 1789595159.252783,
+    "ast_hash": "e9f1a43ac703ca85b61bd93e58d5ac31",
+    "semantic_hash": "e9f1a43ac703ca85b61bd93e58d5ac31"
+  },
+  "vite.config.js": {
+    "mtime": 1792689957.760229,
+    "seen": 1792690136.256114,
+    "ast_hash": "e43e4dc026ac88eec3594a806d13922d",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1792690729.6820145,
+    "seen": 1792690980.887321,
+    "ast_hash": "2ed5b0b0b0958705a130143da50de036",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1789843253.256179,
+    "seen": 1789843496.623379,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": "a0e4d192b9e2e17256124dbfc8e24e6a"
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1789843253.256701,
+    "seen": 1789843496.623379,
+    "ast_hash": "a831cf3669f1e6ab85d8a80ebe655f99",
+    "semantic_hash": "a831cf3669f1e6ab85d8a80ebe655f99"
+  },
+  "README.md": {
+    "mtime": 1789843253.2280521,
+    "seen": 1789843496.623379,
+    "ast_hash": "4efe9c3bd85a1a052f9d1e350649b9c2",
+    "semantic_hash": ""
+  },
+  "src/admin/sections/VideosEditor.jsx": {
+    "mtime": 1791273722.6850283,
+    "seen": 1791273760.2736287,
+    "ast_hash": "f99120d57d964778559431b0f8e3c2b8",
+    "semantic_hash": ""
+  },
+  "src/components/VideoModal.jsx": {
+    "mtime": 1791273691.6605606,
+    "seen": 1791273760.2746181,
+    "ast_hash": "34e1bae1c6e2df364a6b93adb4dd749e",
+    "semantic_hash": ""
+  },
+  "src/components/VideoSection.jsx": {
+    "mtime": 1792690040.1912932,
+    "seen": 1792690136.256114,
+    "ast_hash": "a736580b06d185efbd51c2518769c912",
+    "semantic_hash": ""
+  },
+  "src/utils/videoUtils.js": {
+    "mtime": 1790775827.0732646,
+    "seen": 1790776006.3661993,
+    "ast_hash": "6835990b329489427861282391aede32",
+    "semantic_hash": ""
+  },
+  "src/hooks/useScrollReveal.js": {
+    "mtime": 1792689977.0664277,
+    "seen": 1792690136.256114,
+    "ast_hash": "b52a28dd63468c7e56f90f7fa3da1e8e",
+    "semantic_hash": ""
+  },
+  "src/components/ErrorBoundary.jsx": {
+    "mtime": 1792694365.8752642,
+    "seen": 1792694415.4497316,
+    "ast_hash": "a38d42f4549f37a16e69653e580baf4f",
+    "semantic_hash": ""
+  }
+}

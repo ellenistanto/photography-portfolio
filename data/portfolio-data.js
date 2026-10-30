@@ -40,21 +40,7 @@ const PORTFOLIO_DATA = {
   ],
 
   // Klien & Rekan Kolaborasi
-  clients: [
-    "HINDIA",
-    ".FEAST",
-    "LOMBA SIHIR",
-    "BERNADYA",
-    "IDGITAF",
-    "THE SIGIT",
-    "ISMAYA LIVE",
-    "SOUNDSFAIR",
-    "JOYLAND FEST",
-    "UNIQLO",
-    "NIKE INDONESIA",
-    "VANS",
-    "SUN EATERS"
-  ],
+  clients: [],
 
   // Perjalanan Karir / Milestones
   milestones: [

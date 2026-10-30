@@ -4,7 +4,6 @@ import { usePortfolioData } from './hooks/usePortfolioData';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ClientsCloud from './components/ClientsCloud';
 import OverviewSection from './components/OverviewSection';
 import MasonryGallery from './components/MasonryGallery';
 import VideoSection from './components/VideoSection';
@@ -132,9 +131,6 @@ function PortfolioPage() {
         <Hero
           profile={data.profile}
         />
-
-        {/* Collaborating Artists & Brands */}
-        <ClientsCloud clients={data.clients} />
 
         {/* Curated Overview Section */}
         <OverviewSection

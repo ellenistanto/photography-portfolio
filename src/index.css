@@ -730,59 +730,6 @@ button {
 }
 
 /* ====================================================================
-   CLIENTS / COLLABORATORS
-   ==================================================================== */
-.clients-section {
-  padding: 2.5rem 0 3.5rem;
-  border-bottom: 1px solid var(--border-subtle);
-  background-color: var(--bg-black);
-}
-
-.clients-label {
-  text-align: center;
-  font-size: 0.725rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-}
-
-.clients-cloud {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.25rem 2rem;
-}
-
-.client-tag {
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #4a4a4a;
-  transition: color var(--transition-fast), transform var(--transition-fast);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.client-tag::after {
-  content: '•';
-  color: #2b2b2b;
-  font-size: 0.75rem;
-}
-
-.client-tag:last-child::after {
-  content: '';
-}
-
-.client-tag:hover {
-  color: var(--text-white);
-  transform: translateY(-1px);
-}
-
-/* ====================================================================
    CATEGORY FILTER BAR
    ==================================================================== */
 .filter-section {
