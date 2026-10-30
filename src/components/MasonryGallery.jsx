@@ -81,7 +81,7 @@ export default function MasonryGallery({ photos, onPhotoClick, loading = false }
     return (
       <section className="gallery-section" id="gallerySection">
         <div style={{ textAlign: 'center', padding: '4rem 1rem', color: 'var(--text-muted)' }}>
-          <p style={{ fontSize: '1.1rem' }}>Belum ada foto dalam kategori ini.</p>
+          <p style={{ fontSize: '1.1rem' }}>Belum ada karya foto yang ditambahkan.</p>
         </div>
       </section>
     );

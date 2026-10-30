@@ -1,21 +1,21 @@
 # Graph Report - photography-portfolio  (2026-10-30)
 
 ## Corpus Check
-- 45 files · ~25,170 words
+- 45 files · ~23,883 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 258 nodes · 371 edges · 18 communities (13 shown, 5 thin omitted)
+- 260 nodes · 374 edges · 18 communities (13 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `46f524a7`
+- Built from commit: `3c1fa110`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- AdminDashboard.jsx
+- react
 - server/index.js
 - package.json
 - App.jsx
@@ -63,9 +63,9 @@
 
 ## Communities (18 total, 5 thin omitted)
 
-### Community 0 - "AdminDashboard.jsx"
+### Community 0 - "react"
 Cohesion: 0.11
-Nodes (19): AdminApp(), AdminDashboard(), NAV_ITEMS, AdminLogin(), CategoriesEditor(), EMPTY_MILESTONE, MilestonesEditor(), OverviewEditor() (+11 more)
+Nodes (21): react, AdminApp(), AdminDashboard(), NAV_ITEMS, AdminLogin(), CategoriesEditor(), EMPTY_MILESTONE, MilestonesEditor() (+13 more)
 
 ### Community 1 - "server/index.js"
 Cohesion: 0.06
@@ -76,8 +76,8 @@ Cohesion: 0.08
 Nodes (23): devDependencies, vite, @vitejs/plugin-react, bcryptjs, cors, dotenv, express, express-rate-limit (+15 more)
 
 ### Community 3 - "App.jsx"
-Cohesion: 0.11
-Nodes (17): lucide-react, react, react-router-dom, App(), LightboxModal, ConnectSection(), ErrorBoundary, Footer() (+9 more)
+Cohesion: 0.10
+Nodes (17): lucide-react, react-router-dom, AdminApp, App(), LightboxModal, ConnectSection(), ErrorBoundary, Footer() (+9 more)
 
 ### Community 4 - "server/package.json"
 Cohesion: 0.09
@@ -116,24 +116,24 @@ Cohesion: 0.20
 Nodes (10): dependencies, bcryptjs, cors, dotenv, express, express-rate-limit, jsonwebtoken, mongodb (+2 more)
 
 ## Knowledge Gaps
-- **126 isolated node(s):** `express`, `mongoose`, `cors`, `authRoutes`, `portfolioRoutes` (+121 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 157 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **127 isolated node(s):** `express`, `mongoose`, `cors`, `authRoutes`, `portfolioRoutes` (+122 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 158 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `App.jsx` to `AdminDashboard.jsx`, `VideosEditor.jsx`, `package.json`?**
-  _High betweenness centrality (0.110) - this node is a cross-community bridge._
+- **Why does `react` connect `react` to `VideosEditor.jsx`, `package.json`, `App.jsx`?**
+  _High betweenness centrality (0.111) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **What connects `express`, `mongoose`, `cors` to the rest of the system?**
-  _126 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `AdminDashboard.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.1066066066066066 - nodes in this community are weakly interconnected._
+  _127 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `react` be split into smaller, more focused modules?**
+  _Cohesion score 0.11201079622132254 - nodes in this community are weakly interconnected._
 - **Should `server/index.js` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.11428571428571428 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09682539682539683 - nodes in this community are weakly interconnected._

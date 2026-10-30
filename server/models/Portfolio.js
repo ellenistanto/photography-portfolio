@@ -18,9 +18,9 @@ const PhotoSchema = new mongoose.Schema({
 
 // ── Overview Schema ───────────────────────────────────────────────────────────
 const OverviewSchema = new mongoose.Schema({
-  enabled: { type: Boolean, default: true },
-  title: { type: String, default: 'Selected Works' },
-  subtitle: { type: String, default: 'Curated highlights & moments in between' },
+  enabled: { type: Boolean, default: false },
+  title: { type: String, default: '' },
+  subtitle: { type: String, default: '' },
   photoIds: [{ type: String }],
 }, { _id: false });
 
@@ -46,20 +46,20 @@ const CategorySchema = new mongoose.Schema({
 
 // ── Profile Schema ────────────────────────────────────────────────────────────
 const ProfileSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  tagline: { type: String },
-  shortBio: { type: String },
+  name: { type: String, default: '' },
+  tagline: { type: String, default: '' },
+  shortBio: { type: String, default: '' },
   aboutHeadline: { type: String, default: '' },
   aboutLong: [{ type: String }],
-  location: { type: String },
-  email: { type: String },
-  whatsapp: { type: String },
-  instagram: { type: String },
-  youtube: { type: String },
-  behance: { type: String },
-  photo: { type: String },
-  avatar: { type: String },
-  heroImage: { type: String },
+  location: { type: String, default: '' },
+  email: { type: String, default: '' },
+  whatsapp: { type: String, default: '' },
+  instagram: { type: String, default: '' },
+  youtube: { type: String, default: '' },
+  behance: { type: String, default: '' },
+  photo: { type: String, default: '' },
+  avatar: { type: String, default: '' },
+  heroImage: { type: String, default: '' },
 }, { _id: false });
 
 // ── Project Schemas ─────────────────────────────────────────────────────────
@@ -112,9 +112,9 @@ const VideoSchema = new mongoose.Schema({
 const PortfolioSchema = new mongoose.Schema({
   // Singleton document — always one doc with this key
   _key: { type: String, default: 'main', unique: true },
-  profile: { type: ProfileSchema, required: true },
+  profile: { type: ProfileSchema, default: () => ({}) },
   stats: [StatSchema],
-  showStats: { type: Boolean, default: true },
+  showStats: { type: Boolean, default: false },
   clients: [{ type: String }],
   milestones: [MilestoneSchema],
   categories: [CategorySchema],
@@ -124,9 +124,9 @@ const PortfolioSchema = new mongoose.Schema({
   overview: {
     type: OverviewSchema,
     default: () => ({
-      enabled: true,
-      title: 'Selected Works',
-      subtitle: 'Curated highlights & moments in between',
+      enabled: false,
+      title: '',
+      subtitle: '',
       photoIds: [],
     }),
   },

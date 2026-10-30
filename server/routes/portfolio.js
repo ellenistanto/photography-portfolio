@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
     const payload = {
       profile: doc.profile,
       stats: doc.stats,
-      showStats: doc.showStats !== false,
+      showStats: Boolean(doc.showStats),
       clients: doc.clients,
       milestones: doc.milestones,
       categories: doc.categories,
@@ -54,9 +54,9 @@ router.get('/', async (req, res) => {
       projects: (doc.projects || []).sort((a, b) => (a.order || 0) - (b.order || 0)),
       videos: (doc.videos || []).sort((a, b) => (a.order || 0) - (b.order || 0)),
       overview: doc.overview || {
-        enabled: true,
-        title: 'Selected Works',
-        subtitle: 'Curated highlights & moments in between',
+        enabled: false,
+        title: '',
+        subtitle: '',
         photoIds: [],
       },
     };

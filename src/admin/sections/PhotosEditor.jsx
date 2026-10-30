@@ -16,8 +16,8 @@ function ConfirmDialog({ title, text, onConfirm, onCancel }) {
   );
 }
 
-function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
-  const availableCats = categories.filter(c => c.id !== 'all');
+function PhotoModal({ photo, categories = [], token, onClose, onSave, onToast }) {
+  const availableCats = (categories || []).filter(c => c.id !== 'all');
   const firstCat = availableCats[0];
 
   const [form, setForm] = useState(() => ({
@@ -47,7 +47,7 @@ function PhotoModal({ photo, categories, token, onClose, onSave, onToast }) {
       }
     } else {
       // Add mode: initialize with first available category
-      const cats = categories.filter(c => c.id !== 'all');
+      const cats = (categories || []).filter(c => c.id !== 'all');
       const first = cats[0];
       setForm({
         title: '',

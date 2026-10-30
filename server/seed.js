@@ -12,102 +12,35 @@ const Portfolio = require('./models/Portfolio');
 // ── Seed Data (mirrored from src/data/portfolioData.js) ───────────────────────
 const SEED_DATA = {
   profile: {
-    name: "Ellen Istanto",
-    tagline: "I’m Ellen Istanto, a photographer based in Indonesia.",
-    shortBio: "Drawn to moments charged with emotion, I work between motion and stillness — on stage, in portraits, and through travel narratives. My images are shaped by storytelling, restraint, and a pursuit of visuals that feel honest and lasting.",
-    aboutHeadline: "Preserving the feeling as much as the sight.",
-    aboutLong: [
-      "Photography, for me, is an intimate way of bearing witness to life's fleeting poetry. Over the past seven years, I've found myself backstage amidst the raw frenzy of live concerts, in quiet studios capturing honest portraits, and traveling across vibrant landscapes searching for the human pulse.",
-      "Every frame is a dialogue between light, timing, and vulnerability. Whether documenting an arena screaming the lyrics of an anthem or a quiet gaze under the Jakarta dusk, my work strives to preserve the feeling as much as the sight."
-    ],
-    location: "Yogyakarta, Indonesia",
-    email: "ellengifaistanto@gmail.com",
-    whatsapp: "6289523148500",
-    instagram: "https://instagram.com/ellenistanto",
-    youtube: "https://youtube.com",
-    behance: "https://behance.net",
+    name: "",
+    tagline: "",
+    shortBio: "",
+    aboutHeadline: "",
+    aboutLong: [],
+    location: "",
+    email: "",
+    whatsapp: "",
+    instagram: "",
+    youtube: "",
+    behance: "",
     photo: "",
     avatar: "",
     heroImage: "",
   },
-  stats: [
-    { number: 7, suffix: "+", label: "Years Behind The Lens" },
-    { number: 19, suffix: "+", label: "Creative & Brand Partners" },
-    { number: 171, suffix: "+", label: "Live Stages Documented" },
-    { number: 850, suffix: "+", label: "Captured Moments" }
-  ],
+  stats: [],
+  showStats: false,
   clients: [],
-  milestones: [
-    { year: "2013", title: "First Shutter Click", description: "Picked up a second-hand camera and fell in love with capturing everyday light and shadows." },
-    { year: "2014", title: "Underground & School Gigs", description: "Stepped into small sweaty gig venues, documenting local indie bands in high-contrast monochrome." },
-    { year: "2017", title: "First Official Tour", description: "Traveled as the dedicated tour documentarian for independent rock bands across Java and Bali." },
-    { year: "2018", title: "Festival & Arena Stages", description: "Graduated to national festival stages, capturing high-octane stadium moments for leading Indonesian artists." },
-    { year: "2022", title: "Editorial & Brand Narratives", description: "Expanded into commercial campaigns, human interest portraiture, and visual identity projects for lifestyle brands." },
-    { year: "Now & Beyond", title: "Endless Horizons", description: "Continuing to chase unseen moments, authentic human connections, and timeless visual narratives." }
-  ],
-  categories: [
-    { id: "all", name: "All Works" },
-    { id: "concerts", name: "Music & Concert" },
-    { id: "portraits", name: "Portraits" },
-    { id: "people-places", name: "People & Places" },
-    { id: "brands", name: "Brands & Products" }
-  ],
-  projects: [
-    {
-      id: "proj_giias_2024",
-      slug: "giias-2024-auto-show",
-      title: "GIIAS 2024 — Auto Show & Supercar Showcase",
-      category: "brands",
-      categoryLabel: "Commercial & Automotive",
-      client: "GIIAS Auto Exhibition / Brand Partners",
-      year: "2024",
-      location: "ICE BSD City, Tangerang",
-      coverImage: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85",
-      summary: "Dokumentasi visual komprehensif pameran otomotif terbesar, menangkap siluet mobil konsep, tata cahaya panggung megah, dan detail lekukan desain presisi.",
-      description: "Dokumentasi pameran otomotif berskala internasional menuntut kepekaan visual yang memadukan keindahan desain industri mobil dengan energi panggung pameran yang dinamis.\n\nPada proyek ini, fokus utama adalah menangkap interaksi antara pencahayaan panggung pameran dengan lekukan bodi mobil, pantulan cat metalik, serta atmosfer antusiasme pengunjung di sekitar booth brand premium.",
-      isFeatured: true,
-      order: 0,
-      photos: [
-        {
-          id: "pp_car_1",
-          title: "Porsche 911 GT3 Silhouette",
-          caption: "Sorotan lampu panggung mempertegas aerodinamika agresif dan siluet ikonik Porsche 911 GT3 di booth pameran utama.",
-          aspect: "landscape",
-          image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
-          thumb: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
-          order: 0
-        },
-        {
-          id: "pp_car_2",
-          title: "Metallic Curvature & Reflections",
-          caption: "Permukaan bodi cat metalik memantulkan kemewahan tata pencahayaan pameran di Hall Utama ICE BSD.",
-          aspect: "landscape",
-          image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1400&q=85",
-          thumb: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
-          order: 1
-        }
-      ]
-    }
-  ],
-  videos: [
-    {
-      id: "vid_hindia_live_2024",
-      title: "Hindia — Menari Dengan Bayangan (Live Stage Visuals)",
-      category: "music-video",
-      categoryLabel: "Music & Concert",
-      client: "Sun Eaters / Hindia",
-      year: "2024",
-      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      videoType: "youtube",
-      aspect: "landscape",
-      coverImage: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
-      previewVideoUrl: "",
-      description: "Dokumentasi motion dan tata visual pencahayaan konser musik berskala festival.",
-      order: 0,
-      isFeatured: true
-    }
-  ],
-  photos: []
+  milestones: [],
+  categories: [],
+  projects: [],
+  videos: [],
+  photos: [],
+  overview: {
+    enabled: false,
+    title: "",
+    subtitle: "",
+    photoIds: []
+  }
 };
 
 async function seed() {
@@ -133,10 +66,7 @@ async function seed() {
     }
 
     await Portfolio.create({ _key: 'main', ...SEED_DATA });
-    console.log('✅ Seed data successfully inserted!');
-    console.log(`   - ${SEED_DATA.photos.length} photos`);
-    console.log(`   - ${SEED_DATA.clients.length} clients`);
-    console.log(`   - ${SEED_DATA.milestones.length} milestones`);
+    console.log('✅ Seed data successfully inserted (empty template ready for admin input)!');
     console.log('\n🚀 Your portfolio database is ready!');
   } catch (err) {
     console.error('❌ Seed failed:', err.message);

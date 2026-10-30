@@ -22,7 +22,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminapp()",
       "source_file": "src/admin/AdminApp.jsx",
@@ -34,7 +34,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "checkauth()",
       "source_file": "src/admin/AdminApp.jsx",
@@ -46,7 +46,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "admindashboard()",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -58,7 +58,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "hamburgericon()",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -70,7 +70,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "toast()",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -82,7 +82,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminlogin()",
       "source_file": "src/admin/AdminLogin.jsx",
@@ -94,7 +94,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "categorieseditor()",
       "source_file": "src/admin/sections/CategoriesEditor.jsx",
@@ -106,7 +106,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "milestoneseditor()",
       "source_file": "src/admin/sections/MilestonesEditor.jsx",
@@ -118,7 +118,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "overvieweditor()",
       "source_file": "src/admin/sections/OverviewEditor.jsx",
@@ -130,7 +130,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "confirmdialog()",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -142,7 +142,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "photomodal()",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -154,7 +154,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "photoseditor()",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -166,7 +166,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "profileeditor()",
       "source_file": "src/admin/sections/ProfileEditor.jsx",
@@ -178,7 +178,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "statseditor()",
       "source_file": "src/admin/sections/StatsEditor.jsx",
@@ -190,11 +190,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "portfoliopage()",
       "source_file": "src/App.jsx",
       "source_location": "L20"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_cleanuplegacycaches",
+      "label": "cleanupLegacyCaches()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "cleanuplegacycaches()",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L16"
     },
     {
       "id": "src_hooks_useportfoliodata_clearportfoliocache",
@@ -202,11 +214,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "clearportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L138"
+      "source_location": "L159"
     },
     {
       "id": "src_hooks_useportfoliodata_getinitialdata",
@@ -214,11 +226,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "getinitialdata()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L11"
+      "source_location": "L32"
     },
     {
       "id": "src_hooks_useportfoliodata_updateportfoliocache",
@@ -226,11 +238,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "updateportfoliocache()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L145"
+      "source_location": "L171"
     },
     {
       "id": "src_hooks_useportfoliodata_useportfoliodata",
@@ -238,11 +250,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "useportfoliodata()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L78"
+      "source_location": "L99"
     },
     {
       "id": "src_hooks_useportfoliodata_useportfoliodata_fetchdata",
@@ -250,11 +262,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "fetchdata()",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L86"
+      "source_location": "L107"
     },
     {
       "id": "server_index_connectdb",
@@ -818,7 +830,7 @@
       "file_type": "code",
       "norm_label": "seed()",
       "source_file": "server/seed.js",
-      "source_location": "L113"
+      "source_location": "L46"
     },
     {
       "id": "src_admin_sections_videoseditor_confirmdialog",
@@ -897,7 +909,7 @@
       "label": "AdminApp.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminapp.jsx",
       "source_file": "src/admin/AdminApp.jsx",
@@ -908,7 +920,7 @@
       "label": "AdminDashboard.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "admindashboard.jsx",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -919,7 +931,7 @@
       "label": "NAV_ITEMS",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "nav_items",
       "source_file": "src/admin/AdminDashboard.jsx",
@@ -930,7 +942,7 @@
       "label": "AdminLogin.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "adminlogin.jsx",
       "source_file": "src/admin/AdminLogin.jsx",
@@ -941,7 +953,7 @@
       "label": "CategoriesEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "categorieseditor.jsx",
       "source_file": "src/admin/sections/CategoriesEditor.jsx",
@@ -952,7 +964,7 @@
       "label": "MilestonesEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "milestoneseditor.jsx",
       "source_file": "src/admin/sections/MilestonesEditor.jsx",
@@ -963,7 +975,7 @@
       "label": "EMPTY_MILESTONE",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "empty_milestone",
       "source_file": "src/admin/sections/MilestonesEditor.jsx",
@@ -974,7 +986,7 @@
       "label": "OverviewEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "overvieweditor.jsx",
       "source_file": "src/admin/sections/OverviewEditor.jsx",
@@ -985,7 +997,7 @@
       "label": "PhotosEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "photoseditor.jsx",
       "source_file": "src/admin/sections/PhotosEditor.jsx",
@@ -996,7 +1008,7 @@
       "label": "ProfileEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "profileeditor.jsx",
       "source_file": "src/admin/sections/ProfileEditor.jsx",
@@ -1007,29 +1019,18 @@
       "label": "StatsEditor.jsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "statseditor.jsx",
       "source_file": "src/admin/sections/StatsEditor.jsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_adminapp",
-      "label": "AdminApp",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "AdminDashboard.jsx",
-      "file_type": "code",
-      "norm_label": "adminapp",
-      "source_file": "src/App.jsx",
-      "source_location": "L17"
-    },
-    {
       "id": "src_config_api",
       "label": "api.js",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "api.js",
       "source_file": "src/config/api.js",
@@ -1040,7 +1041,7 @@
       "label": "API_BASE",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "api_base",
       "source_file": "src/config/api.js",
@@ -1051,7 +1052,7 @@
       "label": "portfolioData.js",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "portfoliodata.js",
       "source_file": "src/data/portfolioData.js",
@@ -1062,22 +1063,44 @@
       "label": "PORTFOLIO_DATA",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "portfolio_data",
       "source_file": "src/data/portfolioData.js",
-      "source_location": "L13"
+      "source_location": "L10"
     },
     {
       "id": "src_hooks_useportfoliodata",
       "label": "usePortfolioData.js",
       "_origin": "ast",
       "community": 0,
-      "community_name": "AdminDashboard.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "useportfoliodata.js",
       "source_file": "src/hooks/usePortfolioData.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_hooks_useportfoliodata_legacy_cache_keys",
+      "label": "LEGACY_CACHE_KEYS",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "legacy_cache_keys",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "react",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "package.json",
+      "source_location": "L22"
     },
     {
       "id": "server_index",
@@ -1462,7 +1485,7 @@
       "file_type": "code",
       "norm_label": "portfolio_data",
       "source_file": "data/portfolio-data.js",
-      "source_location": "L13"
+      "source_location": "L10"
     },
     {
       "id": "server_package_dependencies",
@@ -1861,6 +1884,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_adminapp",
+      "label": "AdminApp",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "adminapp",
+      "source_file": "src/App.jsx",
+      "source_location": "L17"
+    },
+    {
       "id": "src_app_lightboxmodal",
       "label": "LightboxModal",
       "_origin": "ast",
@@ -2002,17 +2036,6 @@
       "norm_label": "lucide-react",
       "source_file": "package.json",
       "source_location": "L19"
-    },
-    {
-      "id": "ref_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.jsx",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "package.json",
-      "source_location": "L22"
     },
     {
       "id": "ref_react_router_dom",
@@ -3288,6 +3311,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_hooks_useportfoliodata_getinitialdata",
+      "target": "src_hooks_useportfoliodata_cleanuplegacycaches",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
       "source": "src_hooks_useportfoliodata_useportfoliodata",
       "target": "src_hooks_useportfoliodata_getinitialdata",
       "relation": "calls",
@@ -3296,7 +3331,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L79",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -3320,7 +3355,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L86",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -5245,7 +5280,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "data/portfolio-data.js",
-      "source_location": "L13",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -6493,17 +6528,6 @@
     },
     {
       "source": "server_seed",
-      "target": "server_seed_seed",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/seed.js",
-      "source_location": "L113",
-      "weight": 1.0
-    },
-    {
-      "source": "server_seed",
       "target": "server_seed_seed_data",
       "relation": "contains",
       "_origin": "ast",
@@ -6511,6 +6535,17 @@
       "confidence_score": 1.0,
       "source_file": "server/seed.js",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "server_seed",
+      "target": "server_seed_seed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/seed.js",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -6950,18 +6985,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/portfolioData.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_hooks_useportfoliodata",
-      "target": "src_hooks_useportfoliodata_getinitialdata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L11",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -6972,7 +6996,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L138",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_useportfoliodata",
+      "target": "src_hooks_useportfoliodata_cleanuplegacycaches",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -6983,7 +7018,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L145",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_useportfoliodata",
+      "target": "src_hooks_useportfoliodata_getinitialdata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_useportfoliodata",
+      "target": "src_hooks_useportfoliodata_legacy_cache_keys",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/hooks/usePortfolioData.js",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6994,7 +7051,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/usePortfolioData.js",
-      "source_location": "L78",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -7215,5 +7272,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "46f524a7d1452b62b4815bf2ab6fa9e54323a0eb"
+  "built_at_commit": "3c1fa110c15e886b2e97cc78bb692c32599a8ebb"
 }

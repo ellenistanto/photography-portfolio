@@ -2,14 +2,36 @@ import { useState, useEffect } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { API_BASE } from '../config/api';
 
-const CACHE_KEY = 'portfolio_data_cache_v3';
+const CACHE_KEY = 'portfolio_data_cache_v5';
+const LEGACY_CACHE_KEYS = [
+  'portfolio_data_cache_v1',
+  'portfolio_data_cache_v2',
+  'portfolio_data_cache_v3',
+  'portfolio_data_cache_v4'
+];
 
 /**
- * Mendapatkan initial state secara sinkron untuk mencegah layout shift
- * dan MENCEGAH kemunculan foto dummy saat web pertama kali dibuka di Vercel.
+ * Membersihkan cache versi lawas agar data dummy tidak terbawa
+ */
+function cleanupLegacyCaches() {
+  if (typeof window !== 'undefined') {
+    try {
+      LEGACY_CACHE_KEYS.forEach(k => {
+        localStorage.removeItem(k);
+        sessionStorage.removeItem(k);
+      });
+    } catch (e) {
+      // Storage access blocked / private mode
+    }
+  }
+}
+
+/**
+ * Mendapatkan initial state secara sinkron untuk mencegah layout shift.
  */
 function getInitialData() {
   if (typeof window !== 'undefined') {
+    cleanupLegacyCaches();
     try {
       const cached = localStorage.getItem(CACHE_KEY) || sessionStorage.getItem(CACHE_KEY);
       if (cached) {
@@ -35,11 +57,11 @@ function getInitialData() {
     }
   }
 
-  // Jika belum ada cache: JANGAN masukkan foto dummy!
+  // Jika belum ada cache: gunakan initial data bersih
   return {
     data: {
       profile: {
-        name: PORTFOLIO_DATA.profile?.name || 'Ellen Istanto',
+        name: PORTFOLIO_DATA.profile?.name || '',
         tagline: PORTFOLIO_DATA.profile?.tagline || '',
         shortBio: PORTFOLIO_DATA.profile?.shortBio || '',
         aboutHeadline: PORTFOLIO_DATA.profile?.aboutHeadline || '',
@@ -50,20 +72,20 @@ function getInitialData() {
         instagram: PORTFOLIO_DATA.profile?.instagram || '',
         youtube: PORTFOLIO_DATA.profile?.youtube || '',
         behance: PORTFOLIO_DATA.profile?.behance || '',
-        heroImage: '', // Kosongkan saat loading awal agar foto dummy tidak muncul
+        heroImage: '',
       },
       categories: PORTFOLIO_DATA.categories || [],
-      photos: [], // Kosongkan agar foto dummy tidak ditampilkan saat loading awal
+      photos: [],
       projects: PORTFOLIO_DATA.projects || [],
       videos: PORTFOLIO_DATA.videos || [],
       stats: PORTFOLIO_DATA.stats || [],
-      showStats: PORTFOLIO_DATA.showStats ?? true,
+      showStats: PORTFOLIO_DATA.showStats ?? false,
       clients: PORTFOLIO_DATA.clients || [],
       milestones: PORTFOLIO_DATA.milestones || [],
       overview: PORTFOLIO_DATA.overview || {
-        enabled: true,
-        title: 'Selected Works',
-        subtitle: 'Curated highlights & moments in between',
+        enabled: false,
+        title: '',
+        subtitle: '',
         photoIds: [],
       }
     },
@@ -73,7 +95,6 @@ function getInitialData() {
 
 /**
  * Custom hook: Mengambil data portofolio dari API dengan cache lokal.
- * Menjamin foto dummy tidak pernah muncul saat web dibuka di Vercel.
  */
 export function usePortfolioData() {
   const [initial] = useState(() => getInitialData());
@@ -136,13 +157,19 @@ export function usePortfolioData() {
  * Helper untuk menghapus atau memperbarui cache (digunakan oleh Admin)
  */
 export function clearPortfolioCache() {
+  if (typeof window === 'undefined') return;
   try {
     localStorage.removeItem(CACHE_KEY);
     sessionStorage.removeItem(CACHE_KEY);
+    LEGACY_CACHE_KEYS.forEach(k => {
+      localStorage.removeItem(k);
+      sessionStorage.removeItem(k);
+    });
   } catch (e) {}
 }
 
 export function updatePortfolioCache(newData) {
+  if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify(newData));
     sessionStorage.setItem(CACHE_KEY, JSON.stringify(newData));

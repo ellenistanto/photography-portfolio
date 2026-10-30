@@ -28,18 +28,15 @@ export default function Navbar({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 3 Kategori teratas dengan jumlah foto terbanyak
+  // 3 Kategori teratas dengan jumlah foto terbanyak (kosong jika belum ada kategori)
   const topCategories = useMemo(() => {
     if (!categories || categories.length === 0) {
-      return [
-        { id: 'concerts', name: 'Music & Concert' },
-        { id: 'portraits', name: 'Portraits' },
-        { id: 'people-places', name: 'People & Places' },
-      ];
+      return [];
     }
 
     // Filter keluar opsi 'all'
     const validCats = categories.filter(c => c.id !== 'all');
+    if (validCats.length === 0) return [];
 
     // Hitung jumlah foto per kategori
     const counts = {};
@@ -70,7 +67,14 @@ export default function Navbar({
     onScrollToSection(sectionId);
   };
 
-  const displayName = profile?.name?.toLowerCase() || 'portfolio';
+  const displayName = profile?.name?.toLowerCase().trim() || 'portfolio';
+  const hasConnect = Boolean(
+    profile?.email?.trim() ||
+    profile?.whatsapp?.trim() ||
+    profile?.instagram?.trim() ||
+    profile?.aboutHeadline?.trim() ||
+    (Array.isArray(profile?.aboutLong) && profile.aboutLong.some(p => p && p.trim()))
+  );
 
   return (
     <>
@@ -113,14 +117,15 @@ export default function Navbar({
               </button>
             )}
 
-            <button 
-              onClick={() => handleNavClick('connect')} 
-              className="nav-link"
-            >
-              CONNECT
-            </button>
+            {hasConnect && (
+              <button 
+                onClick={() => handleNavClick('connect')} 
+                className="nav-link"
+              >
+                CONNECT
+              </button>
+            )}
           </nav>
-
 
           {/* Mobile Hamburger Button */}
           <button 
@@ -165,16 +170,18 @@ export default function Navbar({
             </button>
           )}
 
-          <button 
-            onClick={() => handleNavClick('connect')} 
-            className="mobile-nav-link"
-          >
-            Connect / About
-          </button>
+          {hasConnect && (
+            <button 
+              onClick={() => handleNavClick('connect')} 
+              className="mobile-nav-link"
+            >
+              Connect / About
+            </button>
+          )}
         </nav>
 
         <div className="mobile-footer-info">
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{profile?.email}</p>
+          {profile?.email && <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{profile.email}</p>}
           <div className="mobile-socials">
             {profile?.instagram && (
               <a href={profile.instagram} target="_blank" rel="noopener noreferrer" className="mobile-social-icon">
